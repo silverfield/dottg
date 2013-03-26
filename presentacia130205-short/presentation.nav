@@ -1,0 +1,85 @@
+\beamer@endinputifotherversion {3.22pt}
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\sectionentry {1}{Introduction}{3}{Introduction}{0}}
+\headcommand {\beamer@sectionpages {1}{2}}
+\headcommand {\beamer@subsectionpages {1}{2}}
+\headcommand {\slideentry {1}{0}{3}{3/3}{}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\slideentry {1}{0}{4}{4/4}{}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{5}{Motivation \& usage}}\headcommand {\beamer@subsectionpages {3}{4}}
+\headcommand {\slideentry {1}{1}{1}{5/5}{Motivation \& usage}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{6}{Definitions}}\headcommand {\beamer@subsectionpages {5}{5}}
+\headcommand {\slideentry {1}{2}{1}{6/7}{Definitions}{0}}
+\headcommand {\beamer@framepages {6}{7}}
+\headcommand {\slideentry {1}{2}{2}{8/9}{Definitions}{0}}
+\headcommand {\beamer@framepages {8}{9}}
+\headcommand {\beamer@subsectionentry {0}{1}{3}{10}{Goals}}\headcommand {\beamer@subsectionpages {6}{9}}
+\headcommand {\slideentry {1}{3}{1}{10/11}{Goals}{0}}
+\headcommand {\beamer@framepages {10}{11}}
+\headcommand {\sectionentry {2}{Data}{12}{Data}{0}}
+\headcommand {\beamer@sectionpages {3}{11}}
+\headcommand {\beamer@subsectionpages {10}{11}}
+\headcommand {\slideentry {2}{0}{2}{12/12}{}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\slideentry {2}{0}{3}{13/13}{}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\sectionentry {3}{Underlying shortest paths}{14}{Underlying shortest paths}{0}}
+\headcommand {\beamer@sectionpages {12}{13}}
+\headcommand {\beamer@subsectionpages {12}{13}}
+\headcommand {\slideentry {3}{0}{4}{14/14}{}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\slideentry {3}{0}{5}{15/16}{}{0}}
+\headcommand {\beamer@framepages {15}{16}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{17}{USP-OR}}\headcommand {\beamer@subsectionpages {14}{16}}
+\headcommand {\slideentry {3}{1}{1}{17/20}{USP-OR}{0}}
+\headcommand {\beamer@framepages {17}{20}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{21}{USP-OR-A}}\headcommand {\beamer@subsectionpages {17}{20}}
+\headcommand {\slideentry {3}{2}{1}{21/22}{USP-OR-A}{0}}
+\headcommand {\beamer@framepages {21}{22}}
+\headcommand {\slideentry {3}{2}{2}{23/24}{USP-OR-A}{0}}
+\headcommand {\beamer@framepages {23}{24}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{25}{Existing methods}}\headcommand {\beamer@subsectionpages {21}{24}}
+\headcommand {\slideentry {3}{3}{1}{25/25}{Existing methods}{0}}
+\headcommand {\beamer@framepages {25}{25}}
+\headcommand {\sectionentry {4}{Neural networks}{26}{Neural networks}{0}}
+\headcommand {\beamer@sectionpages {14}{25}}
+\headcommand {\beamer@subsectionpages {25}{25}}
+\headcommand {\slideentry {4}{0}{2}{26/26}{}{0}}
+\headcommand {\beamer@framepages {26}{26}}
+\headcommand {\slideentry {4}{0}{3}{27/28}{}{0}}
+\headcommand {\beamer@framepages {27}{28}}
+\headcommand {\sectionentry {5}{Application TTBlazer}{29}{Application TTBlazer}{0}}
+\headcommand {\beamer@sectionpages {26}{28}}
+\headcommand {\beamer@subsectionpages {26}{28}}
+\headcommand {\slideentry {5}{0}{4}{29/29}{}{0}}
+\headcommand {\beamer@framepages {29}{29}}
+\headcommand {\slideentry {5}{0}{5}{30/30}{}{0}}
+\headcommand {\beamer@framepages {30}{30}}
+\headcommand {\sectionentry {6}{Conclusion}{31}{Conclusion}{0}}
+\headcommand {\beamer@sectionpages {29}{30}}
+\headcommand {\beamer@subsectionpages {29}{30}}
+\headcommand {\slideentry {6}{0}{6}{31/31}{}{0}}
+\headcommand {\beamer@framepages {31}{31}}
+\headcommand {\beamer@subsectionentry {0}{6}{1}{32}{Conclusion}}\headcommand {\beamer@subsectionpages {31}{31}}
+\headcommand {\slideentry {6}{1}{1}{32/32}{Conclusion}{0}}
+\headcommand {\beamer@framepages {32}{32}}
+\headcommand {\beamer@subsectionentry {0}{6}{2}{33}{To-do}}\headcommand {\beamer@subsectionpages {32}{32}}
+\headcommand {\slideentry {6}{2}{1}{33/33}{To-do}{0}}
+\headcommand {\beamer@framepages {33}{33}}
+\headcommand {\sectionentry {7}{References}{34}{References}{0}}
+\headcommand {\beamer@sectionpages {31}{33}}
+\headcommand {\beamer@subsectionpages {33}{33}}
+\headcommand {\slideentry {7}{0}{2}{34/34}{To-do}{0}}
+\headcommand {\beamer@framepages {34}{34}}
+\headcommand {\slideentry {7}{0}{3}{35/35}{To-do}{0}}
+\headcommand {\beamer@framepages {35}{35}}
+\headcommand {\beamer@partpages {1}{35}}
+\headcommand {\beamer@subsectionpages {33}{35}}
+\headcommand {\beamer@sectionpages {31}{35}}
+\headcommand {\beamer@documentpages {35}}
+\headcommand {\def \inserttotalframenumber {25}}

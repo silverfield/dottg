@@ -1,0 +1,221 @@
+%---------------------------------------------------------------------
+%   documentclass
+%---------------------------------------------------------------------
+\documentclass[a4paper]{article}
+
+%---------------------------------------------------------------------
+%   packages
+%---------------------------------------------------------------------
+\usepackage{mathtools}
+\usepackage[english]{babel}
+\usepackage[enc=cp1250]{hrlatex}
+\usepackage[T1]{fontenc} %pekne makcene
+\usepackage{lmodern} %spolu s T1 smooth font!
+\usepackage{hyperref} %odkazy
+\usepackage{amsmath}
+\usepackage{cite} %bibtex
+\usepackage{enumitem}
+\usepackage{titlesec} %section titles font size change
+\usepackage{color} %for \definecolor
+\usepackage{colortbl} %for \rowcolor command
+\usepackage{eucal} %for nice letters like \mathcal{A}
+\usepackage{tikz}
+\usepackage{scalefnt}
+
+%---------------------------------------------------------------------
+%   margins
+%---------------------------------------------------------------------
+\oddsidemargin 0.0in
+\evensidemargin 0.0in
+\textwidth 6.1in
+\textheight 23.94cm
+\topmargin -0.35in
+
+%---------------------------------------------------------------------
+%   various settings
+%---------------------------------------------------------------------
+\pgfrealjobname{r-12-10-25} % <-- NOTE: this needs to be the real document's basename
+                        %     (else you'll only get an empty output file)
+
+\newif\ifmine % introduce a switch for draft vs. final document
+\minetrue
+
+\newif\iffinal % introduce a switch for draft vs. final document
+\finaltrue % use this to compile the final document
+\iffinal
+  \newcommand{\inputTikZ}[1]{%
+    \input{#1.tikz}%
+  }
+\else
+  \newcommand{\inputTikZ}[1]{%
+    \beginpgfgraphicnamed{#1-external}%
+    \input{#1.tikz}%
+    \endpgfgraphicnamed%
+  }
+\fi
+
+\setlist{nolistsep} %so that lists have normal spacing
+
+\titleformat{\section}{\LARGE\bfseries}{\thesection}{1em}{} %section titles
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{} %subsection titles
+
+\definecolor{tablehead}{RGB}{238,233,233} %nice smooth grey
+
+\setlength{\parindent}{0pt} %we don't need no indentation
+
+\graphicspath{{./pics/}} %picture dir
+
+%---------------------------------------------------------------------
+%   environments
+%---------------------------------------------------------------------
+\renewenvironment{abstract}[1]
+{
+	\Large
+	\begin{center}
+		\textbf{#1}
+	\end{center}
+	
+	\normalsize
+	
+	\addtolength{\leftskip}{1in}
+	\addtolength{\rightskip}{1in}
+	\setlength{\parindent}{0in}
+}
+{
+}
+
+\newenvironment{itemizesp}
+{
+    \begin{itemize}
+}
+{
+    \end{itemize}
+}
+
+\newcommand{\deftoken}{\boldmath{$\mathcal{DEFINITION}$}}
+\newcommand{\restoken}{\boldmath{$\mathcal{RESULT}$}}
+\newcommand{\dotoken}{\boldmath{$\mathcal{DO METHOD}$}}
+\newcommand{\textbff}[1]{{\large \textbf{#1}}}
+
+%---------------------------------------------------------------------
+%   magic code
+%---------------------------------------------------------------------
+% Here it is: the code that adjusts justification and spacing around caption.
+\makeatletter
+% http://www.texnik.de/floats/caption.phtml
+% This does spacing around caption.
+\setlength{\abovecaptionskip}{6pt}   % 0.5cm as an example
+\setlength{\belowcaptionskip}{6pt}   % 0.5cm as an example
+% This does justification (left) of caption.
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1: #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    #1: #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother
+
+%---------------------------------------------------------------------
+%   document
+%---------------------------------------------------------------------
+\begin{document}
+    \thispagestyle{empty}
+    %---------------------------------------------------------------------
+    %   topmatter
+    %---------------------------------------------------------------------
+    \title{\textbf{Volake rozpravy}}
+    \author{František Hajnoviè \\
+    Faculty of Mathematics, Physics and Informatics \\
+    Comenius University \\
+    Bratislava, Slovakia \\
+    \texttt{ferohajnovic@gmail.com}}
+    \date{April 2012}
+    \maketitle
+
+    \vskip 0.5cm
+
+    %---------------------------------------------------------------------
+    %   metody
+    %---------------------------------------------------------------------
+    \pagebreak
+    \section{Methods}
+        Methods for time-dependent routing:
+        \begin{itemize}
+            \item Time-dependent SHARC
+        \end{itemize}
+
+    \section{Notes from M.K. thesis}
+        \begin{itemize}
+            \item Boost library: for command line options, test cases,
+            \item CMake: for making the code
+            \item Doxygen: for documentation
+        \end{itemize}
+        
+    \section{Some notes}
+        \subsubsection{``Wild'' timetables can ruin structure}
+        Imagine a simple graph formed by $n$ vertices connected in a line. For such a graph, shortest path routing is trivial - just head in a direction of the target vertex. However, provided that two conditions hold, it is easy to imagine a timetable on top of such a graph which suddenly makes it extremely difficult to compute shortest connection in such a timetable. The two conditions are the following:
+        \begin{itemize}
+            \item we allow \textbf{express lines}, i.e. connections that can pass multiple nodes (and edges) without stopping at any of them. This does not mean new edges in the underlying graph, rather it epitomizes vehicles of different speed.
+            \item we allow \textbf{overtaking}, i.e. such connections, that we can find among them pairs of connections $(A, B)$ such that, $A$ starts sooner or at the same time as $B$ but $B$ arrives earlier to the destination.
+        \end{itemize}
+        \hspace*{\fill}
+        
+        Provided these two conditions, we can now basically build \emph{any} timetable graph on top of the underlying graph, which will have nothing in common with the underlying map except for the number of vertices. \\
+        
+        \begin{figure}[h!]
+            \scriptsize
+            \begin{center}
+                \inputTikZ{./tikzpics/wildbg}
+            \end{center}
+            \caption{\label{fig:wildbg} Underlying graph with extremely easy structure and easy route-planning possibilities}
+        \end{figure}
+        
+        \begin{figure}[h!]
+            \scriptsize
+            \begin{center}
+                \inputTikZ{./tikzpics/wildexp}
+            \end{center}
+            \caption{\label{fig:wildexp} An example timetable graph built on top of the shown underlying graph in picture \ref{fig:wildbg}. Express lines and overtaking have ruined the regular structure.}
+        \end{figure}
+        
+        Unfortunately, both express lines and overtaking are happening in real world situations (e.g. in a public transportation including both buses and subway system). 
+        
+        \pagebreak
+
+    \section{Preprocessing time of Gavoille's algorithm for planar graphs}
+        In planar graphs, we can find a separator of size $\mathcal{O} (\sqrt n)$ (\cite{separators2} in linear time ($\mathcal{O} (n)$, \cite{distlabel04}). %TODO - is it really the good 2/3 separator?
+        Moreover, after splitting the graph by removing this separator, the created components are of size no more than $2/3$ of the original size (their size is $\leq 2/3 n$). Thus, Gavoille's algorithm \cite{distlabel04} can be applied to create an efficient distance labeling scheme. \\
+
+        The algorithm's preprocessing phase (we include just the points that require nontrivial running time) proceeds as follows:
+        \begin{enumerate}
+            \item A required separator of size $\mathcal{O} (\sqrt n)$ is first found in $\mathcal{O} (n)$ time
+            \begin{itemize}
+                \item $\mathcal{O} (n)$
+            \end{itemize}
+            \item Shortest paths are computed between all the pairs of vertices inside the separator, e.g. by Floyd-Warshall algorithm with time complexity $\mathcal{O} (n^{3})$. The separator is, however, at most $\mathcal{O} (\sqrt n)$ large, thus the required time for this step is $\mathcal{O} (n^{3/2})$
+            \begin{itemize}
+                \item $\mathcal{O} (n^{3/2})$
+            \end{itemize}
+                \item From all the boundary nodes of the separator (those leading out to some component(s)), we compute a shortest path tree. We can do this with Dijkstra's algorithm, whose best version runs in time $\mathcal{O} (m + n \log n)$. As the average degree of any planar graph is $< 6$, $m = \mathcal{O}(n)$ and the bound can be improved to $\mathcal{O} (n \log n)$ for planar graphs. We potentially run an instance of Dijkstra's algorithm from each vertex of the separator, so this step takes at most $\sqrt n (\frac{2}{3}n + \sqrt n) \log (\frac{2}{3}n + \sqrt n) = \mathcal{O} (n^{3/2} \log n)$.
+            \begin{itemize}
+                \item $\mathcal{O} (n^{3/2} \log n)$
+            \end{itemize}
+        \end{enumerate}
+        \hspace*{\fill}
+
+        So we see that the resulting running time is $\mathcal{O} (n^{3/2} \log n)$, with $n$ being the size of the graph at the beginning of the procedure. The algorithm then proceeds recursively, that is, the procedure described is run for the created components again, until trivial components of size $1$ are found (after at most $\mathcal{O} (\log n)$ steps). The running time therefore depends on the size of the created components. As we would like to make an upper bound, we need to know the worst case - what sizes do the components have to have in order to maximize remaining running time? \\
+
+        If we look at the function $f(n) = \mathcal{O} (n^{3/2} \log n)$, we see that already from $n \geq 2$ the function increases faster than a linear function, thus $f(2n) > 2 f(n)$ from that point on. That means, that one large component would increase the running time more than more smaller components. Thus we can bound the time complexity of the whole algorithm by assuming that every round of the recursion the largest possible components would be created (each with the size at most $2/3 n$). This leads to the final estimate $f(n) + f(\frac{2}{3} n) + f((\frac{2}{3})^{2} n) + ... = \mathcal{O} (f(n)) = \mathcal{O} (n^{3/2} \log n)$.
+
+    %---------------------------------------------------------------------
+    %   bibliography
+    %---------------------------------------------------------------------
+    \pagebreak
+    \bibliographystyle{is-alpha}
+    %compile latex, bibtex, latex, latex
+    \bibliography{../bibl}{}
+\end{document}

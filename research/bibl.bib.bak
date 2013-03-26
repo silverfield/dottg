@@ -1,0 +1,355 @@
+@comment{---------------------------------------------------------------------
+    Approximate Shortest Path and Distance Queries in Networks
+------------------------------------------------------------------------------}
+
+@phdthesis{CSAPX10,
+    author = "Christian Sommer",
+    title = "Approximate Shortest Path and Distance Queries in Networks",
+    school = "Graduate School of Information Science and Technology, The University of Tokyo",
+    year = "2010"
+}
+
+@comment{---------------------------------------------------------------------
+    Highway Dimension, Shortest Paths, and Provably Efficient Algorithms
+------------------------------------------------------------------------------}
+
+@inproceedings{DBLP:conf/soda/AbrahamFGW10,
+  author    = {Ittai Abraham and
+               Amos Fiat and
+               Andrew V. Goldberg and
+               Renato Fonseca F. Werneck},
+  title     = {Highway Dimension, Shortest Paths, and Provably Efficient
+               Algorithms},
+  booktitle = {SODA},
+  year      = {2010},
+  pages     = {782-793},
+  ee        = {http://www.siam.org/proceedings/soda/2010/SODA10_064_abrahami.pdf},
+  crossref  = {DBLP:conf/soda/2010},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@proceedings{DBLP:conf/soda/2010,
+  editor    = {Moses Charikar},
+  title     = {Proceedings of the Twenty-First Annual ACM-SIAM Symposium
+               on Discrete Algorithms, SODA 2010, Austin, Texas, USA, January
+               17-19, 2010},
+  booktitle = {SODA},
+  publisher = {SIAM},
+  year      = {2010},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    Approximate Distance Oracles
+------------------------------------------------------------------------------}
+
+@article{DBLP:journals/jacm/ThorupZ05,
+  author    = {Mikkel Thorup and
+               Uri Zwick},
+  title     = {Approximate distance oracles},
+  journal   = {J. ACM},
+  volume    = {52},
+  number    = {1},
+  year      = {2005},
+  pages     = {1-24},
+  ee        = {http://doi.acm.org/10.1145/1044731.1044732},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    Distance Labeling in Graphs
+------------------------------------------------------------------------------}
+
+@article{Gavoille200485,
+     title = {Distance labeling in graphs},
+     journal = "Journal of Algorithms",
+     volume = "53",
+     number = "1",
+     pages = "85 - 112",
+     year = "2004",
+     note = "",
+     issn = "0196-6774",
+     doi = "10.1016/j.jalgor.2004.05.002",
+     url = "http://www.sciencedirect.com/science/article/pii/S0196677404000884",
+     author = "Cyril Gavoille and David Peleg and Stéphane Pérennes and Ran Raz"
+}
+
+@comment{---------------------------------------------------------------------
+    A Sketch-Based Distance Oracle for Web-Scale Graphs
+------------------------------------------------------------------------------}
+
+@inproceedings{DBLP:conf/wsdm/SarmaGNP10,
+  author    = {Atish Das Sarma and
+               Sreenivas Gollapudi and
+               Marc Najork and
+               Rina Panigrahy},
+  title     = {A sketch-based distance oracle for web-scale graphs},
+  booktitle = {WSDM},
+  year      = {2010},
+  pages     = {401-410},
+  ee        = {http://doi.acm.org/10.1145/1718487.1718537},
+  crossref  = {DBLP:conf/wsdm/2010},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+@proceedings{DBLP:conf/wsdm/2010,
+  editor    = {Brian D. Davison and
+               Torsten Suel and
+               Nick Craswell and
+               Bing Liu},
+  title     = {Proceedings of the Third International Conference on Web
+               Search and Web Data Mining, WSDM 2010, New York, NY, USA,
+               February 4-6, 2010},
+  booktitle = {WSDM},
+  publisher = {ACM},
+  year      = {2010},
+  isbn      = {978-1-60558-889-6},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    Distance Oracles for Sparse Graphs
+------------------------------------------------------------------------------}
+
+@inproceedings{DBLP:conf/focs/SommerVY09,
+  author    = {Christian Sommer and
+               Elad Verbin and
+               Wei Yu},
+  title     = {Distance Oracles for Sparse Graphs},
+  booktitle = {FOCS},
+  year      = {2009},
+  pages     = {703-712},
+  ee        = {http://doi.ieeecomputersociety.org/10.1109/FOCS.2009.27},
+  crossref  = {DBLP:conf/focs/2009},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+@proceedings{DBLP:conf/focs/2009,
+  title     = {50th Annual IEEE Symposium on Foundations of Computer Science,
+               FOCS 2009, October 25-27, 2009, Atlanta, Georgia, USA},
+  booktitle = {FOCS},
+  publisher = {IEEE Computer Society},
+  year      = {2009},
+  isbn      = {978-0-7695-3850-1},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    Ramsey Partitions Based Approximate Distance Oracles
+------------------------------------------------------------------------------}
+
+@phdthesis{CHFRRAMS08,
+    author = "Chaya Fredman",
+    title = "Ramsey Partitions Based Approximate Distance Oracles",
+    school = "The Open University Of Israel",
+    year = "2008"
+}
+
+@comment{---------------------------------------------------------------------
+    A Compact Routing Scheme and Approximate Distance Oracle for Power-Law Graphs
+------------------------------------------------------------------------------}
+
+@article{Chen_Sommer_Teng_Wang_2009,
+    title={A Compact Routing Scheme and Approximate Distance Oracle for Power-Law Graphs},
+    url={http://research.microsoft.com/pubs/81716/msr-tr-2009-84.pdf},
+    number={Disc 2009},
+    volume={?},
+    journal={Distributed Computing},
+    publisher={Technical Report MSR-TR-2009-84, Microsoft Research (July 2009)},
+    author={Chen, Wei and Sommer, Christian and Teng, Shang-Hua and Wang, Yajun},
+    year={2009},
+    pages={379--391}
+}
+
+@comment{---------------------------------------------------------------------
+    Improved Distance Oracles for Avoiding Link-Failure
+------------------------------------------------------------------------------}
+
+@inproceedings{DBLP:conf/isaac/ChowdhuryR02,
+  author    = {Rezaul Alam Chowdhury and
+               Vijaya Ramachandran},
+  title     = {Improved Distance Oracles for Avoiding Link-Failure},
+  booktitle = {ISAAC},
+  year      = {2002},
+  pages     = {523-534},
+  ee        = {http://dx.doi.org/10.1007/3-540-36136-7_46},
+  crossref  = {DBLP:conf/isaac/2002},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+@proceedings{DBLP:conf/isaac/2002,
+  editor    = {Prosenjit Bose and
+               Pat Morin},
+  title     = {Algorithms and Computation, 13th International Symposium,
+               ISAAC 2002 Vancouver, BC, Canada, November 21-23, 2002,
+               Proceedings},
+  booktitle = {ISAAC},
+  publisher = {Springer},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {2518},
+  year      = {2002},
+  isbn      = {3-540-00142-5},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    Distance Oracles for Spatial Networks
+------------------------------------------------------------------------------}
+
+@inproceedings{DBLP:conf/icde/SankaranarayananS09,
+  author    = {Jagan Sankaranarayanan and
+               Hanan Samet},
+  title     = {Distance Oracles for Spatial Networks},
+  booktitle = {ICDE},
+  year      = {2009},
+  pages     = {652-663},
+  ee        = {http://dx.doi.org/10.1109/ICDE.2009.53},
+  crossref  = {DBLP:conf/icde/2009},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+@proceedings{DBLP:conf/icde/2009,
+  title     = {Proceedings of the 25th International Conference on Data
+               Engineering, ICDE 2009, March 29 2009 - April 2 2009, Shanghai,
+               China},
+  booktitle = {ICDE},
+  publisher = {IEEE},
+  year      = {2009},
+  isbn      = {978-0-7695-3545-6},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    f-Sensitivity Distance Oracles and Routing Schemes
+------------------------------------------------------------------------------}
+
+@incollection {springerlink:fsens,
+   author = {Chechik, Shiri and Langberg, Michael and Peleg, David and Roditty, Liam},
+   affiliation = {Department of Computer Science, The Weizmann Institute, Rehovot, Israel},
+   title = {f-Sensitivity Distance Oracles and Routing Schemes},
+   booktitle = {Algorithms – ESA 2010},
+   series = {Lecture Notes in Computer Science},
+   editor = {de Berg, Mark and Meyer, Ulrich},
+   publisher = {Springer Berlin / Heidelberg},
+   isbn = {978-3-642-15774-5},
+   keyword = {Computer Science},
+   pages = {84-96},
+   volume = {6346},
+   year = {2010}
+}
+
+@comment{---------------------------------------------------------------------
+    Exact Distance Oracles for Planar Graphs
+------------------------------------------------------------------------------}
+
+@article{DBLP:journals/corr/abs-1011-5549,
+  author    = {Shay Mozes and
+               Christian Sommer},
+  title     = {Exact Shortest Path Queries for Planar Graphs Using Linear
+               Space},
+  journal   = {CoRR},
+  volume    = {abs/1011.5549},
+  year      = {2010},
+  ee        = {http://arxiv.org/abs/1011.5549},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    Reachability and distance queries via 2-hop labels
+------------------------------------------------------------------------------}
+
+@article{DBLP:journals/siamcomp/CohenHKZ03,
+  author    = {Edith Cohen and
+               Eran Halperin and
+               Haim Kaplan and
+               Uri Zwick},
+  title     = {Reachability and Distance Queries via 2-Hop Labels},
+  journal   = {SIAM J. Comput.},
+  volume    = {32},
+  number    = {5},
+  year      = {2003},
+  pages     = {1338-1355},
+  ee        = {http://dx.doi.org/10.1137/S0097539702403098},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    Using Multi-level Graphs for Timetable Information in Railway Systems
+------------------------------------------------------------------------------}
+
+@incollection {springerlink:10.1007/3-540-45643-04,
+   author = {Schulz, Frank and Wagner, Dorothea and Zaroliagis, Christos},
+   affiliation = {University of Konstanz Department of Computer and Information Science Box D188 78457 Konstanz Germany},
+   title = {Using Multi-level Graphs for Timetable Information in Railway Systems},
+   booktitle = {Algorithm Engineering and Experiments},
+   series = {Lecture Notes in Computer Science},
+   editor = {Mount, David and Stein, Clifford},
+   publisher = {Springer Berlin / Heidelberg},
+   isbn = {978-3-540-43977-6},
+   keyword = {Computer Science},
+   pages = {43-59},
+   volume = {2409},
+   year = {2002}
+}
+
+@comment{---------------------------------------------------------------------
+    Engineering Time-Expanded Graphs for Faster Timetable Information
+------------------------------------------------------------------------------}
+
+@incollection {springerlink:10.1007/978-3-642-05465-57,
+   author = {Delling, Daniel and Pajor, Thomas and Wagner, Dorothea},
+   affiliation = {University of Karlsruhe Department of Computer Science P.O. Box 6980 76128 Karlsruhe Germany},
+   title = {Engineering Time-Expanded Graphs for Faster Timetable Information},
+   booktitle = {Robust and Online Large-Scale Optimization},
+   series = {Lecture Notes in Computer Science},
+   editor = {Ahuja, Ravindra and Möhring, Rolf and Zaroliagis, Christos},
+   publisher = {Springer Berlin / Heidelberg},
+   isbn = {978-3-642-05464-8},
+   keyword = {Computer Science},
+   pages = {182-206},
+   volume = {5868},
+   year = {2009}
+}
+
+@comment{---------------------------------------------------------------------
+    Timetable Information: Models and Algorithms
+------------------------------------------------------------------------------}
+
+@INBOOK{ARRIVAL-TR-0015,
+    AUTHOR = {Matthias M{\"u}ller-Hannemann and Frank Schulz and Dorothea Wagner and Christos Zaroliagis},
+    Title = {Algorithmic Methods for Railway Optimization},
+    Chapter = {{Timetable Information: Models and Algorithms}},
+    YEAR = {2007},
+    Publisher = {Springer},
+    volume = {4359},
+    series = {Lecture Notes in Computer Science},
+    pages = {67 - 90},
+    key = {ARRIVAL-TR-0015}
+}
+
+@comment{---------------------------------------------------------------------
+    Experimental comparison of shortest path approaches for timetable
+------------------------------------------------------------------------------}
+
+@inproceedings{DBLP:conf/alenex/PyrgaSWZ04,
+  author    = {Evangelia Pyrga and
+               Frank Schulz and
+               Dorothea Wagner and
+               Christos D. Zaroliagis},
+  title     = {Experimental Comparison of Shortest Path Approaches for
+               Timetable Information},
+  booktitle = {ALENEX/ANALC},
+  year      = {2004},
+  pages     = {88-99},
+  crossref  = {DBLP:conf/alenex/2004},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+@proceedings{DBLP:conf/alenex/2004,
+  editor    = {Lars Arge and
+               Giuseppe F. Italiano and
+               Robert Sedgewick},
+  title     = {Proceedings of the Sixth Workshop on Algorithm Engineering
+               and Experiments and the First Workshop on Analytic Algorithmics
+               and Combinatorics, New Orleans, LA, USA, January 10, 2004},
+  booktitle = {ALENEX/ANALC},
+  publisher = {SIAM},
+  year      = {2004},
+  isbn      = {0-89871-564-4},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}

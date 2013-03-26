@@ -1,0 +1,112 @@
+\beamer@endinputifotherversion {3.12pt}
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\slideentry {0}{0}{3}{3/3}{}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\sectionentry {1}{Objasnenie problematiky}{4}{Objasnenie problematiky}{0}}
+\headcommand {\beamer@sectionpages {1}{3}}
+\headcommand {\beamer@subsectionpages {1}{3}}
+\headcommand {\slideentry {1}{0}{4}{4/4}{}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{5}{Vyu\v zitie}}\headcommand {\beamer@subsectionpages {4}{4}}
+\headcommand {\slideentry {1}{1}{1}{5/6}{Vyu\v zitie}{0}}
+\headcommand {\beamer@framepages {5}{6}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{7}{Timetable graf}}\headcommand {\beamer@subsectionpages {5}{6}}
+\headcommand {\slideentry {1}{2}{1}{7/10}{Timetable graf}{0}}
+\headcommand {\beamer@framepages {7}{10}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{2}{1}{11}{Podkladov\'y graf}}
+\headcommand {\slideentry {1}{2}{2}{11/11}{Timetable graf}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{2}{2}{12}{Cestovn\'y poriadok}}
+\headcommand {\slideentry {1}{2}{3}{12/12}{Timetable graf}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{2}{3}{13}{Timetable graf}}
+\headcommand {\slideentry {1}{2}{4}{13/13}{Timetable graf}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{2}{4}{14}{Vyh\v lad\'avanie cez najkrat\v siu cestu}}
+\headcommand {\slideentry {1}{2}{5}{14/14}{Timetable graf}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{2}{5}{15}{In\'e defin\IeC {\'\i }cie timetable grafu ?}}
+\headcommand {\slideentry {1}{2}{6}{15/17}{Timetable graf}{0}}
+\headcommand {\beamer@framepages {15}{17}}
+\headcommand {\beamer@subsectionentry {0}{1}{3}{18}{Motiv\'acia}}\headcommand {\beamer@subsectionpages {7}{17}}
+\headcommand {\slideentry {1}{3}{1}{18/24}{Motiv\'acia}{0}}
+\headcommand {\beamer@framepages {18}{24}}
+\headcommand {\beamer@subsectionentry {0}{1}{4}{25}{Distance oracles}}\headcommand {\beamer@subsectionpages {18}{24}}
+\headcommand {\slideentry {1}{4}{1}{25/28}{Distance oracles}{0}}
+\headcommand {\beamer@framepages {25}{28}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{4}{1}{29}{Extr\'emne rie\v senia}}
+\headcommand {\slideentry {1}{4}{2}{29/34}{Distance oracles}{0}}
+\headcommand {\beamer@framepages {29}{34}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{4}{2}{35}{Existuj\'uce rie\v senia cez DO}}
+\headcommand {\slideentry {1}{4}{3}{35/40}{Distance oracles}{0}}
+\headcommand {\beamer@framepages {35}{40}}
+\headcommand {\sectionentry {2}{Teoretick\'a n\'apl\v n}{41}{Teoretick\'a n\'apl\v n}{0}}
+\headcommand {\beamer@sectionpages {4}{40}}
+\headcommand {\beamer@subsectionpages {25}{40}}
+\headcommand {\slideentry {2}{0}{4}{41/41}{}{0}}
+\headcommand {\beamer@framepages {41}{41}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{42}{Highway dimension}}\headcommand {\beamer@subsectionpages {41}{41}}
+\headcommand {\slideentry {2}{1}{1}{42/44}{Highway dimension}{0}}
+\headcommand {\beamer@framepages {42}{44}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{1}{1}{45}{Highway dimension}}
+\headcommand {\slideentry {2}{1}{2}{45/45}{Highway dimension}{0}}
+\headcommand {\beamer@framepages {45}{45}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{1}{2}{46}{Mal\'a HD}}
+\headcommand {\slideentry {2}{1}{3}{46/47}{Highway dimension}{0}}
+\headcommand {\beamer@framepages {46}{47}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{1}{3}{48}{Highway hierarchies}}
+\headcommand {\slideentry {2}{1}{4}{48/52}{Highway dimension}{0}}
+\headcommand {\beamer@framepages {48}{52}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{1}{4}{53}{Highway hierarchies}}
+\headcommand {\slideentry {2}{1}{5}{53/53}{Highway dimension}{0}}
+\headcommand {\beamer@framepages {53}{53}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{1}{5}{54}{Issues s prenosom HD}}
+\headcommand {\slideentry {2}{1}{6}{54/56}{Highway dimension}{0}}
+\headcommand {\beamer@framepages {54}{56}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{57}{r(n)-separator}}\headcommand {\beamer@subsectionpages {42}{56}}
+\headcommand {\slideentry {2}{2}{1}{57/59}{r(n)-separator}{0}}
+\headcommand {\beamer@framepages {57}{59}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{2}{1}{60}{Separ\'ator a jeho vyu\v zitie}}
+\headcommand {\slideentry {2}{2}{2}{60/64}{r(n)-separator}{0}}
+\headcommand {\beamer@framepages {60}{64}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{2}{2}{65}{Separ\'ator a jeho vyu\v zitie}}
+\headcommand {\slideentry {2}{2}{3}{65/68}{r(n)-separator}{0}}
+\headcommand {\beamer@framepages {65}{68}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{2}{3}{69}{Issues s prenosom separ\'atora}}
+\headcommand {\slideentry {2}{2}{4}{69/70}{r(n)-separator}{0}}
+\headcommand {\beamer@framepages {69}{70}}
+\headcommand {\sectionentry {3}{Praktick\'a n\'apl\v n}{71}{Praktick\'a n\'apl\v n}{0}}
+\headcommand {\beamer@sectionpages {41}{70}}
+\headcommand {\beamer@subsectionpages {57}{70}}
+\headcommand {\slideentry {3}{0}{5}{71/71}{}{0}}
+\headcommand {\beamer@framepages {71}{71}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{72}{Programy}}\headcommand {\beamer@subsectionpages {71}{71}}
+\headcommand {\slideentry {3}{1}{1}{72/75}{Programy}{0}}
+\headcommand {\beamer@framepages {72}{75}}
+\headcommand {\beamer@subsubsectionentry {0}{3}{1}{1}{76}{Time-expanding}}
+\headcommand {\slideentry {3}{1}{2}{76/76}{Programy}{0}}
+\headcommand {\beamer@framepages {76}{76}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{77}{DO met\'oda pre timetable graphs}}\headcommand {\beamer@subsectionpages {72}{76}}
+\headcommand {\slideentry {3}{2}{1}{77/78}{DO met\'oda pre timetable graphs}{0}}
+\headcommand {\beamer@framepages {77}{78}}
+\headcommand {\slideentry {3}{2}{2}{79/81}{DO met\'oda pre timetable graphs}{0}}
+\headcommand {\beamer@framepages {79}{81}}
+\headcommand {\slideentry {3}{2}{3}{82/82}{DO met\'oda pre timetable graphs}{0}}
+\headcommand {\beamer@framepages {82}{82}}
+\headcommand {\slideentry {3}{2}{4}{83/85}{DO met\'oda pre timetable graphs}{0}}
+\headcommand {\beamer@framepages {83}{85}}
+\headcommand {\sectionentry {4}{Literat\'ura}{86}{Literat\'ura}{0}}
+\headcommand {\beamer@sectionpages {71}{85}}
+\headcommand {\beamer@subsectionpages {77}{85}}
+\headcommand {\slideentry {4}{0}{5}{86/86}{DO met\'oda pre timetable graphs}{0}}
+\headcommand {\beamer@framepages {86}{86}}
+\headcommand {\slideentry {4}{0}{6}{87/87}{DO met\'oda pre timetable graphs}{0}}
+\headcommand {\beamer@framepages {87}{87}}
+\headcommand {\beamer@partpages {1}{87}}
+\headcommand {\beamer@subsectionpages {77}{87}}
+\headcommand {\beamer@sectionpages {71}{87}}
+\headcommand {\beamer@documentpages {87}}
+\headcommand {\def \inserttotalframenumber {35}}

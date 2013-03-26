@@ -1,0 +1,393 @@
+%---------------------------------------------------------------------
+%   documentclass
+%---------------------------------------------------------------------
+\documentclass[a4paper]{article}
+
+%---------------------------------------------------------------------
+%   packages
+%---------------------------------------------------------------------
+\usepackage{mathtools}
+\usepackage[english]{babel}
+\usepackage[enc=cp1250]{hrlatex}
+\usepackage[T1]{fontenc} %pekne makcene
+\usepackage{lmodern} %spolu s T1 smooth font!
+\usepackage{hyperref} %odkazy
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cite} %bibtex
+\usepackage{enumitem}
+\usepackage{titlesec} %section titles font size change
+\usepackage{color} %for \definecolor
+\usepackage{colortbl} %for \rowcolor command
+\usepackage{eucal} %for nice letters like \mathcal{A}
+\usepackage{tikz}
+\usepackage{scalefnt}
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\usepackage{multirow}% http://ctan.org/pkg/multirow
+\usepackage{pifont} %for ticks (check symbols)
+\usepackage{listings}
+\usepackage{floatflt} %to have tables and text beside
+\usepackage{courier}
+\usepackage{subcaption}
+\usepackage{lscape}
+
+%---------------------------------------------------------------------
+%   margins
+%---------------------------------------------------------------------
+\oddsidemargin 0.0in
+\evensidemargin 0.0in
+\textwidth 6.1in
+\textheight 23.94cm
+\topmargin -0.35in
+
+%---------------------------------------------------------------------
+%   various settings
+%---------------------------------------------------------------------
+\newif\ifmine % introduce a switch for draft vs. final document
+\minetrue
+
+\newif\iffinal % introduce a switch for draft vs. final document
+\finaltrue % use this to compile the final document
+\iffinal
+  \newcommand{\inputTikZ}[1]{%
+    \input{#1.tikz}%
+  }
+\else
+  \newcommand{\inputTikZ}[1]{%
+    \beginpgfgraphicnamed{#1-external}%
+    \input{#1.tikz}%
+    \endpgfgraphicnamed%
+  }
+\fi
+
+\setlist{nolistsep} %so that lists have normal spacing
+
+\titleformat{\section}{\LARGE\bfseries}{\thesection}{1em}{} %section titles
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{} %subsection titles
+
+\definecolor{tablehead}{RGB}{238,233,233} %nice smooth grey
+
+\setlength{\parindent}{0pt} %we don't need no indentation
+
+\graphicspath{{./pics/}} %picture dir
+
+\definecolor{lstcolor}{RGB}{238,233,233}
+
+\lstset{ %
+    language=Octave,                % choose the language of the code
+    basicstyle=\footnotesize\ttfamily,       % the size of the fonts that are used for the code
+    numbers=left,                   % where to put the line-numbers
+    numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+    stepnumber=1,                   % the step between two line-numbers. If it's 1 each line will be numbered
+    numbersep=5pt,                  % how far the line-numbers are from the code
+    backgroundcolor=\color{lstcolor},   % choose the background color. You must add \usepackage{color}
+    showspaces=false,               % show spaces adding particular underscores
+    showstringspaces=false,         % underline spaces within strings
+    showtabs=false,                 % show tabs within strings adding particular underscores
+    frame=single,	                % adds a frame around the code
+    tabsize=2,	                    % sets default tabsize to 2 spaces
+    captionpos=b,                   % sets the caption-position to bottom
+    breaklines=true,                % sets automatic line breaking
+    breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+    title=\lstname,                 % show the filename of files included with \lstinputlisting; also try caption instead of title
+    escapeinside={\%*}{*)},          % if you want to add a comment within your code
+%    morekeywords={*,...}            % if you want to add more keywords to the set
+	deletekeywords={all, null, length, path, function}
+}
+
+%---------------------------------------------------------------------
+%   environments
+%---------------------------------------------------------------------
+\renewenvironment{abstract}[1]
+{
+	\Large
+	\begin{center}
+		\textbf{#1}
+	\end{center}
+	
+	\normalsize
+	
+	\addtolength{\leftskip}{1in}
+	\addtolength{\rightskip}{1in}
+	\setlength{\parindent}{0in}
+}
+{
+}
+
+\newenvironment{itemizesp}
+{
+    \begin{itemize}
+}
+{
+    \end{itemize}
+}
+
+\newcommand{\deftoken}{\boldmath{$\mathcal{DEFINITION}$}}
+\newcommand{\restoken}{\boldmath{$\mathcal{RESULT}$}}
+\newcommand{\dotoken}{\boldmath{$\mathcal{DO METHOD}$}}
+\newcommand{\textbff}[1]{{\large \textbf{#1}}}
+\newcommand{\tick}{\ding{52}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{observation}{Observation}
+
+%---------------------------------------------------------------------
+%   magic code
+%---------------------------------------------------------------------
+% Here it is: the code that adjusts justification and spacing around caption.
+\makeatletter
+% http://www.texnik.de/floats/caption.phtml
+% This does spacing around caption.
+\setlength{\abovecaptionskip}{6pt}   % 0.5cm as an example
+\setlength{\belowcaptionskip}{6pt}   % 0.5cm as an example
+% This does justification (left) of caption.
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1: #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    #1: #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother
+
+%---------------------------------------------------------------------
+%   document
+%---------------------------------------------------------------------
+\begin{document}
+    \thispagestyle{empty}
+    %---------------------------------------------------------------------
+    %   topmatter
+    %---------------------------------------------------------------------
+    \title{\textbf{r-2013-01-24}}
+    \author{František Hajnoviè \\
+    \texttt{ferohajnovic@gmail.com}}
+    \date{\today}
+    \maketitle
+
+    \vskip 0.5cm
+
+    %---------------------------------------------------------------------
+    %   OUTLINE
+    %---------------------------------------------------------------------
+    \tableofcontents
+    
+	\section{EA Oracle based on betweenness centrality}
+    	\subsection{First version}
+			The idea for this algorithm stems from the observation, that most of the shortest paths in a graph pass through a small set of nodes with high betweenness centrality measure. \\
+    	
+    		Let us consider betweenness centrality (BC) measure of nodes in a graph. This is a measure that specifies the node's importance in terms of the number of shortest paths that pass through the node. \\
+    		
+    		Arguably, pre-computing shortest paths between nodes with a high BC would speed up subsequent queries - we could do a bidirectional Dijkstra search from required pair of vertices and once settling a high-BC node from each side, look up in a table the rest of the shortest path. The idea is similar to Transit nodes () algorithm and similarly, we would have to check if a query is not ``local'', that is, if the two Dijkstra searches did not already collide and found a shortest path even before settling a high-BC node. \\
+    		
+    		In a timetable scenario, we can do something similar. We will make use of the following observation. Let us define the cost of an arc in the underlying graph to be the length of a quickest elementary connection serving that arc. Then, in timetables, often the optimal connection goes along the way of the shortest path in the underlying graph. There are exceptions to this of course, notably in a case, when following the shortest path would mean lot of fast connection, but with lot of waiting as well, while the optimum is to choose longer connections without much changes. Thus obeying the shortest route from the underlying graph is not always the best strategy. The solution to this could however be to try out also next sub-optimal shortest paths. A good criterion for trying out also these paths would be to measure the waiting time when following optimal path - in case it is too long, try out also other shortest paths. We might also try out minimum-hop paths - though these are not bound to be those with the smallest number of changes (thus somehow minimizing the waiting time as well), they prefer connections with fewer stops and longer traversal times between them. Also, they could take us via a larger city in a scenario, where EA between a pair of nearby smaller villages is searched for (which is often the quickest connection in reality). \\
+    		
+    		This approach can still fail because of the way we assigned costs to the arcs of the UG. What if there is an extremely fast elementary connection on an arc, that goes through it only once per day? In such case, the shortest path would (misleadingly) lead us through this arc, however, catching the quick connection would be infeasible (or require lot of waiting). However:
+    		\begin{itemize}
+    			\item It rarely happens in practice that one elementary connection between a pair of stops would be considerably faster then another one. It could happen if:
+    			\begin{itemize}
+    				\item We merge timetables of different types - e.g. airlines with buses. Then an airplane going from Bruxelles to Paris would be much faster then a bus driving the distance (\textit{without stop!}). It is not very common, however, for a slower transportation vehicle to go without stop the same distance as a several times faster transportation vehicle.
+    				\item E.g. we have a TGV and an ordinary train serving the same elementary connection. This is not a very common situation too, for the same reasons as stated above.
+    			\end{itemize}
+    			\item We could mitigate this problem by assigning costs to the UG's arcs as an average of the lengths of the connection serving the arc.
+    		\end{itemize}
+    		\hspace*{\fill}
+    		
+    		Another problem is the scarcity of the connections that go along the shortest path. What if the shortest path leads e.g. through a desert where buses operate only once in a long time and a better option would be to choose a longer itinerary with more frequent connections? The problem is that by taking shortest path in the UG, we ignore the (possibly wild) time-dependent nature of the timetable. Therefore, we could perform a random sampling of best connection between high-BC cities in a TE graph first, extracting the underlying shortest paths from the connections (and sorting them in by the number of times they appeared). In the case that the true shortest path in UG is served by frequent connections, we will probably find it (if we don't, we will simply get it from the UG), as well as other good alternatives. \\
+    		
+    		So we may combine shortest (and sub-optimal) paths from UG with those obtained by random sampling to get a set of shortest paths to try out when querying for a EA between two high-BC cities. Still, it may not be enough to find a true EA - this would happen in a situation when travelling via shortest UG paths would mean too much waiting \textit{and} the best path to follow is infrequent (and thus we have not found it in the random sampling). \\
+    		
+    		An interesting question is how many shortest paths in UG the connections from A to B use - this is actually a measure of the timetable's regularity.\\
+    		
+			There are two more problems:
+			\begin{enumerate}
+				\item The high-BC nodes might actually form a small central part of a graph, which itself is e.g. a separator separating otherwise large components. Then the ``local'' Dijkstra searches would explore considerable part of the graph before arriving at a high-BC node. Moreover, pre-computation of shortest paths for nodes close together would not help the matters too much.
+				\item Bidirectional search is not a possibility in a time-dependent scenario. We could however pre-compute shortest UG paths and sample paths from each high-BC node to each \textit{other} node, increasing the time complexity of pre-processing and the space complexity of the oracle as well, but eliminating this problem.
+			\end{enumerate}
+			\hspace*{\fill}
+			
+			It would be thus convenient to have a small set of ``access'' nodes that would be close enough to every node from the UG graph. OK, maybe the access nodes should not be those with high BC. \\
+    		
+    		Frequency characteristics of a path - its weakest link determines it. \\
+    		
+    		How to find sub-optimal paths? \\
+    		
+    		
+    
+    \section{Neural network approach}
+    	\begin{itemize}
+    		\item multilayer perceptron, output paths
+    		\item multilayer perceptron, output EA
+    		\item multilayer perceptron, output "should I stay or should I go?"
+    		\item recurrent network
+    	\end{itemize}
+    	
+	\section{New introduction}
+		New name - Oracle based approach to solving of earliest arrival problem in timetables    
+    
+    %---------------------------------------------------------------------
+    %   Data analysis
+    %---------------------------------------------------------------------    
+    
+	\section{Data analysis}
+	Following is an analysis of the data. Results were obtained by running \textit{ttblazer} application. \\
+	
+	\subsection*{UG}	
+	
+	\begin{landscape}
+	\begin{table}[h]{
+		\scriptsize
+	    \begin{tabular}{l|c|c|c}
+		%legend
+		\hline
+			\rowcolor{tablehead}
+			\multicolumn{4}{c}{\textbf{Basic}} &
+			\multicolumn{6}{c}{\textbf{Connectivity}} &
+			\multicolumn{4}{c}{\textbf{Paths}} &
+			\multicolumn{2}{c}{\textbf{Degrees}} &
+			\multicolumn{1}{c}{\textbf{Betweenness}} &
+			\multicolumn{1}{c}{\textbf{Highway dimension}} \\
+		\hline
+			\rowcolor{tablehead}
+           	\textbf{Name} & 
+           	\textbf{Type} & 
+           	\textbf{\# nodes} & 
+           	\textbf{\# arcs} &
+           	
+           	\textbf{Normal} & 
+           	\textbf{\# of comp.} & 
+           	\textbf{Largest} & 
+           	\textbf{Strong} & 
+           	\textbf{\# of comp} &
+           	\textbf{Largest} &
+           	
+			\textbf{Max length} & 
+           	\textbf{Avg length} & 
+           	\textbf{Max size} & 
+           	\textbf{Avg size} & 
+           	
+           	\textbf{Max degree} & 
+           	\textbf{Avg degree} & 
+           	
+           	\textbf{Avg betw.} & 
+
+           	\textbf{HD} \\
+        %data
+        \hline
+        	ug\_air01.ug & US domestic flights (Jan/2008) & 287 & 4668 &
+			         	
+			ug\_cpru.ug & Regional bus & 877 & 2416 \\
+            ug\_cpza.ug & Regional bus & 1128 & 2778 \\
+            ug\_london.ug & Underground rails & 321 & 732 \\
+            ug\_montr.ug & Montreal public transport & 313 & 349 \\
+            ug\_svk.ug & Road network of SVK & 181386 & 425829 \\
+            ug\_zsr.ug & Country-wide rails & 233 & 588 \\
+        \end{tabular}}
+		\caption{\label{tab:ug} Underlying graphs properties}
+        \normalsize
+	\end{table}
+	\end{landscape}		
+	
+	\subsection*{TT}
+	\begin{table}[h!]{
+		\scriptsize
+	    \begin{tabular}{l|c|c|c}
+		%legend
+		\hline
+			\rowcolor{tablehead}
+           	\textbf{Name} & 
+           	\textbf{Type} &
+           	\textbf{\# el. conn.} &
+           	\textbf{Load time} \\
+        %data
+        \hline
+            tt\_cpza & Regional bus & 61747 & 4.451s \\
+            tt\_cpru & Regional bus & 38540 & 2.275s \\
+            tt\_zsr & Country-wide rails & 932052 & 66.6668s \\
+        \end{tabular}}
+		\caption{\label{tab:ttmain} Timetables - main properties}
+        \normalsize
+	\end{table}
+	
+	\subsection*{TE}
+	\begin{table}[h!]{
+		\scriptsize
+	    \begin{tabular}{l|c|c|c}
+		%legend
+		\hline
+			\rowcolor{tablehead}
+           	\textbf{Name} & 
+           	\textbf{Type} &
+           	\textbf{\# nodes} & 
+           	\textbf{\# arcs} \\
+        %data
+        \hline
+            te\_cpza & Regional bus & 59276 & 119857 \\
+            te\_cpru & Regional bus & 36458 & 74070 \\
+            te\_zsr & Country-wide rails & 1706077 & 2637896 \\
+        \end{tabular}}
+		\caption{\label{tab:temain} Time-expanded graphs - main properties}
+        \normalsize
+	\end{table}
+	
+	\subsection*{TD}
+	\begin{table}[h!]{
+		\scriptsize
+	    \begin{tabular}{l|c|c|c}
+		%legend
+		\hline
+			\rowcolor{tablehead}
+           	\textbf{Name} & 
+           	\textbf{Type} &
+           	\textbf{\# nodes} & 
+           	\textbf{\# arcs} \\
+        %data
+        \hline
+            td\_cpza & Regional bus & 1108 & 2839 \\
+            td\_cpru & Regional bus & 871 & 2487 \\
+            td\_zsr & Country-wide rails & 233 & 588 \\
+        \end{tabular}}
+		\caption{\label{tab:tdmain} Time-dependent graphs - main properties}
+        \normalsize
+	\end{table}
+	
+	\pagebreak
+	
+	%---------------------------------------------------------------------
+    %   OPEN POINTS
+    %---------------------------------------------------------------------    
+    \section{Open points}
+    \begin{itemize}
+    		\item What to focus on during X-mas?
+    \end{itemize}
+    
+    %---------------------------------------------------------------------
+    %   TO DO
+    %---------------------------------------------------------------------    
+    \section{To do}
+    
+	\textbf{Theory:}
+	\begin{itemize}
+		\item Properties propagation in step a), step b)...
+	\end{itemize}
+	\hspace*{\fill}
+    
+    \textbf{Practice:}
+    \begin{itemize}
+    		\item United airlines extract data, California road netw., public transport - buses
+    		\item Analyse properties: HD, separator, betweenness, scale-free distr., planarity, avg. distance, degrees for TE
+    		\item Building timetables from UG
+    		\item Machine learning
+    \end{itemize}
+
+    %---------------------------------------------------------------------
+    %   bibliography
+    %---------------------------------------------------------------------
+    \pagebreak
+    \bibliographystyle{is-alpha}
+    %compile latex, bibtex, latex, latex
+    \bibliography{../bibl}{}
+\end{document}

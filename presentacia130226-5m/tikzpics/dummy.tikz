@@ -1,0 +1,4 @@
+\tikzstyle{place}=[circle,draw=blue!50,fill=blue!20,thick,inner sep=1pt]
+\begin{tikzpicture}[>=stealth,->,shorten >=2pt,looseness=.5,auto, scale=0.8]
+    \node (A) at (0,0) [place, label=below:A] {};
+\end{tikzpicture}

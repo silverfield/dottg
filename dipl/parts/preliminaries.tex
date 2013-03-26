@@ -1,0 +1,177 @@
+In this section, we would like to provide the definitions and terminology used throughout the thesis. 
+
+	\subsection{Objects}
+
+	First, we will formalize the notion of a timetable and its derived graph forms, the underlying graph and notions related to these terms.
+	
+	\begin{definition}
+        \textbf{Timetable (TT)} \\
+        A timetable is a set $\bm{T} = \{(x, y, p, q)| \; p, q \in \mathcal{N}, \; p < q \}$.
+        \begin{itemize}
+        	\item Elements of T (the 4-tuples) are called \textbf{elementary connections}. For an elementary connection $e = (x, y, p, q)$:
+        	\begin{itemize}
+        		\item $\bm{from(e)} = x$ is the \textbf{departure city}
+        		\item $\bm{to(e)} = y$ is the \textbf{arrival/destination city}
+        		\item $\bm{dep(e)} = p$ is the \textbf{departure time}
+        		\item $\bm{arr(e)} = q$ is the \textbf{arrival time}
+        	\end{itemize}
+        	\item Pairs $(x, p)$ or $(y, q)$ such that $(x, y, p, q) \in T$ form the set of \textbf{events} $\bm{ev_{T}}$. The set of events in a specific city $x$ is $\bm{ev_{T}(x)} = \{(x, t)| (x, y, t, q) \in T \; or \; (y, x, p, t) \in T\}$
+        	\item Let $\bm{tlow_{T}} = \min_{e \in T} dep(e)$ and $\bm{thigh_{T}} = \max_{e \in T} arr(e)$. The value $\bm{trange_{T}} = thigh_{T} - tlow_{T}$ is called the \textbf{time range} of the timetable.
+        	\item \textbf{Height} of the timetable is the maximum number of events in a city: $\bm{height_{T}} = \max_{x \in cities_{T}} \{|ev_{T}(x)|\}$
+        \end{itemize}
+    \end{definition}
+    
+    \noindent Let us describe some the defined terms more informally. An elementary connection corresponds to moving from one stop to the next one, e.g. with a bus (thus we disregard the notion of \textit{lines} in our timetables). Note that we express time as an integer - throughout this paper, this integer will represent the minutes elapsed from the time 00:00 of the first day. Thus we may take the liberty of talking about time in integer or \textit{days hh:mm} format, as convenient at the moment. Lastly, an event simply represent an arrival or departure of a e.g. train at some station. The remaining terms should be clear enough.
+    
+    \begin{table}[h!]
+        \begin{tabular}{c|c|c|c}
+        %legend
+        	\hline
+            \rowcolor{tablehead}
+            \multicolumn{2}{>{\columncolor{tablehead}}c|}{\textbf{Place}} & \multicolumn{2}{>{\columncolor{tablehead}}c}{\textbf{Time}} \\
+			\hline
+           	\rowcolor{tablehead}
+            \textbf{From} & \textbf{To} & \textbf{Departure} & \textbf{Arrival} \\
+		%data
+			\hline
+            \textcolor{city-clr}{A} & \textcolor{city-clr}{B} & 10:00 & 10:45 \\
+			\textcolor{city-clr}{B} & \textcolor{city-clr}{C} & 11:00 & 11:30 \\
+			\textcolor{city-clr}{B} & \textcolor{city-clr}{C} & 11:30 & 12:10 \\
+			\textcolor{city-clr}{B} & \textcolor{city-clr}{A} & 11:20 & 12:30 \\
+			\textcolor{city-clr}{C} & \textcolor{city-clr}{A} & 11:45 & 12:15 \\
+		\end{tabular}
+		\caption{\label{table:tt} An example of a timetable - the set of elementary connections (between pairs of \textcolor{city-clr}{cities}). An example of an event is a pair (A, 10:00)}
+	\end{table}
+	
+	\noindent Following is a definition of a connection.
+    
+   	\begin{definition}
+        \textbf{Connection} \\
+        A connection from $a$ to $b$ is a sequence of elementary connections $\bm{c} = (e_{1}, e_{2}, ..., e_{k}), k \geq 1$, such that $from(e_{1}) = a$, $to(e_{k}) = b$ and $\forall i \in \{2, ..., k\}: (to(e_{i}) = from(e_{i - 1}), \; arr(e_{i}) \geq dep(e_{i - 1})$.
+        \begin{itemize}
+			\item Connection \textbf{starts} at the departure time $\bm{start(c)} = dep(e_{1})$ and \textbf{ends} at the arrival time $\bm{end(c)} = arr(e_{k})$.
+	        \item \textbf{Length} of the connection is $\bm{len(c)} = end(c) - start(c)$.
+	        \item We will denote the set of \textbf{all connections} from $a$ to $b$ in a timetable $T$ as $\bm{C_{T}(a, b)}$. We also define $\bm{C_{T}} = \cup_{a, b} C_{T}(a, b)$
+        \end{itemize}
+    \end{definition}
+    
+    \noindent So we understand connection as a (valid) sequence of elementary connections. 
+    
+    \begin{figure}[h!]
+        \begin{center}
+			\inputTikZ{./tikzpics/connection}
+        \end{center}
+		\caption{\label{pic:conn} A valid connection made out of \textcolor{elcon-clr}{elementary connections} (and \textcolor{waiting-clr}{waiting}, which is implicit)}
+	\end{figure}
+	
+	\noindent Next, we continue with the underlying graph - a graph representing basically the map on top of which the timetable operates.
+	
+	\begin{definition}
+        \textbf{Underlying graph (UG graph)} \\
+        The underlying graph of a timetable $T$, denoted $\bm{UG_{T}}$, is an oriented graph $G = (V, E)$, where $V$ is the set of all timetable cities and $E = \{(x, y)|\; \exists (x, y, p, q) \in T\}$
+    \end{definition}
+    
+    \noindent Note, that we do not specify the weights of the edges in the underlying graph - they will be specified based on the current usage of the UG. Most of the time, however, we will work with UG where the weight of each arc is the length of the shortest elementary connection on that arc. More specifically, $w(x, y) = \min_{(x, y, p, q) \in T} (q - p) \; \forall (x, y) \in E(UG_{T})$.
+    
+    \begin{figure}[h!]
+        \begin{center}
+			\inputTikZ{./tikzpics/ug}
+        \end{center}
+		\caption{\label{fig:ug} Underlying graph of the timetable in picture~\ref{table:tt}. The nodes are the \textcolor{city-clr}{cities}}
+	\end{figure}
+	
+	\noindent If we want to represent the timetable itself by a graph, there are two most common options~\cite{timetablemodelsalgs07}.
+	
+	\begin{definition}
+		\textbf{Time-expanded graph (TE graph)} \\
+        Let $T$ be a timetable. Time-expanded graph from $T$, denoted $\bm{TE_{T}}$, is an oriented graph $G = (V, E)$ whose vertices correspond to events of $T$, that is $V = \{[x, t]| (x, t) \in Ev_{T}\}$. The edges of $G$ are of two types
+        \begin{enumerate}
+            \item $([x, p], [y, q]) \; \forall (x, y, p, q) \in T$ - the so called \textbf{connection edges}
+            \item $([x, p], [x, q]) \; [x, p], [x, q] \in V, \; p < q$ and $\not \exists [x, r] \in V\colon p < r < q$. - the so called \textbf{waiting edges}
+		\end{enumerate}
+        Weight of the edge $([x, p], [y, q])$ is $w([x, p], [y, q]) = q - p$.
+	\end{definition}
+	
+	\noindent Informally, an edge in TE graph represent either the travelling with an elementary connection or waiting for the next event in the same city. Also, the time range and height of a timetable could be easily illustrated on the TE graph (see picture~\ref{pic:te}). 
+	
+	\begin{figure}[h!]
+	    \begin{center}
+			\inputTikZ{./tikzpics/te}
+	    \end{center}
+    	\caption{\label{pic:te} Time-expanded graph of the timetable in picture~\ref{table:tt}. Nodes represent the \textcolor{event-clr}{events}. There are \textcolor{elcon-clr}{connection} and \textcolor{waiting-clr}{waiting} edges (dashed). The time range is 2h:30m and the height is 4 (as there are 4 events in city B)}
+	\end{figure}
+        
+    \begin{definition}
+		\textbf{Time-dependent graph (TD graph)}\\
+        Let $T$ be a timetable. Time-dependent graph from $T$, denoted $\bm{TD_{T}}$, is an oriented graph $G = (V, E)$ whose vertices are the timetable cities and $E = \{(x, y)| \; \exists (x, y, p, q) \in T\}$. Furthermore, the weight of an edge $(x, y) \in E$ is a piece-wise linear function $w(x, y) = f_{x, y}(t) = q - t$ where $q$ is:
+        \begin{itemize}
+        	\item $\min \{arr(e) | e \in T, \; dep(e) \geq t\}$
+        	\item $\infty$, if $dep(e) < t \; \forall e \in T$
+        \end{itemize}
+	\end{definition}
+	
+	\noindent Intuitively, the TD graph is simply the UG graph where each arc carries a function specifying the traversal time of that arc at any time. For an example, see picture~\ref{pic:piece}: The latest point of every linear segment is called the \textbf{interpolation point} and it corresponds to immediate taking of an elementary connection. Note that a list of all interpolation points defines the piece-wise linear function completely. \\
+	
+	\begin{minipage}{.35\textwidth}
+		\centering
+		\inputTikZ{./tikzpics/td}
+		\captionof{figure}{Time-dependent graph of the timetable in picture~\ref{table:tt}. The nodes are the \textcolor{city-clr}{cities}}
+		\label{pic:td}
+	\end{minipage}
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\inputTikZ{./tikzpics/tdpiece}
+		\captionof{figure}{Piece-wise linear function - traversal times for the arc $(B, C)$}
+		\label{pic:piece}
+	\end{minipage}
+	
+	\noindent To sum up, there are four main types of objects we will be working with:
+	\begin{itemize}
+		\item Timetable (TT)
+		\item Underlying graph (UG)
+		\item Time-expanded graph (TE)
+		\item Time-dependent graph (TD)
+	\end{itemize}
+	\hspace*{\fill}
+	
+	\noindent For further reference, we will call \textbf{timetable objects} those, that fully represent a timetable (TT, TE, TD) and \textbf{graph objects} those, that can be viewed as a graph (UG, TE, TD). \\
+	
+	\noindent \textit{Note:} Throughout this paper, we will relax a bit the notation and leave out subscripts (e.g. $UG_{T}~\rightarrow~UG$ in situations, where the context is clear enough. 
+
+\subsection{Earliest arrival}
+
+	Now we would like to formulate the main problems this thesis deals with.
+	
+	\begin{definition}
+		\textbf{Earliest arrival problem (EAP)}\\
+        Given a timetable $T$, departure city $x$, destination city $y$ and a departure time $t$, the task is to determine $\bm{t_{(x, t, y)}^{*}} = \min_{c \in C_{T}(x, y)} \{t + len(c)|start(c) \geq t\}$. 
+        \begin{itemize}
+        	\item We will refer to the tuple $\bm{(x, t, y)}$ as an \textbf{EAP instance}, or an \textbf{EAP query}
+        	\item The time $\bm{t_{(x, t, y)}^{*}}$ is called the \textbf{earliest arrival (EA)} for the given EAP instance
+        \end{itemize}
+	\end{definition}
+	
+	\noindent A bit more difficult version of this problem is one, where we require to actually output the connection ending at time given by EA.
+
+	\begin{definition}
+		\textbf{Optimal connection problem (OCP)}\\
+        Given a timetable $T$, departure city $x$, destination city $y$ and a departure time $t$, the task is to determine the \textbf{optimal connection (OC)} $\bm{c_{(a, t, b)}^{*}} = argmin_{c \in C_{T}(a, b)} \{t + len(c)|start(c) \geq t\}$. 
+	\end{definition}
+	
+	\noindent The instance/query in case of the optimal connection problem has the same form as EAP query. Also, note that the OCP is at least as hard to solve as EAP since having the optimal connection implies the optimal (earliest) arrival time.. In order to avoid technical issues in later parts of the thesis, we will assume the optimal connection is unique (i.e., there is not a different connection with the same end time) or that ties are won by a lexicographically first connection. 
+	
+	\begin{example}
+		Consider our timetable from table~\ref{table:tt}. For the EAP instance $(B, $10:45$, A)$, the earliest arrival (EA) is 12:15 and the optimal connection (OC) is $((B, C, $11:00$, $11:30$), (C, A, $11:45$, $12:15$))$, as could be easily seen from picture~\ref{pic:ea} of the TE graph.
+	\end{example}
+
+	\begin{figure}[h!]
+	    \begin{center}
+			\inputTikZ{./tikzpics/ea}
+	    \end{center}
+    	\caption{\label{pic:ea} Optimal connection and earliest arrival time are marked in \textcolor{orange}{\textbf{bold}}}
+	\end{figure}
+	
+\subsection{(Distance) Oracles}
+
+	The term distance oracle was first coined in 2001 by Thorup and Zwick~\cite{apxdo05}, when talking about quick shortest path (or distance) computations on graphs. One approach to this problem is to pre-compute some information on the graph to speed-up answering of the queries. The paper of Thorup and Zwick was dealing with trade-offs between time of the pre-computation, the amount of pre-computed information, the speed-up in query times and the accuracy of the provided answers. Since the pre-computed data structure is something that helps us answer the queries more efficiently, it resembles an oracle, thus the term distance oracle. \\
+	Since then, 

@@ -1,0 +1,405 @@
+%---------------------------------------------------------------------
+%   documentclass
+%---------------------------------------------------------------------
+\documentclass[a4paper]{article}
+
+%---------------------------------------------------------------------
+%   packages
+%---------------------------------------------------------------------
+\usepackage{mathtools}
+\usepackage[english]{babel}
+\usepackage[enc=cp1250]{hrlatex}
+\usepackage[T1]{fontenc} %pekne makcene
+\usepackage{lmodern} %spolu s T1 smooth font!
+\usepackage{hyperref} %odkazy
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cite} %bibtex
+\usepackage{enumitem}
+\usepackage{titlesec} %section titles font size change
+\usepackage{color} %for \definecolor
+\usepackage{colortbl} %for \rowcolor command
+\usepackage{eucal} %for nice letters like \mathcal{A}
+\usepackage{tikz}
+\usepackage{scalefnt}
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\usepackage{multirow}% http://ctan.org/pkg/multirow
+\usepackage{pifont} %for ticks (check symbols)
+\usepackage{listings}
+\usepackage{floatflt} %to have tables and text beside
+\usepackage{courier}
+\usepackage{subcaption}
+\usepackage{lscape}
+\usetikzlibrary{decorations.pathreplacing}
+
+%---------------------------------------------------------------------
+%   margins
+%---------------------------------------------------------------------
+\oddsidemargin 0.0in
+\evensidemargin 0.0in
+\textwidth 6.1in
+\textheight 23.94cm
+\topmargin -0.35in
+
+%---------------------------------------------------------------------
+%   various settings
+%---------------------------------------------------------------------
+\newif\ifmine % introduce a switch for draft vs. final document
+\minetrue
+
+\newif\iffinal % introduce a switch for draft vs. final document
+\finaltrue % use this to compile the final document
+\iffinal
+  \newcommand{\inputTikZ}[1]{%
+    \input{#1.tikz}%
+  }
+\else
+  \newcommand{\inputTikZ}[1]{%
+    \beginpgfgraphicnamed{#1-external}%
+    \input{#1.tikz}%
+    \endpgfgraphicnamed%
+  }
+\fi
+
+\setlist{nolistsep} %so that lists have normal spacing
+
+\titleformat{\section}{\LARGE\bfseries}{\thesection}{1em}{} %section titles
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{} %subsection titles
+
+\definecolor{tablehead}{RGB}{238,233,233} %nice smooth grey
+
+\setlength{\parindent}{0pt} %we don't need no indentation
+
+\graphicspath{{./pics/}} %picture dir
+
+\definecolor{lstcolor}{RGB}{238,233,233}
+
+\lstset{ %
+    language=Octave,                % choose the language of the code
+    basicstyle=\footnotesize\ttfamily,       % the size of the fonts that are used for the code
+    numbers=left,                   % where to put the line-numbers
+    numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+    stepnumber=1,                   % the step between two line-numbers. If it's 1 each line will be numbered
+    numbersep=5pt,                  % how far the line-numbers are from the code
+    backgroundcolor=\color{lstcolor},   % choose the background color. You must add \usepackage{color}
+    showspaces=false,               % show spaces adding particular underscores
+    showstringspaces=false,         % underline spaces within strings
+    showtabs=false,                 % show tabs within strings adding particular underscores
+    frame=single,	                % adds a frame around the code
+    tabsize=2,	                    % sets default tabsize to 2 spaces
+    captionpos=b,                   % sets the caption-position to bottom
+    breaklines=true,                % sets automatic line breaking
+    breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+    title=\lstname,                 % show the filename of files included with \lstinputlisting; also try caption instead of title
+    escapeinside={\%*}{*)},          % if you want to add a comment within your code
+%    morekeywords={*,...}            % if you want to add more keywords to the set
+	deletekeywords={all, null, length, path, function}
+}
+
+%---------------------------------------------------------------------
+%   environments
+%---------------------------------------------------------------------
+\renewenvironment{abstract}[1]
+{
+	\Large
+	\begin{center}
+		\textbf{#1}
+	\end{center}
+	
+	\normalsize
+	
+	\addtolength{\leftskip}{1in}
+	\addtolength{\rightskip}{1in}
+	\setlength{\parindent}{0in}
+}
+{
+}
+
+\newenvironment{itemizesp}
+{
+    \begin{itemize}
+}
+{
+    \end{itemize}
+}
+
+\newcommand{\deftoken}{\boldmath{$\mathcal{DEFINITION}$}}
+\newcommand{\restoken}{\boldmath{$\mathcal{RESULT}$}}
+\newcommand{\dotoken}{\boldmath{$\mathcal{DO METHOD}$}}
+\newcommand{\textbff}[1]{{\large \textbf{#1}}}
+\newcommand{\tick}{\ding{52}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{observation}{Observation}
+
+%---------------------------------------------------------------------
+%   magic code
+%---------------------------------------------------------------------
+% Here it is: the code that adjusts justification and spacing around caption.
+\makeatletter
+% http://www.texnik.de/floats/caption.phtml
+% This does spacing around caption.
+\setlength{\abovecaptionskip}{6pt}   % 0.5cm as an example
+\setlength{\belowcaptionskip}{6pt}   % 0.5cm as an example
+% This does justification (left) of caption.
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1: #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    #1: #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother
+
+%---------------------------------------------------------------------
+%   document
+%---------------------------------------------------------------------
+\begin{document}
+    \thispagestyle{empty}
+    %---------------------------------------------------------------------
+    %   topmatter
+    %---------------------------------------------------------------------
+    \title{\textbf{r-2013-02-28}}
+    \author{František Hajnoviè \\
+    \texttt{ferohajnovic@gmail.com}}
+    \date{\today}
+    \maketitle
+
+    \vskip 0.5cm
+
+    %---------------------------------------------------------------------
+    %   OUTLINE
+    %---------------------------------------------------------------------
+    \tableofcontents
+    
+    \section{USP-OR}
+    
+    When carrying out an optimal connection between a pair of cities, one often goes along the same path regardless of the starting time. We will call the path that corresponds to some optimal connection in the timetable the \textbf{underlying shortest path} (USP). It can easily be extracted from the optimal connection, as shown in figure ~\ref{fig:usp}. \\
+    
+	\begin{figure}[h!]
+		\begin{center}
+			\inputTikZ{./tikzpics/usp}
+		\end{center}
+		\caption{\label{fig:usp} Underlying shortest path extracted from the connection above}
+	\end{figure}
+	
+	Now let us look at this from the other point of view - if we know underlying shortest path, can we reconstruct the optimal connection? One thing we could do is to blindly follow the USP and at each stop take the first elementary connection to the next stop on the USP. This works fine provided there is no overtaking in the timetable. However, even if there is overtaking, we can fix this small problem by:
+	\begin{itemize}
+		\item \textit{Removing overtaken elementary connection} - in our simplified version of the EAP problem we do not consider parameters such as the cost of the travel. Thus overtaken el. connections are redundant as they can be replaced by their overtaking el. connections plus some waiting.
+		\item \textit{Considering all elementary connections} up to the earliest arrival time to the next city in USP - this might however increase the time complexity of restoring the optimal connection from USP, thus we will use the first approach
+	\end{itemize}
+	\hspace{\fill}
+	
+	The basic idea of the algorithm \textit{USP-OR} is therefore simply to pre-compute all the USPs for each pair of cities. Then, upon query, the algorithm simply tries out all the USPs for a given pair of cities, reconstructs respective connections and chooses the best one (the one that arrives the soonest). Very simple. \\
+	
+	We will now have a look at the four parameters of this oracle-based method. \\
+	
+	\textbf{Preprocessing time}. Basically, we need to find optimal connections from each \textit{event} in the timetable to each city (or in other words - solve all possible EAP queries). We can do it by running Dijkstra algorithm $hn$ times (from each event), obtaining the time complexity $\mathcal{O}(hn^{3})$. \\
+	
+	\textbf{Preprocessed space}. We store USPs for each pair of cities ($n^{2}$) and each USP might be long at most $\mathcal{O}(n)$. The question is, how many different USPs there is for a pair of cities? We will call this number the \textbf{USP coefficient for a given city pair} and will denote it as $\tau_{A, B}$ (where $A$ and $B$ is the given pair of cities). The average of USP coefficients for all city pairs will be called simply the \textbf{USP coefficient} and denoted as $\tau$ ($\tau = avg_{A \neq B} (\tau_{A, B})$). So how big is $\tau$ for real-world timetables? See table \ref{tab:usps}. \\
+	
+	\begin{table}{
+		\scriptsize
+		\begin{tabular}{c|c|c|c|c|c}
+		%legend
+			\hline
+			\rowcolor{tablehead}
+			\textbf{Name} & \textbf{n/m of UG} & \textbf{height} & \textbf{time range} & \textbf{avg $\tau_{A, B}$} & \textbf{max $\tau_{A, B}$} \\
+		%data
+			\hline
+			air01 & 100/2274 & 10000 & month & 33.55 & 170 \\
+			air01 & 250/4568 & 10000 & month & 35.8 & 193 \\
+			air01 & 287/4668 & 24050 & month & TODO & TODO \\
+			air01 & 100 & - & day &  &  \\
+			air01 & 250 & - & day &  &  \\
+			air01 & 284/4382 & 789 & day & 4.6 & 30 \\
+			\hline
+			cpru & 50/120 & 20 & day & 0.62 & 4 \\
+			cpru & 100/286 & 228 & day & 6.5 & 40 \\
+			cpru & 250/696 & 228 & day & 9.23 & 63 \\
+			cpru & 871/2415 & 239 & day & 10.3 & 65 \\
+			\hline
+			cpza & 43/87 & 20 & day & 0.6 & 5 \\
+			cpza & 100/283 & 333 & day & 4.3 & 27 \\
+			cpza & 250/711 & 369 & day & 7.9 & 66 \\
+			cpza & 1108/2778 & 369 & day & 11.7 & 69 \\
+			\hline
+			montr & 49/77 & 20 & day & 0.7 & 3 \\
+			montr & 100/164 & 359 & day & 1.5 & 10 \\
+			montr & 217/349 & 359 & day & 3.8 & 29 \\
+			\hline
+			sncf & 20 & 8 & day &  &  \\
+			sncf & 30 & 10 & day &  &  \\
+			sncf & 50 & 20 & day &  &  \\
+			sncf & 100 & - & day &  &  \\
+			sncf & 250 & - & day &  &  \\
+			sncf & 500 & - & day &  &  \\
+			sncf & 750 & - & day &  &  \\
+			sncf & 1000 & - & day &  &  \\
+			sncf & 1500 & - & day &  &  \\
+			sncf & 2000 & - & day &  &  \\
+			sncf & full & - & day &  &  \\
+			\hline
+			zsr & 100/268 & 10000 & year & 101.4 & 1250 \\
+			zsr & 233/588 & 10000 & year & 170.1 & 1219 \\
+			zsr & 233/588 & 60308 & year & TODO & TODO \\
+			zsr & 96/252 & 142 & day & 1.9 & 14 \\
+			zsr & 225/514 & 142 & day & 2.4 & 19 \\
+		\end{tabular}}
+		\caption{\label{tab:usps}$\tau$ - the USP coefficient for different timetables}
+		\normalsize
+	\end{table}
+	
+	\textbf{Query time}. Query time depends also on the USP coefficient of a given pair of cities, as we have to try out all USPs for that given pair. As each reconstruction of the connection from the respective USP costs linear time, the time complexity can be estimated as $\mathcal{O}(\tau n)$. As $\tau$ is basically a constant and we need linear time to actually output a connection, this can be deemed as optimal complexity. \\
+	
+	\textbf{Stretch}. The algorithm is exact. \\
+    
+    \section{USP-OR-A}
+    
+    With \textit{USP-OR} the main disadvantage is its space consumption. We may decrease this space complexity by pre-computing USPs only among \textit{some} nodes, which we will call \textbf{access nodes} (AN). It would be suitable for this access node set (denoted $Acc$) to have several properties, which will be clear from the way we will use it later. Before we list these properties, we need to establish a few terms. We will call a \textbf{neighbourhood} of a city $v$ ($neigh_{Acc}(v)$) the smallest set of cities reachable from $v$ \textit{not} via access nodes in the underlying graph. Then, the access nodes belonging to the city's neighbourhood will be called the \textbf{local access nodes} ($LAN_{Acc}(v)$). Intuitively, the local access nodes for a node $v$ form some kind of separator between the $v$'s neighbourhood and the rest of the graph.\\
+    
+    Now we may formulate the three desired properties of the access node set $Acc$:
+    \begin{itemize}
+    	\item The access node set is sufficiently small $|Acc| = \mathcal{O}(\sqrt{n})$
+    	\item The average neighbourhood size is sufficiently small $avg_{v} \; neigh_{Acc}(v) = \mathcal{O}(\sqrt{n})$
+    	\item The number of local access nodes for each node is bound by a constant $LAN_{Acc}(v) < l$
+    \end{itemize}
+	\hspace{\fill}
+	
+	%Note that we are talking here in the big $\mathcal{O}$ notation and using ``constant $l$''. This is meant in such a way, that by increasing 
+    
+    First we pre-compute some information on the timetable:
+    \begin{itemize}
+    	\item LANs for each city of the UG. Note that the only LAN for an access node is itself.
+    	\item The so called \textbf{back local access nodes} (back-LANs) for each city. We find them as we found LANs, but in underlying graph with reversed orientation.
+    	\item The back-neighbourhoods, created in the previous step
+    	\item All USPs among access nodes
+    \end{itemize}
+    \hspace{\fill}
+    
+    Upon a query from $u$ to $v$ at time $t$ ($(u, t, v)$) , we will:
+    \begin{enumerate}
+    	\item Do a local search (Dijkstra) in the neighbourhood of $u$, until we reach all of its LANs (each of them we reach at some specific time). The so-called \textbf{local step}
+    	\item Next we take back-LANs for the vertex $v$ and with the help of the pre-computed USPs we get the earliest arrival to each of them. The so-called \textbf{usp step}
+    	\item Finally we run a Dijkstra from each of $v$'s back-LANs, restricted to the back-neighbourhood of $v$. The so-called \textbf{final step}
+    \end{enumerate}
+    \hspace{\fill}
+    
+    \begin{figure}[h!]
+		\begin{center}
+			\inputTikZ{./tikzpics/uspora}
+		\end{center}
+		\caption{\label{fig:uspora} Principle of access nodes in \textit{USP-OR-A} algorithm}
+	\end{figure}
+	
+	Let us now have a look at the four parameters of this method. \\
+	
+	\textbf{Preprocessing time}. We have to run a local search, e.g. Dijkstra's algorithm, from each city in the graph, terminating at the city's LANs. Thus the Dijkstra's algorithm runs in $neigh_{Acc}^{2}(v)$. We have $\mathcal{O}(n)$ cities with average neighbourhood of the size $\mathcal{O}(\sqrt{n})$, leading to time complexity $\mathcal{O}(n^{2})$. However, we also have to pre-compute the USPs among all pairs of access nodes, which takes time at most $\mathcal{O}(hn^{2.5})$. \\
+	
+	TODO \textbf{Lema with average}. \\
+	
+	\textbf{Preprocessed space}. The pre-processed space consumption is now decreased to $\mathcal{O}(\tau n^{2})$ as we have at most $\mathcal{O}(n)$ pairs of access nodes for which we pre-compute USPs. We remember other things as well but their space complexity is bound by the mentioned term. \\
+
+	\textbf{Query time}. The \textit{local step} takes at most $\mathcal{O}(n)$ time. In \textit{USP step} we try all USPs for all pairs of $u$'s LANs and $v$'s back-LANs, leading to $\mathcal{O}(l^{2} \tau n)$, which is linear if we consider $\tau$ and $l$ constant. Finally, the \textit{final step} makes $l$ Dijkstra searches in the neighbourhood of $v$, which again takes linear time. Thus the overall query time may also be considered linear. \\
+	
+	\textbf{Stretch}. The algorithm is exact. \\
+    
+	\section{Choosing the right Access node set}
+	
+	The challenge in \textit{USP-OR-A} comes down to selection of the best access node set, or at least such that satisfies the three mentioned properties. There was a detected possibility for a trade-off - by increasing the access node set size, the average number of LANs as well as average neighbourhood size went down. \\
+	
+	\begin{table}[h!]{
+		\scriptsize
+	    \begin{tabular}{l|c|c|c}
+		%legend
+		\hline
+			\rowcolor{tablehead}
+           	\textbf{Selected by} & 
+           	\textbf{Size of AN set} &
+           	\textbf{Avg. LAN size} &
+           	\textbf{Avg. neighborhood size} \\
+        %data
+        \hline
+			high BC & 33 & 10.65 & 426.5 \\
+			high BC & 55 & 3.5 & 92.1 \\
+			high BC & 75 & 2.8 & 60.5 \\
+			high degree & 33 & 19.76 & 484 \\
+			high degree & 55 & 6.9 & 95 \\
+			high degree & 75 & 2.54 & 34.7 \\
+        \end{tabular}}
+		\caption{\label{tab:accnodesza} Properties of access nodes selected by different methods. For underlying graph of \textit{cpza} (1128 vertices, $\sqrt{1128} \approx 33$)}
+        \normalsize
+	\end{table}
+	
+	\begin{table}[h!]{
+		\scriptsize
+	    \begin{tabular}{l|c|c|c|c}
+		%legend
+		\hline
+			\rowcolor{tablehead}
+           	\textbf{Selected by} & 
+           	\textbf{n/m} &
+           	\textbf{Size of AN set} &
+           	\textbf{Avg. neighborhood size} ($\sqrt{n}$) &
+           	\textbf{Avg. LAN size} \\
+        %data
+        \hline
+			high degree & 2646/7994 & 182 & 49.8 (51.4) & 4.24 \\
+			high degree & 2000/6075 & 130 & 44.3 (44.7) & 4.25 \\
+			high degree & 1500/4548 & 70 & 38.2 (38.7) & 3.42 \\
+			high degree & 1000/3216 & 52 & 30.1 (31.6) & 3.23 \\
+			high degree & 750/2415 & 40 & 26 (27.3) & 2.97 \\
+			high degree & 500/1583 & 22 & 22 (22.3) & 2.3 \\
+			high degree & 250/835 & 25 & 16.6 (15.8) & 3.36 \\
+			high degree & 100/313 & 16 & 10.4 (10) & 2.13 \\
+			high BC & 2646/7994 &  &  &  \\
+			high BC & 2000/6075 &  &  &  \\
+			high BC & 1500/4548 &  &  &  \\
+			high BC & 1000/3216 &  &  &  \\
+			high BC & 750/2415 &  &  &  \\
+			high BC & 500/1583 &  &  &  \\
+			high BC & 250/835 &  &  &  \\
+			high BC & 100/313 &  &  &  \\
+        \end{tabular}}
+		\caption{\label{tab:accnodessncf} Properties of access nodes selected by different methods. For underlying graph of \textit{sncf} (French railways)}
+        \normalsize
+	\end{table}
+		
+	\pagebreak
+	
+	%---------------------------------------------------------------------
+    %   OPEN POINTS
+    %---------------------------------------------------------------------    
+    \section{Open points}
+    \begin{itemize}
+    	\item -
+    \end{itemize}
+    
+    %---------------------------------------------------------------------
+    %   TO DO
+    %---------------------------------------------------------------------    
+    \section{To do}
+    
+	\textbf{Theory:}
+	\begin{itemize}
+		\item Properties propagation in step a), step b)...
+	\end{itemize}
+	\hspace*{\fill}
+    
+    \textbf{Practice:}
+    \begin{itemize}
+    		\item Finish analysis of real-world timetables
+    \end{itemize}
+
+    %---------------------------------------------------------------------
+    %   bibliography
+    %---------------------------------------------------------------------
+    \pagebreak
+    \bibliographystyle{is-alpha}
+    %compile latex, bibtex, latex, latex
+    \bibliography{../bibl}{}
+\end{document}

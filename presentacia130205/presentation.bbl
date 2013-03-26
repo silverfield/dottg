@@ -1,0 +1,49 @@
+\begin{thebibliography}{MHSWZ07}
+\ifx \showCODEN  \undefined \def \showCODEN #1{CODEN #1}  \fi
+\ifx \showISBN   \undefined \def \showISBN  #1{ISBN #1}   \fi
+\ifx \showISSN   \undefined \def \showISSN  #1{ISSN #1}   \fi
+\ifx \showLCCN   \undefined \def \showLCCN  #1{LCCN #1}   \fi
+\ifx \showPRICE  \undefined \def \showPRICE #1{#1}        \fi
+\ifx \showURL    \undefined \def \showURL {URL }          \fi
+\ifx \path       \undefined \input path.sty               \fi
+\ifx \ifshowURL \undefined
+     \newif \ifshowURL
+     \showURLtrue
+\fi
+
+\bibitem[BDSV09]{timedepch09}
+Gernot~Veit Batz, Daniel Delling, Peter Sanders, and Christian Vetter.
+\newblock Time-dependent contraction hierarchies.
+\newblock In Irene Finocchi and John Hershberger, editors, {\em ALENEX}, pages
+  97--105. SIAM, 2009.
+
+\bibitem[BFM06]{transit06}
+Holger Bast, Stefan Funke, and Domagoj Matijevic.
+\newblock Transit— ultrafast shortest-path queries with linear-time
+  preprocessing, 2006.
+
+\bibitem[Del08]{sharc08}
+Daniel Delling.
+\newblock Time-dependent sharc-routing.
+\newblock In Dan Halperin and Kurt Mehlhorn, editors, {\em ESA}, volume 5193 of
+  {\em Lecture Notes in Computer Science}, pages 332--343. Springer, 2008.
+\newblock \showISBN{978-3-540-87743-1}.
+
+\bibitem[DPW09]{engtimeexp09}
+Daniel Delling, Thomas Pajor, and Dorothea Wagner.
+\newblock Engineering time-expanded graphs for faster timetable information.
+\newblock In Ravindra Ahuja, Rolf Möhring, and Christos Zaroliagis, editors,
+  {\em Robust and Online Large-Scale Optimization}, volume 5868 of {\em Lecture
+  Notes in Computer Science}, pages 182--206. Springer Berlin / Heidelberg,
+  2009.
+\newblock \showISBN{978-3-642-05464-8}.
+
+\bibitem[MHSWZ07]{timetablemodelsalgs07}
+Matthias M{\"u}ller-Hannemann, Frank Schulz, Dorothea Wagner, and Christos
+  Zaroliagis.
+\newblock {\em Algorithmic Methods for Railway Optimization}, volume 4359 of
+  {\em Lecture Notes in Computer Science}, chapter {Timetable Information:
+  Models and Algorithms}, pages 67 -- 90.
+\newblock Springer, 2007.
+
+\end{thebibliography}

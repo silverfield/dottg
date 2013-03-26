@@ -1,0 +1,577 @@
+%TOASK
+%---------------------------------------------------------------------
+%   documentclass
+%---------------------------------------------------------------------
+\documentclass[]{beamer}
+% Class options include: notes, notesonly, handout, trans,
+%                        hidesubsections, shadesubsections,
+%                        inrow, blue, red, grey, brown
+
+%---------------------------------------------------------------------
+%   packages
+%---------------------------------------------------------------------
+% Theme for beamer presentation.
+\usepackage{beamerthemesplit}
+% Other themes include: beamerthemebars, beamerthemelined,
+%                       beamerthemetree, beamerthemetreebars
+\usepackage[slovak]{babel}
+\usepackage[enc=cp1250]{hrlatex}
+\usepackage[T1]{fontenc} %pekne makcene
+\usepackage{lmodern} %spolu s T1 smooth font!
+\usepackage{tikz}
+\usepackage{cite} %bibtex
+\usepackage[numbers]{natbib}
+\usepackage{color} %for \textcolor{declared-color}{text}
+\usepackage{floatflt} %to have tables and text beside
+\usepackage{colortbl} %for \rowcolor command
+\usepackage{scalefnt} %for scale font
+
+%---------------------------------------------------------------------
+%   settings
+%---------------------------------------------------------------------
+\graphicspath{{./pics/}} %picture dir
+
+\definecolor{tablehead}{RGB}{238,233,233} %nice smooth grey
+
+\def\Tiny{ \font\Tinyfont = cmr10 at 3pt \relax  \Tinyfont}
+
+\pgfrealjobname{presentation} % <-- NOTE: this needs to be the real document's basename
+                        %     (else you'll only get an empty output file)
+
+\newif\iffinal % introduce a switch for draft vs. final document
+\finaltrue % use this to compile the final document
+\iffinal
+  \newcommand{\inputTikZ}[1]{%
+    \input{#1.tikz}%
+  }
+\else
+  \newcommand{\inputTikZ}[1]{%
+    \beginpgfgraphicnamed{#1-external}%
+    \input{#1.tikz}%
+    \endpgfgraphicnamed%
+  }
+\fi
+
+%---------------------------------------------------------------------
+%   environments
+%---------------------------------------------------------------------
+\newcommand{\newblock}{}
+
+%---------------------------------------------------------------------
+%   theme
+%---------------------------------------------------------------------
+\usetheme{Copenhagen}
+\usecolortheme{wolverine}
+
+%---------------------------------------------------------------------
+%   data
+%---------------------------------------------------------------------
+\title{\textbf{Distance oracles for timetable graphs}}
+\subtitle{Vzdialenostné orákula pre grafy reprezentujúce cestovné poriadky}
+\author{František Hajnoviè}
+\institute{FMFI UK}
+\date{\today}
+
+%---------------------------------------------------------------------
+%   document
+%---------------------------------------------------------------------
+\begin{document}
+
+%---------------------------------------------------------------------
+%   Titulka
+%---------------------------------------------------------------------
+    \begin{frame}
+        \titlepage
+        \begin{center}
+            Školite¾: doc. RNDr. Královiè PhD.
+        \end{center}
+    \end{frame}
+
+%---------------------------------------------------------------------
+%   Hlavná tématika
+%---------------------------------------------------------------------
+    \begin{frame}
+        \frametitle{Hlavná tématika}
+        \begin{itemize}
+            \item Rıchle h¾adanie najkratších spojení v danom cestovnom poriadku
+        \end{itemize}
+        \begin{figure}[h!]
+            \includegraphics[height=1.65in]{mapa_mhd.jpg}
+            \caption{\label{fig:mapamhd} Mapa MHD v BA \cite{MapImhd}}
+        \end{figure}
+    \end{frame}
+
+%---------------------------------------------------------------------
+%   Obsah
+%---------------------------------------------------------------------
+    \begin{frame}
+        \frametitle{Obsah}
+        \tableofcontents
+    \end{frame}
+
+%---------------------------------------------------------------------
+%   1. cast - objasnenie problematiky
+%---------------------------------------------------------------------
+    \section{Objasnenie problematiky}
+    \begin{frame}
+        \frametitle{Objasnenie problematiky}
+        \begin{center}
+            \textbf{Objasnenie problematiky}
+        \end{center}
+    \end{frame}
+
+        %---------------------------------------------------------------------
+        %   Vyuitie
+        %---------------------------------------------------------------------
+        \subsection{Vyuitie}
+        \begin{frame}
+            \frametitle{Vyuitie}
+            \begin{itemize}
+                \item<1-> Portály typu \emph{cp.sk, imhd.sk}...
+                \item<2-> \textbf{Väèší scale} - napr. nad mapou Európy
+            \end{itemize}
+        \end{frame}
+
+        %---------------------------------------------------------------------
+        %   Timetable graf
+        %---------------------------------------------------------------------
+        \subsection{Timetable graf}
+        \begin{frame}
+            \frametitle{Timetable graf}
+            \begin{itemize}
+                \item<1-> \textbf{Underlying graph} - podkladovı graf (mapa)
+                \item<2-> \textbf{Timetable} - cestovnı poriadok nad danım podkladovım grafom. Mnoina elementárnych spojení
+                \item<3-> \textbf{Time-expanded graph} - èasovo expandovanı graf. Reprezentácia cestovného poriadku cez graf
+                \begin{itemize}
+                    \item<4-> \textbf{Timetable graph} - budeme bra ako synonymum pre èasovo expandovanı graf
+                \end{itemize}
+            \end{itemize}
+        \end{frame}
+
+            \subsubsection*{Podkladovı graf}
+            \begin{frame}
+                \frametitle{Podkladovı graf}
+                \begin{figure}[h!]
+                    \begin{center}
+                        \inputTikZ{./tikzpics/basegraph}
+                    \end{center}
+                    \caption{\label{fig:mapamhd} Podkladovı graf}
+                \end{figure}
+            \end{frame}
+
+            \subsubsection*{Cestovnı poriadok}
+            \begin{frame}
+                \frametitle{Cestovnı poriadok}
+                \begin{table}{
+                    \scriptsize
+                    \begin{tabular}{c|c|c|c}
+                        %legend
+                        \hline
+                            \rowcolor{tablehead}
+                            \multicolumn{2}{>{\columncolor{tablehead}}c|}{\textbf{Place}} & \multicolumn{2}{>{\columncolor{tablehead}}c}{\textbf{Time}} \\
+                            \hline
+                            \rowcolor{tablehead}
+                            \textbf{From} & \textbf{To} & \textbf{Departure} & \textbf{Arrival} \\
+                        %data
+                        \hline
+                            A & B & 10:00 & 10:45 \\
+                            A & B & 11:00 & 11:45 \\
+                            A & B & 12:00 & 12:45 \\
+                            A & C & 9:30 & 10:00 \\
+                            A & C & 10:15 & 10:45 \\
+                            C & D & 11:00 & 11:30 \\
+                            C & D & 13:00 & 13:30 \\
+                            C & D & 12:20 & 12:35 \\
+                            C & D & 12:40 & 12:55 \\
+                            C & D & 13:00 & 13:15 \\
+                            C & B & 12:20 & 12:50 \\
+                            C & B & 13:30 & 14:00 \\
+                            D & A & 13:00 & 14:00 \\
+                    \end{tabular}}
+                    \caption{Cestovnı poriadok nad predošlım grafom}
+                    \normalsize
+                \end{table}
+            \end{frame}
+
+            \subsubsection*{Timetable graf}
+            \begin{frame}
+                \frametitle{Timetable graf}
+                \begin{figure}[h!]
+                    \begin{center}
+                        \inputTikZ{./tikzpics/timeexpanded}
+                    \end{center}
+                    \caption{Timetable/Time-expanded graf pre predchádzajúci cestovnı poriadok}
+                \end{figure}
+            \end{frame}
+
+            \subsubsection*{Vyh¾adávanie cez najkratšiu cestu}
+            \begin{frame}
+                \frametitle{Vyh¾adávanie cez najkratšiu cestu}
+
+                \begin{itemize}
+                    \item Pridáme pre kadé mesto podkladového grafu jeden vrchol
+                    \item Pridáme orientované hrany s nulovou váhou idúce z kadého vrchola timetable grafu do patrièného nového vrchola
+                \end{itemize}
+
+                \begin{figure}[h!]
+                    \scriptsize
+                    \begin{center}
+                        \inputTikZ{./tikzpics/timeexpanded_search}
+                    \end{center}
+                    \caption{Vyh¾adávanie v timetable grafoch cez najkratšiu cestu}
+                \end{figure}
+            \end{frame}
+
+            \subsubsection*{Iné definície timetable grafu ?}
+            \begin{frame}
+                \frametitle{Iné definície timetable grafu ?}
+                \begin{itemize}
+                    \item<1-> \textbf{Underlying graph} - podkladovı graf (mapa)
+                    \item<1-> \textbf{Timetable} - cestovnı poriadok nad danım podkladovım grafom. Mnoina elementárnych spojení
+                    \item<1-> \textbf{Time-expanded graph} - èasovo expandovanı graf. Reprezentácia cestovného poriadku cez graf
+                    \begin{itemize}
+                        \item<1-> \textbf{Timetable graph} - budeme bra ako synonymum pre èasovo expandovanı graf
+                    \end{itemize}
+                    \item<2-> Aj iné monosti zadefinovania timetable grafu
+                    \begin{itemize}
+                        \item<3-> \textbf{Time-dependent graph} ~\cite{springerlink:10.1007/978-3-642-05465-57} - èasovo závislı graf. Vlastne iba podkladovı graf, kde ceny hrán sa urèia on-the-fly za behu algoritmu
+                    \end{itemize}
+                \end{itemize}
+            \end{frame}
+
+        %---------------------------------------------------------------------
+        %   Motivácia
+        %---------------------------------------------------------------------
+        \subsection{Motivácia}
+        \begin{frame}
+            \frametitle{Motivácia}
+            \begin{itemize}
+                \item<1-> Èo je zlé na Dijkstrovom algoritme?
+                \begin{itemize}
+                    \item<2-> ``Vytunená'' verzia v $\mathcal{O}(m + n \log n)$, Fibonacciho haldy
+                \end{itemize}
+                \item<3-> \emph{London Underground} - 270 staníc, 11 liniek (v priemere 30 staníc kadá, v priemere 10 minútové intervaly) \cite{LondonUnd}
+                \begin{itemize}
+                    \item<4-> Príchod alebo odchod vlaku zo stanice - zhruba kadıch 8 minút jedna udalos
+                    \item<5-> 20h = 1200 minút operaèná doba denne
+                    \item<6-> 150 udalostí/deò/stanica $\rightarrow$ \textbf{34500} vrcholov timetable grafu pre cestovnı poriadok na jeden deò
+                \end{itemize}
+                \item<7-> To je len malá sie s 270 stanicami - \emph{èo celoeurópsky systém elezníc} (len v UK cca 10000 staníc)?
+            \end{itemize}
+        \end{frame}
+
+        %---------------------------------------------------------------------
+        %   Distance oracles
+        %---------------------------------------------------------------------
+        \subsection{Distance oracles}
+        \begin{frame}
+            \frametitle{Distance oracles}
+            \begin{itemize}
+                \item<1-> Odpoveï na ``pomalé'' algoritmy (Dijkstra, A*)
+                \item<2-> Štruktúra, èo odpovedá na queries ``Aká je najkratšia cesta z bodu A do bodu B?''
+                \item<3-> 4 parametre, èo sa snaíme \emph{tlaèi dole}:
+                \begin{itemize}
+                    \item<3-> \textbf{Preprocessing time} - èas predspracovania
+                    \item<3-> \textbf{Size} - vısledná ve¾kos štruktúry
+                    \item<3-> \textbf{Query time} - rıchlos query
+                    \item<3-> \textbf{Stretch} - presnos
+                \end{itemize}
+            \end{itemize}
+            \uncover<4->{\begin{figure}[h!]
+                \includegraphics[height=0.8in]{dodiagram.png}
+                \caption{Metóda DO}
+            \end{figure}}
+        \end{frame}
+
+            \subsubsection*{Extrémne riešenia}
+            \begin{frame}
+                \frametitle{Extrémne riešenia}
+                \begin{itemize}
+                    \item<1-> \textbf{Dijkstrov algoritmus}
+                    \begin{itemize}
+                        \item<2-> \emph{Preprocessing} = 0, \emph{Size} = 0, \emph{Query time} = $\mathcal{O}(m + n \log n)$, \emph{Stretch} = 1
+                    \end{itemize}
+                    \item<3-> \textbf{Predrátanie} cez Floyd–Warshallov algoritmus a uloenie do tabu¾ky
+                    \begin{itemize}
+                        \item<4-> \emph{Preprocessing} = $\mathcal{O}(n^3)$, \emph{Size} = $\mathcal{O}(n^3)$, \emph{Query time} = $\mathcal{O}(1)$, \emph{Stretch} = 1
+                    \end{itemize}
+                    \item<5-> Cestná sie Európy má cca \textbf{20 000 000} vrcholov (kriovatiek) ~\cite{DBLP:conf/esa/SandersS05}
+                    \item<6-> Na queries má server \emph{odpoveda on-line}. Potenciálne ve¾a queries za èasovú jednotku
+                \end{itemize}
+            \end{frame}
+
+            \subsubsection*{Existujúce riešenia cez DO}
+            \begin{frame}
+                \frametitle{Existujúce riešenia cez DO}
+                \begin{itemize}
+                    \item<1-> \emph{Pre všeobecné grafy neexistuje efektívne DO} %TOASK
+                    \begin{itemize}
+                        \item<2-> \textbf{Thorup \& Zwick} ~\cite{DBLP:journals/jacm/ThorupZ05}, DO pre všeobecné grafy:
+                            \begin{itemize}
+                                \item<3-> \emph{Preprocessing} = $\mathcal{O}(k m n^{1/k})$, \emph{Size} = $\mathcal{O}(k n^{1 + 1/k})$, \emph{Query time} = $\mathcal{O}(k)$, \emph{Stretch} = $2k - 1$
+                                \item<3-> Ve¾kos DO je v zásade optimálna
+                            \end{itemize}
+                        \item<4-> \textbf{C. Gavoille} ~\cite{Gavoille200485}, Distance labelling: Pre ¾ubovo¾né $n$ existuje graf ve¾kosti $n$
+                        \begin{itemize}
+                            \item<5-> Existuje exaktná schéma olablovania ve¾ká $n \; 3 \log n + o(n \log n)$
+                            \item<5-> Akáko¾vek schéma olablovania ve¾kosti $\leq n^{3}/2 - \mathcal{O}(n^{2} \log n)$ má vzdialenostnú funkciu, ktorá je príliš èasovo nároèná na vıpoèet z praktického h¾adiska
+                        \end{itemize}
+                    \end{itemize}
+                    \item<6-> Existujúce komerèné riešenia ve¾mi èasto \emph{nemajú záruku exaktnosti} ~\cite{DBLP:conf/esa/SandersS05}
+                \end{itemize}
+            \end{frame}
+
+%---------------------------------------------------------------------
+%   2. cast - teoretická náplò
+%---------------------------------------------------------------------
+    \section{Teoretická náplò}
+    \begin{frame}
+        \frametitle{Teoretická náplò}
+        \begin{center}
+            \textbf{Teoretická náplò}
+        \end{center}
+    \end{frame}
+
+        %---------------------------------------------------------------------
+        %   Highway dimension
+        %---------------------------------------------------------------------
+        \subsection{Highway dimension}
+        \begin{frame}
+            \frametitle{Highway dimension}
+            \begin{itemize}
+                \item<1-> Prístup typu - ak má podkladovı graf nejakú (elanú) vlastnos, \emph{má ju aj expandovanı graf} (timetable graf)?
+                \item<2-> \textbf{Highway dimension} (intuícia) - graf má malú HD, ak pre oblas kadej ve¾kosti máme malú mnoinu vrcholov, cez ktoré prechádzajú všetky dostatoène dlhé najkratšie cesty v grafe.
+                \item<3-> \textbf{Formálne} - $\forall r \in R^{+}, \forall u \in V_{G}, \exists S \subseteq B_{u, 4r}, |S| \leq h,$ such that $\forall v, w \in B_{u, 4r}:$
+                    \begin{itemize}
+                        \item<3-> if $|P(v, w)| > r$ and $P(v, w) \subseteq B_{u, 4r}$ then $P(v, w) \cap S \neq \emptyset$
+                    \end{itemize}
+            \end{itemize}
+        \end{frame}
+
+            \subsubsection*{Highway dimension}
+            \begin{frame}
+                \frametitle{Highway dimension}
+                \begin{figure}[h!]
+                    \scriptsize
+                    \begin{center}
+                        \inputTikZ{./tikzpics/highwaydim}
+                    \end{center}
+                    \caption{Highway dimension}
+                \end{figure}                
+            \end{frame}
+
+            \subsubsection*{Malá HD}
+            \begin{frame}
+                \frametitle{Malá HD}
+                \begin{itemize}
+                    \item<1-> Malá HD \emph{garantuje nízku èasovú zloitos} queries viacerıch \emph{exaktnıch} DO metód, ktoré navyše majú rıchle predspracovanie a ve¾kos DO iba o èosi väèšiu ako vstup ~\cite{DBLP:conf/soda/AbrahamFGW10}
+                    \item<2-> Cestná sie, internet, sociálna sie - majú \emph{predpokladanú} malú HD
+                \end{itemize}
+            \end{frame}
+
+            \subsubsection*{Highway hierarchies}
+            \begin{frame}
+                \frametitle{Highway hierarchies}
+                \begin{itemize}
+                    \item<1-> \textbf{Highway hierarchies} ~\cite{DBLP:conf/esa/SandersS05} - algoritmus budujúci ``hierarchiu dia¾níc''
+                    \item<2-> \emph{Pôvodnı graf} = Graf $\rightarrow$ \textbf{Highway network} $\rightarrow$ \textbf{Contracted highway network} = \emph{Novı graf}
+                    \item<3-> Všetky highway networks $\rightarrow$ \textbf{Highway hierarchy}
+                    \item<4-> Nakoniec \emph{obojsmernı} Dijkstrov algoritmus na hierarchii dia¾níc
+                    \item<5-> Na mape cestnej siete USA cca. \textbf{2000} krát rıchlejšie ako Dijkstrov algoritmus
+                \end{itemize}
+            \end{frame}
+
+            \subsubsection*{Highway hierarchies}
+            \begin{frame}
+                \frametitle{Highway hierarchies}
+                \begin{figure}[h!]
+                    \includegraphics[height=2.1in]{hwhier.png}
+                    \caption{Najkratšia cesta cez Highway hierarchies \cite{HighHierHasten05}}
+                \end{figure}
+            \end{frame}
+
+            \subsubsection*{Issues s prenosom HD}
+            \begin{frame}
+                \frametitle{Issues s prenosom HD}
+                \begin{itemize}
+                    \item<1-> \textbf{Vıznam váh} hrán v podkladovom grafe
+                    \item<2-> \textbf{Orientované hrany}
+                    \item<3-> \textbf{Èinné èakanie} v danom meste - mono úprava definície HD
+                \end{itemize}
+            \end{frame}
+
+        %---------------------------------------------------------------------
+        %   r(n)-separator
+        %---------------------------------------------------------------------
+        \subsection{r(n)-separator}
+        \begin{frame}
+            \frametitle{r(n)-separator}
+            \begin{itemize}
+                \item<1-> Prístup typu - ak má podkladovı graf nejakú (elanú) vlastnos, má ju aj expandovanı graf (timetable graf)?
+                \item<2-> \textbf{r(n)-separátor} ~\cite{Gavoille200485} - graf má r(n)-separátor ak v òom existuje mnoina vrcholov $S$, $|S| \leq r(n)$, ktorej odstránením sa graf rozpadne na kompenenty ve¾kostí $\leq 2n/3$, z ktorıch kadı má r(2n/3)-separátor
+            \end{itemize}
+            \uncover<3->{\begin{figure}[h!]
+                \includegraphics[height=1in]{separator.png}
+                \caption{Separátor ~\cite{SeparatorPict}}
+            \end{figure}}
+        \end{frame}
+
+            \subsubsection*{Separátor a jeho vyuitie}
+            \begin{frame}
+                \frametitle{Separátor a jeho vyuitie}
+                \begin{itemize}
+                    \item<1-> Definujme $\mathbf{R(n)} = \sum_{i = 0}^{\log_{3/2} n} r(n(2/3)^i)$ . Platí $R(n) = \mathcal{O}(r(n))$ ak $r(n) \geq n^{\epsilon}$, kde $\epsilon > 0$
+                    \item<2-> Pre grafy ve¾kosti $n$ s r(n)-separátorom existuje schéma olabelovania:
+                    \begin{itemize}
+                        \item<3-> \emph{Ve¾kos schémy} olabelovania $\leq \mathcal{O}(n R(n) \log W + n \log^{2} n)$, kde $W$ je najväèšia váha hrany
+                        \item<3-> Vzdialenostná funkcia má \emph{èasovú zloitos} $\mathcal{O}(\log n)$
+                        \item<3-> Poskytnutı je aj algoritmus ~\cite{Gavoille200485}
+                    \end{itemize}
+                    \item<4-> V podstate teda máme DO:
+                    \begin{itemize}
+                        \item<5-> \emph{Preprocessing} = \textbf{záleí..}, \emph{Size} = $\mathcal{O}(n R(n) \log W + n \log^{2} n)$, \emph{Query time} = $\mathcal{O}(\log n)$, \emph{Stretch} = $1$
+                    \end{itemize}
+                \end{itemize}
+            \end{frame}
+
+            \subsubsection*{Separátor a jeho vyuitie}
+            \begin{frame}
+                \frametitle{Separátor a jeho vyuitie}
+                \begin{itemize}
+                    \item<1-> Planárne grafy majú $\mathcal{O}(\sqrt{n})$-separátor ~\cite{GrSepar02}
+                    \item<2-> Nájdenie v planárnych grafoch v èase $\mathcal{O}(n)$
+                    \item<3-> Všeobecne h¾adanie optimálneho separátora je \textbf{NP-akı} problém
+                    \item<4-> Graf \emph{Internetu, sociálnych sietí} majú malé separátory
+                \end{itemize}
+            \end{frame}
+
+            \subsubsection*{Issues s prenosom separátora}
+            \begin{frame}
+                \frametitle{Issues s prenosom separátora}
+                \begin{itemize}
+                    \item<1-> \textbf{Orientované hrany} $\rightarrow$ zmena definície separátora, zmena algoritmu
+                    \item<2-> \textbf{Priamoèiaré expandovanie} separátora nefunguje - nevybalancovanı cestovnı poriadok
+                \end{itemize}
+            \end{frame}
+
+%---------------------------------------------------------------------
+%   3. cast - praktická náplò
+%---------------------------------------------------------------------
+    \section{Praktická náplò}
+    \begin{frame}
+        \frametitle{Praktická náplò}
+        \begin{center}
+            \textbf{Praktická náplò}
+        \end{center}
+    \end{frame}
+
+        %---------------------------------------------------------------------
+        %   Programy
+        %---------------------------------------------------------------------
+        \subsection{Programy}
+        \begin{frame}
+            \frametitle{Programy}
+            \begin{itemize}
+                \item<1-> Viaceré malé programíky v Jave
+                \begin{itemize}
+                    \item<2-> \textbf{Time-expander} - z timetable urobí timetable graf
+                    \item<2-> \textbf{Base graph creater} - z timetable urobí jeho podkladovı graf
+                    \item<2-> \textbf{Picture maker} - z timetable grafu urobí obrázok cez Latexovskı package \emph{tikz}
+                \end{itemize}
+                \item<3-> \textbf{Interface na testovanie} a menšie štatistiky rôznych DO metód
+                \begin{itemize}
+                    \item<4-> Dáta z cp.sk, okolie iliny a Ruomberku
+                \end{itemize}
+            \end{itemize}
+        \end{frame}
+
+            \subsubsection*{Time-expanding}
+            \begin{frame}
+                \frametitle{Time-expanding}
+                \begin{figure}[h!]
+                    \includegraphics[height=2.1in]{timeexp.png}
+                    \caption{Time-expanding}
+                \end{figure}
+            \end{frame}
+
+        %---------------------------------------------------------------------
+        %   DO metóda pre timetable graphs
+        %---------------------------------------------------------------------
+        \subsection{DO metóda pre timetable graphs}
+        \begin{frame}
+            \frametitle{DO metódy pre timetable graphs}
+            \begin{itemize}
+                \item<1-> \textbf{Návrh}, implementácia a testovanie DO metódy pre timetable grafy
+                \item<2-> \textbf{Úprava algoritmov} \emph{Highway hierarchies} a \emph{Distance labeling cez separátory}
+            \end{itemize}
+        \end{frame}
+
+%---------------------------------------------------------------------
+%   Plán B
+%---------------------------------------------------------------------
+    \begin{frame}
+        \frametitle{Plán B}
+        \begin{itemize}
+            \item<1-> \textbf{Plán A} je sústredi sa na teoretickejšiu èas, prenášanie vlastností pri expandovaní, úpravu existujúcich algoritmov
+            \item<2-> \textbf{Plán B} je sústredi sa na praktickejšiu èas, robi štatistiky na reálnych dátach
+            \begin{itemize}
+                \item<3-> \emph{Plán B je èasovo nároènı}!
+            \end{itemize}
+        \end{itemize}
+    \end{frame}
+
+%---------------------------------------------------------------------
+%   Progress diplomovky
+%---------------------------------------------------------------------
+    \begin{frame}
+        \frametitle{Progress diplomovky}
+        \begin{figure}[h!]
+            \includegraphics[height=2.5in]{progress.png}
+            \caption{Progress diplomovky}
+        \end{figure}
+    \end{frame}
+
+%---------------------------------------------------------------------
+%   Elektrièkové problémy
+%---------------------------------------------------------------------
+    \begin{frame}
+         \frametitle{Elektrièkové problémy}
+         \begin{columns}[c]
+         \column{2in}
+         \begin{itemize}
+            \item<1-> Ako sa prenášajú jednotlivé vlastnosti pri expandovaní, do akej miery
+            \item<2-> Ako upravi algoritmy pre najkratšie cesty pre h¾adanie v timetable grafoch
+            \item<3-> Ako vyui istú regularitu v cestovnıch poriadkoch k tvorbe efektívneho DO
+         \end{itemize}
+         \column{2in}
+         \framebox{\includegraphics[height=1.5in]{elektricka.jpg}}
+        \end{columns}
+    \end{frame}
+
+%---------------------------------------------------------------------
+%   Bibliografia
+%---------------------------------------------------------------------
+    \begin{frame}
+        \frametitle{Bibliografia}
+        \tiny
+        \bibliographystyle{is-alpha}
+        \bibliography{../dipl/bibl}
+        %compile latex, bibtex, latex, latex
+    \end{frame}
+
+%---------------------------------------------------------------------
+%   Otázky a nápady
+%---------------------------------------------------------------------
+    \begin{frame}
+        \frametitle{Otázky a nápady}
+        \begin{center}
+            \textbf{Ïakujem za pozornos!}
+        \end{center}
+        \begin{itemize}
+            \item Anglická/slovenská terminológia v slidoch
+            \item Inı plán B
+            \item Ïa¾šie zaujímavé vlastnosti grafov
+        \end{itemize}
+    \end{frame}
+
+\end{document}

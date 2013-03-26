@@ -1,0 +1,286 @@
+%---------------------------------------------------------------------
+%   documentclass
+%---------------------------------------------------------------------
+\documentclass[a4paper]{article}
+
+%---------------------------------------------------------------------
+%   packages
+%---------------------------------------------------------------------
+\usepackage{mathtools}
+\usepackage[english]{babel}
+\usepackage[enc=cp1250]{hrlatex}
+\usepackage[T1]{fontenc} %pekne makcene
+\usepackage{lmodern} %spolu s T1 smooth font!
+\usepackage{hyperref} %odkazy
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cite} %bibtex
+\usepackage{enumitem}
+\usepackage{titlesec} %section titles font size change
+\usepackage{color} %for \definecolor
+\usepackage{colortbl} %for \rowcolor command
+\usepackage{eucal} %for nice letters like \mathcal{A}
+\usepackage{tikz}
+\usepackage{scalefnt}
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\usepackage{multirow}% http://ctan.org/pkg/multirow
+\usepackage{pifont} %for ticks (check symbols)
+\usepackage{listings}
+\usepackage{floatflt} %to have tables and text beside
+\usepackage{courier}
+\usepackage{subcaption}
+\usepackage{lscape}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.pathreplacing}
+
+%---------------------------------------------------------------------
+%   margins
+%---------------------------------------------------------------------
+\oddsidemargin 0.0in
+\evensidemargin 0.0in
+\textwidth 6.1in
+\textheight 23.94cm
+\topmargin -0.35in
+
+%---------------------------------------------------------------------
+%   various settings
+%---------------------------------------------------------------------
+\newif\ifmine % introduce a switch for draft vs. final document
+\minetrue
+
+\newif\iffinal % introduce a switch for draft vs. final document
+\finaltrue % use this to compile the final document
+\iffinal
+  \newcommand{\inputTikZ}[1]{%
+    \input{#1.tikz}%
+  }
+\else
+  \newcommand{\inputTikZ}[1]{%
+    \beginpgfgraphicnamed{#1-external}%
+    \input{#1.tikz}%
+    \endpgfgraphicnamed%
+  }
+\fi
+
+\setlist{nolistsep} %so that lists have normal spacing
+
+\titleformat{\section}{\LARGE\bfseries}{\thesection}{1em}{} %section titles
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{} %subsection titles
+
+\definecolor{tablehead}{RGB}{238,233,233} %nice smooth grey
+
+\setlength{\parindent}{0pt} %we don't need no indentation
+
+\graphicspath{{./pics/}} %picture dir
+
+\definecolor{lstcolor}{RGB}{238,233,233}
+
+\lstset{ %
+    language=Octave,                % choose the language of the code
+    basicstyle=\footnotesize\ttfamily,       % the size of the fonts that are used for the code
+    numbers=left,                   % where to put the line-numbers
+    numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+    stepnumber=1,                   % the step between two line-numbers. If it's 1 each line will be numbered
+    numbersep=5pt,                  % how far the line-numbers are from the code
+    backgroundcolor=\color{lstcolor},   % choose the background color. You must add \usepackage{color}
+    showspaces=false,               % show spaces adding particular underscores
+    showstringspaces=false,         % underline spaces within strings
+    showtabs=false,                 % show tabs within strings adding particular underscores
+    frame=single,	                % adds a frame around the code
+    tabsize=2,	                    % sets default tabsize to 2 spaces
+    captionpos=b,                   % sets the caption-position to bottom
+    breaklines=true,                % sets automatic line breaking
+    breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+    title=\lstname,                 % show the filename of files included with \lstinputlisting; also try caption instead of title
+    escapeinside={\%*}{*)},          % if you want to add a comment within your code
+%    morekeywords={*,...}            % if you want to add more keywords to the set
+	deletekeywords={all, null, length, path, function}
+}
+
+%---------------------------------------------------------------------
+%   environments
+%---------------------------------------------------------------------
+\renewenvironment{abstract}[1]
+{
+	\Large
+	\begin{center}
+		\textbf{#1}
+	\end{center}
+	
+	\normalsize
+	
+	\addtolength{\leftskip}{1in}
+	\addtolength{\rightskip}{1in}
+	\setlength{\parindent}{0in}
+}
+{
+}
+
+\newenvironment{itemizesp}
+{
+    \begin{itemize}
+}
+{
+    \end{itemize}
+}
+
+\newcommand{\deftoken}{\boldmath{$\mathcal{DEFINITION}$}}
+\newcommand{\restoken}{\boldmath{$\mathcal{RESULT}$}}
+\newcommand{\dotoken}{\boldmath{$\mathcal{DO METHOD}$}}
+\newcommand{\textbff}[1]{{\large \textbf{#1}}}
+\newcommand{\tick}{\ding{52}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{observation}{Observation}
+
+%---------------------------------------------------------------------
+%   magic code
+%---------------------------------------------------------------------
+% Here it is: the code that adjusts justification and spacing around caption.
+\makeatletter
+% http://www.texnik.de/floats/caption.phtml
+% This does spacing around caption.
+\setlength{\abovecaptionskip}{6pt}   % 0.5cm as an example
+\setlength{\belowcaptionskip}{6pt}   % 0.5cm as an example
+% This does justification (left) of caption.
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1: #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    #1: #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother
+
+%---------------------------------------------------------------------
+%   document
+%---------------------------------------------------------------------
+\begin{document}
+    \thispagestyle{empty}
+    %---------------------------------------------------------------------
+    %   topmatter
+    %---------------------------------------------------------------------
+    \title{\textbf{analysis}}
+    \author{František Hajnoviè \\
+    \texttt{ferohajnovic@gmail.com}}
+    \date{\today}
+    \maketitle
+
+    \vskip 0.5cm
+
+    %---------------------------------------------------------------------
+    %   OUTLINE
+    %---------------------------------------------------------------------
+    \tableofcontents
+    
+    \section{Basic}
+    	
+    	\subsection{Real timetables}
+    
+    		\begin{table}{
+                \scriptsize
+                \begin{tabular}{c|c|c|c|c|c}
+                %legend
+                    \hline
+                    \rowcolor{tablehead}
+                    \textbf{Name} & \textbf{Description} & \textbf{El. conns.} & \textbf{Cities} & \textbf{Time range} & \textbf{Height ($h$)} \\
+                %data
+					\hline
+					
+				\end{tabular}}
+				\caption{Data - timetable properties}
+            	\normalsize
+			\end{table}
+			
+		\subsection{Sub-timetable (250)}
+		
+			\begin{table}{
+                \scriptsize
+                \begin{tabular}{c|c|c|c|c|c}
+                %legend
+                    \hline
+                    \rowcolor{tablehead}
+                    \textbf{Name} & \textbf{Description} & \textbf{El. conns.} & \textbf{Cities} & \textbf{Time range} & \textbf{Height ($h$)} \\
+                %data
+					\hline
+					
+				\end{tabular}}
+				\caption{Data - timetable properties}
+            	\normalsize
+			\end{table}
+			
+	\section{USP}
+		\begin{table}[h!]{
+			\begin{tabular}{c|c|c|c}
+			%legend
+				\hline
+				\rowcolor{tablehead}
+				\textbf{Time range (days)} & \textbf{Height} & \textbf{$\tau$} & \textbf{$\tau_{max}$} \\
+			%data
+				\hline
+				1 & 799 & 4.6 & 30 \\
+				2 & 1606 & 6.6 & 40 \\
+				3 & 2338 & 8.3 & 52 \\
+				4 & 3139 & 9.4 & 58 \\
+				5 & 3952 & 10.4 & 68 \\
+				6 & 4754 & 11.3 & 75 \\
+				7 & 5545 & 11.6 & 76 \\
+				8 & 6341 & 11.8 & 76 \\
+				9 & 7144 & 12.0 & 75 \\
+				10 & 7851 & 12.8 & 87 \\
+				11 & 8631 & 13.9 & 96 \\
+			\end{tabular}}
+			\caption{\label{tab:air-usp-tr} Changing of USP coefficient values with increasing time range in timetable \textit{air01} ($n = 284$, $m = 4668$). Height was, of course, increasing with the time range as well.}
+            \normalsize
+		\end{table}
+		
+		\begin{figure}[h!]
+			\begin{center}
+				\inputTikZ{./tikzpics/plot_usp_air01_timerange}
+			\end{center}
+			\caption{\label{pic:air-usp-tr} Visualisation of the data in table~\ref{tab:air-usp-tr}}
+		\end{figure}
+		
+		\begin{table}[h!]{
+			\begin{tabular}{c|c|c|c|c}
+			%legend
+				\hline
+				\rowcolor{tablehead}
+				\textbf{$n$} & \textbf{$m$} & \textbf{Height} & \textbf{$\tau$} & \textbf{$\tau_{max}$} \\
+			%data
+				\hline
+				25 & 100 & 239 & 1.8 & 7 \\
+				50 & 890 & 426 & 6.3 & 21 \\
+				75 & 1116 & 447 & 5 & 23 \\
+				100 & 1782 & 642 & 5.5 & 20 \\
+				125 & 3346 & 682 & 7.8 & 30 \\
+				150 & 3715 & 749 & 6.9 & 29 \\
+				175 & 3728 & 754 & 5.9 & 30 \\
+				200 & 3983 & 789 & 5.4 & 30 \\
+				225 & 4189 & 758 & 5.6 & 30 \\
+				250 & 4297 & 772 & 5.3 & 30 \\
+				275 & 4358 & 789 & 4.8 & 30 \\
+				284 & 4385 & 789 & 4.6 & 30 \\
+			\end{tabular}}
+			\caption{\label{tab:air-usp-size} Changing of USP coefficient values with increasing size of the timetable \textit{air01}. The time range was fixed to 1 day}
+            \normalsize
+		\end{table}
+		
+		\begin{figure}[h!]
+			\begin{center}
+				\inputTikZ{./tikzpics/plot_usp_air01_size}
+			\end{center}
+			\caption{\label{pic:air-usp-size} Visualisation of the data in table~\ref{tab:air-usp-size}}
+		\end{figure}
+    %---------------------------------------------------------------------
+    %   bibliography
+    %---------------------------------------------------------------------
+    \pagebreak
+    \bibliographystyle{is-alpha}
+    %compile latex, bibtex, latex, latex
+    \bibliography{../bibl}{}
+\end{document}

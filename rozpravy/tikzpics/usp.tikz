@@ -1,0 +1,25 @@
+\tikzstyle{place}=[circle,draw=orange,fill=orange!20,thick,inner sep=1pt]
+\tikzstyle{textstyle}=[font=\fontsize{8}{6}\selectfont]
+\begin{tikzpicture}[textstyle, >=stealth,looseness=.1,auto,scale=1.5])
+	\node at (5, -0.5) {Optimal connection};
+
+    \node (B) at (0,0) [place, label=below:{[B, 11:00]}] {};
+    \node (C) at (3,0) [place, label=below:{[C, 11:30]}] {};
+    \node (A) at (7,0) [place, label=below:{[A, 12:10]}] {};
+	
+    \draw [red, ->] (B) -> (C) node [midway, above] {0:30};
+    \draw [red, ->] (C) -> (A) node [midway, above] {0:30};
+    
+    
+	\draw [->] (5, -0.8) -> (5, -1.4);
+  
+    
+	\node at (5, -1.6) {USP};    
+    
+	\node (B1) at (0,-2) [place, label=below:{B}] {};
+    \node (C1) at (3,-2) [place, label=below:{C}] {};
+    \node (A1) at (7,-2) [place, label=below:{A}] {};
+	
+    \draw [black, ->] (B1) -> (C1) node [midway, above] {};
+    \draw [black, ->] (C1) -> (A1) node [midway, above] {};
+\end{tikzpicture}

@@ -1,0 +1,13 @@
+\tikzstyle{place}=[circle,draw=orange,fill=orange!20,thick,inner sep=1pt]
+\tikzstyle{textstyle}=[font=\fontsize{6}{6}\selectfont]
+\begin{tikzpicture}[textstyle, >=stealth,looseness=.1,auto,scale=1])
+    \node (B) at (0,0) [place, label=below:{[B, 11:00]}] {};
+    \node (C) at (3,0) [place, label=below:{[C, 11:30]}] {};
+    \node (A) at (7,0) [place, label=below:{[A, 12:10] (EA)}] {};
+	
+    \draw [red, ->] (B) -> (C) node [midway, above] {0:30};
+    \draw [red, ->] (C) -> (A) node [midway, above] {0:30};
+    
+    \draw [decorate, decoration={brace, amplitude=5pt}] (0, 0.5) -- (3, 0.5) node [black,above, midway, yshift=0.15cm] {elementary connection};
+    \draw [decorate, decoration={brace, amplitude=5pt}] (7, -0.5) -- (0, -0.5) node [black,below, midway, yshift=-0.15cm] {connection};
+\end{tikzpicture}

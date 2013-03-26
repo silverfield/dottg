@@ -1,0 +1,153 @@
+\beamer@endinputifotherversion {3.12pt}
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\slideentry {0}{0}{3}{3/3}{}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\sectionentry {1}{Objasnenie problematiky}{4}{Objasnenie problematiky}{0}}
+\headcommand {\beamer@sectionpages {1}{3}}
+\headcommand {\beamer@subsectionpages {1}{3}}
+\headcommand {\slideentry {1}{0}{4}{4/4}{}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{5}{Vyu\v zitie}}\headcommand {\beamer@subsectionpages {4}{4}}
+\headcommand {\slideentry {1}{1}{1}{5/7}{Vyu\v zitie}{0}}
+\headcommand {\beamer@framepages {5}{7}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{8}{Timetable graph}}\headcommand {\beamer@subsectionpages {5}{7}}
+\headcommand {\slideentry {1}{2}{1}{8/10}{Timetable graph}{0}}
+\headcommand {\beamer@framepages {8}{10}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{2}{1}{11}{Podkladov\'y graf}}
+\headcommand {\slideentry {1}{2}{2}{11/11}{Timetable graph}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{2}{2}{12}{Cestovn\'y poriadok}}
+\headcommand {\slideentry {1}{2}{3}{12/12}{Timetable graph}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{2}{3}{13}{\v Casovo expandovan\'y graf}}
+\headcommand {\slideentry {1}{2}{4}{13/13}{Timetable graph}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{2}{4}{14}{Vyh\v lad\'avanie cez najkrat\v siu cestu}}
+\headcommand {\slideentry {1}{2}{5}{14/14}{Timetable graph}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{2}{5}{15}{Timetable graf - \v casovo z\'avisl\'y graf}}
+\headcommand {\slideentry {1}{2}{6}{15/16}{Timetable graph}{0}}
+\headcommand {\beamer@framepages {15}{16}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{2}{6}{17}{\v Casovo z\'avisl\'y graf}}
+\headcommand {\slideentry {1}{2}{7}{17/17}{Timetable graph}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{2}{7}{18}{\v Casovo z\'avisl\'y graf}}
+\headcommand {\slideentry {1}{2}{8}{18/18}{Timetable graph}{0}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\beamer@subsectionentry {0}{1}{3}{19}{Motiv\'acia}}\headcommand {\beamer@subsectionpages {8}{18}}
+\headcommand {\slideentry {1}{3}{1}{19/25}{Motiv\'acia}{0}}
+\headcommand {\beamer@framepages {19}{25}}
+\headcommand {\beamer@subsectionentry {0}{1}{4}{26}{Distance oracles}}\headcommand {\beamer@subsectionpages {19}{25}}
+\headcommand {\slideentry {1}{4}{1}{26/29}{Distance oracles}{0}}
+\headcommand {\beamer@framepages {26}{29}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{4}{1}{30}{Extr\'emne rie\v senia}}
+\headcommand {\slideentry {1}{4}{2}{30/35}{Distance oracles}{0}}
+\headcommand {\beamer@framepages {30}{35}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{4}{2}{36}{Teoretick\'e hranice}}
+\headcommand {\slideentry {1}{4}{3}{36/39}{Distance oracles}{0}}
+\headcommand {\beamer@framepages {36}{39}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{4}{3}{40}{Teoretick\'e hranice}}
+\headcommand {\slideentry {1}{4}{4}{40/43}{Distance oracles}{0}}
+\headcommand {\beamer@framepages {40}{43}}
+\headcommand {\sectionentry {2}{Teoretick\'a n\'apl\v n}{44}{Teoretick\'a n\'apl\v n}{0}}
+\headcommand {\beamer@sectionpages {4}{43}}
+\headcommand {\beamer@subsectionpages {26}{43}}
+\headcommand {\slideentry {2}{0}{5}{44/44}{}{0}}
+\headcommand {\beamer@framepages {44}{44}}
+\headcommand {\slideentry {2}{0}{6}{45/48}{}{0}}
+\headcommand {\beamer@framepages {45}{48}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{49}{Highway dimension}}\headcommand {\beamer@subsectionpages {44}{48}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{1}{1}{49}{Highway dimension}}
+\headcommand {\slideentry {2}{1}{1}{49/51}{Highway dimension}{0}}
+\headcommand {\beamer@framepages {49}{51}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{1}{2}{52}{Highway dimension}}
+\headcommand {\slideentry {2}{1}{2}{52/52}{Highway dimension}{0}}
+\headcommand {\beamer@framepages {52}{52}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{1}{3}{53}{Mal\'a HD}}
+\headcommand {\slideentry {2}{1}{3}{53/59}{Highway dimension}{0}}
+\headcommand {\beamer@framepages {53}{59}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{1}{4}{60}{Highway hierarchies}}
+\headcommand {\slideentry {2}{1}{4}{60/64}{Highway dimension}{0}}
+\headcommand {\beamer@framepages {60}{64}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{1}{5}{65}{Highway hierarchies}}
+\headcommand {\slideentry {2}{1}{5}{65/65}{Highway dimension}{0}}
+\headcommand {\beamer@framepages {65}{65}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{1}{6}{66}{Transit node routing}}
+\headcommand {\slideentry {2}{1}{6}{66/69}{Highway dimension}{0}}
+\headcommand {\beamer@framepages {66}{69}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{1}{7}{70}{Transit node routing}}
+\headcommand {\slideentry {2}{1}{7}{70/70}{Highway dimension}{0}}
+\headcommand {\beamer@framepages {70}{70}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{1}{8}{71}{Contraction hierarchies}}
+\headcommand {\slideentry {2}{1}{8}{71/75}{Highway dimension}{0}}
+\headcommand {\beamer@framepages {71}{75}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{1}{9}{76}{Contraction hierarchies}}
+\headcommand {\slideentry {2}{1}{9}{76/76}{Highway dimension}{0}}
+\headcommand {\beamer@framepages {76}{76}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{1}{10}{77}{Probl\'emy s \'upravou}}
+\headcommand {\slideentry {2}{1}{10}{77/82}{Highway dimension}{0}}
+\headcommand {\beamer@framepages {77}{82}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{83}{r(n)-separator}}\headcommand {\beamer@subsectionpages {49}{82}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{2}{1}{83}{r(n)-separator}}
+\headcommand {\slideentry {2}{2}{1}{83/84}{r(n)-separator}{0}}
+\headcommand {\beamer@framepages {83}{84}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{2}{2}{85}{H\v ladanie separ\'atora}}
+\headcommand {\slideentry {2}{2}{2}{85/88}{r(n)-separator}{0}}
+\headcommand {\beamer@framepages {85}{88}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{2}{3}{89}{Separ\'ator a jeho vyu\v zitie}}
+\headcommand {\slideentry {2}{2}{3}{89/94}{r(n)-separator}{0}}
+\headcommand {\beamer@framepages {89}{94}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{2}{4}{95}{Algoritmus}}
+\headcommand {\slideentry {2}{2}{4}{95/98}{r(n)-separator}{0}}
+\headcommand {\beamer@framepages {95}{98}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{99}{Scale-free network}}\headcommand {\beamer@subsectionpages {83}{98}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{3}{1}{99}{Scale-free network}}
+\headcommand {\slideentry {2}{3}{1}{99/104}{Scale-free network}{0}}
+\headcommand {\beamer@framepages {99}{104}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{3}{2}{105}{Scale-free network}}
+\headcommand {\slideentry {2}{3}{2}{105/105}{Scale-free network}{0}}
+\headcommand {\beamer@framepages {105}{105}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{3}{3}{106}{DO pre bez\v sk\'alov\'e siete}}
+\headcommand {\slideentry {2}{3}{3}{106/112}{Scale-free network}{0}}
+\headcommand {\beamer@framepages {106}{112}}
+\headcommand {\beamer@subsectionentry {0}{2}{4}{113}{V\'yskum}}\headcommand {\beamer@subsectionpages {99}{112}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{4}{1}{113}{Vlastnosti r\^oznych typov siet\IeC {\'\i }}}
+\headcommand {\slideentry {2}{4}{1}{113/116}{V\'yskum}{0}}
+\headcommand {\beamer@framepages {113}{116}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{4}{2}{117}{Time-dependent vs. time-expanded pr\IeC {\'\i }stup}}
+\headcommand {\slideentry {2}{4}{2}{117/119}{V\'yskum}{0}}
+\headcommand {\beamer@framepages {117}{119}}
+\headcommand {\sectionentry {3}{Praktick\'a n\'apl\v n}{120}{Praktick\'a n\'apl\v n}{0}}
+\headcommand {\beamer@sectionpages {44}{119}}
+\headcommand {\beamer@subsectionpages {113}{119}}
+\headcommand {\slideentry {3}{0}{3}{120/120}{}{0}}
+\headcommand {\beamer@framepages {120}{120}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{121}{Experiment\'alne zis\v tovanie vlastnost\IeC {\'\i }}}\headcommand {\beamer@subsectionpages {120}{120}}
+\headcommand {\slideentry {3}{1}{1}{121/128}{Experiment\'alne zis\v tovanie vlastnost\IeC {\'\i }}{0}}
+\headcommand {\beamer@framepages {121}{128}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{129}{\'Uprava a implement\'acia algoritmov}}\headcommand {\beamer@subsectionpages {121}{128}}
+\headcommand {\slideentry {3}{2}{1}{129/139}{\'Uprava a implement\'acia algoritmov}{0}}
+\headcommand {\beamer@framepages {129}{139}}
+\headcommand {\slideentry {3}{2}{2}{140/141}{\'Uprava a implement\'acia algoritmov}{0}}
+\headcommand {\beamer@framepages {140}{141}}
+\headcommand {\slideentry {3}{2}{3}{142/142}{\'Uprava a implement\'acia algoritmov}{0}}
+\headcommand {\beamer@framepages {142}{142}}
+\headcommand {\slideentry {3}{2}{4}{143/145}{\'Uprava a implement\'acia algoritmov}{0}}
+\headcommand {\beamer@framepages {143}{145}}
+\headcommand {\sectionentry {4}{Literat\'ura}{146}{Literat\'ura}{0}}
+\headcommand {\beamer@sectionpages {120}{145}}
+\headcommand {\beamer@subsectionpages {129}{145}}
+\headcommand {\slideentry {4}{0}{5}{146/146}{\'Uprava a implement\'acia algoritmov}{0}}
+\headcommand {\beamer@framepages {146}{146}}
+\headcommand {\slideentry {4}{0}{5}{146/147}{\'Uprava a implement\'acia algoritmov}{0}}
+\headcommand {\beamer@framepages {146}{147}}
+\headcommand {\slideentry {4}{0}{6}{148/148}{\'Uprava a implement\'acia algoritmov}{0}}
+\headcommand {\beamer@framepages {148}{148}}
+\headcommand {\beamer@partpages {1}{148}}
+\headcommand {\beamer@subsectionpages {129}{148}}
+\headcommand {\beamer@sectionpages {120}{148}}
+\headcommand {\beamer@documentpages {148}}
+\headcommand {\def \inserttotalframenumber {48}}

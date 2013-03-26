@@ -1,0 +1,70 @@
+\begin{thebibliography}{AFGW10}
+\ifx \showCODEN  \undefined \def \showCODEN #1{CODEN #1}  \fi
+\ifx \showISBN   \undefined \def \showISBN  #1{ISBN #1}   \fi
+\ifx \showISSN   \undefined \def \showISSN  #1{ISSN #1}   \fi
+\ifx \showLCCN   \undefined \def \showLCCN  #1{LCCN #1}   \fi
+\ifx \showPRICE  \undefined \def \showPRICE #1{#1}        \fi
+\ifx \showURL    \undefined \def \showURL {URL }          \fi
+\ifx \path       \undefined \input path.sty               \fi
+\ifx \ifshowURL \undefined
+     \newif \ifshowURL
+     \showURLtrue
+\fi
+
+\bibitem[AFGW10]{DBLP:conf/soda/AbrahamFGW10}
+Ittai Abraham, Amos Fiat, Andrew~V. Goldberg, and Renato Fonseca~F. Werneck.
+\newblock Highway dimension, shortest paths, and provably efficient algorithms.
+\newblock In Moses Charikar, editor, {\em SODA}, pages 782--793. SIAM, 2010.
+
+\bibitem[Ble02]{GrSepar02}
+Guy Blelloch.
+\newblock Graph separators, 2002.
+
+\bibitem[DPW09]{springerlink:10.1007/978-3-642-05465-57}
+Daniel Delling, Thomas Pajor, and Dorothea Wagner.
+\newblock Engineering time-expanded graphs for faster timetable information.
+\newblock In Ravindra Ahuja, Rolf Möhring, and Christos Zaroliagis, editors,
+  {\em Robust and Online Large-Scale Optimization}, volume 5868 of {\em Lecture
+  Notes in Computer Science}, pages 182--206. Springer Berlin / Heidelberg,
+  2009.
+\newblock \showISBN{978-3-642-05464-8}.
+
+\bibitem[GPPR04]{Gavoille200485}
+Cyril Gavoille, David Peleg, Stéphane Pérennes, and Ran Raz.
+\newblock Distance labeling in graphs.
+\newblock {\em Journal of Algorithms}, 53\penalty0 (1):\penalty0 85 -- 112,
+  2004.
+\newblock \showISSN{0196-6774}.
+\newblock \ifshowURL {\showURL
+  \path|http://www.sciencedirect.com/science/article/pii/S0196677404000884|}\fi.
+
+\bibitem[imh]{MapImhd}
+imhd.sk.
+\newblock Mapa mhd ba.
+
+\bibitem[Lee]{SeparatorPict}
+James Lee.
+\newblock Separator.
+
+\bibitem[SS05a]{DBLP:conf/esa/SandersS05}
+Peter Sanders and Dominik Schultes.
+\newblock Highway hierarchies hasten exact shortest path queries.
+\newblock In Gerth~St{\o}lting Brodal and Stefano Leonardi, editors, {\em ESA},
+  volume 3669 of {\em Lecture Notes in Computer Science}, pages 568--579.
+  Springer, 2005.
+\newblock \showISBN{3-540-29118-0}.
+
+\bibitem[SS05b]{HighHierHasten05}
+Peter Sanders and Dominik Schultes.
+\newblock Highway hierarchies hasten exact shortest path queries, 2005.
+
+\bibitem[TZ05]{DBLP:journals/jacm/ThorupZ05}
+Mikkel Thorup and Uri Zwick.
+\newblock Approximate distance oracles.
+\newblock {\em J. ACM}, 52\penalty0 (1):\penalty0 1--24, 2005.
+
+\bibitem[Wik]{LondonUnd}
+Wikipedia.
+\newblock London underground - wikipedia.
+
+\end{thebibliography}

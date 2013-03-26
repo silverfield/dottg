@@ -1,0 +1,34 @@
+\tikzstyle{textstyle}=[font=\fontsize{9}{9}\selectfont]
+\begin{tikzpicture}[textstyle, scale=0.65]
+    \begin{axis}[
+        xlabel={$n$},
+        ylabel={USP},
+		legend pos=north west
+        ]
+        
+    \addplot[smooth,mark=*,blue] plot coordinates {
+		(100,8.8)
+		(300,5.2)
+		(500,3.8)
+		(700,5.4)
+		(900,5.0)
+		(1100,4.9)
+		(1300,4.7)
+		(1500,4.0)
+    };
+    \addlegendentry{$\tau$}
+
+    \addplot[smooth,color=red,mark=x] plot coordinates {
+		(100,37)
+		(300,29)
+		(500,33)
+		(700,43)
+		(900,44)
+		(1100,45)
+		(1300,44)
+		(1500,62)
+    };
+    \addlegendentry{$\tau_{max}$}
+    
+    \end{axis}
+\end{tikzpicture}

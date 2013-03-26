@@ -1,0 +1,13 @@
+\beamer@endinputifotherversion {3.12pt}
+\select@language {slovak}
+\beamer@sectionintoc {1}{Objasnenie problematiky}{4}{0}{1}
+\beamer@subsectionintoc {1}{1}{Vyu\v zitie}{5}{0}{1}
+\beamer@subsectionintoc {1}{2}{Timetable graf}{7}{0}{1}
+\beamer@subsectionintoc {1}{3}{Motiv\'acia}{18}{0}{1}
+\beamer@subsectionintoc {1}{4}{Distance oracles}{25}{0}{1}
+\beamer@sectionintoc {2}{Teoretick\'a n\'apl\v n}{41}{0}{2}
+\beamer@subsectionintoc {2}{1}{Highway dimension}{42}{0}{2}
+\beamer@subsectionintoc {2}{2}{r(n)-separator}{57}{0}{2}
+\beamer@sectionintoc {3}{Praktick\'a n\'apl\v n}{71}{0}{3}
+\beamer@subsectionintoc {3}{1}{Programy}{72}{0}{3}
+\beamer@subsectionintoc {3}{2}{DO met\'oda pre timetable graphs}{77}{0}{3}

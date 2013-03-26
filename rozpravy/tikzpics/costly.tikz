@@ -1,0 +1,57 @@
+\tikzstyle{place}=[circle,draw=blue!50,fill=blue!20,thick,inner sep=1pt]
+{\scalefont{0.8}
+\begin{tikzpicture}[>=stealth,->,looseness=.5,auto,scale=0.8]
+	\draw [blue, thick, <->] (-0.5,0.5) -- (0.5,0.5) node [midway, above] {Separator};
+	\draw [blue, thick, <->] (2.5,0.5) -- (9.5,0.5) node [midway, above] {Component};
+
+    %NODES-------------------------------------------------------------
+    \node (A_11_00)  at (0,12) [place, label=right:{[A, 11:00]}] {};
+    \node (A_12_00) at (0,16) [place, label=right:{[A, 12:00]}] {};
+
+    \node (B_8_45) at (3,3) [place, label=right:{[B, 8:45]}] {};
+    \node (B_9_15) at (3,5) [place, label=right:{[B, 9:15]}] {};
+    \node (B_9_30) at (3,6) [place, label=right:{[B, 9:30]}] {};
+    \node (B_10_00) at (3,8) [place, label=right:{[B, 10:00]}] {};
+    \node (B_11_15) at (3,13) [place, label=right:{[B, 11:15]}] {};
+    \node (B_11_30) at (3,14) [place, label=right:{[B, 11:30]}] {};
+
+    \node (C_9_00) at (6,4) [place, label=right:{[C, 9:00]}] {};
+    \node (C_10_00) at (6,8) [place, label=right:{[C, 10:00]}] {};
+    \node (C_10_05) at (6,8.3) [place, label=right:{[C, 10:05]}] {};
+
+    \node (D_8_15) at (9,1) [place, label=right:{[D, 8:15]}] {};
+
+    %CONNECTIONS-------------------------------------------------------------
+    \draw [green] (B_11_30) -- (A_12_00) node [midway, above] {};
+    \draw [black] (B_10_00) -- (A_11_00) node [midway, above] {};
+    \draw [red] (B_9_30) -- (C_10_00) node [midway, above] {};
+    \draw [green] (C_10_05) -- (B_11_15) node [midway, above] {};
+    \draw [red] (C_9_00) -- (B_9_15) node [midway, above] {};
+    \draw [green] (D_8_15) -- (B_8_45) node [midway, above] {};
+
+    %WAITING-------------------------------------------------------------
+    \draw [dashed] (0, 0) --  (A_11_00) node [midway, above] {};
+    \draw [dashed] (A_11_00) -- (A_12_00) node [midway, above] {};
+    \draw [dashed] (A_12_00) -- (0, 18) node [midway, above] {};
+    
+    \draw [dashed] (0, 0) --  (A_11_00) node [midway, above] {};
+    \draw [dashed] (A_11_00) -- (A_12_00) node [midway, above] {};
+    \draw [dashed] (A_12_00) -- (0, 18) node [midway, above] {};
+    
+	\draw [dashed] (3, 0) --  (B_8_45) node [midway, above] {};
+    \draw [dashed, green] (B_8_45) -- (B_9_15) node [midway, above] {};
+    \draw [dashed, green] (B_9_15) -- (B_9_30) node [midway, above] {};
+    \draw [dashed, green] (B_9_30) -- (B_10_00) node [midway, above] {};
+    \draw [dashed, green] (B_10_00) -- (B_11_15) node [midway, above] {};
+    \draw [dashed, green] (B_11_15) -- (B_11_30) node [midway, above] {};
+    \draw [dashed] (B_11_30) -- (3, 18) node [midway, above] {};    
+    
+    \draw [dashed] (6, 0) --  (C_9_00) node [midway, above] {};
+    \draw [dashed, red] (C_9_00) -- (C_10_00) node [midway, above] {};
+	\draw [dashed, red] (C_10_00) -- (C_10_05) node [midway, above] {};
+    \draw [dashed] (C_10_05) -- (6, 18) node [midway, above] {};
+
+    \draw [dashed] (9, 0) --  (D_8_15) node [midway, above] {};
+    \draw [dashed] (D_8_15) --  (9, 18) node [midway, above] {};
+\end{tikzpicture}
+}

@@ -1,0 +1,35 @@
+\tikzstyle{place}=[circle,draw=black,fill=orange,inner sep=0.5pt]
+\tikzstyle{textstyle}=[font=\fontsize{5}{6}\selectfont]
+\scalebox{0.7}{
+\begin{tikzpicture}
+    \draw[very thin, color=gray] (0,0) grid (7,5);
+    
+    \draw[->] (0,0) -- (8,0) node [right] {};
+    \draw[->] (0,0) -- (0, 6) node [above, textstyle] {$stav$};
+    
+    \node [textstyle] at (1, 0) [below, left, rotate=45] {ujasnenie si cie¾ov};
+    \draw [fill=green!95!red] (0.75,0) rectangle (1.25,4.75);
+    
+    \node [textstyle] at (2, 0) [below, left, rotate=45] {rešerš};
+    \draw [fill=green!70!red] (1.75,0) rectangle (2.25,,4.75);
+    
+    \node [textstyle] at (3, 0) [below, left, rotate=45] {získanie dát};
+    \draw [fill=green!30!red] (2.75,0) rectangle (3.25,4);
+    
+    \node [textstyle] at (4, 0) [below, left, rotate=45] {prevratné nápady};
+    \draw [fill=green!5!red] (3.75,0) rectangle (4.25,0.25);
+    
+    \node [textstyle] at (5, 0) [below, left, rotate=45] {implementácia};
+    \draw [fill=green!5!red] (4.75,0) rectangle (5.25,0.25);
+    
+    \node [textstyle] at (6, 0) [below, left, rotate=45] {napísaná diplomka};
+    \draw [fill=green!10!red] (5.75,0) rectangle (6.25,0.5);
+    
+    \node [textstyle] at (0, 0) [left] {$0\%$};
+    \node [textstyle] at (0, 1) [left] {$20\%$};
+    \node [textstyle] at (0, 2) [left] {$40\%$};
+    \node [textstyle] at (0, 3) [left] {$60\%$};
+    \node [textstyle] at (0, 4) [left] {$80\%$};
+    \node [textstyle] at (0, 5) [left] {$100\%$};
+\end{tikzpicture}
+}

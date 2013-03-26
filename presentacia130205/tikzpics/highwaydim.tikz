@@ -1,0 +1,28 @@
+\tikzstyle{place}=[circle,draw=blue!50,fill=blue!20,thick,inner sep=3pt]
+\tikzstyle{selected}=[place, draw=orange, fill=orange!10]
+\scalebox{0.7}{
+\begin{tikzpicture}[>=stealth, auto]
+    \node (A) at (2,1.5) [selected, label=below:A] {};
+    \node (B) at (4,0) [place, label=below:B] {};
+    \node (C) at (5,3) [selected, label=above:C] {};
+    \node (D) at (2,4.5) [place, label=below:D] {};
+    \node (E) at (7.5,4) [place, label=right:E] {};
+    \node (F) at (9,2) [place, label=below:F] {};
+    \node (G) at (11,3) [place, label=below:G] {};
+	
+    \tikzstyle{every node}=[font=\small\itshape]
+    \draw [green] (A) -- (B) node [midway, above, black] {1};
+    \draw [green] (A) -- (C) node [midway, above, black] {5};
+    \draw [green] (A) -- (D) node [midway, above, black] {4};
+    \draw [green] (B) -- (C) node [midway, right, black] {8};
+    \draw (B) -- (F) node [midway, above] {16};
+    \draw [green] (C) -- (D) node [midway, above, black] {7};
+    \draw [green] (C) -- (E) node [midway, above, black] {10};
+    \path (D) edge [bend left] node {25} (G);
+    \draw (E) -- (F) node [midway, right] {3};
+    \draw (F) -- (G) node [midway, above] {7};
+
+    \draw (C) [red, thick] circle (3.7) node [above=3.7cm] {$B_{C, 12}$};
+    \draw (C) [red, thick] -- (5, 6.7) node [midway, right] {$4r = 12$};
+\end{tikzpicture}
+}

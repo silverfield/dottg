@@ -1,0 +1,9 @@
+\beamer@endinputifotherversion {3.22pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Contribution}{8}{0}{2}
+\beamer@subsectionintoc {2}{1}{Data}{9}{0}{2}
+\beamer@subsectionintoc {2}{2}{Underlying shortest paths}{10}{0}{2}
+\beamer@subsectionintoc {2}{3}{Neural networks}{20}{0}{2}
+\beamer@subsectionintoc {2}{4}{TTBlazer application}{22}{0}{2}
+\beamer@sectionintoc {3}{Conclusion}{23}{0}{3}

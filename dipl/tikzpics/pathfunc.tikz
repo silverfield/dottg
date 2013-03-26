@@ -1,0 +1,27 @@
+\tikzstyle{place}=[circle,draw=orange,fill=orange!20,thick,inner sep=1pt]
+\begin{tikzpicture}[>=stealth,looseness=.1,auto,scale=1.5])
+	\node (B) at (0,0) [place, label=below:{[B, 11:00]}] {};
+    \node (C_1130) at (3,0) [place, label=below:{[C, 11:30]}] {};
+    \node (C_1145) at (4,0) [place, label=below:{[C, 11:45]}] {};
+    \node (A) at (7,0) [place, label=below:{[A, 12:15]}] {};
+	
+    \draw [elcon-clr, ->] (B) -> (C_1130) node [midway, above] {0:30};
+    \draw [waiting-clr, ->, dashed] (C_1130) -> (C_1145) node [midway, above] {0:15};
+    \draw [elcon-clr, ->] (C_1145) -> (A) node [midway, above] {0:30};
+
+    \draw [decorate, decoration={brace, amplitude=5pt}] (0, 0.5) -- (7, 0.5) node [black,above, midway, yshift=0.15cm] {connection $c$};  
+        
+	\node (B1) at (0,-2) [place, label=below:{B}] {};
+    \node (C1) at (3.5,-2) [place, label=below:{C}] {};
+    \node (A1) at (7,-2) [place, label=below:{A}] {};
+	
+    \draw [black, ->] (B1) -> (C1) node [midway, above] {};
+    \draw [black, ->] (C1) -> (A1) node [midway, above] {};
+    
+    \draw [decorate, decoration={brace, amplitude=5pt}] (7, -2.5) -- (0, -2.5) node [black, below, midway, yshift=-0.15cm] {$path(c)$};  
+    
+    \draw [->, very thin, dotted] (B) -> (B1);
+    \draw [->, very thin, dotted] (C_1130) -> (C1);
+    \draw [->, very thin, dotted] (C_1145) -> (C1);
+    \draw [->, very thin, dotted] (A) -> (A1);
+\end{tikzpicture}

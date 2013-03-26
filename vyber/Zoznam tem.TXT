@@ -1,0 +1,39 @@
+Map reduce
+	- mam clanok
+	- possible vylepsenia
+Immune subgraphs
+	- pokracovat
+	- 
+Dobre rozmiestnenie zastavok v meste
+Urcenie vhodneho dobudovania dopravnych tahov
+	- 
+Simulator algoritmov na dopravnej sieti
+	nahlady na jednotlive krizovatky
+Simulator distr. sieti
+Alpha Beta Osekavanie
+CSP - Communicating Sequential Processes
+Hierarchicke routovanie - Matching
+Timing Attack, Side channel analysis (krypto)
+Automatic building of Game theoretic model of given road network structure - Optimal fluency in network corresponds to nash equilibrium choise
+Chromatic polynomial
+planovac dovoleniek
+	clovek si zaskrtne miesta co chce vidiet, mesta, cas a pod...
+rozpoznavac tonov, zapisovac do GP5
+multiflow - np hard problem
+ant-colony algorithm, simmulated annealing
+stp - spanning tree protocol
+fontana manager
+optimize prestupy v eurolines
+data mining
+multi-agent systemy
+
+Zaujima:
+- cryptologia
+- networks
+- distr. algoritmy
+- neuralne siete
+
+Pozri:
+- One hot topic in networking theses days are sensor networks, with a lot of work (not all good) at IETF in the ROLL group.
+http://tools.ietf.org/wg/roll/
+ To get and idea of what's going on, the best approach is to look at the papers published at the Sigcomm conference (and the CCR site: http://ccr.sigcomm.org/online/) and also Infocom : http://www.ieee-infocom.org/2011/

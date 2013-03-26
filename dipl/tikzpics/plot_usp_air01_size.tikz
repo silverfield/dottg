@@ -1,0 +1,41 @@
+\begin{tikzpicture}
+    \begin{axis}[
+        xlabel={$n$},
+        ylabel={USP},
+		legend pos=north west
+        ]
+        
+    \addplot[smooth,mark=*,blue] plot coordinates {
+		(25,1.8)
+		(50,6.3)
+		(75,5.0)
+		(100,5.5)
+		(125,7.8)
+		(150,6.9)
+		(175,5.9)
+		(200,5.4)
+		(225,5.6)
+		(250,5.3)
+		(275,4.8)
+		(284,4.6)
+    };
+    \addlegendentry{$\tau$}
+
+    \addplot[smooth,color=red,mark=x] plot coordinates {
+		(25,7)
+		(50,21)
+		(75,23)
+		(100,20)
+		(125,30)
+		(150,29)
+		(175,30)
+		(200,30)
+		(225,30)
+		(250,30)
+		(275,30)
+		(284,30)
+    };
+    \addlegendentry{$\tau_{max}$}
+    
+    \end{axis}
+\end{tikzpicture}

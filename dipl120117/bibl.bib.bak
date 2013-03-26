@@ -1,0 +1,773 @@
+@comment{------------------------------------------------------------------------------------------------------------
+    Distance Labeling--------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------}
+
+@comment{---------------------------------------------------------------------
+    Distance Labeling in Graphs
+------------------------------------------------------------------------------}
+
+@article{distlabel04,
+     title = "Distance labeling in graphs",
+     journal = "Journal of Algorithms",
+     volume = "53",
+     number = "1",
+     pages = "85 - 112",
+     year = "2004",
+     note = "",
+     issn = "0196-6774",
+     url = "http://www.sciencedirect.com/science/article/pii/S0196677404000884",
+     author = "Cyril Gavoille and David Peleg and Stéphane Pérennes and Ran Raz"
+}
+
+@comment{------------------------------------------------------------------------------------------------------------
+    Distance Oracles--------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------}
+
+@comment{---------------------------------------------------------------------
+    Approximate Distance Oracles
+------------------------------------------------------------------------------}
+
+@article{apxdo05,
+  author    = {Mikkel Thorup and
+               Uri Zwick},
+  title     = {Approximate distance oracles},
+  journal   = {J. ACM},
+  volume    = {52},
+  number    = {1},
+  year      = {2005},
+  pages     = {1-24},
+  ee        = {http://doi.acm.org/10.1145/1044731.1044732},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    Exact Distance Oracles for Planar Graphs
+------------------------------------------------------------------------------}
+
+@article{exactplanar10,
+  author    = {Shay Mozes and
+               Christian Sommer},
+  title     = {Exact Shortest Path Queries for Planar Graphs Using Linear
+               Space},
+  journal   = {CoRR},
+  volume    = {abs/1011.5549},
+  year      = {2010},
+  ee        = {http://arxiv.org/abs/1011.5549},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    f-Sensitivity Distance Oracles and Routing Schemes
+------------------------------------------------------------------------------}
+
+@incollection {fsensitivity10,
+   author = {Chechik, Shiri and Langberg, Michael and Peleg, David and Roditty, Liam},
+   affiliation = {Department of Computer Science, The Weizmann Institute, Rehovot, Israel},
+   title = {f-Sensitivity Distance Oracles and Routing Schemes},
+   booktitle = {Algorithms – ESA 2010},
+   series = {Lecture Notes in Computer Science},
+   editor = {de Berg, Mark and Meyer, Ulrich},
+   publisher = {Springer Berlin / Heidelberg},
+   isbn = {978-3-642-15774-5},
+   keyword = {Computer Science},
+   pages = {84-96},
+   volume = {6346},
+   year = {2010}
+}
+
+
+@comment{---------------------------------------------------------------------
+    Highway Dimension, Shortest Paths, and Provably Efficient Algorithms
+------------------------------------------------------------------------------}
+
+@inproceedings{highwaydim10,
+  author    = {Ittai Abraham and
+               Amos Fiat and
+               Andrew V. Goldberg and
+               Renato Fonseca F. Werneck},
+  title     = {Highway Dimension, Shortest Paths, and Provably Efficient
+               Algorithms},
+  booktitle = {SODA},
+  year      = {2010},
+  pages     = {782-793},
+  ee        = {http://www.siam.org/proceedings/soda/2010/SODA10_064_abrahami.pdf},
+  crossref  = {DBLP:conf/soda/2010},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@proceedings{DBLP:conf/soda/2010,
+  editor    = {Moses Charikar},
+  title     = {Proceedings of the Twenty-First Annual ACM-SIAM Symposium
+               on Discrete Algorithms, SODA 2010, Austin, Texas, USA, January
+               17-19, 2010},
+  booktitle = {SODA},
+  publisher = {SIAM},
+  year      = {2010},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    Highway Hierarchies Hasten Exact Shortest Path Queries
+------------------------------------------------------------------------------}
+
+@inproceedings{hwhierarchies05,
+  author    = {Peter Sanders and
+               Dominik Schultes},
+  title     = {Highway Hierarchies Hasten Exact Shortest Path Queries},
+  booktitle = {ESA},
+  year      = {2005},
+  pages     = {568-579},
+  ee        = {http://dx.doi.org/10.1007/11561071_51},
+  crossref  = {DBLP:conf/esa/2005},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+@proceedings{DBLP:conf/esa/2005,
+  editor    = {Gerth St{\o}lting Brodal and
+               Stefano Leonardi},
+  title     = {Algorithms - ESA 2005, 13th Annual European Symposium, Palma
+               de Mallorca, Spain, October 3-6, 2005, Proceedings},
+  booktitle = {ESA},
+  publisher = {Springer},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {3669},
+  year      = {2005},
+  isbn      = {3-540-29118-0},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    Highway Hierarchies Hasten Exact Shortest Path Queries
+------------------------------------------------------------------------------}
+
+@misc{hwhierarchies_slides05,
+     title = "Highway Hierarchies Hasten Exact Shortest Path Queries",
+     year = "2005",
+     author = "Peter Sanders and Dominik Schultes"
+}
+
+@comment{---------------------------------------------------------------------
+    Engineering Route Planning Algorithms
+------------------------------------------------------------------------------}
+
+@misc{routeplanningalg_slides07,
+     title = "Engineering Route Planning Algorithms",
+     year = "2007",
+     author = "Peter Sanders and Dominik Schultes"
+}
+
+@INPROCEEDINGS{engineeringroute09,
+    author = {Daniel Delling and Peter Sanders and Dominik Schultes and Dorothea Wagner},
+    title = { Engineering Route Planning Algorithms},
+    booktitle = {ALGORITHMICS OF LARGE AND COMPLEX NETWORKS. LECTURE NOTES IN COMPUTER SCIENCE},
+    year = {2009},
+    publisher = {Springer}
+}
+
+@comment{---------------------------------------------------------------------
+    Route Planning in Road Networks
+------------------------------------------------------------------------------}
+
+@misc{routeplandiz08,
+     title = "Route Planning in Road Networks",
+     year = "2008",
+     author = "Dominik Schultes"
+}
+
+@comment{---------------------------------------------------------------------
+    Time-Dependent SHARC-Routing
+------------------------------------------------------------------------------}
+
+@inproceedings{sharc08,
+  author    = {Daniel Delling},
+  title     = {Time-Dependent SHARC-Routing},
+  booktitle = {ESA},
+  year      = {2008},
+  pages     = {332-343},
+  ee        = {http://dx.doi.org/10.1007/978-3-540-87744-8_28},
+  crossref  = {DBLP:conf/esa/2008},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@proceedings{DBLP:conf/esa/2008,
+  editor    = {Dan Halperin and
+               Kurt Mehlhorn},
+  title     = {Algorithms - ESA 2008, 16th Annual European Symposium, Karlsruhe,
+               Germany, September 15-17, 2008. Proceedings},
+  booktitle = {ESA},
+  publisher = {Springer},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {5193},
+  year      = {2008},
+  isbn      = {978-3-540-87743-1},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    Approximate Shortest Path and Distance Queries in Networks
+------------------------------------------------------------------------------}
+
+@phdthesis{sommerthesis10,
+    author = "Christian Sommer",
+    title = "Approximate Shortest Path and Distance Queries in Networks",
+    school = "Graduate School of Information Science and Technology, The University of Tokyo",
+    year = "2010"
+}
+
+@comment{---------------------------------------------------------------------
+    TRANSIT Ultrafast Shortest-Path Queries with Linear-Time Preprocessing
+------------------------------------------------------------------------------}
+
+@misc{transit06,
+    author = {Holger Bast and Stefan Funke and Domagoj Matijevic},
+    title = {TRANSIT— ultrafast shortest-path queries with linear-time preprocessing},
+    booktitle = {In 9th DIMACS Implementation Challenge [1},
+    year = {2006}
+}
+
+@comment{---------------------------------------------------------------------
+    Complex networks: small-world, scale-free and beyond
+------------------------------------------------------------------------------}
+
+@article{complexnetw03,
+    author = {Wang, Xiao F. and Chen, Guanrong},
+    citeulike-article-id = {1109174},
+    citeulike-linkout-0 = {http://dx.doi.org/10.1109/MCAS.2003.1228503},
+    citeulike-linkout-1 = {http://ieeexplore.ieee.org/xpls/abs\_all.jsp?arnumber=1228503},
+    doi = {10.1109/MCAS.2003.1228503},
+    issn = {1531-636X},
+    journal = {Circuits and Systems Magazine, IEEE},
+    keywords = {scale\_free, small\_world},
+    number = {1},
+    pages = {6--20},
+    posted-at = {2008-10-13 01:46:55},
+    priority = {2},
+    publisher = {IEEE},
+    title = {{Complex networks: small-world, scale-free and beyond}},
+    url = {http://dx.doi.org/10.1109/MCAS.2003.1228503},
+    volume = {3},
+    year = {2003}
+}
+
+@inproceedings{timedepch09,
+  author    = {Gernot Veit Batz and
+               Daniel Delling and
+               Peter Sanders and
+               Christian Vetter},
+  title     = {Time-Dependent Contraction Hierarchies},
+  booktitle = {ALENEX},
+  year      = {2009},
+  pages     = {97-105},
+  ee        = {http://www.siam.org/proceedings/alenex/2009/alx09_010_batzg.pdf},
+  crossref  = {DBLP:conf/alenex/2009},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+@proceedings{DBLP:conf/alenex/2009,
+  editor    = {Irene Finocchi and
+               John Hershberger},
+  title     = {Proceedings of the Workshop on Algorithm Engineering and
+               Experiments, ALENEX 2009, New York, New York, USA, January
+               3, 2009},
+  booktitle = {ALENEX},
+  publisher = {SIAM},
+  year      = {2009},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{------------------------------------------------------------------------------------------------------------
+    DO RELATED-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------}
+
+@comment{---------------------------------------------------------------------
+    Reachability and distance queries via 2-hop labels
+------------------------------------------------------------------------------}
+
+@article{2hop03,
+  author    = {Edith Cohen and
+               Eran Halperin and
+               Haim Kaplan and
+               Uri Zwick},
+  title     = {Reachability and Distance Queries via 2-Hop Labels},
+  journal   = {SIAM J. Comput.},
+  volume    = {32},
+  number    = {5},
+  year      = {2003},
+  pages     = {1338-1355},
+  ee        = {http://dx.doi.org/10.1137/S0097539702403098},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    Contraction Hierarchies: Faster and Simpler Hierarchical Routing in Road Networks
+------------------------------------------------------------------------------}
+
+@inproceedings{contracthier08,
+  author    = {Robert Geisberger and
+               Peter Sanders and
+               Dominik Schultes and
+               Daniel Delling},
+  title     = {Contraction Hierarchies: Faster and Simpler Hierarchical
+               Routing in Road Networks},
+  booktitle = {WEA},
+  year      = {2008},
+  pages     = {319-333},
+  ee        = {http://dx.doi.org/10.1007/978-3-540-68552-4_24},
+  crossref  = {DBLP:conf/wea/2008},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+@proceedings{DBLP:conf/wea/2008,
+  editor    = {Catherine C. McGeoch},
+  title     = {Experimental Algorithms, 7th International Workshop, WEA
+               2008, Provincetown, MA, USA, May 30-June 1, 2008, Proceedings},
+  booktitle = {WEA},
+  publisher = {Springer},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {5038},
+  year      = {2008},
+  isbn      = {978-3-540-68548-7},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    Improved Distance Oracles for Avoiding Link-Failure
+------------------------------------------------------------------------------}
+
+@inproceedings{linkfailure02,
+  author    = {Rezaul Alam Chowdhury and
+               Vijaya Ramachandran},
+  title     = {Improved Distance Oracles for Avoiding Link-Failure},
+	  booktitle = {ISAAC},
+  year      = {2002},
+  pages     = {523-534},
+  ee        = {http://dx.doi.org/10.1007/3-540-36136-7_46},
+  crossref  = {DBLP:conf/isaac/2002},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+@proceedings{DBLP:conf/isaac/2002,
+  editor    = {Prosenjit Bose and
+               Pat Morin},
+  title     = {Algorithms and Computation, 13th International Symposium,
+               ISAAC 2002 Vancouver, BC, Canada, November 21-23, 2002,
+               Proceedings},
+  booktitle = {ISAAC},
+  publisher = {Springer},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {2518},
+  year      = {2002},
+  isbn      = {3-540-00142-5},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    A Compact Routing Scheme and Approximate Distance Oracle for Power-Law Graphs
+------------------------------------------------------------------------------}
+
+@article{powerlaw09,
+    title={A Compact Routing Scheme and Approximate Distance Oracle for Power-Law Graphs},
+    url={http://research.microsoft.com/pubs/81716/msr-tr-2009-84.pdf},
+    number={Disc 2009},
+    volume={?},
+    journal={Distributed Computing},
+    publisher={Technical Report MSR-TR-2009-84, Microsoft Research (July 2009)},
+    author={Chen, Wei and Sommer, Christian and Teng, Shang-Hua and Wang, Yajun},
+    year={2009},
+    pages={379--391}
+}
+
+@comment{---------------------------------------------------------------------
+    Ramsey Partitions Based Approximate Distance Oracles
+------------------------------------------------------------------------------}
+
+@phdthesis{ramseyphd08,
+    author = "Chaya Fredman",
+    title = "Ramsey Partitions Based Approximate Distance Oracles",
+    school = "The Open University Of Israel",
+    year = "2008"
+}
+
+@comment{---------------------------------------------------------------------
+    Reach for A*: Efficient Point-to-Point Shortest Path Algorithms
+------------------------------------------------------------------------------}
+
+@INPROCEEDINGS{reachforastar06,
+    author = {Andrew V. Goldberg and Haim Kaplan and Renato F. Werneck},
+    title = {Reach for A*: Efficient point-to-point shortest path algorithms},
+    booktitle = {IN WORKSHOP ON ALGORITHM ENGINEERING and EXPERIMENTS},
+    year = {2006},
+    pages = {129--143},
+    publisher = {}
+}
+
+@comment{---------------------------------------------------------------------
+    A Sketch-Based Distance Oracle for Web-Scale Graphs
+------------------------------------------------------------------------------}
+
+@inproceedings{sketchbased10,
+  author    = {Atish Das Sarma and
+               Sreenivas Gollapudi and
+               Marc Najork and
+               Rina Panigrahy},
+  title     = {A sketch-based distance oracle for web-scale graphs},
+  booktitle = {WSDM},
+  year      = {2010},
+  pages     = {401-410},
+  ee        = {http://doi.acm.org/10.1145/1718487.1718537},
+  crossref  = {DBLP:conf/wsdm/2010},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+@proceedings{DBLP:conf/wsdm/2010,
+  editor    = {Brian D. Davison and
+               Torsten Suel and
+               Nick Craswell and
+               Bing Liu},
+  title     = {Proceedings of the Third International Conference on Web
+               Search and Web Data Mining, WSDM 2010, New York, NY, USA,
+               February 4-6, 2010},
+  booktitle = {WSDM},
+  publisher = {ACM},
+  year      = {2010},
+  isbn      = {978-1-60558-889-6},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    Distance Oracles for Sparse Graphs
+------------------------------------------------------------------------------}
+
+@inproceedings{sparse09,
+  author    = {Christian Sommer and
+               Elad Verbin and
+               Wei Yu},
+  title     = {Distance Oracles for Sparse Graphs},
+  booktitle = {FOCS},
+  year      = {2009},
+  pages     = {703-712},
+  ee        = {http://doi.ieeecomputersociety.org/10.1109/FOCS.2009.27},
+  crossref  = {DBLP:conf/focs/2009},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+@proceedings{DBLP:conf/focs/2009,
+  title     = {50th Annual IEEE Symposium on Foundations of Computer Science,
+               FOCS 2009, October 25-27, 2009, Atlanta, Georgia, USA},
+  booktitle = {FOCS},
+  publisher = {IEEE Computer Society},
+  year      = {2009},
+  isbn      = {978-0-7695-3850-1},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    Distance Oracles for Spatial Networks
+------------------------------------------------------------------------------}
+
+@inproceedings{spatialnetw09,
+  author    = {Jagan Sankaranarayanan and
+               Hanan Samet},
+  title     = {Distance Oracles for Spatial Networks},
+  booktitle = {ICDE},
+  year      = {2009},
+  pages     = {652-663},
+  ee        = {http://dx.doi.org/10.1109/ICDE.2009.53},
+  crossref  = {DBLP:conf/icde/2009},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+@proceedings{DBLP:conf/icde/2009,
+  title     = {Proceedings of the 25th International Conference on Data
+               Engineering, ICDE 2009, March 29 2009 - April 2 2009, Shanghai,
+               China},
+  booktitle = {ICDE},
+  publisher = {IEEE},
+  year      = {2009},
+  isbn      = {978-0-7695-3545-6},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    In Transit to Constant Time Shortest-Path Queries in Road Networks
+------------------------------------------------------------------------------}
+
+@MISC{transithh,
+    author = {Holger Bast and Stefan Funke and Domagoj Matijevic and Peter Sanders and Dominik Schultes},
+    title = {In Transit to Constant Time Shortest-Path Queries in Road Networks },
+    year = {}
+}
+
+@comment{------------------------------------------------------------------------------------------------------------
+    TIMETABLE--------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------}
+
+@comment{---------------------------------------------------------------------
+    Experimental comparison of shortest path approaches for timetable
+------------------------------------------------------------------------------}
+
+@inproceedings{compshpathapp04,
+  author    = {Evangelia Pyrga and
+               Frank Schulz and
+               Dorothea Wagner and
+               Christos D. Zaroliagis},
+  title     = {Experimental Comparison of Shortest Path Approaches for
+               Timetable Information},
+  booktitle = {ALENEX/ANALC},
+  year      = {2004},
+  pages     = {88-99},
+  crossref  = {DBLP:conf/alenex/2004},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+@proceedings{DBLP:conf/alenex/2004,
+  editor    = {Lars Arge and
+               Giuseppe F. Italiano and
+               Robert Sedgewick},
+  title     = {Proceedings of the Sixth Workshop on Algorithm Engineering
+               and Experiments and the First Workshop on Analytic Algorithmics
+               and Combinatorics, New Orleans, LA, USA, January 10, 2004},
+  booktitle = {ALENEX/ANALC},
+  publisher = {SIAM},
+  year      = {2004},
+  isbn      = {0-89871-564-4},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    Engineering Time-Expanded Graphs for Faster Timetable Information
+------------------------------------------------------------------------------}
+
+@incollection {engtimeexp09,
+   author = {Delling, Daniel and Pajor, Thomas and Wagner, Dorothea},
+   affiliation = {University of Karlsruhe Department of Computer Science P.O. Box 6980 76128 Karlsruhe Germany},
+   title = {Engineering Time-Expanded Graphs for Faster Timetable Information},
+   booktitle = {Robust and Online Large-Scale Optimization},
+   series = {Lecture Notes in Computer Science},
+   editor = {Ahuja, Ravindra and Möhring, Rolf and Zaroliagis, Christos},
+   publisher = {Springer Berlin / Heidelberg},
+   isbn = {978-3-642-05464-8},
+   keyword = {Computer Science},
+   pages = {182-206},
+   volume = {5868},
+   year = {2009}
+}
+
+@comment{---------------------------------------------------------------------
+    Using Multi-level Graphs for Timetable Information in Railway Systems
+------------------------------------------------------------------------------}
+
+@incollection {multilevelgr02,
+   author = {Schulz, Frank and Wagner, Dorothea and Zaroliagis, Christos},
+   affiliation = {University of Konstanz Department of Computer and Information Science Box D188 78457 Konstanz Germany},
+   title = {Using Multi-level Graphs for Timetable Information in Railway Systems},
+   booktitle = {Algorithm Engineering and Experiments},
+   series = {Lecture Notes in Computer Science},
+   editor = {Mount, David and Stein, Clifford},
+   publisher = {Springer Berlin / Heidelberg},
+   isbn = {978-3-540-43977-6},
+   keyword = {Computer Science},
+   pages = {43-59},
+   volume = {2409},
+   year = {2002}
+}
+
+@comment{---------------------------------------------------------------------
+    Timetable Information: Models and Algorithms
+------------------------------------------------------------------------------}
+
+@INBOOK{timetablemodelsalgs07,
+    AUTHOR = {Matthias M{\"u}ller-Hannemann and Frank Schulz and Dorothea Wagner and Christos Zaroliagis},
+    Title = {Algorithmic Methods for Railway Optimization},
+    Chapter = {{Timetable Information: Models and Algorithms}},
+    YEAR = {2007},
+    Publisher = {Springer},
+    volume = {4359},
+    series = {Lecture Notes in Computer Science},
+    pages = {67 - 90},
+    key = {ARRIVAL-TR-0015}
+}
+
+@comment{------------------------------------------------------------------------------------------------------------
+    OTHER------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------}
+
+@comment{---------------------------------------------------------------------
+    Distance oracles for timetable graphs - research
+------------------------------------------------------------------------------}
+
+@misc{hajnresearch12,
+  author    = {František Hajnoviè},
+  year      = {2012},
+  title     = {Distance oracles for timetable graphs - research}
+}
+
+@comment{---------------------------------------------------------------------
+    Hierarchical Planning
+------------------------------------------------------------------------------}
+
+@misc{hierplan11,
+     title = "Hierarchical Planning",
+     year = "2011",
+     author = "CompSci767"
+}
+
+@comment{---------------------------------------------------------------------
+    Hierarchical Planning 2
+------------------------------------------------------------------------------}
+
+@misc{hierplan204,
+     title = "Hierarchical Planning",
+     year = "2004/05",
+     author = "M. Kerber"
+}
+@comment{---------------------------------------------------------------------
+    Graph Separators
+------------------------------------------------------------------------------}
+
+@misc{separators02,
+     title = "Graph Separators",
+     year = "2002",
+     author = "Guy Blelloch"
+}
+
+@comment{---------------------------------------------------------------------
+    Graph Separators 2
+------------------------------------------------------------------------------}
+
+@misc{separators2,
+     title = "Graph Separators",
+     author = "Jeff Erickson"
+}
+
+@comment{------------------------------------------------------------------------------------------------------------
+    UNRELATED--------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------}
+
+@comment{---------------------------------------------------------------------
+    Implicit Representation of Graphs
+------------------------------------------------------------------------------}
+
+@inproceedings{imprepr88,
+  author    = {Sampath Kannan and
+               Moni Naor and
+               Steven Rudich},
+  title     = {Implicit Representation of Graphs},
+  booktitle = {STOC},
+  year      = {1988},
+  pages     = {334-343},
+  ee        = {http://doi.acm.org/10.1145/62212.62244},
+  crossref  = {DBLP:conf/stoc/STOC20},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+@proceedings{DBLP:conf/stoc/STOC20,
+  editor    = {Janos Simon},
+  title     = {Proceedings of the 20th Annual ACM Symposium on Theory of
+               Computing, May 2-4, 1988, Chicago, Illinois, USA},
+  booktitle = {STOC},
+  publisher = {ACM},
+  year      = {1988},
+  isbn      = {0-89791-264-0},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@comment{---------------------------------------------------------------------
+    Tvorba efektívnych algoritmov - prednášky
+------------------------------------------------------------------------------}
+
+@misc{Tea97,
+    author  =   {Pavol Ïuriš},
+    year    =   {1997},
+    title   =   {Tvorba efektívnych algoritmov - prednášky}
+}
+
+@comment{---------------------------------------------------------------------
+    Základy umelej inteligencie 1 - prednášky
+------------------------------------------------------------------------------}
+
+@misc{zuiprednaska,
+    author  =   {Mária Markošová},
+    title   =   {Základy umelej inteligencie 1 - prednášky}
+}
+
+@comment{------------------------------------------------------------------------------------------------------------
+    PICS, PAGES, OTHER ARTICLES--------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------}
+
+@comment{---------------------------------------------------------------------
+    Page - London Underground - wikipedia
+------------------------------------------------------------------------------}
+
+@misc{LondonUnd,
+    author  =   {Wikipedia},
+    title   =   {London Underground - wikipedia},
+    ee      =   {http://en.wikipedia.org/wiki/London_Underground}
+}
+
+@comment{---------------------------------------------------------------------
+    Picture - Elektricka
+------------------------------------------------------------------------------}
+
+@misc{Elektricka,
+    author  =   {TASR},
+    title   =   {Tretie kolo diskusie o nosnom dopravnom systéme v Bratislave bude 27.6.},
+    ee      =   {http://www.transport.sk/spravy/cestna-doprava/3909-tretie-kolo-diskusie-o-nosnom-dopravnom-systeme-v-bratislave-bude-27-6.html}
+}
+
+@comment{---------------------------------------------------------------------
+    Picture - Mapa IMHD
+------------------------------------------------------------------------------}
+
+@misc{MapImhd,
+    author  =   {imhd.sk},
+    title   =   {Mapa MHD BA},
+    ee      =   {www.imhd.sk}
+}
+
+@comment{---------------------------------------------------------------------
+    Picture - Separator
+------------------------------------------------------------------------------}
+
+@misc{SeparatorPict,
+    title   =   {Separator},
+    author  =   {James Lee},
+    ee      =   {http://tcsmath.wordpress.com/tag/cheegers-inequality/}
+}
+
+@comment{---------------------------------------------------------------------
+    Picture - Scale-free network
+------------------------------------------------------------------------------}
+
+@misc{ScaleFreePict,
+    title   =   {A matter of scale},
+    author  =   {Keith Farnish},
+    ee      =   {http://www.farnish.plus.com/amatterofscale/chapter15.htm}
+}
+
+@comment{---------------------------------------------------------------------
+    Picture - Power-law distribution
+------------------------------------------------------------------------------}
+
+@misc{PowerLawPict,
+    title   =   {Information about Scale Free Networks},
+    ee      =   {http://www.macs.hw.ac.uk/~pdw/topology/ScaleFree.html}
+}
+
+@article{smallworld98,
+    address = {Department of Theoretical and Applied Mechanics, Cornell University, Ithaca, New York 14853, USA. djw24@columbia.edu},
+    author = {Watts, Duncan J. and Strogatz, Steven H.},
+    citeulike-article-id = {99},
+    citeulike-linkout-0 = {http://dx.doi.org/10.1038/30918},
+    citeulike-linkout-1 = {http://dx.doi.org/10.1038/393440a0},
+    citeulike-linkout-2 = {http://view.ncbi.nlm.nih.gov/pubmed/9623998},
+    citeulike-linkout-3 = {http://www.hubmed.org/display.cgi?uids=9623998},
+    citeulike-linkout-4 = {http://www.wormbase.org/db/misc/paper?name=WBPaper00005414},
+    day = {04},
+    doi = {10.1038/30918},
+    issn = {0028-0836},
+    journal = {Nature},
+    keywords = {complex\_networks, complex\_systems, network, network\_generation\_model, small\_world},
+    month = jun,
+    number = {6684},
+    pages = {440--442},
+    pmid = {9623998},
+    posted-at = {2007-10-10 03:41:03},
+    priority = {5},
+    publisher = {Nature Publishing Group},
+    title = {{Collective dynamics of 'small-world' networks}},
+    url = {http://dx.doi.org/10.1038/30918},
+    volume = {393},
+    year = {1998}
+}

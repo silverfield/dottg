@@ -1,0 +1,461 @@
+%---------------------------------------------------------------------
+%   documentclass
+%---------------------------------------------------------------------
+\documentclass[a4paper]{article}
+
+%---------------------------------------------------------------------
+%   packages
+%---------------------------------------------------------------------
+\usepackage{mathtools}
+\usepackage[english]{babel}
+\usepackage[enc=cp1250]{hrlatex}
+\usepackage[T1]{fontenc} %pekne makcene
+\usepackage{lmodern} %spolu s T1 smooth font!
+\usepackage{hyperref} %odkazy
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cite} %bibtex
+\usepackage{enumitem}
+\usepackage{titlesec} %section titles font size change
+\usepackage{color} %for \definecolor
+\usepackage{colortbl} %for \rowcolor command
+\usepackage{eucal} %for nice letters like \mathcal{A}
+\usepackage{tikz}
+\usepackage{scalefnt}
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\usepackage{multirow}% http://ctan.org/pkg/multirow
+\usepackage{pifont} %for ticks (check symbols)
+\usepackage{listings}
+\usepackage{floatflt} %to have tables and text beside
+\usepackage{courier}
+
+%---------------------------------------------------------------------
+%   margins
+%---------------------------------------------------------------------
+\oddsidemargin 0.0in
+\evensidemargin 0.0in
+\textwidth 6.1in
+\textheight 23.94cm
+\topmargin -0.35in
+
+%---------------------------------------------------------------------
+%   various settings
+%---------------------------------------------------------------------
+\pgfrealjobname{r-12-11-22} % <-- NOTE: this needs to be the real document's basename
+                        %     (else you'll only get an empty output file)
+
+\newif\ifmine % introduce a switch for draft vs. final document
+\minetrue
+
+\newif\iffinal % introduce a switch for draft vs. final document
+\finaltrue % use this to compile the final document
+\iffinal
+  \newcommand{\inputTikZ}[1]{%
+    \input{#1.tikz}%
+  }
+\else
+  \newcommand{\inputTikZ}[1]{%
+    \beginpgfgraphicnamed{#1-external}%
+    \input{#1.tikz}%
+    \endpgfgraphicnamed%
+  }
+\fi
+
+\setlist{nolistsep} %so that lists have normal spacing
+
+\titleformat{\section}{\LARGE\bfseries}{\thesection}{1em}{} %section titles
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{} %subsection titles
+
+\definecolor{tablehead}{RGB}{238,233,233} %nice smooth grey
+
+\setlength{\parindent}{0pt} %we don't need no indentation
+
+\graphicspath{{./pics/}} %picture dir
+
+\definecolor{lstcolor}{RGB}{238,233,233}
+
+\lstset{ %
+    language=Octave,                % choose the language of the code
+    basicstyle=\footnotesize\ttfamily,       % the size of the fonts that are used for the code
+    numbers=left,                   % where to put the line-numbers
+    numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+    stepnumber=1,                   % the step between two line-numbers. If it's 1 each line will be numbered
+    numbersep=5pt,                  % how far the line-numbers are from the code
+    backgroundcolor=\color{lstcolor},   % choose the background color. You must add \usepackage{color}
+    showspaces=false,               % show spaces adding particular underscores
+    showstringspaces=false,         % underline spaces within strings
+    showtabs=false,                 % show tabs within strings adding particular underscores
+    frame=single,	                % adds a frame around the code
+    tabsize=2,	                    % sets default tabsize to 2 spaces
+    captionpos=b,                   % sets the caption-position to bottom
+    breaklines=true,                % sets automatic line breaking
+    breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+    title=\lstname,                 % show the filename of files included with \lstinputlisting; also try caption instead of title
+    escapeinside={\%*}{*)},          % if you want to add a comment within your code
+%    morekeywords={*,...}            % if you want to add more keywords to the set
+	deletekeywords={all, null, length, path}
+}
+
+%---------------------------------------------------------------------
+%   environments
+%---------------------------------------------------------------------
+\renewenvironment{abstract}[1]
+{
+	\Large
+	\begin{center}
+		\textbf{#1}
+	\end{center}
+	
+	\normalsize
+	
+	\addtolength{\leftskip}{1in}
+	\addtolength{\rightskip}{1in}
+	\setlength{\parindent}{0in}
+}
+{
+}
+
+\newenvironment{itemizesp}
+{
+    \begin{itemize}
+}
+{
+    \end{itemize}
+}
+
+\newcommand{\deftoken}{\boldmath{$\mathcal{DEFINITION}$}}
+\newcommand{\restoken}{\boldmath{$\mathcal{RESULT}$}}
+\newcommand{\dotoken}{\boldmath{$\mathcal{DO METHOD}$}}
+\newcommand{\textbff}[1]{{\large \textbf{#1}}}
+\newcommand{\tick}{\ding{52}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{observation}{Observation}
+
+%---------------------------------------------------------------------
+%   magic code
+%---------------------------------------------------------------------
+% Here it is: the code that adjusts justification and spacing around caption.
+\makeatletter
+% http://www.texnik.de/floats/caption.phtml
+% This does spacing around caption.
+\setlength{\abovecaptionskip}{6pt}   % 0.5cm as an example
+\setlength{\belowcaptionskip}{6pt}   % 0.5cm as an example
+% This does justification (left) of caption.
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1: #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    #1: #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother
+
+%---------------------------------------------------------------------
+%   document
+%---------------------------------------------------------------------
+\begin{document}
+    \thispagestyle{empty}
+    %---------------------------------------------------------------------
+    %   topmatter
+    %---------------------------------------------------------------------
+    \title{\textbf{r-2012-11-22}}
+    \author{František Hajnoviè \\
+    \texttt{ferohajnovic@gmail.com}}
+    \date{\today}
+    \maketitle
+
+    \vskip 0.5cm
+
+    %---------------------------------------------------------------------
+    %   OUTLINE
+    %---------------------------------------------------------------------
+    \tableofcontents
+    
+    %---------------------------------------------------------------------
+    %   adjustment of Gavoille
+    %---------------------------------------------------------------------    
+    \section{Adjustment of Gavoille's algorithm for graphs with $r(n)$ separator ~\cite{distlabel04} for time-dependent scenario}
+    \subsection{Original algorithm}
+    \label{subsec:orig}
+	In ~\cite{distlabel04}, an algorithm answering distance queries in graphs is presented. The algorithm pre-processes the input graph, producing the so-called distance labels for each vertex. After preprocessing, a distance query between a pair of vertices $u$ and $v$ can be answered much quicklier then with e.g. Dijkstra's algorithm. \\
+	
+	The algorithm takes advantage of recursive separators in the graph. The \textit{size of the separator} and \textit{how quickly we can find it} are two factors that influence the efficiency of the algorithm:
+	\begin{itemize}
+		\item Size of the separator influences the \textbf{resulting size of the distance labels}. If we define
+		\[
+			\mathbf{R(n)} = \sum_{i = 0}^{\log_{3/2} n} r(n(2/3)^i)
+		\]
+		where $r(n)$ is the size of the recursive separator, the resulting total size of the preprocessed distance labels is
+		\[
+			\mathcal{O}(n R(n) \log n + n \log^{2} n)
+		\]
+		Note, that $R(n) = \mathcal{O}(r(n))$ for any $r(n) \geq n^{\epsilon}$. \\
+		
+		Also, the \textbf{time it takes to answer the query} is influenced by the size of the separator and it is
+		\[
+			\mathcal{O}(R(n))
+		\]
+		\item The time ($t(n)$) it takes us to find the separator, on the other hand, influences the \textbf{preprocessing time} of
+		\[
+			\mathcal{O} ((\log n) (t(n) + r(n)(m + n \log n)))
+		\]
+		E.g., in planar graphs, we can find a recursive separator of size $\mathcal{O} (\sqrt n)$ (\cite{separators2}) in linear time ($\mathcal{O} (n)$). That leads to the preprocessing time of $\mathcal{O} (n^{3/2} \log^{2} n)$ (see \ref{sec:prepro} for details).
+	\end{itemize}
+	\hspace*{\fill}
+	
+	\begin{figure}[h!]
+        \begin{center}
+            \inputTikZ{./tikzpics/separator}
+        \end{center}
+        \caption{\label{fig:separator} Separator splits graph into components. They in turn have again separators of respective size that further split the graph.}
+    \end{figure}
+	
+	We will now briefly describe how the Gavoille's algorithm works (more details can be found in ~\cite{distlabel04}). 
+	\begin{enumerate}
+		\item A separator $S$ is found and the graph is split into corresponding components
+		\item Each node in the component gets the list of distances to all the nodes from $S$
+		\item Each node in $S$ also gets the list of distances to all other nodes from $S$
+		\item A node in a component gets the identifier of the component
+		\item We proceed recursively in components
+	\end{enumerate}
+ 	\hspace*{\fill}
+ 	
+ 	The article does not specify \textit{how} we perform point \textit{2)} and \textit{3)}. We will assume that we use Dijkstra's algorithm, as explained in \textit{preprocessing of Gavoille's algorithm, r-12-11-15}. \\
+ 
+	After the preprocessing, answering a distance query between a pair of vertices $u$ and $v$ is simple. If $u$ and $v$ are from different components on the same level of recursion, the shortest path connecting them must pass through the separator whose removal created the components. We thus consider all of its vertices and find the distance as
+	\[
+		d(u, v) = min_{s \in S} \{d(u, s) + d(s, v)\}
+	\]
+	In case $u$ and $v$ are from the same component $C$, their corresponding shortest path may still pass through the separator whose removal created $C$, but it may also be completely within the component $C$ (in which case we proceed recursively). Thus we take the minimum out of these two values. Since we may eventually consider series of decreasing separators (each at most $2/3$ the size of the previous), we arrive at query time of $\mathcal{O}(R(n))$. For more details, please refer to ~\cite{distlabel04}, section \textit{2.2}. \\
+	
+	\subsection{Adjustments}
+	The algorithm is not designed for oriented or weighted graphs. The adjustments are, however, trivial:
+	\begin{itemize}
+		\item \textbf{Edge weights}: There is basically no adjustment necessary, the only difference will be in the size of the resulting labels. If we can bound the edge weights by a constant $W$, the total size of the preprocessed distance labels will be
+		\[
+			\mathcal{O}(n R(n) \log W + n \log^{2} n)
+		\]
+		\item \textbf{Oriented edges}: Oriented edges simply mean, that we will grow two shortest path trees (instead of just one) - one following the directions of the arcs and the other one going against them. We will thus have the distance labels of twice the original size, but it is necessary since we need to know the distance \textit{to} as well as \textit{from} the given separator vertex to component vertices.
+	\end{itemize}
+	\hspace*{\fill}
+	
+	In what follows, we will talk about \textbf{timetable graphs} and therefore we here provide a short definition. In timetable graph $G_{T}$ for a given timetable $T_{G}$, we have nodes in the form $[v, t]$ where $v$ is a vertex from the underlying graph $G$ (we will call these vertices \textbf{cities}) and $t$ is a departure [arrival] time of some elementary connection from $T_{G}$ beginning [ending] in $v$. No other nodes exist in $G_{T}$. We create an oriented edge from $[x, p]$ to $[y, q]$ for each elementary connection $(x, y, p, q)$ from the timetable $T_{G}$. See \textit{r-12-11-15} for more details and illustrations. \\
+	
+	We will now be interested, if this algorithm can be adjusted to work effectively for timetable graphs. Of course, as timetable graphs are also graphs, so we can simply take them as an input to the original algorithm. Mind that this way we will be querying for \textit{shortest paths} in the timetable graphs - and any path between a pair of vertices in a timetable graph is the shortest one (as the vertices have timestamps and the length of the path is just their difference). This is not a problem, as looking for a shortest path in a timetable graph can be easily transformed into solving the earliest arrival problem (see picture \ref{fig:timesearch}). \\
+	
+	\begin{figure}[h!]
+		\scriptsize
+		\begin{center}
+			\inputTikZ{./tikzpics/timeexpanded_search}
+		\end{center}
+		\caption{\label{fig:timesearch} Effective looking for shortest paths in timetable graphs can be easily transformed into effective solving of EAP. We will simply look for shortest paths leading to respective newly added vertices (marked by green color) - this way we the earliest arriving connection to the given city.}
+	\end{figure}	
+		
+	The problem is, however, that even if the underlying graph of the timetable has small separator that can be effectively found, there is generally no guarantee that the same could be said about the graph of the timetable. We therefore try to adjust the algorithm. \\
+	
+	Suppose we have a graph $G$ for which we can find a separator of size $r(n)$ in time $t(n)$ and a timetable $T$ without overtaking and express lines on top of this graph. In case there is overtaking in the timetable, we will first pre-process it to remove the overtaken connections. This can be done in time $\mathcal{O}(|T|)$ (supposing we have the timetable appropriately sorted) as follows:
+	
+	\begin{lstlisting} [caption={Removing overtaken elementary connections}]
+for each oriented edge (x,y) in graph G:
+	for all elementary connections (x, y, p, q) (in an ascending order with respect to p):
+		t = q
+		destroy all already seen elementary connections (x, y, p', q') such that q' > t
+	\end{lstlisting}
+	
+	The row number $4$ (destroying overtaken connections) will be executed at most $\mathcal{O}(|T|)$ times. \\
+	
+	We will now adjust the Gavoille's algorithm to solve EAP on timetable $T$. The idea stems from the original algorithm: We first find the separator in the underlying graph that splits the timetable graph into components (based on the components in the underlying graph). For each \textit{vertex} in the component, we would like to know the earliest arrival to each \textit{city} from the separator and, consequently, the earliest arrival from each \textit{vertex} in the separator to each \textit{city} from the components. Having these kind of labels, we would be able to solve EAP across the separator the same way we solved shortest paths across the separator - by considering all cities of the separator as a transfer station and taking the one that minimizes the total time. We must also have EAP values for each separator vertex to each separator city - for the case when the query is for two cities from within the separator. \\
+	
+	To obtain the mentioned EAP values we may grow shortest path trees in the timetable graph. This, however, is unnecessarily costly (see picture \ref{fig:costly}). A better approach is to create a time-dependent graph representing the timetable $T$. The cost of the arc in such a graph is a function that for a given moment outputs the traversal time of the arc. Growing shortest path trees in this graph is less costly, as we do not return again to a city that has already been settled. We still get the necessary EAP values, though. \\
+	
+	\begin{figure}[h!]
+		\scriptsize
+		\begin{center}
+			\inputTikZ{./tikzpics/costly}
+		\end{center}
+		\caption{\label{fig:costly} In this example, we grow backward shortest path tree from the vertex $[A, 12:00]$ (belonging to the separator) in order to set EAP values for the settled vertices. We explore bigger part of the graph (marked by red) then it is necessary (marked by green). Time-dependent approach will not continue the growth of the tree back into the cities which have already been visited.}
+	\end{figure}	
+	
+	The \textbf{preprocessing} of the algorithm will proceed recursively into components. Initially, the component $C = G$ (i.e. the whole underlying graph):
+	\begin{itemize}
+		\item First we find a $r(n)$ separator $S$ in time $t(n)$ in $C$
+		\item For each vertex $[v, t]$ where $v \in S$, we grow a backward time dependent shortest-path tree. We grow the tree until we settle all cities in $C$. For each settled city $u$ and the time $q$ at which it was settled, there is a node $[u, q]$ in the timetable graph. For this node we set the EAP label to city $v$ to value $(t - q)$, but only if this label is still undefined or is greater then $(t - q)$. At the end of this procedure, we have the EAP values from each vertex of $C$ to each city in $S$.
+		\item We do the same thing, except that we grow \textit{forward} (or simply normal) time dependent shortest-path trees. At the end, we will have the EAP values from each vertex of $S$ to each city in $C$. This time, however, we store the EAP values with the vertices of $S$ instead of the vertices corresponding to settled cities at a given time (this is due to the way we answer queries).
+	\end{itemize}
+	\hspace*{\fill}
+	
+	Note that we might end up with some vertices for which the required EAP value to the separator will be unset (e.g., if we destroy the edge $([B, 10:00], [A, 11:00])$ in figure \ref{fig:costly}, the EAP value from $[C, 9:00]$ to city $A$ will be unset). We may solve this with a top-to-bottom sweep of the timetable graph during preprocessing, filling out unset values from the last previously seen set value. Another approach would be to solve this at the query time, but it might increase the time complexity of the query whereas the preprocessing time does not change with the inclusion of the sweeping. \\
+	
+	\begin{lstlisting} [caption={Preprocessing of the adjusted Gavoille's algorithm}]
+function preprocess(C):
+	#find the separator
+	S = r(n)-separator(C)
+	
+	#set EAP values
+	for [v, t] such that v %*$\in$*) S:
+		grow backward time dependent shortest-path tree starting from v in time t:
+			for each settled city u in time q:
+				if %*$EAP_{[u, q]}[v]$*) > (t - q):
+					%*$EAP_{[u, q]}[v]$*) = (t - q)
+		grow time dependent shortest-path tree starting from v in time t:
+			for each settled city u in time q:
+				if %*$EAP_{[v, t]}[u]$*) > (q - t):
+					%*$EAP_{[v, t]}[u]$*) = (q - t)
+	
+	#sweep to solve unset EAP values
+	for each u such that u %*$\in$*) C:
+		for each v %*$\in$*) S:
+			%*$lastEAP[v]$*) = %*$\infty$*)
+		for 	each [u, t] in decreasing order by t:
+			for each v %*$\in$*) S:
+				if %*$EAP_{[u, t]}[v]$*) == %*$\infty$*):
+					%*$EAP_{[u, t]}[v]$*) = %*$lastEAP[v]$*)
+				else:
+					%*$lastEAP[v]$*) = %*$EAP_{[u, t]}[v]$*)			
+					
+	#set component id
+	for each v in C:
+		if v is in S:
+			%*$C_{v}$*) .= "S"
+		else:
+			%*$C_{v}$*) .= component number of component containing v
+			
+	#proceed recursively
+	for each component C':
+		preprocess(C')
+
+function solve_unset(G):
+	for each v in G
+		for each [v, t]
+					
+function main():
+	#initialize labels
+	for each [v, t], u:
+		 %*$EAP_{[v, t]}[u]$*) = %*$\infty$*)
+	for each v:
+		%*$C_{v}$*) = ""
+		
+	#run preprocessing
+	preprocess(G)
+	\end{lstlisting}
+	
+	\subsection{Complexity}
+	
+	What is the time complexity of the \textbf{preprocessing}? First of all, we assume the following to be satisfied \textit{before} preprocessing: 
+	\begin{itemize}
+		\item For each arc of the underlying graph, the corresponding elementary connections are sorted by departure time. Define $height(T) = max_{v \in G} \{s \; | \; s = |\{(v, u, p, q) \in T\}|\}$, we can achieve the required order in time $\mathcal{O}(n \; h \log h)$ where $h = height(T)$.
+		\item We have no overtaking connections (can be removed in $\mathcal{O}(|T|)$, which is $\mathcal{O}(n \; h)$)
+		\item We have a time-dependent representation of the timetable $T$, with \textit{constant-time} computation of the edge cost functions. This can be achieved in time $\mathcal{O}(n \; h)$, creating a data structure of size $\mathcal{O}(n \; h)$.
+	\end{itemize}
+	\hspace*{\fill}
+	
+	The last point may raise some questions - how to build the edge cost function in such a way, that the traversal time at any given moment could be retrieved in constant time?. As the cost function of an individual arc is simply a piece-wise linear function, the task at hand is to be able to output the specific piece of the function (or its time interval) for a given time in constant time (see picture \ref{fig:constcostfunc}). \\
+	
+	One solution, though not in a constant time, is a binary search with logarithmic time complexity with respect to the number of intervals (interpolation points) which is $h$ at most, thus $\mathcal{O}(\log h)$. For such lookups, all we need is an array of beginnings and respective endings of the intervals, easily computable in $\mathcal{O}(n \; h)$. The next approach will work only in cases when we have a certain granularity in times specified in the timetable - e.g. a granularity in minutes would mean that all the times are expressed up to the detail of minutes, but not further. In such case, we can simply precompute the traversal time for each moment (e.g. second). However, the preprocessing time (as well as space) would be $\mathcal{O}(n \; U)$ where $U$ is the time range of the timetable. \\
+	
+	Finally, we may vertically (according to time) divide the timetable into $h$ equally large ``buckets'' $H_{1}, H_{2}, ... H_{h}$ - for each $H_{i}$ we store the intervals of the time-dependent function that are within or overlap with $H_{i}$. This would take us $\mathcal{O}(n \; h)$ time and space in preprocessing. The expected number of intervals covered by each $H_{i}$ is constant and thus in average case we could retrieve the interval $I_{j}$ for a specified $t$ in constant time. \\
+	
+	\begin{figure}[h!]
+		\scriptsize
+		\begin{center}
+			\inputTikZ{./tikzpics/constcostfunc}
+		\end{center}
+		\caption{\label{fig:constcostfunc} The problem behind constant cost function on an arc (from $C$ to $D$ in this case) - for each $t$ we have to be able to determine in constant time its interval.}
+	\end{figure}	
+	
+	So the pre-preprocessing takes $\mathcal{O}(n \; h \log h)$ time. The time complexity of the preprocessing itself can be computed similarly as in \textit{preprocessing of Gavoille's algorithm, r-12-11-15}. We thus explain it here only briefly. Here is a summary of costly actions in one iteration of function \textit{preprocess} with component of size $n$ as an input:
+	\begin{enumerate}
+        \item A separator of size $r(n)$ is found in $t(n)$ time
+        \begin{itemize}
+        		\item $\mathcal{O} (t(n))$
+		\end{itemize}
+        \item We grow the shortest path trees using Dijkstra's algorithm. We do so for each vertex of the current separator, thus it takes $\mathcal{O}(h \cdot (m + n \log n) r(n))$
+		\begin{itemize}
+        		\item $\mathcal{O}(h \cdot (m + n \log n) r(n))$
+		\end{itemize}
+		\item We apply the sweeping algorithm to solve unset EAP vales. This costs $\mathcal{O}(h \cdot n \cdot r(n))$
+		\begin{itemize}
+        		\item $\mathcal{O}(h \cdot n \cdot r(n))$
+		\end{itemize}
+    \end{enumerate}
+    \hspace*{\fill}
+    
+    The time for one iteration of the function is thus $\mathcal{O}(t(n) + h \cdot (m + n \log n) r(n))$. Same way as in \ref{sec:prepro} we will get to the total upper bound on preprocessing
+    
+    \[
+    		\mathcal{O} ((\log n) (t(n) + r(n) \cdot h \cdot(m + n \log n)))
+    \]
+    
+    Which for planar graphs equals to
+    
+    \[
+    		\mathcal{O} (h \; n^{3/2} \log^{2} n)
+    \]
+    
+	Now we would like to look at the \textbf{size of the labels} that have been created in the preprocessing phase. What do the labels look like? We may look at the label $L(x)$ for vertex $x$ from the perspective of how it was created during the algorithm. In each iteration where $x$ was in a component, $L(x)$ gets the component identifier and EAP values to separator cities. There may be up to $\mathcal{O}(\log n)$ such iterations, each time with decreasing component size. At the end $x$ is a trivial component of size $1$ or it belongs to a separator, in which case it lists the EAP values to each city. 
+	
+	\[
+		L(x) = \underbrace{\overbrace{[x \in component]}^\textrm{[comp. id, EAPs to S]}[x \in component] \cdots [x \in component]}_{\mathcal{O}(\log n)}\overbrace{[x \in separator]}^\textrm{EAPs to all}
+	\]
+	
+	We would like to make an upper bound on the total size of the precomputed labels. First, we ignore the separator part of the label and assume that each vertex ``survived'' (was part of the component) to the very last iteration. If we denote $l(n)$ the size of the label acquired on a graph with $n$ vertices, we get
+	
+	\[
+		l(n) \leq l(2n/3) + 	\mathcal{O}(r(n) \log U + \log n)
+	\]
+	
+	where $U$ is the time range of the timetable, $\log U$ necessary space to write down earliest arrival and $\log n$ necessary space to mark the component identifier. The recursive definition can be solved to
+	
+	\[
+		l(n) = \mathcal{O}(R(n) \log U + \log^{2} n)
+	\]
+	
+	And as we have at most $\mathcal{O}(h \cdot n)$ vertices, the total size of the ``component'' parts of the labels is at most $\mathcal{O}(h \cdot n \cdot R(n) \log U + h \cdot n \cdot \log^{2} n)$ \\
+	
+	In a case where vertex belongs to the separator, it lists the EAP values to all the cities in the current graph, which requires $\mathcal{O}(n \log U)$ bits of memory, i.e. $\mathcal{O}(h \cdot r(n) \cdot n \log U)$ bits for the given iteration. In the subsequent iteration, the components are of total size at most $n$, but their separators are smaller - at most $r(\frac{2}{3}n)$. Since a vertex can belong to a separator only once, we compute the total size of the ``separator'' parts of the labels as $\mathcal{O}(h \cdot n \cdot \log U (r(n) + r(\frac{2}{3}n) + r(\left(\frac{2}{3}\right)^{2}n) + ...)) = \mathcal{O}(h \cdot n \cdot R(n) \log U )$. We see that this is bound by the ``component'' part of the labels resulting in the total $\mathcal{O}(h \cdot n \cdot R(n) \log U + h \cdot n \cdot \log^{2} n)$ bits of memory consumed by preprocessed labels.\\
+	
+	As for the \textbf{query time} - i.e. computing earliest arrival between from $x$ at time $t$ to $y$ from EAP labels of $x$ and $y$ - there is not any new idea compared to the original algorithm so the query time can be estimated as $\mathcal{O}(R(n))$, with analogical explanation as in \ref{subsec:orig}. \\
+	
+	Finally, the answers of the queries are exact, i.e. \textbf{stretch} $= 1$, which completes the parameters of this distance oracle method:
+	\begin{itemize}
+		\item Preprocessing time: $\mathcal{O} ((\log n) (t(n) + r(n) \cdot h \cdot(m + n \log n)))$
+		\item Size: $\mathcal{O}(h \cdot n \cdot R(n) \log U + h \cdot n \cdot \log^{2} n)$, is usually $\mathcal{O}(h \cdot n \cdot R(n) \log U)$
+		\item Query time: $\mathcal{O}(R(n))$
+		\item Stretch: $1$
+	\end{itemize}
+			    
+    %---------------------------------------------------------------------
+    %   OPEN POINTS
+    %---------------------------------------------------------------------    
+    \section{Open points}
+    \begin{itemize}
+    		\item Hierarchy of express lines $\rightarrow$ what properties can be propagated in time-expansion?
+    		\item Instant cost function - more formal and details
+    \end{itemize}
+    
+    %---------------------------------------------------------------------
+    %   TO DO
+    %---------------------------------------------------------------------    
+    \section{To do}
+    
+    \begin{itemize}
+    		\item United airlines extract data
+    		\item Road network of SVK - process data
+    		\item Continue the diagnostic program
+    		\item Properties propagation in simple timetables
+    		\item Machine learning
+    \end{itemize}
+
+    %---------------------------------------------------------------------
+    %   bibliography
+    %---------------------------------------------------------------------
+    \pagebreak
+    \bibliographystyle{is-alpha}
+    %compile latex, bibtex, latex, latex
+    \bibliography{../bibl}{}
+\end{document}

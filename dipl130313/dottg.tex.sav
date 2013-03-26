@@ -1,0 +1,454 @@
+%---------------------------------------------------------------------
+%   documentclass
+%---------------------------------------------------------------------
+\documentclass[a4paper]{article}
+
+%---------------------------------------------------------------------
+%   packages
+%---------------------------------------------------------------------
+\usepackage{mathtools}
+\usepackage[english]{babel}
+\usepackage[enc=cp1250]{hrlatex}
+\usepackage[T1]{fontenc} %nice font
+\usepackage{lmodern} %smooth font
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cite} %bibtex
+\usepackage{enumitem}
+\usepackage[pdftex]{graphicx} %for \includegraphics command
+\usepackage{titlesec} %section titles font size change
+\usepackage{color} %for \definecolor
+\usepackage{colortbl} %for \rowcolor command
+\usepackage{wrapfig} %for wrapfigure
+
+%---------------------------------------------------------------------
+%   margins
+%---------------------------------------------------------------------
+\oddsidemargin 0.0in
+\evensidemargin 0.0in
+\textwidth 6.1in
+\textheight 23.94cm
+\topmargin -0.35in
+
+%---------------------------------------------------------------------
+%   various settings
+%---------------------------------------------------------------------
+\setlist{nolistsep} %so that lists have normal spacing
+
+\renewcommand\baselinestretch{1.3} %line-spacing
+
+\graphicspath{./pics/} %picture dir
+
+\titleformat{\section}{\LARGE\bfseries}{\thesection}{1em}{} %section titles
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{} %subsection titles
+
+\definecolor{tablehead}{RGB}{238,233,233} %nice smooth grey
+
+%---------------------------------------------------------------------
+%   environments
+%---------------------------------------------------------------------
+\renewenvironment{abstract}[1]
+{
+    \noindent
+	\Large
+	\begin{center}
+		\textbf{#1}
+	\end{center}
+	
+	\normalsize
+	
+	\addtolength{\leftskip}{1in}
+	\addtolength{\rightskip}{1in}
+	\setlength{\parindent}{0in}
+}
+{
+}
+
+\newenvironment{itemizesp}
+{
+    \begin{itemize}
+}
+{
+    \end{itemize}
+}
+
+\newtheorem{definition}{Definition}
+
+%---------------------------------------------------------------------
+%   magic code
+%---------------------------------------------------------------------
+% Here it is: the code that adjusts justification and spacing around caption.
+\makeatletter
+% http://www.texnik.de/floats/caption.phtml
+% This does spacing around caption.
+\setlength{\abovecaptionskip}{6pt}   % 0.5cm as an example
+\setlength{\belowcaptionskip}{6pt}   % 0.5cm as an example
+% This does justification (left) of caption.
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1: #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    #1: #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother
+
+%---------------------------------------------------------------------
+%   document
+%---------------------------------------------------------------------
+\begin{document}
+%---------------------------------------------------------------------
+%   FRONTMATTER ------------------------------------------------------
+%---------------------------------------------------------------------
+    %\frontmatter
+    \setlength{\parindent}{0pt}
+    \pagestyle{empty}
+    \setcounter{page}{200} %TODO_FINAL - change in final
+    \noindent
+
+    %---------------------------------------------------------------------
+    %   title page
+    %---------------------------------------------------------------------
+    \begin{center}
+        \begin{minipage}{0.30\textwidth} \includegraphics[width=38mm]{/pics/logouk.png} \end{minipage}
+        \begin{minipage}{0.69\textwidth}
+        \textbf{\large\sc
+            Department of Computer Science, \\
+            Faculty of Mathematics, Physics and Informatics in Bratislava, \\
+            Comenius University
+        }
+        \end{minipage}
+
+        \vskip 5cm
+
+        \begin{center} \line(1,0){250} \end{center}
+        {\LARGE\sc Distance oracles for timetable graphs } \\
+        \large{(Master thesis)}
+        \vskip 0.5cm
+        \textbf{\large František Hajnoviè}
+        \begin{center} \line(1,0){250} \end{center}
+
+        \vfill
+    \end{center}
+
+    \textbf{Program}: Informatics 9.2.1 \\
+    \textbf{Advisor}: doc. RNDr. Rastislav Královiè, PhD.   \hfill Bratislava 2012
+
+    \pagebreak
+
+    %---------------------------------------------------------------------
+    %   empty page
+    %---------------------------------------------------------------------
+    \pagebreak
+    
+    %---------------------------------------------------------------------
+    %   declaration of honesty
+    %---------------------------------------------------------------------
+    {~}\vfill
+
+    I hereby declare that I wrote this thesis by myself, only with the help of the referenced literature, under the careful supervision of my thesis advisor.
+    \vskip 1cm
+    \hfill ............................
+    
+    \pagebreak
+
+    %---------------------------------------------------------------------
+    %   acknowledgements
+    %---------------------------------------------------------------------
+    \section*{Acknowledgements}
+    I would like to thank ...
+    
+    \pagebreak
+
+    %---------------------------------------------------------------------
+    %   abstract
+    %---------------------------------------------------------------------   
+    \begin{abstract}{Abstract}
+        This thesis deals with the shortest path queries on timetable graphs - i.e. graphs that represent timetables (of e.g. Slovak bus network). Firstly we investigate, if some properties (such as low highway dimension) are propagated (and to what extent) from the underlying graph to the timetable graph. Based on these facts, we show how to compute reasonably fast an accurate distance oracle on timetable graphs, that would efficiently answer shortest path queries, thus finding quick timetable connections between any pair of nodes. \\
+
+		Key words: \textbf{distance oracles}, \textbf{timetable graphs}, \textbf{timetable}, \textbf{highway dimension}
+	\end{abstract}	
+    
+    \begin{abstract}{Abstrakt}
+        V tejto práci...\\
+
+		Klúèové slová: \textbf{distance oracles}, \textbf{timetable graphs}, \textbf{timetable}, \textbf{highway dimension}
+	\end{abstract}	
+	
+    \pagebreak
+
+    %---------------------------------------------------------------------
+    %   contents
+    %---------------------------------------------------------------------
+
+    \tableofcontents
+    
+    \pagebreak
+
+%---------------------------------------------------------------------
+%   MAINMATTER  ------------------------------------------------------
+%---------------------------------------------------------------------
+    %\mainmatter
+    \pagestyle{plain}
+    \setcounter{page}{1}
+    \setlength{\parindent}{40pt}
+
+    %---------------------------------------------------------------------
+    %   introduction
+    %---------------------------------------------------------------------
+    %\input parts/introduction.tex
+    
+    \section{Introduction}
+    World is getting smaller every day, as new technologies constantly make communication and traveling faster and more effective then yesterday. Road network, Internet and many other networks are becoming more evolved and denser which also brings along new problems. In order to fully take advantage of such huge networks, we must have efficient algorithms that operate on these networks and give us answers to many questions. Among many others, one that we take particular interest in is the question: ``What is the shortest path from place $x$ to place $y$''?
+    
+    %TODO - obrazok najkratsia cesta
+
+    In different networks, this question can make different sense. In the road network, we would like to obtain a sequence of intersections we have to visit in order to reach our destination, driving the shortest possible time (or the smallest possible distance) . GPS devices and the likes of Google maps have to deal with this problem. In the case of Internet network, we might be interested in the shortest path to a destination computer in terms of router hops. In a network of social acquaintances, the smallest number of persons connecting us with e.g. Mark Knopfler could be expressed as a shortest path problem. Many problems in artificial intelligence (e.g. planning of actions) can be expressed (or include) as a shortest path problem.
+    
+    %TODO - obrazok socialna siet
+
+    The importance of finding a shortest path in a graph is also obvious from the amount of algorithms and approaches we have nowadays to tackle this problem. In this thesis, we will focus on a more specific problem - finding a shortest connection from place $x$ at the time $t$ to place $y$, given a timetable of connections between nodes in the graph. This problem can be transformed and reduced to the original shortest path problem, but we may take advantage of the specific structure of the graphs representing timetables and find shortest connections more efficiently. Let us formulate the problem at hand more formally.
+    
+    Intuitively - a timetable is just a set of \emph{elementary connections} between pairs of nodes in a graph.\\
+    
+    \begin{definition}
+        \textbf{Timetable on a graph $G$} \\
+        A timetable on a given graph $G$ is a set $T_{G} = \{(x, y, p, q)|(x, y) \in E_{G}, \; p, q \in N, \; p < q \}$. An element of T is called an \textbf{elementary connection} and $x$ [$y$] and $p$ [$q$] are the \textbf{departure [arrival] node} and \textbf{time}.
+    \end{definition}
+
+    \noindent Note G may be directed or undirected - definition is the same for both. 
+    
+    \begin{definition}
+        \textbf{Connection from $x$ to $y$ in a given timetable $T_{G}$} \\
+        A connection from $x$ to $y$ in a given timetable $T_{G}$ is a sequence of \emph{elementary connections} $e_{1}, e_{2}, ..., e_{k}, \; k \geq 1, \; e_{i} = (x_{i}, y_{i}, p_{i}, q_{i})$, such that $x_{0} = x$, $x_{k} = y$ and $\forall i \in \{2, ..., k\}: (x_{i} = y_{i - 1}, \; p_{i} \geq q_{i - 1})$. \\
+        \noindent Connection \textbf{starts} at the \emph{departure time} $p_{1}$. \\
+        \noindent \textbf{Size (length)} of the connection is $q_{k} - p_{1}$.
+    \end{definition}
+    
+    %TODO - transitive closure
+
+    \begin{definition}
+        \textbf{Shortest timetable connection (STC) problem} \\
+        Given a graph $G$, two of its vertices $x \neq y$, integer $t \in N$ and a timetable on the graph $T_{G}$, what is the shortest \emph{connection} from $x$ to $y$ that \emph{starts} at a \emph{time} $s \geq t$.
+    \end{definition}
+
+    %TODO - obrazok timetable graph
+
+        \subsection{Applications}
+        We have already mentioned a few applications of the algorithm looking for shortest path in a graph. Many interesting examples can be found in the Christian Sommer's PhD thesis~\cite{CSAPX10}. As for finding the shortest timetable connection, following applications serve as a motivation: \\
+        
+        \begin{itemizesp}
+            \item \textbf{Search engines for (inter)national railways}: These are search engines where one specifies the desired departure station and time and destination station and leaves the job on the engine to find the shortest connection. Often we meet with advanced systems that incorporate train, bus and even airplane timetables all into the same search engine, or offer extra features such as required time for a change, traveling cost restrictions etc...
+            \item %todo - dalsie applications
+        \end{itemizesp}
+
+        \subsection{Traditional approaches to shortest path problem}
+        We will shortly present some of the well known algorithms that solve shortest path problems.
+        
+            \subsubsection{Dijkstra's algorithm}
+            The most famous of all, Dijkstra's algorithm, was published in 1959 by Edsger Dijkstra. It's original implementation runs in time $\mathcal{O}(n^2)$ (where $n=|V_{G}|$) and finds the shortest path from a given vertex $v$ to every other vertex in a directed graph (if the graph is strongly connected), thus producing a so called \emph{shortest path tree} (that is, a tree rooted at $v$ with every path starting at $v$ being a shortest path in the original graph) . A restriction is posed that edge weights must be positive.
+            
+            Briefly sketching the idea, in one iteration the algorithm visits the closest (with respect to the starting point $v$) so far unvisited vertex and updates the estimates of distances to all of its neighbors. The idea is to maintain an invariant, that for a visited node we know the correct shortest distance from $v$ which can be achieved just by moving along already visited vertices \cite{teaduris97}.
+            
+            Dijkstra's algorithm has been adjusted and tuned many times to achieve higher performance (better time complexity). Currently best bound is provided by an implementation using Fibonacci heap as a priority queue for next-visited-node selection. The resulting time complexity is $\mathcal{O}(m + n\log n)$ (where $m=|E_{G}|$) \cite{CSAPX10}.
+            
+            \subsubsection{Bellman-Ford algorithm}
+            Bellman-Ford algorithm considers also the graphs with negative edge weights. It differs from Dijkstra's algorithm mostly in the fact, that it does not apply the greedy next-visited-node selection (which prohibits the negative edge weights), but instead \emph{relaxes} each edge $n - 1$ times, hence the time complexity $\mathcal{O}(n m)$. The relaxation itself means checking if the estimate of the distance to the edge's endpoint could be improved with estimate of the edge's start point plus the weight of the edge.
+            
+            Because of the negative edge weights, algorithm must also check for negative cycles, which, however, does not increase the overall complexity. Similarly to Dijkstra's algorithm, it produces a shortest path tree rooted at the starting vertex.
+            
+            \subsubsection{A* search algorithm}
+            A* is an algorithm that uses heuristics to speed up finding of the optimal path from a starting vertex $v$ to the destination vertex $u$. The next visited node is the one that minimizes the (true) distance from $v$ plus the heuristic estimate of distance to $u$. The complexity of the A* algorithm depends on the heuristics. In the worst case, it may have to expand number of vertices exponential in the shortest path length. Only if the heuristics $h$ provides a very good estimate \footnote{By good estimate, we mean $|h(x) - h*(x)| = \mathcal{O}(log*(x))$ where $h*(x)$ is the optimal heuristics (true distance)}, the number of expanded vertices is polynomial in the size of the shortest path \cite{markosova}. Unfortunately, computing the heuristics itself in that case may require too much time and thus considerably increase the time complexity of the algorithm.
+            
+            %TODO - check the performance of A* on road networks...
+            
+            \subsubsection{Floyd-Warshall algorithm}
+            From the category of dynamic programming, Floyd-Warshall algorithm computes shortest paths between all pairs of vertices in $\mathcal{O}(n^{3})$.
+        
+        \subsection{Problem with traditional approaches}
+        With the arsenal of algorithms (from which we have mentioned just a few), one may wonder about our contribution to the STC problem, which may, as we have stated, be reduced to finding shortest path in a specific graph. That is, of course, a possible approach - the mentioned algorithms are polynomial, almost linear in time complexity. However, consider a road network of Europe, which may contain %TODO - find out!!
+        tens of millions of intersections and even several times more road segments (connections between two intersections) . If an online server hosting interactive map (like Google Maps) run Dijkstra's algorithm on such a large scale network for every query, it would not be able to answer those queries in real time, as required by users.
+        
+        Other straightforward approach would precompute every shortest path and then answer shortest path queries in a constant time. That would, however, require a large table of size $\mathcal{O}(n^3)$ \footnote{For every pair of vertices, we would store the shortest path}, or at least $\mathcal{O}(n^2)$\footnote{We store just the last vertex on the way to the destination, but the query then takes $\mathcal{O}(n)$ in the worst case}. In any case, the construction itself (not to mention the required memory) is very costly - with Floyd-Warshall algorithm and the mentioned scale, the computation might take more than $(10^{7})^{3} = 10^{21}$ steps.
+        
+        We have yet to mention timetables in the previous discussion. In the case of the graph representing a given timetable \emph{on a graph of the size of the European road network} (in the section~\ref{sec:preliminaries}, %TODO - exact subsection
+        there are descriptions how to construct timetable graphs), we obtain even bigger input for the shortest path problem. Later in the Preliminaries section, we will give more details about these graphs.
+        
+        \subsection{Shortest paths via distance oracles}
+        Due to the limitations described above, many other approaches were explored. The term \emph{Distance oracle} (DO) was first coined in 2001 by Thorup and Zwick~\cite{DBLP:journals/jacm/ThorupZ05} (for a definition, see \ref{sec:preliminaries}) %TODO - exact subsection
+        . The DO based method for shortest path retrieval consists of a preprocessing of the graph to a structure (the distance oracle), which then answers (not necessarily correctly) queries for shortest path, using as little computation as possible.
+        
+        Essentially, the DO method may be characterized by four parameters, all of which we try to minimize, but among which we have to make compromises:
+        
+        \begin{enumerate}
+            \item preprocessing time
+            \item size of the resulting structure
+            \item query time
+            \item \emph{stretch} - worst case ratio agains optimal path size
+        \end{enumerate}
+        
+        The approaches we have mentioned are the extreme cases, where some parameters are completely minimized while others are too large. 
+
+        \subsection{Organization of this paper}
+        This thesis is organized as follows:
+        
+        \begin{enumerate}
+            \item \textbf{Preliminaries}: we formulate necessary definitions and timetable graph constructions used throughout the rest thesis
+            \item \textbf{Related work}: main results in the area of distance oracles, shortest path queries and distance labelling, useful in the following sections
+            \item \textbf{Properties propagation upon time-expansion}: we show how (and to what extent) certain properties of the graph are preserved when time-expanded to a timetable graph.
+            \item \textbf{Proposed distance oracles for timetable graphs}: we present our approach to solve STC problem, based on distance oracles
+            \item \textbf{Implementation and results}: we present our implementation and obtained results of the algorithm's behavior in practice.
+            \item \textbf{Conclusion}: we conclude
+        \end{enumerate}
+    
+    \pagebreak
+
+    %---------------------------------------------------------------------
+    %   preliminaries
+    %---------------------------------------------------------------------
+    %\input parts/preliminaries.tex
+    
+    \section{Preliminaries}
+    \label{sec:preliminaries}
+    In this section, we would like to introduce terminology and definitions used later on in the thesis.
+    
+    We assume the reader to be familiar with some standard notions from graph theory such as \emph{graph}, \emph{subgraph}, \emph{path}... Much of the terminology we will use can be found in \cite{CSAPX10}. We will provide only the definitions of not well established terminology and our own definitions.
+    
+    If not stated otherwise, by a graph we will mean a directed graph (\emph{digraph}) with non-negative edge (\emph{arc}) weights.
+
+        \subsection{Common definitions}
+        \begin{definition}        
+            \textbf{Distance between nodes $x$ and $y$ in graph $G$} \\
+            Denoted $d_{G}(x, y)$, distance between $x$ and $y$ in $G$ is the length of the shortest path from $x$ to $y$: \\
+            $\displaystyle d_{G}(x, y) = \min_{\substack{P \in \mathcal{P}(x, y)}} l(P)$
+            where $l(P)$ is the length of the path $P$ and $\mathcal{P}(x, y)$ is the set of all paths from $x$ to $y$ in $G$.
+        \end{definition}
+               
+        \begin{definition}
+            \textbf{{\boldmath $(prepro_{M}, size_{M}, qtime_{M}, stretch_{M})$} - distance oracle for a graphs $G$} \\
+            A $(prepro_{M}, size_{M}, qtime_{M}, stretch_{M})$ - distance oracle $M$ for a graph $G$ is a data structure characterized by following properties:
+            \begin{enumerate}
+                \item $M$ could be created in a \textbf{preprocessing time} $prepro_{M}$ from graph $G$
+                \item $M$ takes up $size_{M}$ bits of memory (\textbf{size} of DO)
+                \item $M$ answers queries for shortest path between pair of vertices in $G$ in maximum time of $qtime_{M}$ (\textbf{query time} of DO)
+                \item the answer provided by $M$ is not worse than $stretch_{M}$ times the optimum value (\textbf{stretch} of DO)
+            \end{enumerate}
+        \end{definition}
+        
+        \begin{definition}
+            \textbf{{\boldmath $(prepro_{F}(G), size_{F}(G), qtime_{F}(G), stretch_{F}(G))$} - distance oracle method for a class of graphs $\mathcal{G}$}\\
+            Let $prepro_{F}(G)$, $size_{F}(G)$ and $qtime_{F}(G)$ be functions from $\mathcal{G}$ to $N$ and $stretch_{F}(G)$ a function from $\mathcal{G}$ to $R$. A $(prepro_{F}(G), size_{F}(G), qtime_{F}(G), stretch_{F}(G))$ - distance oracle method $F$ for a class of graphs $\mathcal{G}$ is an algorithm, that for each graph $G' \in \mathcal{G}$ produces a $(prepro_{F}(G'), size_{F}(G'), qtime_{F}(G'), stretch_{F}(G'))$ - \emph{distance oracle}
+        \end{definition}
+        
+        Note: in \cite{DBLP:journals/jacm/ThorupZ05}, no proper definition of a distance oracle was made. %TODO - what did they mean by DO then?
+        In \cite{CSAPX10} a term DO means both - an algorithm together with the data structure it produces. We saw fit to split the definition and refer to the structure itself as a distance oracle, and to the algorithm as a distance oracle method.
+        
+        \subsection{Classes of graphs}
+        
+        \subsection{Graph properties}
+        \begin{definition}
+            \textbf{Highway dimension for an undirected graph $G$} ~\cite{DBLP:conf/soda/AbrahamFGW10}
+            Highway dimension (HD) for an undirected, edge-weighted graph $G$ is the smallest integer $h$, such that
+            
+            \indent $\forall r \in R^{+}, \forall u \in V_{G}, \exists S \subset B_{u, 4r}, |S| \leq h,$ such that $\forall v, w \in B_{u, 4r}:$ \\
+            \indent \indent if $|P(v, w)| > r$ and $P(v, w) \subset B_{u, 4r}$ then $P(v, w) \cap S \neq \emptyset$
+            
+            where $B_{u, r} = {v \in G | d(u, v)
+        \end{definition}
+
+        \subsection{Timetable graphs}
+
+    %classes of graphs
+    %   power law, scale free, small-world
+
+    %shortest path problem settings
+    %   APSP...
+
+    %properties
+    %   hd
+    %       obrazok
+    %   separator
+    %       obrazok
+
+
+    %timetable graphs - approaches
+    %   underlying graph (base)
+    %       obrazok
+    %   time-expanded graph
+    %       obrazok
+    
+    \pagebreak
+
+    %---------------------------------------------------------------------
+    %   related work
+    %---------------------------------------------------------------------
+    %\input parts/relatedwrk.tex
+    
+    \section{Related work}
+    %uvodne kecy
+    %   vela sa toho spravilo
+    %   sumar v mojom clanku
+
+    %Thorup and Zwick
+
+    %distance labelling
+
+    %sommer
+
+    %HD
+    
+    \pagebreak
+
+    %---------------------------------------------------------------------
+    %   properties propagation upon time-expansion
+    %---------------------------------------------------------------------
+    %\input parts/properties.tex
+    
+    \section{Properties propagation upon time-expansion} 
+    
+    \pagebreak
+
+    %---------------------------------------------------------------------
+    %   proposed distance oracles for timetable graphs
+    %---------------------------------------------------------------------
+    %\input parts/proposeddo.tex
+    
+    \section{Proposed distance oracles for timetable graphs} 
+    
+    \pagebreak
+
+    %---------------------------------------------------------------------
+    %   implementation and results
+    %---------------------------------------------------------------------
+    %\input parts/implresults.tex
+    
+    \section{Implementation and results} 
+    
+    \pagebreak
+
+    %---------------------------------------------------------------------
+    %   conclusion
+    %---------------------------------------------------------------------
+    %\input parts/conclusion.tex
+    
+    \section{Conclusion} 
+    
+    \pagebreak
+
+%---------------------------------------------------------------------
+%   BACKMATTER  ------------------------------------------------------
+%---------------------------------------------------------------------
+    %\backmatter
+
+    %---------------------------------------------------------------------
+    %   bibliography
+    %---------------------------------------------------------------------
+    
+    \bibliographystyle{is-alpha}
+    %compile latex, bibtex, latex, latex
+    \bibliography{bibl}{}
+\end{document} 

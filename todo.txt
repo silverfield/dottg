@@ -1,0 +1,44 @@
+program for time-expanding - C++ linux
+program for picture making - c++ linux
+program for visualising - java linux
+program for DO algorithms - C++ linux
+
+\item Simple program for creating time-expanded graph out of given timetable (C++)
+
+	- vypluje XMLko, graf upraveny na zobrazenie na obrazku
+\item Simple program for converting a graph defined in XML to a picture in PDF format (C++)
+        
+	- v tikz formate
+\item Program with an interface for testing DO methods and making statistics (Java)
+        
+	- Dijkstra method
+	- APSP method
+	- measure: query time, exactness (stretch), DO size (?), preprocessing time
+\item Implementation of a proposed DO method for timetable graphs
+
+thourp and zwick - precitaj
+HD doraz
+distlabelling spomen co nebolo jasne
+uprav research do konecnej podoby
+
+- osnova co budem pisat (ake obrazky...)
+- 
+
+pouzi bibtex na bibliografiu
+DIO - document object identifier
+
+odporucany rozsah 55-65 stran
+
+citovanie
+- teaduris97
+- markosova
+
+consult
+- definition of timetable
+- it is know that for general graphs no efficient distance oracle exists
+
+Rovanove pripomienky
+- vlastne definicie
+- MK
+
+

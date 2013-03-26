@@ -1,0 +1,32 @@
+\tikzstyle{place}=[circle,draw=blue!50,fill=blue!20,thick,inner sep=1pt]
+\tikzstyle{selected}=[place, fill=orange!10]
+\begin{tikzpicture}[>=stealth, auto, scale=2.8 ]
+	\tikzstyle{every node}=[font=\small]
+    \draw (5,5) [red, very thick] circle (1.1);
+    \node (s1) at (5, 5) [selected] {};
+    \node (s2) at (4.5, 4.2) [selected] {};
+    \node (s3) at (5.5, 4.2) [selected] {};
+    \node (s4) at (6, 5) [selected] {};
+    \node (s5) at (5.5, 5.8) [selected] {};
+    \node (s6) at (4.5, 5.8) [selected] {};
+    \node (s7) at (4, 5) [selected] {};
+    \node (sm1) at (4.75, 5.4) [selected] {};
+    \node (sm2) at (5.25, 5.4) [selected] {};
+    \draw (s1) -- (s2);
+    \draw (s1) -- (s3);
+    \draw (s1) -- (s3);
+    \draw (s1) -- (s4);
+    \draw (s1) -- (sm1) node [midway, left, black] {5};
+    \draw (s1) -- (sm2) node [midway, right, black] {5};
+    \draw (s1) -- (s7);
+    \draw (sm1) -- (s6) node [midway, left, black] {5};
+    \draw (sm2) -- (s5) node [midway, right, black] {5};
+    
+    \node (c1) at (4.8, 6.2) [selected] {};
+    \node (c2) at (5.2, 6.2) [selected] {};
+    \draw [green] (s5) -- (c2) node [midway, right, black] {5};
+    \draw [green] (s6) -- (c1) node [midway, left, black] {5};
+    \draw [green] (c1) -- (c2) node [midway, black] {4};
+    \draw (c1) -- (4.7, 6.5);
+    \draw (c2) -- (5.3, 6.5);
+\end{tikzpicture}

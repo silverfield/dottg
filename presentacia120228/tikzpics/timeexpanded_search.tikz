@@ -1,0 +1,45 @@
+\tikzstyle{place}=[circle,draw=blue!50,fill=blue!20,thick,inner sep=1pt]
+{\scalefont{0.28}
+\begin{tikzpicture}[>=stealth,->,looseness=.5,auto,scale=0.28]
+    %NODES-------------------------------------------------------------
+    \node (A_9_30)  at (0,0) [place, label=below:{[A, 9:30]}] {};
+    \node (A_10_00) at (0,2) [place, label=right:{[A, 10:00]}] {};
+    \node (A_10_15) at (0,3) [place, label=right:{[A, 10:15]}] {};
+    \node (A_11_00) at (0,6) [place, label=right:{[A, 11:00]}] {};
+    \node (A_waitdisap) at (0,8) {};
+    \node (A) at (2, 0) [place, draw=green!50, fill=green!20, label=below:A] {};
+
+    \node (B_10_45) at (5,5) [place, label=right:{[B, 10:45]}] {};
+    \node (B_11_45) at (5,9) [place, label=right:{[B, 11:45]}] {};
+    \node (B_waitdisap) at (5,11) {};
+    \node (B) at (7, 0) [place, draw=green!50, fill=green!20, label=below:B] {};
+
+    \node (C_10_00) at (9,2) {};
+    \node (C_10_45) at (9,5) {};
+
+    %CONNECTIONS-------------------------------------------------------------
+    \draw [red] (A_10_00) -- (B_10_45) node [midway, above] {45 min};
+    \draw [red] (A_11_00) -- (B_11_45) node [midway, above] {45 min};
+    \draw [red] (A_9_30) -- (C_10_00) node {};
+    \draw [red] (A_10_15) -- (C_10_45) node {};
+
+    %WAITING-------------------------------------------------------------
+    \draw [dashed] (A_9_30) --  (A_10_00) node [midway, above] {30 min};
+    \draw [dashed] (A_10_00) -- (A_10_15) node [midway, above] {15 min};
+    \draw [dashed] (A_10_15) -- (A_11_00) node [midway, above] {45 min};
+    \draw [dashed] (A_11_00) -- (A_waitdisap) node {};
+
+    \draw [dashed] (B_10_45) --  (B_11_45) node [midway, above] {1 h};
+    \draw [dashed] (B_11_45) -- (B_waitdisap) node {};
+
+    %EDGES FOR SH. PATH---------------------------------------------------
+    \draw [green] (A_9_30) -- (A) node [midway, above] {0 min};
+    \draw [green] (A_10_00) -- (A) node [midway, above] {0 min};
+    \draw [green] (A_10_15) -- (A) node [midway, above] {0 min};
+    \draw [green] (A_11_00) -- (A) node [midway, above] {0 min};
+
+    \draw [green] (B_10_45) -- (B) node [midway, above] {0 min};
+    \draw [green] (B_11_45) -- (B) node [midway, above] {0 min};
+
+\end{tikzpicture}
+}

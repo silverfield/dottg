@@ -1,0 +1,14 @@
+externalize
+- use from folder conaining the tex file (e.g. research.tex)
+- will create pdf files out of all the .tikz files in tikzpics
+- then u can do normal pdflatex on the given tex file (e.g. research.tex) with externalized graphics
+
+tikz2pdf
+- use on a tikz file to view its pdf version
+- e.g.: python tikz2pdf -so basegraph.tikz
+
+showtikz
+- spravi "python tikz2pdf -so %1"
+
+problems:
+- centering of pgf graphics

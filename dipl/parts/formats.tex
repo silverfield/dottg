@@ -1,0 +1,99 @@
+\noindent \textbf{Timetable} is simply a set of elementary connections, thus the format is:
+\begin{itemize}
+	\item number of el. connections
+	\item the list of all el. connections (one per line, format ``\textit{FROM TO DEP-DAY DEP-TIME ARR-DAY ARR-TIME}'')
+\end{itemize}
+\hspace*{\fill}
+
+\begin{lstlisting}[caption={TT file format}]
+7                      //number of elementary connections
+A B 0 10:00 0 10:45    //el. connection
+A B 0 11:00 0 11:45
+A B 0 12:00 0 12:45
+A C 0 09:30 0 10:00
+A C 0 10:15 0 10:45
+C D 0 11:00 0 11:30
+C D 0 13:00 0 13:30
+\end{lstlisting}
+
+\noindent \textbf{Underlying graph} is basically an oriented graph, with some optional parameters. The format is the following:
+\begin{itemize}
+	\item number of cities
+	\item number of arcs
+	\item the list of all cities  (one per line)
+	\begin{itemize}
+		\item optional coordinates (otherwise null)
+	\end{itemize}
+	\item the list of all arcs (one per line, format ``\textit{FROM TO}'')
+	\begin{itemize}
+		\item optional length (otherwise null)
+		\item optional list of lines operating on that arc (otherwise null)
+	\end{itemize}
+\end{itemize}
+\hspace*{\fill}
+			
+\begin{lstlisting}[caption={UG file format}]
+4                                      //number of cities
+5                                      //number of arcs
+A 45 32                                //name of the city, optional coordinates
+B null
+C 56 34
+D null
+A B 57 Northern                        //arc, optional length and list of lines 
+A C null Picadilly Victoria            
+C B 45 Circle Jubilee Picadilly
+C D 32 null                          
+D A null null
+\end{lstlisting}
+
+\noindent \textbf{Time-expanded graph} is simply an oriented weighted graph, with nodes being the events and arcs being the elementary connections or waiting edges:
+\begin{itemize}
+	\item number of nodes (i.e. events)
+	\item number of arcs (el. connections + waiting)
+	\item the list of all events (in the format ``CITY DAY TIME'')
+	\item the list of all arcs (in the format ``FROM-EVENT TO-EVENT'')
+\end{itemize}
+\hspace*{\fill}
+
+\begin{lstlisting}[caption={TE file format}]
+5                       //number of events
+15                      //number of arcs
+A 0 13:30               //event
+A 0 14:00
+B 0 13:45
+B 0 15:00
+C 0 14:15
+A 0 13:30 A 0 14:00     //waiting arc
+A 0 13:30 B 0 13:45     //el. connection arc
+A 0 14:00 B 0 15:00
+A 0 13:30 B 0 15:00
+C 0 14:15 B 0 15:00
+...
+\end{lstlisting}
+
+\noindent \textbf{Time-dependent graph} is an oriented graph with a function on the arc specifying the arc's traversal time at any moment. In timetable networks this function is piece-wise linear and it is fully represented by the list of its interpolation points. Thus the TD file format:
+\begin{itemize}
+	\item number of cities
+	\item number of arcs
+	\item the list of all cities  (one per line)
+	\begin{itemize}
+		\item optional coordinates (otherwise null)
+	\end{itemize}
+	\item the list of all arcs (one per line). Arc has the format ``\textit{FROM TO INT-POINTS}'' where \textit{INT-POINTS} is a list of interpolation points~\footnote{An interpolation point is described by a triple ``\textit{DAY TIME MINUTES}'', where \textit{MINUTES} are the traversal time}, see the listing~\ref{lst:tdformat} for an example.
+\end{itemize}
+\hspace*{\fill}
+
+\begin{lstlisting}[caption={TD file format}, label={lst:tdformat}]
+4                                           //number of stations
+5                                           //number of arcs
+A 0 0                                       //name of the city, optional coordinates
+B 4 4
+C null
+D 12 0
+A B (0 13:30 45) (0 14:00 40)               //arc and the list of interpolation points
+A C (1 14:15 10)
+C B (0 15:00 20)
+C D (2 10:00 70)
+D A (1 17:20 35) (1 18:00 40) (1 18:50 35)
+...
+\end{lstlisting}

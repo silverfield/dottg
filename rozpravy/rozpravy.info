@@ -1,0 +1,47 @@
+NOK - je tam chyba
+VIRT - je to overridnute neskor, proste prerobene
+PART_ - iba cast je NOK/VIRT
+
+r-12-10-25
+- “Wild” timetables can ruin structure
+	- skor idei ktore su neskor rozpracovane
+- Preprocessing time of Gavoille’s algorithm for planar graphs
+	- NOK, VIRT. Tam mam chybu v spocitani celkoveho odhadu
+
+r-12-11-01
+- Processed real data
+	- PART_NOK, PART_VIRT. Niektore texty sa mozu hodit
+- Overtaking and express lines
+	- VIRT. Iba basic text, ziadne obrazky
+
+r-12-11-08
+- Processed real data
+	- PART_NOK, PART_VIRT. Skoro to iste ako r-12-11-01
+- Overtaking and express lines
+	- TODO. Pekne obrazky uz aj, hodi sa to. Dorobit hierarchiu express lines uvahy
+- Adjustment of Gavoille’s algorithm for graphs with r(n) separator [GPPR04] for time-dependent scenario
+	- VIRT
+
+r-12-11-15
+- Adjustment of Gavoille’s algorithm for graphs with r(n) separator [GPPR04] for time-dependent scenario
+	- VIRT, PART_NOK. Stale su tam mensie chybicky neskor vylepsene. Ale uz to je takmer cele.
+- Preprocessing time of Gavoille’s algorithm for planar graphs
+	- OVERRIDE z r-12-10-25. Malo by to byt OK
+
+r-12-11-22
+- Adjustment of Gavoille’s algorithm for graphs with r(n) separator [GPPR04] for time-dependent scenario
+	- Tu by to malo byt ok
+
+r-12-11-29
+- Diagnostic application
+	- PART_VIRT, TODO. Files format sa hodi. Spravit pdf dokumentaciu
+
+r-12-12-13
+- Data analysis
+	- VIRT, PART_NOK
+
+r-12-12-20
+- Emergence of timetables
+	- TODO
+- Data analysis
+	- VIRT, TODO. Toto upgradnem

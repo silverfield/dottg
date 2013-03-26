@@ -1,0 +1,67 @@
+FARBA CERVENA
+- uvodny slajd
+- hlavna tematika/problem
+	- rychle hladanie najkratsich spojeni v cestovnych poriadkoch
+- obsah
+
+1. cast - objasnenie problematiky FARBA ZLTA
+
+- vyuzitie
+	- v systemoch ako cp.sk
+- timetable graph
+	- slide pre cestovny poriadok
+	- slide pre timetable graph (time-expanded)
+	- ine moznosti definicie
+	- ako vyhladavat najkratsie spojenie v timetable graphe
+- motivacia
+	- co je zle na Dijkstrovi?
+	- odhad velkosti timetable grafu: 20 000 000 vrcholov cestnej siete, pocet hran...
+- distance oracles
+	- definicia: struktura na odpovedanie na queries o najkratsich ciest v grafe
+	- 4 parametre co chceme tlacit dole
+	- obrazok
+	- rychle, presne vyhladavanie najkratsich spojeni na grafoch velkosti kontinentu (20 000 000)
+	- "extremne" pristupy - Dikstra, APSP
+	- takmer vsetky komercne riesenia - len heuristiky
+	- par existujucich rieseni - povacsine jednoduch algoritmy
+
+2. cast - teoreticka napln diplomovej prace FARBA MODRA
+
+- skumanie properties
+	-
+- HD
+	- skumanie properties - ak ma podkladovy graf nejaku vlastnost, prenesie sa na time-expanded graph?
+	- HD
+	- intuicia - mala HD
+	- definicia - obrazok
+	- mala HD garantuje nizku casovu narocnost niektorych DO metod
+	- priamociare prenesenie HD na expandovany graf - problem s cinnym cakanim
+		- ina definicia? -> Uprava algoritmov
+- r(n)-separator
+	- definicia, obrazok
+	- R(n)... podstatne o nom
+	- distance labeling - what it is?
+	- l(G_n) <= O(R(n)log(n) + log^2 (n)) teorema. To prve log(n) bude asi cosi ine
+		- v akom case pocitame?
+	- problemy pri prenose z podkladoveho (co su v podkladovom vahy??) na time-expanded
+		- orientovane hrany -> upravit alg. (obrazok)
+		- priamociare expandovanie separatora nefunguje (obrazok)
+		- ..?
+	- planarne grafy a bounded-tree-width grafy maju...
+
+3. cast - prakticka napln diplomovej prace FARBA ZELENA
+
+- programiky, java
+	- na expandovani timetable
+	- na vyhotovenie obrazku z timetable grafu
+	- na testovanie, statistiky DO metod
+- navrh a implmentacia nejakej DO metody
+
+FARBA CERVENA
+- plan B
+- bibliografia
+- elektrickove problemy
+- 
+- dakujem za pozornost
+
+napady - dalsie vyuzitie, v com robit prezentaciu

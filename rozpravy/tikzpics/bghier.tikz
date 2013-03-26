@@ -1,0 +1,37 @@
+		\tikzstyle{place}=[circle,draw=blue!50,fill=blue!20,thick,inner sep=1pt]
+		\begin{tikzpicture}[>=stealth,->,looseness=.5,auto])
+			%NODES-------------------------------------------------------------
+			\node (A) at (0.0,5.0) [place, inner sep=5pt, label=right:{[A]}] {};
+			\node (B) at (1.6666666666666667,8.333333333333334) [place, label=right:{[B]}] {};
+			\node (C) at (2.5,1.3333333333333335) [place, label=right:{[C]}] {};
+			\node (D) at (4.166666666666667,5.0) [place, label=right:{[D]}] {};
+			\node (E) at (6.666666666666667,10.0) [place, inner sep=3pt, label=right:{[E]}] {};
+			\node (F) at (5.833333333333334,0.0) [place, inner sep=3pt, label=right:{[F]}] {};
+			\node (G) at (10,3.0) [place, label=right:{[G]}] {};
+			\node (H) at (10.0,0.0) [place, inner sep=5pt, label=right:{[H]}] {};
+			%CONNECTIONS-------------------------------------------------------
+			\draw [black] (A) to [bend left] (B) ;
+			\draw [black] (A) -- (C) ;
+			\draw [black] (A) -- (D) ;
+			\draw [green!90!black] (A) -- (E) ;
+			\draw [red, thick] (A) to [bend left] (H) ;
+			\draw [black] (B) to [bend left] (A) ;
+			\draw [black] (B) to [bend left] (E) ;
+			\draw [black] (C) -- (D) ;
+			\draw [black] (C) to [bend left] (F) ;
+			\draw [black] (D) -- (B) ;
+			\draw [black] (D) to [bend left] (F) ;
+			\draw [black] (D) -- (G) ;
+			\draw [black] (E) to [bend left] (B) ;
+			\draw [green!90!black] (E) -- (F) ;
+			\draw [green!90!black] (E) -- (H) ;
+			\draw [black] (F) to [bend left] (C) ;
+			\draw [black] (F) to [bend left] (D) ;
+			\draw [green!90!black] (F) to [bend left] (H) ;
+			\draw [green!90!black] (F) -- (A) ;
+			\draw [black] (G) -- (F) ;
+			\draw [black] (G) to [bend left] (H) ;
+			\draw [red, thick] (H) -- (A) ;
+			\draw [green!90!black] (H) to [bend left] (F) ;
+			\draw [black] (H) to [bend left] (G) ;
+		\end{tikzpicture}

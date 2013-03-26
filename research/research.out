@@ -1,0 +1,40 @@
+\BOOKMARK [1][-]{section.1}{List of considered papers}{}% 1
+\BOOKMARK [1][-]{section.2}{Distance labeling}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Distance Labeling in Graphs}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Reachability and distance queries via 2-hop labels}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Distance oracles}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Approximate Distance Oracles}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Exact Distance Oracles for Planar Graphs}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.3}{f-Sensitivity Distance Oracles and Routing Schemes}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.4}{Improved Distance Oracles for Avoiding Link-Failure}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.5}{A Compact Routing Scheme and Approximate Distance Oracle for Power-Law Graphs}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.6}{Ramsey Partitions Based Approximate Distance Oracles}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.7}{A Sketch-Based Distance Oracle for Web-Scale Graphs}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.8}{Approximate Shortest Path and Distance Queries in Networks}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.9}{Distance Oracles for Sparse Graphs}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.10}{Distance Oracles for Spatial Networks}{section.3}% 15
+\BOOKMARK [1][-]{section.4}{Route-planning}{}% 16
+\BOOKMARK [2][-]{subsection.4.1}{Contraction Hierarchies: Faster and Simpler Hierarchical Routing in Road Networks}{section.4}% 17
+\BOOKMARK [2][-]{subsection.4.2}{Engineering Route Planning Algorithms}{section.4}% 18
+\BOOKMARK [2][-]{subsection.4.3}{Highway Dimension, Shortest Paths, and Provably Efficient Algorithms}{section.4}% 19
+\BOOKMARK [2][-]{subsection.4.4}{Highway Hierarchies Hasten Exact Shortest Path Queries}{section.4}% 20
+\BOOKMARK [2][-]{subsection.4.5}{Route Planning in Road Networks}{section.4}% 21
+\BOOKMARK [2][-]{subsection.4.6}{TRANSIT Ultrafast Shortest-Path Queries with Linear-Time Preprocessing}{section.4}% 22
+\BOOKMARK [2][-]{subsection.4.7}{In Transit to Constant Time Shortest-Path Queries in Road Networks}{section.4}% 23
+\BOOKMARK [1][-]{section.5}{Time-dependent routing}{}% 24
+\BOOKMARK [2][-]{subsection.5.1}{Time-Dependent SHARC-Routing}{section.5}% 25
+\BOOKMARK [2][-]{subsection.5.2}{Time Dependent Contraction Hierarchies - Basic Algorithmic Ideas}{section.5}% 26
+\BOOKMARK [2][-]{subsection.5.3}{Time-Dependent Contraction Hierarchies}{section.5}% 27
+\BOOKMARK [1][-]{section.6}{Timetables related}{}% 28
+\BOOKMARK [2][-]{subsection.6.1}{Experimental comparison of shortest path approaches for timetable}{section.6}% 29
+\BOOKMARK [2][-]{subsection.6.2}{Engineering Time-Expanded Graphs for Faster Timetable Information}{section.6}% 30
+\BOOKMARK [2][-]{subsection.6.3}{Using Multi-level Graphs for Timetable Information in Railway Systems }{section.6}% 31
+\BOOKMARK [2][-]{subsection.6.4}{Timetable Information: Models and Algorithms}{section.6}% 32
+\BOOKMARK [1][-]{section.7}{Others}{}% 33
+\BOOKMARK [2][-]{subsection.7.1}{Complex networks: small-world, scale-free and beyond}{section.7}% 34
+\BOOKMARK [1][-]{section.8}{Unclassified}{}% 35
+\BOOKMARK [2][-]{subsection.8.1}{Reach for A*: Efficient Point-to-Point Shortest Path Algorithms}{section.8}% 36
+\BOOKMARK [2][-]{subsection.8.2}{Car or Public Transport\205Two Worlds}{section.8}% 37
+\BOOKMARK [1][-]{section.9}{List of main definitions}{}% 38
+\BOOKMARK [1][-]{section.10}{List of main results}{}% 39
+\BOOKMARK [1][-]{section.11}{List of main DO methods}{}% 40

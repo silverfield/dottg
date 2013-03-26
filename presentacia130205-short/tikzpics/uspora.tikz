@@ -1,0 +1,32 @@
+\tikzstyle{place}=[circle,draw=orange,fill=orange!20,thick,inner sep=1pt]
+\tikzstyle{textstyle}=[font=\fontsize{6}{6}\selectfont]
+\begin{tikzpicture}[textstyle, >=stealth,looseness=.1,auto,scale=0.7])
+	\node (A) at (0,0) [place, label=below:{A}] {};
+	\node at (1, 0) {...};
+	
+	\node (A1) at (2,-1) [place, label=below:{C}] {};	
+	\node (A2) at (2,0) [place, label=below:{D}] {};	
+	\node (A3) at (2,1) [place, label=below:{F}] {};	
+	
+	\draw [decorate, decoration={brace, amplitude=5pt}] (2, -1.6) -- (0, -0.5) node [black,below, midway, yshift=-0.15cm, rotate=-30] {$neigh_{Acc}(A)$};
+	\draw [decorate, decoration={brace, amplitude=3pt}] (1.7, 1.2) -- (2.3, 1.2) node [black,above, midway, yshift=0.15cm] {$Acc_{A}$};
+	
+	\node at (5, 0.3) {...};	
+	\node at (5, 1) {precomputed};
+	
+	\draw [decorate, decoration={brace, amplitude=5pt}] (10, -0.5) -- (8, -1.6) node [black,below, midway, yshift=-0.15cm, rotate=30] {$neigh_{Acc}(B)$};
+	\draw [decorate, decoration={brace, amplitude=3pt}] (7.7, 1.2) -- (8.3, 1.2) node [black,above, midway, yshift=0.15cm] {$Acc_{B}$};
+	
+	\node (B1) at (8,-1) [place, label=below:{G}] {};	
+	\node (B2) at (8,0) [place, label=below:{H}] {};	
+	\node (B3) at (8,1) [place, label=below:{I}] {};	
+		
+	\node at (9, 0) {...};
+	\node (B) at (10,0) [place, label=below:{B}] {};
+	
+	\draw [dotted, thin, ->] (A1) -- (B1) node [midway] {};
+	\draw [dotted, thin, ->] (A1) -- (B2) node [midway] {};
+	\draw [dotted, thin, ->] (A1) -- (B3) node [midway] {};
+	\draw [dotted, thin, ->] (A2) -- (B1) node [midway] {};
+	\draw [dotted, thin, ->] (A2) -- (B2) node [midway] {};
+\end{tikzpicture}

@@ -1,0 +1,15 @@
+\tikzstyle{place}=[circle,draw=blue!50,fill=blue!20,thick,inner sep=1pt]
+\begin{tikzpicture}[>=stealth,->,shorten >=2pt,looseness=.5,auto, scale=0.8]
+    % draw nodes (pgf/TikZ v2.00 manual sections 3.4, 3.7, 3.9)
+    \node (A) at (0,0) [place, label=below:A] {};
+    \node (B) at (2,2) [place, label=below:B] {};
+    \node (C) at (4,1) [place, label=below:C] {};
+    \node (D) at (6,0) [place, label=below:D] {};
+	
+    % connect nodes (pgf/TikZ v2.00 manual section 3.11)
+    \draw (A) to [bend left] (B) node [midway] {};
+    \draw (A) -- (C) node [midway] {};
+    \draw (C) to [bend right] (B) node [midway] {};
+    \draw (C) to [bend left] (D) node [midway] {};
+    \draw (D) -- (A) node [midway] {};
+\end{tikzpicture}

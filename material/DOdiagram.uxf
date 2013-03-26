@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Actor</type>
+    <coordinates>
+      <x>700</x>
+      <y>70</y>
+      <w>100</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>50</x>
+      <y>80</y>
+      <w>60</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>G</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>350</x>
+      <y>30</y>
+      <w>390</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+"what is the shortest path from x to y?"</panel_attributes>
+    <additional_attributes>30;50;370;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>80</x>
+      <y>60</y>
+      <w>200</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+*preprocessing*</panel_attributes>
+    <additional_attributes>180;50;30;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>350</x>
+      <y>110</y>
+      <w>390</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+</panel_attributes>
+    <additional_attributes>370;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>260</x>
+      <y>70</y>
+      <w>121</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>// Modify the text below and
+// observe the element preview.
+
+M</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int y=height / 2;
+
+drawRectangle(0,0,width,height);
+
+for(String textline : textlines) {
+	y += printCenter(textline,y);
+}</custom_code>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>230</x>
+      <y>120</y>
+      <w>170</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.&gt;
+*size*</panel_attributes>
+    <additional_attributes>30;50;150;50</additional_attributes>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>570</x>
+      <y>120</y>
+      <w>81</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>*stretch*</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int y=textHeight();
+
+for(String textline : textlines) {
+	y += printCenter(textline,y);
+}</custom_code>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>600</x>
+      <y>140</y>
+      <w>51</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>*qtime*</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int y=textHeight();
+
+for(String textline : textlines) {
+	y += printCenter(textline,y);
+}</custom_code>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>400</x>
+      <y>140</y>
+      <w>241</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>answer returned in time</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int y=textHeight();
+
+for(String textline : textlines) {
+	y += printCenter(textline,y);
+}</custom_code>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>370</x>
+      <y>120</y>
+      <w>361</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>"this path is not longer then  (              * optimum)</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int y=textHeight();
+
+for(String textline : textlines) {
+	y += printCenter(textline,y);
+}</custom_code>
+  </element>
+</diagram>

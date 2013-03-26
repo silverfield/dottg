@@ -1,0 +1,16 @@
+\tikzstyle{place}=[circle,draw=event-clr!,fill=event-clr!20,thick,inner sep=1pt]
+\tikzstyle{textstyle}=[font=\fontsize{6}{6}\selectfont]
+\begin{tikzpicture}[textstyle, >=stealth,looseness=.1,auto,scale=1])
+    \node (B) at (0,0) [place, label=below:{[B, 11:00]}] {};
+    \node (C_1130) at (3,0) [place, label=below:{[C, 11:30]}] {};
+    \node (C_1145) at (4,0) [place, label=below:{[C, 11:45]}] {};
+    \node (A) at (7,0) [place, label=below:{[A, 12:15]}] {};
+	
+    \draw [elcon-clr, ->] (B) -> (C_1130) node [midway, above] {0:30};
+    \draw [waiting-clr, ->, dashed] (C_1130) -> (C_1145) node [midway, above] {0:15};
+    \draw [elcon-clr, ->] (C_1145) -> (A) node [midway, above] {0:30};
+    
+    \draw [decorate, decoration={brace, amplitude=5pt}] (0, 0.5) -- (3, 0.5) node [black,above, midway, yshift=0.15cm] {elementary connection};
+    \draw [decorate, decoration={brace, amplitude=5pt}] (3, 0.5) -- (4, 0.5) node [black,above, midway, yshift=0.15cm] {waiting};
+    \draw [decorate, decoration={brace, amplitude=5pt}] (7, -0.5) -- (0, -0.5) node [black,below, midway, yshift=-0.15cm] {connection};
+\end{tikzpicture}

@@ -1,0 +1,425 @@
+%---------------------------------------------------------------------
+%   documentclass
+%---------------------------------------------------------------------
+\documentclass[a4paper]{article}
+
+%---------------------------------------------------------------------
+%   packages
+%---------------------------------------------------------------------
+\usepackage{mathtools}
+\usepackage[english]{babel}
+\usepackage[enc=cp1250]{hrlatex}
+\usepackage[T1]{fontenc} %pekne makcene
+\usepackage{lmodern} %spolu s T1 smooth font!
+\usepackage{hyperref} %odkazy
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cite} %bibtex
+\usepackage{enumitem}
+\usepackage{titlesec} %section titles font size change
+\usepackage{color} %for \definecolor
+\usepackage{colortbl} %for \rowcolor command
+\usepackage{eucal} %for nice letters like \mathcal{A}
+\usepackage{tikz}
+\usepackage{scalefnt}
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\usepackage{multirow}% http://ctan.org/pkg/multirow
+\usepackage{pifont} %for ticks (check symbols)
+\usepackage{listings}
+\usepackage{floatflt} %to have tables and text beside
+\usepackage{courier}
+
+%---------------------------------------------------------------------
+%   margins
+%---------------------------------------------------------------------
+\oddsidemargin 0.0in
+\evensidemargin 0.0in
+\textwidth 6.1in
+\textheight 23.94cm
+\topmargin -0.35in
+
+%---------------------------------------------------------------------
+%   various settings
+%---------------------------------------------------------------------
+\pgfrealjobname{r-12-12-13} % <-- NOTE: this needs to be the real document's basename
+                        %     (else you'll only get an empty output file)
+
+\newif\ifmine % introduce a switch for draft vs. final document
+\minetrue
+
+\newif\iffinal % introduce a switch for draft vs. final document
+\finaltrue % use this to compile the final document
+\iffinal
+  \newcommand{\inputTikZ}[1]{%
+    \input{#1.tikz}%
+  }
+\else
+  \newcommand{\inputTikZ}[1]{%
+    \beginpgfgraphicnamed{#1-external}%
+    \input{#1.tikz}%
+    \endpgfgraphicnamed%
+  }
+\fi
+
+\setlist{nolistsep} %so that lists have normal spacing
+
+\titleformat{\section}{\LARGE\bfseries}{\thesection}{1em}{} %section titles
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{} %subsection titles
+
+\definecolor{tablehead}{RGB}{238,233,233} %nice smooth grey
+
+\setlength{\parindent}{0pt} %we don't need no indentation
+
+\graphicspath{{./pics/}} %picture dir
+
+\definecolor{lstcolor}{RGB}{238,233,233}
+
+\lstset{ %
+    language=Octave,                % choose the language of the code
+    basicstyle=\footnotesize\ttfamily,       % the size of the fonts that are used for the code
+    numbers=left,                   % where to put the line-numbers
+    numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+    stepnumber=1,                   % the step between two line-numbers. If it's 1 each line will be numbered
+    numbersep=5pt,                  % how far the line-numbers are from the code
+    backgroundcolor=\color{lstcolor},   % choose the background color. You must add \usepackage{color}
+    showspaces=false,               % show spaces adding particular underscores
+    showstringspaces=false,         % underline spaces within strings
+    showtabs=false,                 % show tabs within strings adding particular underscores
+    frame=single,	                % adds a frame around the code
+    tabsize=2,	                    % sets default tabsize to 2 spaces
+    captionpos=b,                   % sets the caption-position to bottom
+    breaklines=true,                % sets automatic line breaking
+    breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+    title=\lstname,                 % show the filename of files included with \lstinputlisting; also try caption instead of title
+    escapeinside={\%*}{*)},          % if you want to add a comment within your code
+%    morekeywords={*,...}            % if you want to add more keywords to the set
+	deletekeywords={all, null, length, path, function}
+}
+
+%---------------------------------------------------------------------
+%   environments
+%---------------------------------------------------------------------
+\renewenvironment{abstract}[1]
+{
+	\Large
+	\begin{center}
+		\textbf{#1}
+	\end{center}
+	
+	\normalsize
+	
+	\addtolength{\leftskip}{1in}
+	\addtolength{\rightskip}{1in}
+	\setlength{\parindent}{0in}
+}
+{
+}
+
+\newenvironment{itemizesp}
+{
+    \begin{itemize}
+}
+{
+    \end{itemize}
+}
+
+\newcommand{\deftoken}{\boldmath{$\mathcal{DEFINITION}$}}
+\newcommand{\restoken}{\boldmath{$\mathcal{RESULT}$}}
+\newcommand{\dotoken}{\boldmath{$\mathcal{DO METHOD}$}}
+\newcommand{\textbff}[1]{{\large \textbf{#1}}}
+\newcommand{\tick}{\ding{52}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{observation}{Observation}
+
+%---------------------------------------------------------------------
+%   magic code
+%---------------------------------------------------------------------
+% Here it is: the code that adjusts justification and spacing around caption.
+\makeatletter
+% http://www.texnik.de/floats/caption.phtml
+% This does spacing around caption.
+\setlength{\abovecaptionskip}{6pt}   % 0.5cm as an example
+\setlength{\belowcaptionskip}{6pt}   % 0.5cm as an example
+% This does justification (left) of caption.
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1: #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    #1: #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother
+
+%---------------------------------------------------------------------
+%   document
+%---------------------------------------------------------------------
+\begin{document}
+    \thispagestyle{empty}
+    %---------------------------------------------------------------------
+    %   topmatter
+    %---------------------------------------------------------------------
+    \title{\textbf{r-2012-12-13}}
+    \author{František Hajnoviè \\
+    \texttt{ferohajnovic@gmail.com}}
+    \date{\today}
+    \maketitle
+
+    \vskip 0.5cm
+
+    %---------------------------------------------------------------------
+    %   OUTLINE
+    %---------------------------------------------------------------------
+    \tableofcontents
+    
+    %---------------------------------------------------------------------
+    %   Data analysis
+    %---------------------------------------------------------------------    
+    
+	\section{Data analysis}
+	Following is the first simple analysis of the data. Results were obtained by running following script in \textit{ttblazer} application: \\
+	
+	\begin{lstlisting} [caption={Script that obtained the results}]
+#LOAD DATA
+loadug ../procdata/cpsk/res/ug_cpza.ug
+loadug ../procdata/cpsk/res/ug_cpru.ug
+loadug ../procdata/zsr/res/ug_zsr.ug
+loadug ../procdata/london/res/ug_london.ug
+loadug ../procdata/svk/res/ug_svk.ug
+loadtt -t ../procdata/cpsk/res/tt_cpza.tt
+loadtt -t ../procdata/cpsk/res/tt_cpru.tt
+loadtt -t ../procdata/zsr/res/tt_zsr.tt
+#ANALYSE
+an ugconn ug 0 -partdet
+an ugdegs ug 0 -degdet
+an ugconn ug 1 -partdet
+an ugdegs ug 1 -degdet
+an ugconn ug 2 -partdet
+an ugdegs ug 2 -degdet
+an ugconn ug 3 -partdet
+an ugdegs ug 3 -degdet
+an ugconn ug 4 -partdet
+an ugdegs ug 4 -degdet
+showug 0
+showug 1
+showug 2
+showug 3
+showug 4
+showtt 0
+showtt 1
+showtt 2
+quit
+	\end{lstlisting}
+	
+	\begin{table}[h]{
+		\scriptsize
+	    \begin{tabular}{l|c|c|c|c}
+		%legend
+		\hline
+			\rowcolor{tablehead}
+           	\textbf{Name} & 
+           	\textbf{Type} & 
+           	\textbf{\# nodes} & 
+           	\textbf{\# arcs} & 
+           	\textbf{Load time} \\
+        %data
+        \hline
+            ug\_cpza.ug & Regional bus & 1128 & 2034 & 0.4s \\
+            ug\_cpru.ug & Regional bus & 877 & 1784 & 0.4s \\
+            ug\_zsr.ug & Country-wide rails& 233 & 588 & 0.1s \\
+            ug\_london.ug & Underground rails & 321 & 732 & 0.1s \\
+            ug\_svk.ug & Road network & 181386 & 425829 & 7.754s \\
+        \end{tabular}}
+		\caption{\label{tab:ugmain} Underlying graphs - main properties}
+        \normalsize
+	\end{table}
+
+	\begin{table}[h]{
+		\scriptsize
+	    \begin{tabular}{l|c|c|c|c|c|c|c}
+		%legend
+		\hline
+			\rowcolor{tablehead}
+           	\textbf{Name} & 
+           	\textbf{\# nodes} & 
+           	\textbf{\# arcs} & 
+           	\textbf{Avg deg.} & 
+           	\textbf{Min deg.} & 
+           	\textbf{Max deg.} & 
+           	\textbf{Degrees} &
+           	\textbf{Analysis time} \\      	
+        %data
+        \hline
+            ug\_cpza.ug & 1128 & 2034 & 1.80319 & 0 & 24 & 
+\parbox{4cm}{
+0: 78x,
+1: 536x,
+2: 297x,
+3: 115x,
+4: 48x,
+5: 25x,
+6: 10x,
+7: 7x,
+8: 5x,
+9: 2x,
+10: 1x,
+12: 1x,
+14: 1x,
+15: 1x,
+24: 1x
+} & 0.0s \\ \hline
+            ug\_cpru.ug & 877 & 1784 & 2.03421 & 0 & 17 & 
+\parbox{4cm}{
+0: 54x,
+1: 405x,
+2: 202x,
+3: 86x,
+4: 55x,
+5: 34x,
+6: 17x,
+7: 11x,
+8: 3x,
+9: 2x,
+10: 1x,
+11: 1x,
+12: 1x,
+13: 2x,
+14: 1x,
+16: 1x,
+17: 1x
+} & 0.0s \\ \hline
+            ug\_zsr.ug & 233 & 588 & 2.52361 & 0 & 12 & 
+\parbox{4cm}{
+1: 42x,
+2: 119x,
+3: 28x,
+4: 14x,
+5: 14x,
+6: 6x,
+7: 3x,
+8: 1x,
+9: 1x,
+12: 2x
+} & 0.0s \\ \hline
+            ug\_london.ug & 321 & 732 & 2.28037 & 0 & 7 & 
+\parbox{4cm}{
+0: 3x,
+1: 25x,
+2: 230x,
+3: 25x,
+4: 27x,
+5: 5x,
+6: 3x,
+7: 3x
+} & 0.0s \\ \hline
+            ug\_svk.ug & 181386 & 425829 & 2.34764 & 0 & 6 & 
+\parbox{4cm}{
+0: 96x,
+1: 46469x,
+2: 34998x,
+3: 90084x,
+4: 9586x,
+5: 150x,
+6: 3x
+} & 0.25s \\ 
+        \end{tabular}}
+		\caption{\label{tab:ugdeg} Underlying graphs - degrees}
+        \normalsize
+	\end{table}
+	
+	\begin{table}[h!]{
+		\scriptsize
+	    \begin{tabular}{l|c|c|c|c|c|c}
+		%legend
+		\hline
+			\rowcolor{tablehead}
+           	\textbf{Name} & 
+           	\textbf{\# nodes} & 
+           	\textbf{\# arcs} & 
+           	\textbf{\# connected} &
+           	\textbf{\# of conn. comps} &
+           	\textbf{\# of component sizes} &
+           	\textbf{Analysis time} \\
+        %data
+        \hline
+            ug\_cpza.ug & 1128 & 2034 & false & 21 & 
+\parbox{4cm}{
+1108, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+} & 0.2s \\ \hline
+            ug\_cpru.ug & 877 & 1784 & false & 7 &
+\parbox{4cm}{
+871, 1, 1, 1, 1, 1, 1
+} & 0.1s \\ \hline
+            ug\_zsr.ug & 233 & 588 & true & 1 & 
+\parbox{4cm}{
+233
+} & 0.0s \\ \hline
+            ug\_london.ug & 321 & 732 & false & 4 & 
+\parbox{4cm}{
+318, 1, 1, 1
+} & 0.1s \\ \hline
+            ug\_svk.ug & 181386 & 425829 & false & 871 & 
+\parbox{4cm}{
+178187, 134, 105, 30, 29, ...
+} & 4.478s \\
+        \end{tabular}}
+		\caption{\label{tab:ugconn} Underlying graphs - connectivity}
+        \normalsize
+	\end{table}
+	
+	\begin{table}[h!]{
+		\scriptsize
+	    \begin{tabular}{l|c|c|c}
+		%legend
+		\hline
+			\rowcolor{tablehead}
+           	\textbf{Name} & 
+           	\textbf{Type} &
+           	\textbf{\# el. conn.} &
+           	\textbf{Load time} \\
+        %data
+        \hline
+            tt\_cpza & Regional bus & 61747 & 4.451s \\
+            tt\_cpru & Regional bus & 38540 & 2.275s \\
+            tt\_zsr & Country-wide rails & 932052 & 66.6668s \\
+        \end{tabular}}
+		\caption{\label{tab:ttmain} Timetables - main properties}
+        \normalsize
+	\end{table}
+	
+	\pagebreak
+	
+	%---------------------------------------------------------------------
+    %   OPEN POINTS
+    %---------------------------------------------------------------------    
+    \section{Open points}
+    \begin{itemize}
+    		\item Hierarchy of express lines $\rightarrow$ what properties can be propagated in time-expansion?
+    		\item Instant cost function - more formal and details
+    \end{itemize}
+    
+    %---------------------------------------------------------------------
+    %   TO DO
+    %---------------------------------------------------------------------    
+    \section{To do}
+    
+    \begin{itemize}
+    		\item Road network of SVK - process data \tick
+    		\item United airlines extract data
+    		\item Continue the diagnostic program
+    		\item Properties propagation in simple timetables
+    		\item Machine learning
+    \end{itemize}
+
+    %---------------------------------------------------------------------
+    %   bibliography
+    %---------------------------------------------------------------------
+    \pagebreak
+    \bibliographystyle{is-alpha}
+    %compile latex, bibtex, latex, latex
+    \bibliography{../bibl}{}
+\end{document}

@@ -1,0 +1,345 @@
+%---------------------------------------------------------------------
+%   documentclass
+%---------------------------------------------------------------------
+\documentclass[a4paper]{article}
+
+%---------------------------------------------------------------------
+%   packages
+%---------------------------------------------------------------------
+\usepackage{mathtools}
+\usepackage[english]{babel}
+\usepackage[enc=cp1250]{hrlatex}
+\usepackage[T1]{fontenc} %pekne makcene
+\usepackage{lmodern} %spolu s T1 smooth font!
+\usepackage{hyperref} %odkazy
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cite} %bibtex
+\usepackage{enumitem}
+\usepackage{titlesec} %section titles font size change
+\usepackage{color} %for \definecolor
+\usepackage{colortbl} %for \rowcolor command
+\usepackage{eucal} %for nice letters like \mathcal{A}
+\usepackage{tikz}
+\usepackage{scalefnt}
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\usepackage{multirow}% http://ctan.org/pkg/multirow
+\usepackage{pifont} %for ticks (check symbols)
+\usepackage{listings}
+\usepackage{courier}
+
+%---------------------------------------------------------------------
+%   margins
+%---------------------------------------------------------------------
+\oddsidemargin 0.0in
+\evensidemargin 0.0in
+\textwidth 6.1in
+\textheight 23.94cm
+\topmargin -0.35in
+
+%---------------------------------------------------------------------
+%   various settings
+%---------------------------------------------------------------------
+\pgfrealjobname{r-12-10-31} % <-- NOTE: this needs to be the real document's basename
+                        %     (else you'll only get an empty output file)
+
+\newif\ifmine % introduce a switch for draft vs. final document
+\minetrue
+
+\newif\iffinal % introduce a switch for draft vs. final document
+\finaltrue % use this to compile the final document
+\iffinal
+  \newcommand{\inputTikZ}[1]{%
+    \input{#1.tikz}%
+  }
+\else
+  \newcommand{\inputTikZ}[1]{%
+    \beginpgfgraphicnamed{#1-external}%
+    \input{#1.tikz}%
+    \endpgfgraphicnamed%
+  }
+\fi
+
+\setlist{nolistsep} %so that lists have normal spacing
+
+\titleformat{\section}{\LARGE\bfseries}{\thesection}{1em}{} %section titles
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{} %subsection titles
+
+\definecolor{tablehead}{RGB}{238,233,233} %nice smooth grey
+
+\setlength{\parindent}{0pt} %we don't need no indentation
+
+\graphicspath{{./pics/}} %picture dir
+
+\definecolor{lstcolor}{RGB}{238,233,233}
+
+\lstset{ %
+    language=Octave,                % choose the language of the code
+    basicstyle=\footnotesize\ttfamily,       % the size of the fonts that are used for the code
+    numbers=left,                   % where to put the line-numbers
+    numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+    stepnumber=1,                   % the step between two line-numbers. If it's 1 each line will be numbered
+    numbersep=5pt,                  % how far the line-numbers are from the code
+    backgroundcolor=\color{lstcolor},   % choose the background color. You must add \usepackage{color}
+    showspaces=false,               % show spaces adding particular underscores
+    showstringspaces=false,         % underline spaces within strings
+    showtabs=false,                 % show tabs within strings adding particular underscores
+    frame=single,	                % adds a frame around the code
+    tabsize=2,	                    % sets default tabsize to 2 spaces
+    captionpos=b,                   % sets the caption-position to bottom
+    breaklines=true,                % sets automatic line breaking
+    breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+    title=\lstname,                 % show the filename of files included with \lstinputlisting; also try caption instead of title
+    escapeinside={\%*}{*)}          % if you want to add a comment within your code
+%    morekeywords={*,...}            % if you want to add more keywords to the set
+}
+
+%---------------------------------------------------------------------
+%   environments
+%---------------------------------------------------------------------
+\renewenvironment{abstract}[1]
+{
+	\Large
+	\begin{center}
+		\textbf{#1}
+	\end{center}
+	
+	\normalsize
+	
+	\addtolength{\leftskip}{1in}
+	\addtolength{\rightskip}{1in}
+	\setlength{\parindent}{0in}
+}
+{
+}
+
+\newenvironment{itemizesp}
+{
+    \begin{itemize}
+}
+{
+    \end{itemize}
+}
+
+\newcommand{\deftoken}{\boldmath{$\mathcal{DEFINITION}$}}
+\newcommand{\restoken}{\boldmath{$\mathcal{RESULT}$}}
+\newcommand{\dotoken}{\boldmath{$\mathcal{DO METHOD}$}}
+\newcommand{\textbff}[1]{{\large \textbf{#1}}}
+\newcommand{\tick}{\ding{52}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{observation}{Observation}
+
+%---------------------------------------------------------------------
+%   magic code
+%---------------------------------------------------------------------
+% Here it is: the code that adjusts justification and spacing around caption.
+\makeatletter
+% http://www.texnik.de/floats/caption.phtml
+% This does spacing around caption.
+\setlength{\abovecaptionskip}{6pt}   % 0.5cm as an example
+\setlength{\belowcaptionskip}{6pt}   % 0.5cm as an example
+% This does justification (left) of caption.
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1: #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    #1: #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother
+
+%---------------------------------------------------------------------
+%   document
+%---------------------------------------------------------------------
+\begin{document}
+    \thispagestyle{empty}
+    %---------------------------------------------------------------------
+    %   topmatter
+    %---------------------------------------------------------------------
+    \title{\textbf{r-2012-11-01}}
+    \author{František Hajnoviè \\
+    \texttt{ferohajnovic@gmail.com}}
+    \date{\today}
+    \maketitle
+
+    \vskip 0.5cm
+
+    %---------------------------------------------------------------------
+    %   OUTLINE
+    %---------------------------------------------------------------------
+    \tableofcontents
+
+    %---------------------------------------------------------------------
+    %   processed data
+    %---------------------------------------------------------------------
+    \section{Processed real data}
+    Table ~\ref{tab:ttfiles} summarizes the so far processed timetables. The regional bus timetables provided by \textit{cp.sk} are the examples of more local timetables with underlying network being the road network. The time range was so far set to 1 day, assuming that each bus operates the same way every day. This is not a correct assumption (some buses may operate e.g. only during weekends), but this way we save space and the resulting timetable should not differ much in properties from the real one. We may later however try to extend the time range to one week and see the changes in properties. \\
+    
+    Timetable from \textit{zsr.sk} covers a full year, as connections had a reference to a calendar, stating if the train operates on a given date. That is also the reason for the large number of elementary connections. \\
+    
+	Timetable of \textit{United airlines} requires more processing, but should be later added as it provides yet another type of timetable. \\    
+    
+	\begin{table}[h]{
+		\scriptsize
+	    \begin{tabular}{l|c|c|c|c|c|c}
+		%legend
+		\hline
+			\rowcolor{tablehead}
+           	\textbf{Name} & \textbf{Type of network} & \textbf{Provided by} & \textbf{\# of stations} & \parbox{2.5cm}{\textbf{\# of elementary connections}} & \textbf{Time range} & \textbf{Note} \\
+        %data
+        \hline
+            tt\_cpza & Regional bus & cp.sk & 1128 & 68096 & 1 day & Area of Žilina\\
+            tt\_cpru & Regional bus & cp.sk & 877 & 43069 & 1 day & Area of Ružomberok\\
+            tt\_zsr & Country-wide rails & zsr.sk & 233 & 932052 & 1 year &  \\
+        \end{tabular}}
+		\caption{\label{tab:ttfiles}Timetable files}
+        \normalsize
+	\end{table}
+	
+	Timetable files have a simple form: \\
+	
+	\begin{lstlisting}[caption={Timetable files form}]
+		7                      //number of elementary connections
+		A B 0 10:00 0 10:45    //FROM TO DAY(depart) TIME(depart) DAY(arrive) TIME(arrive)
+		A B 0 11:00 0 11:45
+		A B 0 12:00 0 12:45
+		A C 0 9:30 0 10:00
+		A C 0 10:15 0 10:45
+		C D 0 11:00 0 11:30
+		C D 0 13:00 0 13:30
+	\end{lstlisting}
+	
+	Table \ref{tab:ugfiles} summarizes the so far processed maps (or underlying graphs) of networks, on top of which we can later build random timetables with given properties. The maps were created by extracting stations from the timetable and making an edge between the pair where a connection is operating, thus getting the underlying structure of the timetable. Note that we will not really get the real map of the (e.g.) rails - with our approach, there will be a direct link between a pair of large (but distant) cities even though many smaller stations exist on the way. This is due to express lines that do not stop at these smaller stations. If the real underlying map should be desirable, we can later remove these ``express links'', although we cannot be sure that the express line did not really follow a new, faster road/railway without any smaller stops on the way (that should not happen in case of railways). \\
+	
+	Map of the \textit{road network of Slovakia} should be added, as well as the underlying map of \textit{United airlines}. Also, currently the edges of the underlying graphs have null lengths - the travel time of the fastest connection on the edge can be used instead. \\ 
+	
+	\begin{table}[h]{
+		\scriptsize
+	    \begin{tabular}{l|c|c|c|c|c|c}
+		%legend
+		\hline
+			\rowcolor{tablehead}
+           	\textbf{Name} & \textbf{Type of network} & \textbf{Provided by} & \textbf{\# of stations} & \textbf{\# of connections} & \textbf{Notion of lines} & \textbf{Note} \\
+        %data
+        \hline
+            ug\_cpza & Regional bus & cp.sk & 1128 & 2034 & \tick & Area of Žilina\\
+            ug\_cpru & Regional bus & cp.sk & 877 & 1784 & \tick & Area of Ružomberok\\
+            ug\_zsr & Country-wide rails & zsr.sk & 233 & 588 & \tick &  \\
+            ug\_london & Underground rails & queensu.ca & 321 & 732 & \tick &  \\
+        \end{tabular}}
+		\caption{\label{tab:ugfiles} Underlying graph files}
+        \normalsize
+	\end{table}
+	
+	Underlying graph files have the following form: \\
+	
+	\begin{lstlisting}[caption={Underlying graph files form}]
+		4                                      //number of stations
+		5                                      //number of edges
+		A [45 32]                              //name of the station, optional coordinates
+		B
+		C [56 34]
+		D
+		A B 57 Northern                        //FROM TO edge length, list of lines operating on the edge
+		A C null Picadilly Victoria            //edge length may be null (will be e.g. random, or calculated from coordinates)
+		C B 45 Circle Jubilee Picadilly
+		C D 32 null                            //list of lines may be also null
+		D A 90 Metropolitan Victoria
+
+	\end{lstlisting}
+
+    %---------------------------------------------------------------------
+    %   formal overtaking/express lines
+    %---------------------------------------------------------------------
+    \section{Overtaking and express lines}
+	
+	In this section, we will define and discuss two notions: \textit{overtaking} and \textit{express lines}. For clarity, we repeat the definition of the timetable:
+	
+	\begin{definition}
+        \textbf{Timetable on a graph $G$} \\
+        A timetable on a given graph $G$ is a set $T_{G} = \{(x, y, p, q)|(x, y) \in E_{G}, \; p, q \in N, \; p < q \}$. 
+		\begin{itemize}
+			\item An element of T is called an \textbf{elementary connection} and $x$ [$y$] and $p$ [$q$] are the \textbf{departure [arrival] node} and \textbf{time}. 
+        		\item Graph $G$ is the \textbf{underlying graph} of timetable $T$.
+		\end{itemize}		        
+    \end{definition}
+    
+    \begin{definition}
+        \textbf{Connection from $a$ to $b$ in a given timetable $T_{G}$} \\
+        A connection from $a$ to $b$ in a given timetable $T_{G}$ is a sequence of \emph{elementary connections} $(e_{1}, e_{2}, ..., e_{k}), \; k \geq 1, \; e_{i} = (e_{x}^{i}, e_{y}^{i}, e_{p}^{i}, e_{q}^{i})$, such that $e_{x}^{1} = a$, $e_{x}^{k} = b$ and $\forall i \in \{2, ..., k\}: (e_{x}^{i} = e_{y}^{i - 1}, \; e_{p}^{i} \geq e_{q}^{i - 1})$
+        \begin{itemize}
+        		\item Connection \textbf{starts} at the \emph{departure time} $e_{p}^{1}$.
+        		\item \textbf{Size (length)} of the connection is $e_{q}^{k} - e_{p}^{1}$.        
+        \end{itemize}
+    \end{definition}
+    
+    Overtaking, simply stated, means that there are connections in the timetable that overtake one another - that is by choosing a later connection, we will actually arrive sooner to the destination.
+    
+    \begin{definition}
+        \textbf{Overtaking} \\
+        A timetable $T_{G}$ has overtaking property $\iff$ there exist two connections $e$ and $f$ from $a$ to $b$ in $T_{G}$ such that $e = (e_{1}, e_{2}, ..., e_{k})$, $f = (f_{1}, f_{2}, ..., f_{k})$, $\forall i$ $e_{x}^{i} = f_{x}^{i}$, $e_{y}^{i} = f_{y}^{i}$ and $e_{p}^{1} < f_{p}^{1}$ but $e_{q}^{k} > f_{q}^{k}$.
+    \end{definition}
+    
+    Informally, express lines are connections that bypass several stops on the way. In our definition of timetable graph, we do not allow such connections, but we can extend the definition.
+    
+    \begin{definition}
+        \textbf{Timetable with express lines on a graph $G$} \\
+        A timetable with express lines on a given graph $G$ is a set $T_{G} = \{(x, y, p, q)| \text{there is a path from } x \text{ to } y \text{ in } G, \; p, q \in N, \; p < q \}$.
+        \begin{itemize}
+	        \item Tuples $(x, y, p, q)$ where $(x, y) \in E_{G}$ are \textbf{elementary connections}, the remaining are \textbf{express connections}.
+    	    		\item Such $(x, y)$ that $(x, y) \not \in E_{G}$ but there is a path from $x \text{ to } y \text{ in } G$ will be called \textbf{express lines}.        
+        \end{itemize}
+    \end{definition}
+    
+    Now we can formulate the following observation:
+    
+    \begin{observation}
+        \textbf{} \\
+        Let $G$ be a graph with the vertex set $V$, $T_{G}$ timetable on $G$ and $H$ a connected graph with the vertex set $V$. There exists a timetable with express lines $T_{H}$ such that $T_{H} = T_{G}$.
+    \end{observation}
+    
+   	\begin{proof}
+   		The proof is trivial: By the definition of timetable with express lines, there may be a connection between any pair of vertices in the underlying graph $H$, as it is connected. Thus for every elementary connection $(x, y, p, q) \in T_{G}$ we will simply have the same (\textit{either} elementary \textit{or} express) connection $(x, y, p, q)$ in $T_{H}$
+   	\end{proof}
+   	
+   	Informally, this observation just states, that with express lines we can forget about underlying structure of the timetable and consider it as a complete graph. That would however imply that no property of the underlying graph $G$ can be generally propagated to the graph representing the timetable on $G$ (not even to certain extent). Unfortunately, express lines are not uncommon in real-world scenarios. On the other hand, usage of express lines is limited in practice and generally express lines act as a shortcut layer on top of the real underlying network. One can imagine this as a hierarchy starting from the road network with nodes being the intersections. Next layer would be the local bus lines, then express inter-city lines etc...
+    
+    %---------------------------------------------------------------------
+    %   adjustment of Gavoille
+    %---------------------------------------------------------------------    
+    \section{Adjustment of Gavoille's algorithm for graphs with $r(n)$ separator ~\cite{distlabel04}}
+    
+    %---------------------------------------------------------------------
+    %   OPEN POINTS
+    %---------------------------------------------------------------------    
+    \section{Open points}
+    \begin{itemize}
+    		\item What does overtaking really affect?
+    		\item Hierarchy of express lines $\rightarrow$ what properties can be propagated in time-expansion?
+    \end{itemize}
+    
+    %---------------------------------------------------------------------
+    %   TO DO
+    %---------------------------------------------------------------------    
+    \section{To do}
+    
+    \begin{itemize}
+    		\item Adjustment of Gavoille's algorithm - formally
+    		\item United airlines and road network of Slovakia - extract data
+    		\item Start work on the diagnostic program
+    		\item Replace null lengths in underlying graphs of existing timetables
+    \end{itemize}
+
+    %---------------------------------------------------------------------
+    %   bibliography
+    %---------------------------------------------------------------------
+    \pagebreak
+    \bibliographystyle{is-alpha}
+    %compile latex, bibtex, latex, latex
+    \bibliography{../bibl}{}
+\end{document}

@@ -1,0 +1,70 @@
+\tikzstyle{place}=[circle,draw=blue!50,fill=blue!20,thick,inner sep=1pt]
+\tikzstyle{selected}=[place, fill=orange!10]
+\begin{tikzpicture}[>=stealth, auto]
+    \draw (5,5) [red, very thick] circle (1);
+    \draw (6.2,5) [red] node {$r_1$};
+    \node (a1) at (5, 4.5) [selected] {};
+    \node (a2) at (5.5, 5.3) [selected] {};
+    \node (a3) at (4.7, 5.5) [selected] {};
+    \draw (a1) -- (a2);
+    \draw (a1) -- (a3);
+    \draw (a2) -- (a3);
+    
+    \draw (7,2) [red] circle (0.5);
+    \node (b1) at (7, 2) [selected] {};
+    \draw (a1) -- (b1);
+    
+    \draw (4,1) [red] circle (1.2);
+    \node (c1) at (4, 2) [selected] {};
+    \node (c2) at (4.5, 1) [selected] {};
+    \node (c3) at (3.5, 0.5) [selected] {};
+    \draw (c3) -- (c2);
+    \draw (c3) -- (c1);
+    \draw (a1) -- (c2);
+    \draw (a3) -- (c1);
+    
+    \draw (7.5,7.4) [red] circle (1.2);
+    \node (d1) at (7.5, 7) [selected] {};
+    \node (d2) at (7.5, 7.5) [selected] {};
+    \node (d3) at (8, 7.6) [selected] {};
+    \draw (d1) -- (d3);
+    \draw (d1) -- (d2);
+    \draw (a2) -- (d1);
+        
+    \draw (2.5,7) [red] ellipse (2.5 and 1.6);
+    \draw (5.1,7) node {$Z$};
+    
+    \draw (3,6.4) [green, very thick] ellipse (1.1 and 0.4);
+    \draw (4.3,6.4) [green] node {$r_2$};
+    \node (e1) at (2.5, 6.3) [selected] {};
+    \node (e2) at (3.5, 6.5) [selected] {};
+    \draw (e1) -- (e2);
+    \draw (a3) -- (e1);
+    \draw (a3) -- (e2);
+    
+    \draw (0.9,6.7) [green] ellipse (0.6 and 0.4);
+    \node (f1) at (0.5, 6.6) [selected] {};
+    \node (f2) at (1.2, 6.8) [selected] {};
+    \draw (f1) -- (f2);
+    \draw (f2) -- (e1);
+    
+    \draw (3.5,7.55) [green] ellipse (1.5 and 0.6);
+    \node (g1) at (3, 7.6) [selected] {};
+    \node (g2) at (3.7, 7.3) [selected] {};
+    \draw (g1) -- (g2);
+    \draw (g1) -- (e1);
+    \draw (g1) -- (e2);
+    \draw (g2) -- (e2);
+    
+    \node (h1) at (2.3, 7.4) [selected] {};
+    \node (h2) at (2.9, 8) [selected] {};
+    \node (h3) at (4.5, 7.8) [selected] {};
+    \node (h4) at (4.7, 7.3) [selected] {};
+    \draw (h1) -- (g1);
+    \draw (h2) -- (g1);
+    \draw (h2) -- (g2);
+    \draw (h3) -- (g1);
+    \draw (h3) -- (g2);
+    \draw (h4) -- (g2);
+    \draw (h4) -- (e2);
+\end{tikzpicture}

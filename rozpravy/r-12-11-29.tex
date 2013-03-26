@@ -1,0 +1,429 @@
+%---------------------------------------------------------------------
+%   documentclass
+%---------------------------------------------------------------------
+\documentclass[a4paper]{article}
+
+%---------------------------------------------------------------------
+%   packages
+%---------------------------------------------------------------------
+\usepackage{mathtools}
+\usepackage[english]{babel}
+\usepackage[enc=cp1250]{hrlatex}
+\usepackage[T1]{fontenc} %pekne makcene
+\usepackage{lmodern} %spolu s T1 smooth font!
+\usepackage{hyperref} %odkazy
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cite} %bibtex
+\usepackage{enumitem}
+\usepackage{titlesec} %section titles font size change
+\usepackage{color} %for \definecolor
+\usepackage{colortbl} %for \rowcolor command
+\usepackage{eucal} %for nice letters like \mathcal{A}
+\usepackage{tikz}
+\usepackage{scalefnt}
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\usepackage{multirow}% http://ctan.org/pkg/multirow
+\usepackage{pifont} %for ticks (check symbols)
+\usepackage{listings}
+\usepackage{floatflt} %to have tables and text beside
+\usepackage{courier}
+
+%---------------------------------------------------------------------
+%   margins
+%---------------------------------------------------------------------
+\oddsidemargin 0.0in
+\evensidemargin 0.0in
+\textwidth 6.1in
+\textheight 23.94cm
+\topmargin -0.35in
+
+%---------------------------------------------------------------------
+%   various settings
+%---------------------------------------------------------------------
+\pgfrealjobname{r-12-11-29} % <-- NOTE: this needs to be the real document's basename
+                        %     (else you'll only get an empty output file)
+
+\newif\ifmine % introduce a switch for draft vs. final document
+\minetrue
+
+\newif\iffinal % introduce a switch for draft vs. final document
+\finaltrue % use this to compile the final document
+\iffinal
+  \newcommand{\inputTikZ}[1]{%
+    \input{#1.tikz}%
+  }
+\else
+  \newcommand{\inputTikZ}[1]{%
+    \beginpgfgraphicnamed{#1-external}%
+    \input{#1.tikz}%
+    \endpgfgraphicnamed%
+  }
+\fi
+
+\setlist{nolistsep} %so that lists have normal spacing
+
+\titleformat{\section}{\LARGE\bfseries}{\thesection}{1em}{} %section titles
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{} %subsection titles
+
+\definecolor{tablehead}{RGB}{238,233,233} %nice smooth grey
+
+\setlength{\parindent}{0pt} %we don't need no indentation
+
+\graphicspath{{./pics/}} %picture dir
+
+\definecolor{lstcolor}{RGB}{238,233,233}
+
+\lstset{ %
+    language=Octave,                % choose the language of the code
+    basicstyle=\footnotesize\ttfamily,       % the size of the fonts that are used for the code
+    numbers=left,                   % where to put the line-numbers
+    numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+    stepnumber=1,                   % the step between two line-numbers. If it's 1 each line will be numbered
+    numbersep=5pt,                  % how far the line-numbers are from the code
+    backgroundcolor=\color{lstcolor},   % choose the background color. You must add \usepackage{color}
+    showspaces=false,               % show spaces adding particular underscores
+    showstringspaces=false,         % underline spaces within strings
+    showtabs=false,                 % show tabs within strings adding particular underscores
+    frame=single,	                % adds a frame around the code
+    tabsize=2,	                    % sets default tabsize to 2 spaces
+    captionpos=b,                   % sets the caption-position to bottom
+    breaklines=true,                % sets automatic line breaking
+    breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+    title=\lstname,                 % show the filename of files included with \lstinputlisting; also try caption instead of title
+    escapeinside={\%*}{*)},          % if you want to add a comment within your code
+%    morekeywords={*,...}            % if you want to add more keywords to the set
+	deletekeywords={all, null, length, path, function}
+}
+
+%---------------------------------------------------------------------
+%   environments
+%---------------------------------------------------------------------
+\renewenvironment{abstract}[1]
+{
+	\Large
+	\begin{center}
+		\textbf{#1}
+	\end{center}
+	
+	\normalsize
+	
+	\addtolength{\leftskip}{1in}
+	\addtolength{\rightskip}{1in}
+	\setlength{\parindent}{0in}
+}
+{
+}
+
+\newenvironment{itemizesp}
+{
+    \begin{itemize}
+}
+{
+    \end{itemize}
+}
+
+\newcommand{\deftoken}{\boldmath{$\mathcal{DEFINITION}$}}
+\newcommand{\restoken}{\boldmath{$\mathcal{RESULT}$}}
+\newcommand{\dotoken}{\boldmath{$\mathcal{DO METHOD}$}}
+\newcommand{\textbff}[1]{{\large \textbf{#1}}}
+\newcommand{\tick}{\ding{52}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{observation}{Observation}
+
+%---------------------------------------------------------------------
+%   magic code
+%---------------------------------------------------------------------
+% Here it is: the code that adjusts justification and spacing around caption.
+\makeatletter
+% http://www.texnik.de/floats/caption.phtml
+% This does spacing around caption.
+\setlength{\abovecaptionskip}{6pt}   % 0.5cm as an example
+\setlength{\belowcaptionskip}{6pt}   % 0.5cm as an example
+% This does justification (left) of caption.
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1: #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    #1: #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother
+
+%---------------------------------------------------------------------
+%   document
+%---------------------------------------------------------------------
+\begin{document}
+    \thispagestyle{empty}
+    %---------------------------------------------------------------------
+    %   topmatter
+    %---------------------------------------------------------------------
+    \title{\textbf{r-2012-11-29}}
+    \author{František Hajnoviè \\
+    \texttt{ferohajnovic@gmail.com}}
+    \date{\today}
+    \maketitle
+
+    \vskip 0.5cm
+
+    %---------------------------------------------------------------------
+    %   OUTLINE
+    %---------------------------------------------------------------------
+    \tableofcontents
+    
+    %---------------------------------------------------------------------
+    %   TTblazer specification
+    %---------------------------------------------------------------------    
+    
+	\section{Diagnostic application}
+	The application is named Timetable analyser (\textit{ttblazer} for short). Following are the requirements, design of the application and supported file formats.\\
+	
+		\subsection{Requirements}
+		\begin{lstlisting}[caption={Requirements}, deletekeywords={all, null, length, path, for, line, load, set, help, hold, case, size}]
+MAIN PURPOSE
+The application will primarily serve to :
+- analyze properties (such as separators, highway dimension, scale-free-ness, planarity...) of graphs/timetables
+- generate various timetables (with various properties) on top of underlying graphs
+- test distance oracle methods for graphs/timetable graphs and make statistics
+- visualise graphs and timetables
+
+CONTROLING
+The program will be controled by commands from command line. There will be another thread listening on a socket for commands to be executed, that will be put into queue. This may come handy when one would like to create a bash script to e.g. load several timetables, run specific DO methods on the timetable and retrieve statistics on the result.
+
+TIME COMPLEXITY \& STABILITY
+The main concern when creating the framework of the application will not be the optimizations for speed but for stability and quality. However, the complexity optimization will be important in design of the algorithms run by the application.
+
+MODULARITY
+As the application serves mostly as a framework to run and evaluate different algorithms, it should be made easy to add new algorithms. We propose a c++ library for each algorithm that will provide an interface to run and evaluate the algorithm, output help to the specific algorithm etc...
+
+LOAD/SAVE
+The application should distinguish several types of objects:
+- underlying graph - oriented weighted graph with possible list of lines for each arc that operate on the given arc
+- timetable - set of elementary connections
+- time-expanded graph - graph representation of a given timetable (is just oriented weighted graph)
+- time-dependent graph - time-dependent representation of a given timetable
+
+ANALYZING FUNCTIONS
+For a given underlying graph, time-expanded graph, time-dependent graph
+- average edge length [average profile of the edge for T-D graph], maximum/minimum length...
+- connectivity
+- strong connectivity
+- average degree of the graph
+- highway dimension
+- separator
+- planar separator
+- planarity
+- scale-free-ness
+For a given timetable
+- average/maximum/minimum traversal time
+- time range
+- height
+
+GENERATIVE FUNCTIONS
+For a given timetable
+- underlying graph
+- time-expanded graph
+- time-dependent graph
+For a given underlying graph
+- random timetable
+	- hold on/don't hold on to the underlying edge weights when determining connection lengths
+	- time range
+	- height
+	- overtaking
+	- regular timetables
+- express lines timetable
+	- rules for express lines...
+
+DISTANCE ORACLE METHODS
+We will distinguish two types of distance oracles
+- DO for graphs -> responds to queries for shortest path (SP)
+- DO for timetables -> responds to queries for earliest arrival (EA)
+Implementation of querying for actual shortest path (series of connections in case of DO for timetables) can be left out, though there should be then a generic algorithm that is able to output shortest paths provided we already have a DO for distances (analogically in case of EA). Algorithm that implements queries for actual paths (series of connections) will be noted as SP+ (EA+).
+Each distance oracle method will have (at least) 4 measurable aspects:
+- preprocessing time
+- size of preprocessed structure
+- query time
+- stretch
+DO should be able to output the help specifying:
+- usage - how to set individual parameters
+- prerequisits - some DO works only on some types of graphs
+Following DO methods should be implemented:
+- Dijkstra's algorithm (SP+, EA+)
+- Floyd Warshall algorithm (SP+, EA+)
+- Neural networks (SP+, EA+)
+- SHARC (SP)
+- Gavoille (SP)
+- Gavoille for timetables (EA)
+
+STATISTICS OF DO METHODS
+- preprocessing time
+- query time
+- structure size
+- stretch (against - default Dijkstra's algorithm)
+
+VISUALISING FUNCTIONS (optional)
+- visualise statistics (through python)
+- visualise graphs, timetables
+		\end{lstlisting}
+		
+		\subsection{Design}
+		\begin{lstlisting}[caption={Requirements}, deletekeywords={all, null, length, path, for, line, load, set, help, hold, case, size, do, save}]
+The whole project will consist of several subsystems. They in turn consist of classes, or simply files that differ in functionality.
+
+First, distinguish following applications:
+- common - not exactly application, rather libraries used by all/some others applications
+- ttblazer - the main application
+- printer - prints messages send by ttblazer
+- commander - commands ttblazer
+
+COMMON
+Implements logging, sender and receiver classes that implement communication on sockets, some common constants and definitions...
+Logging:
+- has 3 types of logs - INFO (meant for user), DEB (meant for developer) and ERR (errors - meant for both).
+- has 2 ways of outputing - to stream or on socket. 
+- DEB is further parametrized by "debug levels" (usually one for each file) that may be turned on/off
+
+PRINTER
+Listens on specified port and outputs received messages
+
+COMMANDER
+Sends message provided on command line to specified port
+
+TTBLAZER
+May be further divided into several parts:
+Communication with user:
+	- Main - infinite loop, main thread
+        - runs infinite loop waiting for commands (e.g. load graph.txt, list graphs, dijkstra graph1 a b...)
+    - CmdProcessor - process next command from the queue
+    - CmdlnProcessor - process command line arguments (they set the program settings, they do not run actions, algorithms...)
+    - Communicator - infinite loop, separate thread
+        - waits on a given port for commands to be executed. Commands are put to the CmdProcessor queue
+        - Commander application sends commands to Communicator
+Entities
+	- Graph - used in implementation of UnderGraph, TdGraph, TeGraph
+	- UnderGraph
+	- Timetable
+	- TeGraph - Time-expanded graph
+	- TdGraph - Time-dependent graph
+Logic
+    - save, load entities
+    - applying generators, analyzers, DOs, visualisers
+Generators
+	- algorithms for e.g. generating timetable from underlying graph..
+Analyzers
+	- algorithms to analyze entities
+Distance oracles
+	- algorithms implementing distance oracle methods
+Visualisers (optional)
+	- simple visualisations of the graph
+		\end{lstlisting}
+	
+		\subsection{Files format}
+			\subsubsection{Underlying graph}
+			Underlying graph is basically an oriented graph with some (optional) further information:
+			\begin{itemize}
+				\item Coordinates of the nodes
+				\item Lengths of the oriented edges
+				\item List of lines operating on a given arc
+			\end{itemize}
+			\hspace*{\fill}
+						
+			\begin{lstlisting}[caption={Underlying graph files form}]
+4                                      //number of stations
+5                                      //number of edges
+A 45 32                                //name of the station, optional coordinates (triples - interpolation points: day time travel-minutes)
+B null
+C 56 34
+D null
+A B 57 Northern                        //FROM TO edge length, list of lines operating on the edge
+A C null Picadilly Victoria            //edge length may be null (will be e.g. random, or calculated from coordinates)
+C B 45 Circle Jubilee Picadilly
+C D 32 null                            //list of lines may be also null
+D A null null
+			\end{lstlisting}
+		
+			\subsubsection{Timetable}
+			A timetable is simply formed by elementary connections. \\
+			
+			\begin{lstlisting}[caption={Timetable files form}]
+7                      //number of elementary connections
+A B 0 10:00 0 10:45    //FROM TO DAY(depart) TIME(depart) DAY(arrive) TIME(arrive)
+A B 0 11:00 0 11:45
+A B 0 12:00 0 12:45
+A C 0 9:30 0 10:00
+A C 0 10:15 0 10:45
+C D 0 11:00 0 11:30
+C D 0 13:00 0 13:30
+			\end{lstlisting}
+		
+			\subsubsection{Time-expanded graph}
+			Time-expanded graph is simply an oriented weighted graph, with the weights being the traversal time. Also, names of the nodes are the combination of the city and the time that represent them. \\
+			
+			\begin{lstlisting}[caption={Time expanded graph files form}]
+5					//number of station/times
+4					//number of connections
+A 0 13:30
+A 0 14:00
+B 0 13:45
+B 0 15:00
+C 0 14:15
+A 0 13:30 B 0 13:45
+A 0 14:00 B 0 15:00
+A 0 13:30 B 0 15:00
+C 0 14:15 B 0 15:00
+			\end{lstlisting}
+		
+			\subsubsection{Time-dependent graph}
+			Time-dependent graph is an oriented graph with a function on the arc specifying the arc's traversal time at any moment. In timetable networks this function is piece-wise linear and it is fully represented by the list of its interpolation points. \\
+			
+			\begin{lstlisting}[caption={Time dependent graph files form}]
+4									//number of stations
+5									//number of edges
+A 0 0								//FROM TO COST-FUNCTION
+B 4 4
+C 8 2
+D 12 0
+A B (0 13:30 45) (0 14:00 40)
+A C (1 14:15 10)
+C B (0 15:00 20)
+C D (2 10:00 70)
+D A null 							//undefined cost function -> null
+			\end{lstlisting}
+			
+			\textit{Note: }We represent time (though not traversal time, which is expressed in minutes) in above mentioned formats usually as \textit{D HH:MM}, that is a day followed by space and 24h format of time. Files that consider time only in minutes (e.g. \textit{1 13:30} would become $(24 + 13) 60 + 30 = 2250$) can also be loaded by the program.
+			    
+    %---------------------------------------------------------------------
+    %   OPEN POINTS
+    %---------------------------------------------------------------------    
+    \section{Open points}
+    \begin{itemize}
+    		\item Hierarchy of express lines $\rightarrow$ what properties can be propagated in time-expansion?
+    		\item Instant cost function - more formal and details
+    \end{itemize}
+    
+    %---------------------------------------------------------------------
+    %   TO DO
+    %---------------------------------------------------------------------    
+    \section{To do}
+    
+    \begin{itemize}
+    		\item United airlines extract data
+    		\item Road network of SVK - process data
+    		\item Continue the diagnostic program
+    		\item Properties propagation in simple timetables
+    		\item Machine learning
+    \end{itemize}
+
+    %---------------------------------------------------------------------
+    %   bibliography
+    %---------------------------------------------------------------------
+    \pagebreak
+    \bibliographystyle{is-alpha}
+    %compile latex, bibtex, latex, latex
+    \bibliography{../bibl}{}
+\end{document}

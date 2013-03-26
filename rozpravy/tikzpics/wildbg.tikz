@@ -1,0 +1,13 @@
+		\tikzstyle{place}=[circle,draw=blue!50,fill=blue!20,thick,inner sep=1pt]
+		\begin{tikzpicture}[>=stealth,looseness=.5,auto])
+			%NODES-------------------------------------------------------------
+			\node (A) at (0.0,0) [place, label=right:{[A]}] {};
+			\node (B) at (3.3333333333333335,0) [place, label=right:{[B]}] {};
+			\node (C) at (6.666666666666667,0) [place, label=right:{[C]}] {};
+			\node (D) at (10.0,0) [place, label=right:{[D]}] {};
+			%CONNECTIONS-------------------------------------------------------
+			\draw [red] (A) -- (B) ;
+			\draw [red] (B) -- (C) ;
+			\draw [red] (C) -- (D) ;
+		\end{tikzpicture}
+

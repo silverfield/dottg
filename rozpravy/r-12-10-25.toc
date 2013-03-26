@@ -1,0 +1,5 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Methods}{1}{section.1}
+\contentsline {section}{\numberline {2}Notes from M.K. thesis}{1}{section.2}
+\contentsline {section}{\numberline {3}``Wild'' timetables can ruin structure}{1}{section.3}
+\contentsline {section}{\numberline {4}Preprocessing time of Gavoille's algorithm for planar graphs}{2}{section.4}

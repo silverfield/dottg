@@ -1,0 +1,73 @@
+\tikzstyle{place}=[circle,draw=blue!50,fill=blue!20,thick,inner sep=1pt]
+{\scalefont{0.28}
+\begin{tikzpicture}[>=stealth,->,looseness=.5,auto,scale=0.28]
+    %NODES-------------------------------------------------------------
+    \node (A_9_30)  at (0,0) [place, label=right:{[A, 9:30]}] {};
+    \node (A_10_00) at (0,2) [place, label=right:{[A, 10:00]}] {};
+    \node (A_10_15) at (0,3) [place, label=right:{[A, 10:15]}] {};
+    \node (A_11_00) at (0,6) [place, label=right:{[A, 11:00]}] {};
+    \node (A_12_00) at (0,10) [place, label=right:{[A, 12:00]}] {};
+    \node (A_14_00) at (0,18) [place, label=right:{[A, 14:00]}] {};
+
+    \node (B_10_45) at (3,5) [place, label=right:{[B, 10:45]}] {};
+    \node (B_11_45) at (3,9) [place, label=right:{[B, 11:45]}] {};
+    \node (B_12_45) at (3,13) [place, label=right:{[B, 12:45]}] {};
+    \node (B_12_50) at (3,13.33) [place, label=right:{[B, 12:50]}] {};
+    \node (B_14_00) at (3,18) [place, label=right:{[B, 14:00]}] {};
+
+    \node (C_10_00) at (6,2) [place, label=right:{[C, 10:00]}] {};
+    \node (C_10_45) at (6,5) [place, label=right:{[C, 10:45]}] {};
+    \node (C_11_00) at (6,6) [place, label=right:{[C, 11:00]}] {};
+    \node (C_12_20) at (6,7.33) [place, label=right:{[C, 12:20]}] {};
+    \node (C_12_40) at (6,8.66) [place, label=right:{[C, 12:40]}] {};
+    \node (C_13_00) at (6,14) [place, label=right:{[C, 13:00]}] {};
+    \node (C_13_30) at (6,16) [place, label=right:{[C, 13:30]}] {};
+
+    \node (D_11_30) at (9,8) [place, label=right:{[D, 11:30]}] {};
+    \node (D_12_35) at (9,12.33) [place, label=right:{[D, 12:35]}] {};
+    \node (D_12_55) at (9,13.66) [place, label=right:{[D, 12:55]}] {};
+    \node (D_13_00) at (9,14) [place, label=right:{[D, 13:00]}] {};
+    \node (D_13_15) at (9,15) [place, label=right:{[D, 13:15]}] {};
+    \node (D_13_30) at (9,16) [place, label=right:{[D, 13:30]}] {};
+
+    %CONNECTIONS-------------------------------------------------------------
+    \draw [red] (A_10_00) -- (B_10_45) node [midway, above] {45 min};
+    \draw [red] (A_11_00) -- (B_11_45) node [midway, above] {45 min};
+    \draw [red] (A_12_00) -- (B_12_45) node [midway, above] {45 min};
+    \draw [red] (A_9_30) -- (C_10_00) node [midway, above] {30 min};
+    \draw [red] (A_10_15) -- (C_10_45) node [midway, above] {30 min};
+    \draw [red] (C_11_00) -- (D_11_30) node [midway, above] {30 min};
+    \draw [red] (C_13_00) -- (D_13_30) node [midway, above] {30 min};
+    \draw [red] (C_12_20) -- (D_12_35) node [midway, above] {15 min};
+    \draw [red] (C_12_40) -- (D_12_55) node [midway, above] {15 min};
+    \draw [red] (C_13_00) -- (D_13_15) node [midway, above] {15 min};
+    \draw [red] (C_12_20) -- (B_12_50) node [midway, above] {30 min};
+    \draw [red] (C_13_30) -- (B_14_00) node [midway, above] {30 min};
+    \draw [red] (D_13_00) -- (A_14_00) node [midway, above] {1 h};
+
+    %WAITING-------------------------------------------------------------
+    \draw [dashed] (A_9_30) --  (A_10_00) node [midway, above] {30 min};
+    \draw [dashed] (A_10_00) -- (A_10_15) node [midway, above] {15 min};
+    \draw [dashed] (A_10_15) -- (A_11_00) node [midway, above] {45 min};
+    \draw [dashed] (A_11_00) -- (A_12_00) node [midway, above] {1 h};
+    \draw [dashed] (A_12_00) -- (A_14_00) node [midway, above] {2 h};
+
+    \draw [dashed] (B_10_45) --  (B_11_45) node [midway, above] {1 h};
+    \draw [dashed] (B_11_45) --  (B_12_45) node [midway, above] {1 h};
+    \draw [dashed] (B_12_45) --  (B_12_50) node [midway, left] {5 min};
+    \draw [dashed] (B_12_50) --  (B_14_00) node [midway, above] {1 h, 10 min};
+
+    \draw [dashed] (C_10_00) --  (C_10_45) node [midway, above] {45 min};
+    \draw [dashed] (C_10_45) --  (C_11_00) node [midway, above] {15 min};
+    \draw [dashed] (C_11_00) --  (C_12_20) node [midway, above] {1 h, 20 min};
+    \draw [dashed] (C_12_20) --  (C_12_40) node [midway, above] {20 min};
+    \draw [dashed] (C_12_40) --  (C_13_00) node [midway, above] {20 min};
+    \draw [dashed] (C_13_00) --  (C_13_30) node [midway, above] {30 min};
+
+    \draw [dashed] (D_11_30) --  (D_12_35) node [midway, above] {1 h, 5 min};
+    \draw [dashed] (D_12_35) --  (D_12_55) node [midway, above] {20 min};
+    \draw [dashed] (D_12_55) --  (D_13_00) node [midway, left] {5 min};
+    \draw [dashed] (D_13_00) --  (D_13_15) node [midway, above] {15 min};
+    \draw [dashed] (D_13_15) --  (D_13_30) node [midway, above] {15 min};
+\end{tikzpicture}
+}

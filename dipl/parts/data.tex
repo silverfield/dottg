@@ -1,0 +1,90 @@
+In this section we would like to introduce the timetable datasets we were working with and provide the results of the analysis which we carried out on the data. The main reason for this analysis is that it gives some insight into the properties of the timetables, and thus may contribute to the make an oracle based method with better qualities.
+
+\subsection{Data}
+
+	We have obtained timetable datasets from numerous sources, in varying formats and of different types. Some of them were freely available on the Internet while others were provided by companies upon demand. Let us briefly describe each of these timetables.
+	
+	The dataset \textit{air01} contains schedules of \textbf{domestic flights in United States} for the January of 2008. It is not comprehensive in the sense that it contains entries only for flights of some of the major airports in US. However it is large enough for our purposes (almost 300 airports). This dataset is just a fraction of the data that are freely available at the pages of American Statistical Association~\footnote{\url{http://stat-computing.org/dataexpo/2009/the-data.html}} in CSV format.
+	
+	Timetables \textit{cpru} and \textit{cpza} represent the \textbf{regional bus} schedules from the areas of \textbf{Ružomberok and Žilina, Slovakia}. The data were provided by the company in charge of the \textit{cp.sk} portal - Inprop s.r.o. . Both of the timetables concern about 1000 bus stops and came in a JDF 1.9 format~\footnote{Jednotný dátový formát (JDF)}. Apart from the actual schedules, the data in JDF contain numerous other information, which were not relevant for our purposes. From both timetables, we have extracted subsets with a time range of one day.
+	
+	The \textit{montr} dataset is part of a public feed for Greater \textbf{Montreal public transportation}, available at Google Transit Feeds~\footnote{\url{http://code.google.com/p/googletransitdatafeed/wiki/PublicFeeds}}. The data are in a GTFS format (defines relations between CSV files listing stations, routes, stop-times...) and were made available by Montreal's Agence métropolitaine de transport. Our timetable \textit{montr} corresponds to daily schedules of the Chambly-Richelieu-Carignan bus services (more than 200 bus stops).
+	
+	Also in GTFS format come the data of \textbf{French railways} operated by company SNCF, publicly available at their website~\footnote{\url{http://test.data-sncf.com/index.php/ter.html}}. The schedules are weekly, but we have extracted just a sub-range corresponding to Monday. Also, there were two types of schedules: one for intercity trains and one for TER trains (regional trains). Thus the three timetables \textit{sncf-inter} (366 stations), \textit{sncf-ter} (2637 stations) and their union \textit{sncf} (2646 stations).
+	
+	Finally, one more country-wide railway timetable was provided by ŽSR, the company in charge of the \textbf{Slovak national railways}. This timetable was exported in a MERITS format and its time range is for one year. The number of stations in \textit{zsr} dataset is 233. \\
+	
+	\noindent With the help of Python and Bash scripts, we converted each of these datasets to our timetable format (described in appendix~\ref{app:formats}). This timetables were then loaded by our application TTBlazer and sub-timetables (with less stations, smaller time-range or smaller height) were generated. Also the UG, TE and TD were generated from each timetable.
+	
+	For a summary of the used timetables' descriptions, see table~\ref{table:tt_desc} and for their main properties, refer to table~\ref{table:tt_mainpr}. \\
+	
+	\begin{table}[h!]{
+		\small
+		\begin{tabular}{c|c|c|c|c}
+		%legend
+			\hline
+			\rowcolor{tablehead}
+			\textbf{Name} & \textbf{Description} & \textbf{Format} & \textbf{Provided by} & \textbf{Publicly available} \\
+		%data
+			\hline
+			air01 & domestic flights (US) & CSV & American Stat. Assoc. & \tick \\
+			cpru & regional bus (Ružomberok, SVK) & JDF 1.9 & Inprop s.r.o. & \cross \\
+			cpza & regional bus (SVK, Žilina) & JDF 1.9 & Inprop s.r.o. & \cross \\
+			montr & public transport (Montreal, CA) & GTFS & Montreal AMT & \tick \\
+			sncf & country-wide intercity rails (FRA) & GTFS & SNCF & \tick \\
+			zsr & country-wide rails (SVK) & MERITS & ŽSR & \cross \\
+		\end{tabular}}
+		\caption{\label{table:tt_desc} Timetable descriptions}
+		\normalsize
+	\end{table}		
+	
+	\begin{table}[h!]{
+		\small
+		\begin{tabular}{c|c|c|c|c|c}
+		%legend
+			\hline
+			\rowcolor{tablehead}
+			\textbf{Name} & \textbf{El. conns.} & \textbf{Cities} & \textbf{UG arcs} & \textbf{Time range} & \textbf{Height} \\
+		%data
+			\hline
+			air01 & 601489 & 287 & 4668 & 1 month & 24374 \\
+			cpru & 37148 & 871 & 2415 & 1 day & 239 \\
+			cpza & 60769 & 1108 & 2778 & 1 day & 370 \\
+			montr & 7153 & 217 & 349  & 1 day & 363 \\
+			sncf & 90676 & 2646 & 7994 & 1 day & 488 \\
+			sncf-inter & 4796 & 366 & 901 & 1 day & 209 \\
+			sncf-ter & 85932 & 2637 & 7647 & 1 day & 488 \\
+			zsr & 932052 & 233 & 588 & 1 year & 60308 \\
+		\end{tabular}}
+		\caption{\label{table:tt_mainpr} Main properties of the timetables. The value of time range is approximate.}
+		\normalsize
+	\end{table}	
+	
+	\noindent Some of the timetables have time range greater then 1 day. Furthermore, even for those marked as a 1 day timetable the exact time range is different (e.g., part of the Monday timetable might be some overnight trains with arrival on Tuesday morning). To see better the differences in the properties of different timetable types (train, flight, bus...), we made sub-timetables with 200 cities and with the upper bound on time range 1 day, 6 hours~\footnote{We took all elementary connections that were within our time range. From this timetable, we made an UG and its (random) sub-graph of 200 cities. Finally we selected only those elementary connections, that were on top of this sub-graph to form a timetable with 200 cities and the desired time range} ($thigh_{T} <$ 1 day, 6h $\forall T$) from each of our dataset. See table~\ref{table:tt_200mainpr} for details. \\
+	
+	\begin{table}[h!]{
+		\small
+		\begin{tabular}{c|c|c|c|c|c}
+		%legend
+			\hline
+			\rowcolor{tablehead}
+			\textbf{Name} & \textbf{El. conns.} & \textbf{Cities} & \textbf{UG arcs} & \textbf{Exact time range} & \textbf{Height} \\
+		%data
+			\hline
+			air01-200d & 19070 & 200 & 3957 & 1 day, 05h:00m & 756 \\
+			cpru-200d & 7511 & 200 & 570 & 0 days, 18h:45m & 230 \\
+			cpza-200d & 14804 & 200 & 563 & 0 days, 19h:25m & 370 \\
+			montr-200d & 6977 & 200 & 320 & 0 days, 20h:33m & 363 \\
+			sncf-200d & 5699 & 200 & 617 & 1 day, 05h:23m & 345 \\		
+			sncf-inter-200d & 2367 & 200 & 478 & 1 day, 01h:10m & 186 \\
+			sncf-ter-200d & 5857 & 200 & 626 & 0 days, 20h:37m & 406 \\
+			zsr-200d & 2306 & 200 & 462 & 1 day, 03h:26m & 142 \\
+		\end{tabular}}
+		\caption{\label{table:tt_200mainpr} 200-station sub-timetables with the maximal time range of little more than one day}
+		\normalsize
+	\end{table}
+	
+	\noindent Also, to provide idea as to how big the time-expanded graphs can get consult table~\ref{table:te_mainpr}. \\
+	
+\subsection{Basic properties}
+	

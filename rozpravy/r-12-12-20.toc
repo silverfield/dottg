@@ -1,0 +1,5 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Emergence of timetables}{1}{section.1}
+\contentsline {section}{\numberline {2}Data analysis}{4}{section.2}
+\contentsline {section}{\numberline {3}Open points}{6}{section.3}
+\contentsline {section}{\numberline {4}To do}{6}{section.4}

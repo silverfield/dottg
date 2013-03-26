@@ -1,0 +1,33 @@
+		\tikzstyle{place}=[circle,draw=blue!50,fill=blue!20,thick,inner sep=1pt]
+		\begin{tikzpicture}[>=stealth,->,looseness=.5,auto])
+			%NODES-------------------------------------------------------------
+			\node (A_600) at (0.0,0.0) [place, label=right:{[A, 10:00]}] {};
+			\node (D_630) at (10.0,2.307692307692308) [place, label=right:{[D, 10:30]}] {};
+			\node (B_620) at (3.3333333333333335,1.5384615384615385) [place, label=right:{[B, 10:20]}] {};
+			\node (B_660) at (3.3333333333333335,4.615384615384616) [place, label=right:{[B, 11:00]}] {};
+			\node (C_670) at (6.666666666666667,5.384615384615385) [place, label=right:{[C, 11:10]}] {};
+			\node (C_675) at (6.666666666666667,5.769230769230769) [place, label=right:{[C, 11:15]}] {};
+			\node (D_705) at (10.0,8.076923076923077) [place, label=right:{[D, 11:45]}] {};
+			\node (A_730) at (0.0,10.0) [place, label=right:{[A, 12:10]}] {};
+			\node (C_660) at (6.666666666666667,4.615384615384616) [place, label=right:{[C, 11:00]}] {};
+			\node (A_680) at (0.0,6.153846153846154) [place, label=right:{[A, 11:20]}] {};
+			\node (D_665) at (10.0,5.0) [place, label=right:{[D, 11:05]}] {};
+			\node (B_715) at (3.3333333333333335,8.846153846153847) [place, label=right:{[B, 11:55]}] {};
+			%CONNECTIONS-------------------------------------------------------
+			\draw [red] (A_600) -- (D_630) node [midway, above] {0:30};
+			\draw [red] (A_600) -- (B_620) node [midway, above] {0:20};
+			\draw [red] (D_630) -- (A_730) node [midway, above] {1:40};
+			\draw [red] (B_660) -- (C_670) node [midway, above] {0:10};
+			\draw [red] (C_675) -- (D_705) node [midway, above] {0:30};
+			\draw [red] (C_660) -- (A_680) node [midway, above] {0:20};
+			\draw [red] (D_665) -- (B_715) node [midway, above] {0:50};
+			%WAITING-----------------------------------------------------------
+			\draw [dashed] (D_630) -- (D_665) node [midway, above] {0:35};
+			\draw [dashed] (D_665) -- (D_705) node [midway, above] {0:40};
+			\draw [dashed] (A_600) -- (A_680) node [midway, above] {1:20};
+			\draw [dashed] (A_680) -- (A_730) node [midway, above] {0:50};
+			\draw [dashed] (B_620) -- (B_660) node [midway, above] {0:40};
+			\draw [dashed] (B_660) -- (B_715) node [midway, above] {0:55};
+			\draw [dashed] (C_660) -- (C_670) node [midway, above] {0:10};
+			\draw [dashed] (C_670) -- (C_675) node [midway, above] {0:05};
+		\end{tikzpicture}
