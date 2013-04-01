@@ -1,0 +1,8 @@
+sharc - fast sharc routing, shortcuts + arc flags, shell nodes
+	2009
+spqsurvey - sommerov suhrn spq - stress on index size/query time trade-off
+	2012
+multihop - efficient multihop preprocessing, local 2-hop generation upon query 
+	2012
+2-hop - efficient apx alg na vytvaranie 2-hop coveru (log diera), conjecture at the end, interesting
+	

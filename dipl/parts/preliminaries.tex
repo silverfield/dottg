@@ -1,8 +1,8 @@
-In this section, we would like to provide the definitions and terminology used throughout the thesis. 
+In this section, we would provide most of the definitions and terminology used throughout the thesis. 
 
 	\subsection{Objects}
 
-	First, we will formalize the notion of a timetable and its derived graph forms, the underlying graph and notions related to these terms.
+	First, we will formalize the notion of a timetable and its derived graph forms, the underlying graph and notions related to these objects.
 	
 	\begin{definition}
         \textbf{Timetable (TT)} \\
@@ -15,18 +15,19 @@ In this section, we would like to provide the definitions and terminology used t
         		\item $\bm{dep(e)} = p$ is the \textbf{departure time}
         		\item $\bm{arr(e)} = q$ is the \textbf{arrival time}
         	\end{itemize}
+        	\item The set of all \textbf{cities} will be denoted as $\bm{ct_{T}} = \{x| (x, y, p, q) \in T \; or \; (y, x, p, q) \in T\}$ and the number of cities as $n_{T}$
         	\item Pairs $(x, p)$ or $(y, q)$ such that $(x, y, p, q) \in T$ form the set of \textbf{events} $\bm{ev_{T}}$. The set of events in a specific city $x$ is $\bm{ev_{T}(x)} = \{(x, t)| (x, y, t, q) \in T \; or \; (y, x, p, t) \in T\}$
-        	\item Let $\bm{tlow_{T}} = \min_{e \in T} dep(e)$ and $\bm{thigh_{T}} = \max_{e \in T} arr(e)$. The value $\bm{trange_{T}} = thigh_{T} - tlow_{T}$ is called the \textbf{time range} of the timetable.
-        	\item \textbf{Height} of the timetable is the maximum number of events in a city: $\bm{height_{T}} = \max_{x \in cities_{T}} \{|ev_{T}(x)|\}$
+        	\item Let $\bm{tlow_{T}} = \min_{e \in T} dep(e)$ and $\bm{thigh_{T}} = \max_{e \in T} arr(e)$. The value $\bm{r_{T}} = thigh_{T} - tlow_{T}$ is called the \textbf{time range} of the timetable.
+        	\item \textbf{Height} of the timetable is the maximum number of events in a city: $\bm{h_{T}} = \max_{x \in cities_{T}} \{|ev_{T}(x)|\}$
         \end{itemize}
     \end{definition}
     
     \noindent Let us describe some the defined terms more informally. An elementary connection corresponds to moving from one stop to the next one, e.g. with a bus (thus we disregard the notion of \textit{lines} in our timetables). Note that we express time as an integer - throughout this paper, this integer will represent the minutes elapsed from the time 00:00 of the first day. Thus we may take the liberty of talking about time in integer or \textit{days hh:mm} format, as convenient at the moment. Lastly, an event simply represent an arrival or departure of a e.g. train at some station. The remaining terms should be clear enough.
     
     \begin{table}[h!]
+    	\centering
         \begin{tabular}{c|c|c|c}
         %legend
-        	\hline
             \rowcolor{tablehead}
             \multicolumn{2}{>{\columncolor{tablehead}}c|}{\textbf{Place}} & \multicolumn{2}{>{\columncolor{tablehead}}c}{\textbf{Time}} \\
 			\hline
@@ -50,7 +51,9 @@ In this section, we would like to provide the definitions and terminology used t
         A connection from $a$ to $b$ is a sequence of elementary connections $\bm{c} = (e_{1}, e_{2}, ..., e_{k}), k \geq 1$, such that $from(e_{1}) = a$, $to(e_{k}) = b$ and $\forall i \in \{2, ..., k\}: (to(e_{i}) = from(e_{i - 1}), \; arr(e_{i}) \geq dep(e_{i - 1})$.
         \begin{itemize}
 			\item Connection \textbf{starts} at the departure time $\bm{start(c)} = dep(e_{1})$ and \textbf{ends} at the arrival time $\bm{end(c)} = arr(e_{k})$.
-	        \item \textbf{Length} of the connection is $\bm{len(c)} = end(c) - start(c)$.
+			\item We also extend $\bm{from(c)} = from(e_{1})$ and $\bm{to(c)} = to(e_{k})$
+	        \item \textbf{Length} of the connection is $\bm{len(c)} = end(c) - start(c)$
+	        \item \textbf{Size} of the connection is $\bm{size(c)} = k$~\footnote{We will use similar terminology when talking about paths - the \textit{size} is the number of vertices (hops) in the path while the \textit{length} refers to the actual distance (sum of weights of the edges in the path)}
 	        \item We will denote the set of \textbf{all connections} from $a$ to $b$ in a timetable $T$ as $\bm{C_{T}(a, b)}$. We also define $\bm{C_{T}} = \cup_{a, b} C_{T}(a, b)$
         \end{itemize}
     \end{definition}
@@ -68,10 +71,13 @@ In this section, we would like to provide the definitions and terminology used t
 	
 	\begin{definition}
         \textbf{Underlying graph (UG graph)} \\
-        The underlying graph of a timetable $T$, denoted $\bm{UG_{T}}$, is an oriented graph $G = (V, E)$, where $V$ is the set of all timetable cities and $E = \{(x, y)|\; \exists (x, y, p, q) \in T\}$
+        The underlying graph of a timetable $T$, denoted $\bm{ug_{T}}$, is an oriented graph $G = (V, E)$, where $V$ is the set of all timetable cities and $E = \{(x, y)|\; \exists (x, y, p, q) \in T\}$
+        \begin{itemize}
+        	\item By $m_{T}$ we will denote the number of arcs in the UG
+        \end{itemize}
     \end{definition}
     
-    \noindent Note, that we do not specify the weights of the edges in the underlying graph - they will be specified based on the current usage of the UG. Most of the time, however, we will work with UG where the weight of each arc is the length of the shortest elementary connection on that arc. More specifically, $w(x, y) = \min_{(x, y, p, q) \in T} (q - p) \; \forall (x, y) \in E(UG_{T})$.
+    \noindent Note, that we do not specify the weights of the edges in the underlying graph - they will be specified based on the current usage of the UG. Most of the time, however, we will work with UG where the weight of each arc is the length of the shortest elementary connection on that arc. More specifically, $w(x, y) = \min_{(x, y, p, q) \in T} (q - p) \; \forall (x, y) \in E(ug_{T})$.
     
     \begin{figure}[h!]
         \begin{center}
@@ -84,7 +90,7 @@ In this section, we would like to provide the definitions and terminology used t
 	
 	\begin{definition}
 		\textbf{Time-expanded graph (TE graph)} \\
-        Let $T$ be a timetable. Time-expanded graph from $T$, denoted $\bm{TE_{T}}$, is an oriented graph $G = (V, E)$ whose vertices correspond to events of $T$, that is $V = \{[x, t]| (x, t) \in Ev_{T}\}$. The edges of $G$ are of two types
+        Let $T$ be a timetable. Time-expanded graph from $T$, denoted $\bm{te_{T}}$, is an oriented graph $G = (V, E)$ whose vertices correspond to events of $T$, that is $V = \{[x, t]| (x, t) \in ev_{T}\}$. The edges of $G$ are of two types
         \begin{enumerate}
             \item $([x, p], [y, q]) \; \forall (x, y, p, q) \in T$ - the so called \textbf{connection edges}
             \item $([x, p], [x, q]) \; [x, p], [x, q] \in V, \; p < q$ and $\not \exists [x, r] \in V\colon p < r < q$. - the so called \textbf{waiting edges}
@@ -103,27 +109,35 @@ In this section, we would like to provide the definitions and terminology used t
         
     \begin{definition}
 		\textbf{Time-dependent graph (TD graph)}\\
-        Let $T$ be a timetable. Time-dependent graph from $T$, denoted $\bm{TD_{T}}$, is an oriented graph $G = (V, E)$ whose vertices are the timetable cities and $E = \{(x, y)| \; \exists (x, y, p, q) \in T\}$. Furthermore, the weight of an edge $(x, y) \in E$ is a piece-wise linear function $w(x, y) = f_{x, y}(t) = q - t$ where $q$ is:
+        Let $T$ be a timetable. Time-dependent graph from $T$, denoted $\bm{td_{T}}$, is an oriented graph $G = (V, E)$ whose vertices are the timetable cities and $E = \{(x, y)| \; \exists (x, y, p, q) \in T\}$. Furthermore, the weight of an edge $(x, y) \in E$ is a piece-wise linear function $w(x, y) = f_{x, y}(t) = q - t$ where $q$ is:
         \begin{itemize}
         	\item $\min \{arr(e) | e \in T, \; dep(e) \geq t\}$
         	\item $\infty$, if $dep(e) < t \; \forall e \in T$
         \end{itemize}
 	\end{definition}
 	
-	\noindent Intuitively, the TD graph is simply the UG graph where each arc carries a function specifying the traversal time of that arc at any time. For an example, see picture~\ref{pic:piece}: The latest point of every linear segment is called the \textbf{interpolation point} and it corresponds to immediate taking of an elementary connection. Note that a list of all interpolation points defines the piece-wise linear function completely. \\
+	\noindent Intuitively, the TD graph is simply the UG graph where each arc carries a function specifying the traversal time of that arc at any time. For an example, see picture~\ref{pic:piece}: The latest point of every linear segment is called the \textbf{interpolation point} and it corresponds to an elementary connection (its coordinates are $dep(e), len(e)$ for corresponding el. connection $e$). Note that a list of all interpolation points fully defines the piece-wise linear function.
 	
-	\begin{minipage}{.35\textwidth}
+	The algorithms in this thesis use almost exclusively the TD graphs, mainly because they are less space consuming. Also, time-dependent Dijkstra searches are a bit faster on TD graphs, because the search space that has to be explored is smaller. On the other hand, TE graphs are more flexible when we need to take additional search parameters into consideration (like transfers, travel costs). Since we will not talk about these, TD graphs are more suitable. 
+	
+	\begin{figure}[htb]
+	\centering
+	\makebox[0pt][c]{
+	\begin{minipage}{.45\textwidth}
 		\centering
 		\inputTikZ{./tikzpics/td}
 		\captionof{figure}{Time-dependent graph of the timetable in picture~\ref{table:tt}. The nodes are the \textcolor{city-clr}{cities}}
 		\label{pic:td}
 	\end{minipage}
-	\begin{minipage}{.5\textwidth}
+	\hspace{1cm}
+	\begin{minipage}{.45\textwidth}
 		\centering
 		\inputTikZ{./tikzpics/tdpiece}
-		\captionof{figure}{Piece-wise linear function - traversal times for the arc $(B, C)$}
+		\captionof{figure}{Piece-wise linear function - traversal times for the arc $(B, C)$. The \textcolor{red}{highlighted} points are the interpolation points}
 		\label{pic:piece}
 	\end{minipage}
+	}
+	\end{figure}
 	
 	\noindent To sum up, there are four main types of objects we will be working with:
 	\begin{itemize}
@@ -134,9 +148,10 @@ In this section, we would like to provide the definitions and terminology used t
 	\end{itemize}
 	\hspace*{\fill}
 	
+	
 	\noindent For further reference, we will call \textbf{timetable objects} those, that fully represent a timetable (TT, TE, TD) and \textbf{graph objects} those, that can be viewed as a graph (UG, TE, TD). \\
 	
-	\noindent \textit{Note:} Throughout this paper, we will relax a bit the notation and leave out subscripts (e.g. $UG_{T}~\rightarrow~UG$ in situations, where the context is clear enough. 
+	\noindent \textit{Note:} Throughout this paper, we will relax a bit the notation and leave out subscripts (e.g. $ug_{T}~\rightarrow~ug$, $n_{T}~\rightarrow~n$, etc.) in situations, where the context is clear enough. 
 
 \subsection{Earliest arrival}
 
@@ -173,5 +188,15 @@ In this section, we would like to provide the definitions and terminology used t
 	
 \subsection{(Distance) Oracles}
 
-	The term distance oracle was first coined in 2001 by Thorup and Zwick~\cite{apxdo05}, when talking about quick shortest path (or distance) computations on graphs. One approach to this problem is to pre-compute some information on the graph to speed-up answering of the queries. The paper of Thorup and Zwick was dealing with trade-offs between time of the pre-computation, the amount of pre-computed information, the speed-up in query times and the accuracy of the provided answers. Since the pre-computed data structure is something that helps us answer the queries more efficiently, it resembles an oracle, thus the term distance oracle. \\
-	Since then, 
+	The term \textit{distance oracle} was first coined in 2001 by Thorup and Zwick~\cite{apxdo05}, when talking about quick shortest path (or distance) computations on graphs. One approach to this problem is to pre-compute some information on the graph to speed-up answering of the queries. The paper of Thorup and Zwick was dealing with trade-offs among the time complexity of the pre-computation, the amount of pre-computed information, the speed-up in query times and the accuracy of the answers. Since the pre-computed data structure is something that helps us answer the queries more efficiently, it resembles an oracle, thus the term distance oracle.
+
+	In this thesis, we will discuss methods that behave the same way, but deal with the earliest arrival problem (or optimal connection problem) - there is some pre-processing of the timetable with a resulting data structure that speeds up answering subsequent queries. To formalize this a little more, we will refer to this kind of methods as \textbf{oracle based methods}. For such a method $m$, we are interested mainly in its four parameters:
+	\begin{itemize}
+		\item \textbf{Preprocessing time} ($\bm{prep(m)}$) - the time complexity of the pre-computation
+		\item \textbf{Preprocessed space} ($\bm{size(m)}$) - the space complexity of the pre-computed data structure (the so called \textbf{oracle})
+		\item \textbf{Query time} ($\bm{qtime(m)}$) - the time complexity of answering a single query
+		\item \textbf{Stretch} ($\bm{stretch(m)}$) - the worst-case ratio against the optimal value of earliest arrival (the lower, the better)
+	\end{itemize}
+	\hspace*{\fill}
+	
+	\noindent The preprocessing time is probably the least critical resource. A reasonable polynomial should bind its time complexity, depending on the computational power of the user and the scale of the timetable. The size of the preprocessed oracle is much more important - in the optimal case, it should be bound by the space complexity of the timetable itself. Optimality of the query time depends on which problem we are solving. If we query for the whole optimal connection, we have to count with a time complexity at least proportional to the diameter of the underlying graph (as connections could be that long, or even longer). If we require only the EA value as an output, much better speed-ups could be expected. The stretch should be of course as low as possible.

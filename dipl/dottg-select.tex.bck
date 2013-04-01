@@ -36,6 +36,7 @@
 \usepackage{pgfplots}
 \usepackage{pifont} %for ticks (check symbols)
 \usepackage{scalefnt}
+\usepackage{setspace}
 \usepackage{subcaption}
 \usepackage{tikz}
 \usepackage{titlesec} %section titles font size change
@@ -51,6 +52,9 @@
 \textwidth 6in
 \textheight 23.5cm
 \topmargin -0.35in
+
+\linespread{1.2}
+\renewcommand{\arraystretch}{1.1} %spacing of table rows
 
 %---------------------------------------------------------------------
 %   various settings
@@ -113,6 +117,7 @@
 \colorlet{event-clr}{blue}
 \colorlet{waiting-clr}{olive}
 \colorlet{cmt-clr}{gray}
+\colorlet{oracle-clr}{orange!30}
 
 %---------------------------------------------------------------------
 %   environments
@@ -237,7 +242,14 @@
     %---------------------------------------------------------------------
     %   assignment
     %---------------------------------------------------------------------
-	\includepdf[pages={1}]{../assignment.pdf}
+	\includepdf[pages={1}]{../assignment-eng.pdf}
+    
+    \pagebreak
+    
+    %---------------------------------------------------------------------
+    %   assignment
+    %---------------------------------------------------------------------
+	\includepdf[pages={1}]{../assignment-sk.pdf}
     
     \pagebreak
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  26 MAR 2013 00:14
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  1 APR 2013 12:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1318,6 +1318,11 @@ Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
 (hyperref)                removing `\textasciicaron' on input line 90.
 
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 97.
+
 (./presentation.aux)
 \openout1 = `presentation.aux'.
 
@@ -1718,7 +1723,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 617.
 Here is how much of TeX's memory you used:
  27878 strings out of 493488
  613133 string characters out of 3141346
- 873162 words of memory out of 3000000
+ 873252 words of memory out of 3000000
  30390 multiletter control sequences out of 15000+200000
  80935 words of font info for 83 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -1746,7 +1751,7 @@ ist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2012/texmf-dist/fonts/t
 ype1/public/lm/lmsy6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public
 /lm/lmsy7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy8.p
 fb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy9.pfb>
-Output written on presentation.pdf (26 pages, 2142783 bytes).
+Output written on presentation.pdf (26 pages, 2143048 bytes).
 PDF statistics:
  1274 PDF objects out of 1440 (max. 8388607)
  1174 compressed objects within 12 object streams

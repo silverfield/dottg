@@ -1,4 +1,5 @@
-\begin{tikzpicture}
+\tikzstyle{textstyle}=[font=\fontsize{9}{9}\selectfont]
+\begin{tikzpicture}[textstyle, scale=0.8]
     \begin{axis}[
         xlabel={time range (days)},
         ylabel={USP},
@@ -33,7 +34,7 @@
         (10,87)
         (11,96)
     };
-    \addlegendentry{$\tau_{max}$}
+    \addlegendentry{max $\tau(x, y)$}
     
     \end{axis}
 \end{tikzpicture}

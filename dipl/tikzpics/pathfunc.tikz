@@ -11,14 +11,14 @@
 
     \draw [decorate, decoration={brace, amplitude=5pt}] (0, 0.5) -- (7, 0.5) node [black,above, midway, yshift=0.15cm] {connection $c$};  
         
-	\node (B1) at (0,-2) [place, label=below:{B}] {};
-    \node (C1) at (3.5,-2) [place, label=below:{C}] {};
-    \node (A1) at (7,-2) [place, label=below:{A}] {};
+	\node (B1) at (0,-1) [place, label=below:{B}] {};
+    \node (C1) at (3.5,-1) [place, label=below:{C}] {};
+    \node (A1) at (7,-1) [place, label=below:{A}] {};
 	
     \draw [black, ->] (B1) -> (C1) node [midway, above] {};
     \draw [black, ->] (C1) -> (A1) node [midway, above] {};
     
-    \draw [decorate, decoration={brace, amplitude=5pt}] (7, -2.5) -- (0, -2.5) node [black, below, midway, yshift=-0.15cm] {$path(c)$};  
+    \draw [decorate, decoration={brace, amplitude=5pt}] (7, -1.5) -- (0, -1.5) node [black, below, midway, yshift=-0.15cm] {$path(c)$};  
     
     \draw [->, very thin, dotted] (B) -> (B1);
     \draw [->, very thin, dotted] (C_1130) -> (C1);

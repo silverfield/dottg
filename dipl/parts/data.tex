@@ -18,11 +18,11 @@ In this section we would like to introduce the timetable datasets we were workin
 	
 	For a summary of the used timetables' descriptions, see table~\ref{table:tt_desc} and for their main properties, refer to table~\ref{table:tt_mainpr}. \\
 	
-	\begin{table}[h!]{
-		\small
+	\begin{table}[h!]
+		\centering
+		\footnotesize
 		\begin{tabular}{c|c|c|c|c}
 		%legend
-			\hline
 			\rowcolor{tablehead}
 			\textbf{Name} & \textbf{Description} & \textbf{Format} & \textbf{Provided by} & \textbf{Publicly available} \\
 		%data
@@ -33,16 +33,16 @@ In this section we would like to introduce the timetable datasets we were workin
 			montr & public transport (Montreal, CA) & GTFS & Montreal AMT & \tick \\
 			sncf & country-wide intercity rails (FRA) & GTFS & SNCF & \tick \\
 			zsr & country-wide rails (SVK) & MERITS & ŽSR & \cross \\
-		\end{tabular}}
+		\end{tabular}
 		\caption{\label{table:tt_desc} Timetable descriptions}
 		\normalsize
 	\end{table}		
 	
-	\begin{table}[h!]{
+	\begin{table}[h!]
+		\centering
 		\small
 		\begin{tabular}{c|c|c|c|c|c}
 		%legend
-			\hline
 			\rowcolor{tablehead}
 			\textbf{Name} & \textbf{El. conns.} & \textbf{Cities} & \textbf{UG arcs} & \textbf{Time range} & \textbf{Height} \\
 		%data
@@ -55,31 +55,31 @@ In this section we would like to introduce the timetable datasets we were workin
 			sncf-inter & 4796 & 366 & 901 & 1 day & 209 \\
 			sncf-ter & 85932 & 2637 & 7647 & 1 day & 488 \\
 			zsr & 932052 & 233 & 588 & 1 year & 60308 \\
-		\end{tabular}}
+		\end{tabular}
 		\caption{\label{table:tt_mainpr} Main properties of the timetables. The value of time range is approximate.}
 		\normalsize
 	\end{table}	
 	
 	\noindent Some of the timetables have time range greater then 1 day. Furthermore, even for those marked as a 1 day timetable the exact time range is different (e.g., part of the Monday timetable might be some overnight trains with arrival on Tuesday morning). To see better the differences in the properties of different timetable types (train, flight, bus...), we made sub-timetables with 200 cities and with the upper bound on time range 1 day, 6 hours~\footnote{We took all elementary connections that were within our time range. From this timetable, we made an UG and its (random) sub-graph of 200 cities. Finally we selected only those elementary connections, that were on top of this sub-graph to form a timetable with 200 cities and the desired time range} ($thigh_{T} <$ 1 day, 6h $\forall T$) from each of our dataset. See table~\ref{table:tt_200mainpr} for details. \\
 	
-	\begin{table}[h!]{
+	\begin{table}[h!]
+		\centering
 		\small
 		\begin{tabular}{c|c|c|c|c|c}
 		%legend
-			\hline
 			\rowcolor{tablehead}
 			\textbf{Name} & \textbf{El. conns.} & \textbf{Cities} & \textbf{UG arcs} & \textbf{Exact time range} & \textbf{Height} \\
 		%data
 			\hline
-			air01-200d & 19070 & 200 & 3957 & 1 day, 05h:00m & 756 \\
-			cpru-200d & 7511 & 200 & 570 & 0 days, 18h:45m & 230 \\
-			cpza-200d & 14804 & 200 & 563 & 0 days, 19h:25m & 370 \\
-			montr-200d & 6977 & 200 & 320 & 0 days, 20h:33m & 363 \\
-			sncf-200d & 5699 & 200 & 617 & 1 day, 05h:23m & 345 \\		
-			sncf-inter-200d & 2367 & 200 & 478 & 1 day, 01h:10m & 186 \\
-			sncf-ter-200d & 5857 & 200 & 626 & 0 days, 20h:37m & 406 \\
-			zsr-200d & 2306 & 200 & 462 & 1 day, 03h:26m & 142 \\
-		\end{tabular}}
+			air01-200d & 19546 & 200 & 3986 & 1 day, 05h:00m & 766 \\
+			cpru-200d & 8721 & 200 & 647 & 0 days, 18h:45m & 239 \\
+			cpza-200d & 13225 & 200 & 583 & 0 days, 19h:01m & 370 \\
+			montr-200d & 6985 & 200 & 320 & 0 days, 20h:33m & 363 \\
+			sncf-200d & 8599 & 200 & 601 & 1 day, 05h:29m & 456 \\		
+			sncf-inter-200d & 2283 & 200 & 466 & 1 day, 01h:10m & 186 \\
+			sncf-ter-200d & 7617 & 200 & 585 & 1 days, 00h:02m & 450 \\
+			zsr-200d & 2289 & 200 & 464 & 1 day, 03h:26m & 142 \\
+		\end{tabular}
 		\caption{\label{table:tt_200mainpr} 200-station sub-timetables with the maximal time range of little more than one day}
 		\normalsize
 	\end{table}

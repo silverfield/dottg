@@ -36,6 +36,7 @@
 \usepackage{pgfplots}
 \usepackage{pifont} %for ticks (check symbols)
 \usepackage{scalefnt}
+\usepackage{setspace}
 \usepackage{subcaption}
 \usepackage{tikz}
 \usepackage{titlesec} %section titles font size change
@@ -51,6 +52,9 @@
 \textwidth 6in
 \textheight 23.5cm
 \topmargin -0.35in
+
+\linespread{1.2}
+\renewcommand{\arraystretch}{1.1} %spacing of table rows
 
 %---------------------------------------------------------------------
 %   various settings
@@ -113,6 +117,8 @@
 \colorlet{event-clr}{blue}
 \colorlet{waiting-clr}{olive}
 \colorlet{cmt-clr}{gray}
+\colorlet{oracle-clr}{orange!30}
+\colorlet{algsec-clr}{black!50!red}
 
 %---------------------------------------------------------------------
 %   environments
@@ -142,6 +148,7 @@
 }
 
 \newcommand{\cmt}[1]{{\color{cmt-clr} \hspace*{1cm} \# \textit{#1}}}
+\newcommand{\algsec}[1]{\textcolor{algsec-clr}{\textbf{\underline{#1}}}} 
 \newcommand{\deftoken}{\boldmath{$\mathcal{DEFINITION}$}}
 \newcommand{\restoken}{\boldmath{$\mathcal{RESULT}$}}
 \newcommand{\dotoken}{\boldmath{$\mathcal{DO METHOD}$}}
@@ -151,6 +158,7 @@
 
 \numberwithin{figure}{section}
 \numberwithin{table}{section}
+\numberwithin{equation}{section}
 
 \newtheorem{definition}{Definition}[section]
 \newtheorem{example}{Example}[section]
@@ -237,7 +245,14 @@
     %---------------------------------------------------------------------
     %   assignment
     %---------------------------------------------------------------------
-	\includepdf[pages={1}]{../assignment.pdf}
+	\includepdf[pages={1}]{../assignment-eng.pdf}
+    
+    \pagebreak
+    
+    %---------------------------------------------------------------------
+    %   assignment
+    %---------------------------------------------------------------------
+	\includepdf[pages={1}]{../assignment-sk.pdf}
     
     \pagebreak
 
