@@ -6,9 +6,18 @@
 \contentsline {subsection}{\numberline {1.4}Organization}{1}{subsection.1.4}
 \contentsline {section}{\numberline {2}Preliminaries}{2}{section.2}
 \contentsline {subsection}{\numberline {2.1}Objects}{2}{subsection.2.1}
-\contentsline {section}{\numberline {3}Related work}{5}{section.3}
-\contentsline {section}{\numberline {4}Data}{6}{section.4}
-\contentsline {section}{\numberline {5}Underlying shortest paths}{7}{section.5}
-\contentsline {section}{\numberline {6}Neural network approach}{8}{section.6}
-\contentsline {section}{\numberline {7}Application TTBlazer}{9}{section.7}
-\contentsline {section}{\numberline {8}Conclusion}{10}{section.8}
+\contentsline {subsection}{\numberline {2.2}Earliest arrival}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}(Distance) Oracles}{6}{subsection.2.3}
+\contentsline {section}{\numberline {3}Related work}{8}{section.3}
+\contentsline {section}{\numberline {4}Data \& analysis}{9}{section.4}
+\contentsline {subsection}{\numberline {4.1}Data}{9}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Basic properties}{10}{subsection.4.2}
+\contentsline {section}{\numberline {5}Underlying shortest paths}{12}{section.5}
+\contentsline {subsection}{\numberline {5.1}USP}{12}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}USP-OR}{13}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}USP-OR-A}{17}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Choosing the optimal access node set}{21}{subsection.5.4}
+\contentsline {section}{\numberline {6}Neural network approach}{24}{section.6}
+\contentsline {section}{\numberline {7}Application TTBlazer}{25}{section.7}
+\contentsline {section}{\numberline {8}Conclusion}{26}{section.8}
+\contentsline {section}{Appendix \numberline {A}File formats}{27}{Appendix.a.A}

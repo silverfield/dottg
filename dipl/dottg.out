@@ -5,9 +5,18 @@
 \BOOKMARK [2][-]{subsection.1.4}{Organization}{section.1}% 5
 \BOOKMARK [1][-]{section.2}{Preliminaries}{}% 6
 \BOOKMARK [2][-]{subsection.2.1}{Objects}{section.2}% 7
-\BOOKMARK [1][-]{section.3}{Related work}{}% 8
-\BOOKMARK [1][-]{section.4}{Data}{}% 9
-\BOOKMARK [1][-]{section.5}{Underlying shortest paths}{}% 10
-\BOOKMARK [1][-]{section.6}{Neural network approach}{}% 11
-\BOOKMARK [1][-]{section.7}{Application TTBlazer}{}% 12
-\BOOKMARK [1][-]{section.8}{Conclusion}{}% 13
+\BOOKMARK [2][-]{subsection.2.2}{Earliest arrival}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.3}{\(Distance\) Oracles}{section.2}% 9
+\BOOKMARK [1][-]{section.3}{Related work}{}% 10
+\BOOKMARK [1][-]{section.4}{Data \046 analysis}{}% 11
+\BOOKMARK [2][-]{subsection.4.1}{Data}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.2}{Basic properties}{section.4}% 13
+\BOOKMARK [1][-]{section.5}{Underlying shortest paths}{}% 14
+\BOOKMARK [2][-]{subsection.5.1}{USP}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.2}{USP-OR}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.3}{USP-OR-A}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.4}{Choosing the optimal access node set}{section.5}% 18
+\BOOKMARK [1][-]{section.6}{Neural network approach}{}% 19
+\BOOKMARK [1][-]{section.7}{Application TTBlazer}{}% 20
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 21
+\BOOKMARK [1][-]{Appendix.a.A}{Appendix File formats}{}% 22

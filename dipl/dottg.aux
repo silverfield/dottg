@@ -21,41 +21,109 @@
 \@writefile{lof}{\select@language{english}}
 \@writefile{lot}{\select@language{english}}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}}
+\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Motivation}{1}{subsection.1.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Approach}{1}{subsection.1.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Goals}{1}{subsection.1.3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Organization}{1}{subsection.1.4}}
-\citation{timetablemodelsalgs07}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Preliminaries}{2}{section.2}}
+\newlabel{sec:prel}{{2}{2}{Preliminaries}{section.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Objects}{2}{subsection.2.1}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces An example of a timetable - the set of \leavevmode {\color  {elcon-clr}elementary connections} (between pairs of \leavevmode {\color  {city-clr}cities}). An example of an \leavevmode {\color  {event-clr}event} is a pair (A, 10:00)\relax }}{2}{table.caption.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  Connection and elementary connection\relax }}{2}{figure.caption.2}}
-\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{pic:tt}{{1}{2}{Connection and elementary connection\relax }{figure.caption.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  Underlying graph of the timetable in picture~\ref  {pic:tt}\relax }}{3}{figure.caption.3}}
-\newlabel{fig:ug}{{2}{3}{Underlying graph of the timetable in picture~\ref {pic:tt}\relax }{figure.caption.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  Time-expanded graph of the timetable in picture~\ref  {pic:tt}. Nodes are the \leavevmode {\color  {event-clr}events}. There are \leavevmode {\color  {elcon-clr}connection} and \leavevmode {\color  {waiting-clr}waiting} edges.\relax }}{3}{figure.caption.4}}
-\newlabel{pic:te}{{3}{3}{Time-expanded graph of the timetable in picture~\ref {pic:tt}. Nodes are the \textcolor {event-clr}{events}. There are \textcolor {elcon-clr}{connection} and \textcolor {waiting-clr}{waiting} edges.\relax }{figure.caption.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Time-dependent graph of the timetable in picture~\ref  {pic:tt}\relax }}{4}{figure.4}}
-\newlabel{pic:td}{{4}{4}{Time-dependent graph of the timetable in picture~\ref {pic:tt}\relax }{figure.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Piece-wise linear function - for the arc $(B, C)$\relax }}{4}{figure.5}}
-\newlabel{pic:piece}{{5}{4}{Piece-wise linear function - for the arc $(B, C)$\relax }{figure.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Related work}{5}{section.3}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Timetables datasets\relax }}{6}{table.caption.5}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Data}{6}{section.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Underlying shortest paths}{7}{section.5}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Neural network approach}{8}{section.6}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Application TTBlazer}{9}{section.7}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{10}{section.8}}
+\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces  An example of a timetable - the set of elementary connections (between pairs of \leavevmode {\color  {city-clr}cities}). An example of an event is a pair (A, 10:00)\relax }}{2}{table.caption.1}}
+\newlabel{table:tt}{{2.1}{2}{An example of a timetable - the set of elementary connections (between pairs of \textcolor {city-clr}{cities}). An example of an event is a pair (A, 10:00)\relax }{table.caption.1}{}}
+\citation{timetablemodelsalgs07}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces  A valid connection made out of \leavevmode {\color  {elcon-clr}elementary connections} (and \leavevmode {\color  {waiting-clr}waiting}, which is implicit)\relax }}{3}{figure.caption.2}}
+\newlabel{pic:conn}{{2.1}{3}{A valid connection made out of \textcolor {elcon-clr}{elementary connections} (and \textcolor {waiting-clr}{waiting}, which is implicit)\relax }{figure.caption.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces  Underlying graph of the timetable in picture~\ref  {table:tt}. The nodes are the \leavevmode {\color  {city-clr}cities}\relax }}{3}{figure.caption.3}}
+\newlabel{fig:ug}{{2.2}{3}{Underlying graph of the timetable in picture~\ref {table:tt}. The nodes are the \textcolor {city-clr}{cities}\relax }{figure.caption.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces  Time-expanded graph of the timetable in picture~\ref  {table:tt}. Nodes represent the \leavevmode {\color  {event-clr}events}. There are \leavevmode {\color  {elcon-clr}connection} and \leavevmode {\color  {waiting-clr}waiting} edges (dashed). The time range is 2h:30m and the height is 4 (as there are 4 events in city B)\relax }}{4}{figure.caption.4}}
+\newlabel{pic:te}{{2.3}{4}{Time-expanded graph of the timetable in picture~\ref {table:tt}. Nodes represent the \textcolor {event-clr}{events}. There are \textcolor {elcon-clr}{connection} and \textcolor {waiting-clr}{waiting} edges (dashed). The time range is 2h:30m and the height is 4 (as there are 4 events in city B)\relax }{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Time-dependent graph of the timetable in picture~\ref  {table:tt}. The nodes are the \leavevmode {\color  {city-clr}cities}\relax }}{5}{figure.caption.5}}
+\newlabel{pic:td}{{2.4}{5}{Time-dependent graph of the timetable in picture~\ref {table:tt}. The nodes are the \textcolor {city-clr}{cities}\relax }{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Piece-wise linear function - traversal times for the arc $(B, C)$. The \leavevmode {\color  {red}highlighted} points are the interpolation points\relax }}{5}{figure.caption.5}}
+\newlabel{pic:piece}{{2.5}{5}{Piece-wise linear function - traversal times for the arc $(B, C)$. The \textcolor {red}{highlighted} points are the interpolation points\relax }{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Earliest arrival}{5}{subsection.2.2}}
+\citation{apxdo05}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces  Optimal connection and earliest arrival time are marked in \leavevmode {\color  {orange}\textbf  {bold}}\relax }}{6}{figure.caption.6}}
+\newlabel{pic:ea}{{2.6}{6}{Optimal connection and earliest arrival time are marked in \textcolor {orange}{\textbf {bold}}\relax }{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}(Distance) Oracles}{6}{subsection.2.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Related work}{8}{section.3}}
+\newlabel{sec:relwrk}{{3}{8}{Related work}{section.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Data \& analysis}{9}{section.4}}
+\newlabel{sec:data}{{4}{9}{Data \& analysis}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Data}{9}{subsection.4.1}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces  Timetable descriptions\relax }}{10}{table.caption.7}}
+\newlabel{table:tt_desc}{{4.1}{10}{Timetable descriptions\relax }{table.caption.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces  Main properties of the timetables. The value of time range is approximate.\relax }}{10}{table.caption.8}}
+\newlabel{table:tt_mainpr}{{4.2}{10}{Main properties of the timetables. The value of time range is approximate.\relax }{table.caption.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces  200-station sub-timetables with the maximal time range of little more than one day\relax }}{10}{table.caption.9}}
+\newlabel{table:tt_200mainpr}{{4.3}{10}{200-station sub-timetables with the maximal time range of little more than one day\relax }{table.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Basic properties}{10}{subsection.4.2}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces OC radius\relax }}{11}{figure.caption.10}}
+\newlabel{table:tt_ocradius}{{4.4}{11}{OC radius\relax }{figure.caption.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces Approximate density of the underlying graphs\relax }}{11}{figure.caption.10}}
+\newlabel{table:ug_density}{{4.5}{11}{Approximate density of the underlying graphs\relax }{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Underlying shortest paths}{12}{section.5}}
+\newlabel{sec:usp}{{5}{12}{Underlying shortest paths}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}USP}{12}{subsection.5.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces  The $path$ function applied on a connection to get the underlying path\relax }}{12}{figure.caption.11}}
+\newlabel{fig:pathfunc}{{5.1}{12}{The $path$ function applied on a connection to get the underlying path\relax }{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}USP-OR}{13}{subsection.5.2}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces ExpandUsp\relax }}{13}{algorithm.1}}
+\newlabel{alg:expusp}{{1}{13}{ExpandUsp\relax }{algorithm.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces  An example of \leavevmode {\color  {green!80!black}\textbf  {overtaking}} (in thick), depicted in a TE graph\relax }}{14}{figure.caption.12}}
+\newlabel{fig:overtake}{{5.2}{14}{An example of \textcolor {green!80!black}{\textbf {overtaking}} (in thick), depicted in a TE graph\relax }{figure.caption.12}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces  Presence of overtaking in the timetables\relax }}{14}{table.caption.13}}
+\newlabel{tab:overtake}{{5.1}{14}{Presence of overtaking in the timetables\relax }{table.caption.13}{}}
+\citation{sommerthesis10}
+\citation{sommerthesis10}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces USP-OR query\relax }}{15}{algorithm.2}}
+\newlabel{alg:uspor-query}{{2}{15}{USP-OR query\relax }{algorithm.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Average and maximal USP coefficients\relax }}{16}{figure.caption.14}}
+\newlabel{tab:usp200}{{5.2}{16}{Average and maximal USP coefficients\relax }{figure.caption.14}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Average USP sizes vary around $\sqrt  {n} \approx 14$. Note extremely low value for airline timetable - this is due to the fact that UGs of airline timetables have small-world characteristics~\cite  {sommerthesis10}\relax }}{16}{figure.caption.14}}
+\newlabel{tab:uspsize}{{5.3}{16}{Average USP sizes vary around $\sqrt {n} \approx 14$. Note extremely low value for airline timetable - this is due to the fact that UGs of airline timetables have small-world characteristics~\cite {sommerthesis10}\relax }{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Changing of $\tau $ with increased time range in \textit  {air01} dataset. 1 day = about 800 in height\relax }}{16}{figure.caption.15}}
+\newlabel{plot:usp-air-timerange}{{5.3}{16}{Changing of $\tau $ with increased time range in \textit {air01} dataset. 1 day = about 800 in height\relax }{figure.caption.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Changing of $\tau $ with increased number of stations in \textit  {sncf} dataset\relax }}{16}{figure.caption.15}}
+\newlabel{plot:usp-sncf-size}{{5.4}{16}{Changing of $\tau $ with increased number of stations in \textit {sncf} dataset\relax }{figure.caption.15}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces  The summary of the \textit  {USP-OR} algorithm parameters. The second row corresponds e.g. to the \textit  {sncf} dataset\relax }}{16}{table.caption.16}}
+\newlabel{tab:uspor}{{5.4}{16}{The summary of the \textit {USP-OR} algorithm parameters. The second row corresponds e.g. to the \textit {sncf} dataset\relax }{table.caption.16}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}USP-OR-A}{17}{subsection.5.3}}
+\newlabel{eq:r1}{{5.1}{17}{USP-OR-A}{equation.5.1}{}}
+\newlabel{eq:r2}{{5.2}{17}{USP-OR-A}{equation.5.2}{}}
+\newlabel{eq:r3}{{5.3}{17}{USP-OR-A}{equation.5.3}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces USP-OR-A preprocessing\relax }}{18}{algorithm.3}}
+\newlabel{alg:uspora-prepro}{{3}{18}{USP-OR-A preprocessing\relax }{algorithm.3}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces USP-OR-A query\relax }}{18}{algorithm.4}}
+\newlabel{alg:uspora-query}{{4}{18}{USP-OR-A query\relax }{algorithm.4}{}}
+\citation{cauchy}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces  Principle of \textit  {USP-OR-A} algorithm. The arcs in \textbf  {bold} mark areas that will be explored: all nodes in $neigh_{\EuScript  {A}}(x)$, USPs between LANs of $x$ and back LANs of $y$ and the back neighbourhood of $y$ (possibly only part of it will be explored, since the local back search goes against the direction in which the back neighbourhood was created)\relax }}{19}{figure.caption.17}}
+\newlabel{fig:uspora}{{5.5}{19}{Principle of \textit {USP-OR-A} algorithm. The arcs in \textbf {bold} mark areas that will be explored: all nodes in $neigh_{\mathcal {A}}(x)$, USPs between LANs of $x$ and back LANs of $y$ and the back neighbourhood of $y$ (possibly only part of it will be explored, since the local back search goes against the direction in which the back neighbourhood was created)\relax }{figure.caption.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Changing of $\tau _{\EuScript  {A}}$ with increased number of stations in \textit  {cpza} dataset. $\EuScript  {A}$ was obtained using algorithm we will talk about later\relax }}{20}{figure.caption.18}}
+\newlabel{plot:antau-cpza-size}{{5.6}{20}{Changing of $\tau _{\mathcal {A}}$ with increased number of stations in \textit {cpza} dataset. $\mathcal {A}$ was obtained using algorithm we will talk about later\relax }{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Changing of $\gamma _{\EuScript  {A}}$ with increased number of stations in \textit  {cpza} dataset. $\EuScript  {A}$ was obtained using algorithm we will talk about later\relax }}{20}{figure.caption.18}}
+\newlabel{plot:angamma-cpza-size}{{5.7}{20}{Changing of $\gamma _{\mathcal {A}}$ with increased number of stations in \textit {cpza} dataset. $\mathcal {A}$ was obtained using algorithm we will talk about later\relax }{figure.caption.18}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces  The summary of the \textit  {USP-OR-A} algorithm parameters\relax }}{21}{table.caption.19}}
+\newlabel{tab:uspora}{{5.5}{21}{The summary of the \textit {USP-OR-A} algorithm parameters\relax }{table.caption.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Choosing the optimal access node set}{21}{subsection.5.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces  The principle of the reduction. In $m_{i}$, there are actually complete graphs of $\beta _{i}$ vertices (as shown for $m_{1}$). \textbf  {Thick} arcs represent arcs from all the vertices of respective $m_{i}$. The $s_{i}$ vertices are connected to their $s_{i}'$ versions. If e.g. $s_{1}$ is selected as an access node, $s_{1}'$ is no longer part of any neighbourhood\relax }}{22}{figure.caption.20}}
+\newlabel{fig:reduction}{{5.8}{22}{The principle of the reduction. In $m_{i}$, there are actually complete graphs of $\beta _{i}$ vertices (as shown for $m_{1}$). \textbf {Thick} arcs represent arcs from all the vertices of respective $m_{i}$. The $s_{i}$ vertices are connected to their $s_{i}'$ versions. If e.g. $s_{1}$ is selected as an access node, $s_{1}'$ is no longer part of any neighbourhood\relax }{figure.caption.20}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Neural network approach}{24}{section.6}}
+\newlabel{sec:neural}{{6}{24}{Neural network approach}{section.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Application TTBlazer}{25}{section.7}}
+\newlabel{sec:ttblazer}{{7}{25}{Application TTBlazer}{section.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{26}{section.8}}
+\newlabel{sec:concl}{{8}{26}{Conclusion}{section.8}{}}
+\@writefile{toc}{\contentsline {section}{Appendix \numberline {A}File formats}{27}{Appendix.a.A}}
+\newlabel{app:formats}{{A}{27}{File formats}{Appendix.a.A}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}TT file format}{27}{lstlisting.1}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}UG file format}{27}{lstlisting.2}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3}TE file format}{28}{lstlisting.3}}
+\newlabel{lst:tdformat}{{4}{28}{TD file format}{lstlisting.4}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4}TD file format}{28}{lstlisting.4}}
 \bibstyle{is-alpha}
 \bibdata{bibl}
-\bibcite{highwaydim10}{AFGW10}
-\bibcite{powerlaw09}{CSTW09}
-\bibcite{distlabel04}{GPPR04}
-\bibcite{hajnresearch12}{Haj12}
-\bibcite{zuiprednaska}{Mar}
 \bibcite{timetablemodelsalgs07}{MHSWZ07}
 \bibcite{sommerthesis10}{Som10}
 \bibcite{apxdo05}{TZ05}
-\bibcite{Tea97}{\v Dur97}
-\bibcite{LondonUnd}{Wik}

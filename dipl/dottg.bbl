@@ -11,37 +11,6 @@
      \showURLtrue
 \fi
 
-\bibitem[AFGW10]{highwaydim10}
-Ittai Abraham, Amos Fiat, Andrew~V. Goldberg, and Renato Fonseca~F. Werneck.
-\newblock Highway dimension, shortest paths, and provably efficient algorithms.
-\newblock In Moses Charikar, editor, {\em SODA}, pages 782--793. SIAM, 2010.
-
-\bibitem[CSTW09]{powerlaw09}
-Wei Chen, Christian Sommer, Shang-Hua Teng, and Yajun Wang.
-\newblock A compact routing scheme and approximate distance oracle for
-  power-law graphs.
-\newblock {\em Distributed Computing}, ?\penalty0 (Disc 2009):\penalty0
-  379--391, 2009.
-\newblock \ifshowURL {\showURL
-  \path|http://research.microsoft.com/pubs/81716/msr-tr-2009-84.pdf|}\fi.
-
-\bibitem[GPPR04]{distlabel04}
-Cyril Gavoille, David Peleg, Stéphane Pérennes, and Ran Raz.
-\newblock Distance labeling in graphs.
-\newblock {\em Journal of Algorithms}, 53\penalty0 (1):\penalty0 85 -- 112,
-  2004.
-\newblock \showISSN{0196-6774}.
-\newblock \ifshowURL {\showURL
-  \path|http://www.sciencedirect.com/science/article/pii/S0196677404000884|}\fi.
-
-\bibitem[Haj12]{hajnresearch12}
-František Hajnoviè.
-\newblock Distance oracles for timetable graphs - research, 2012.
-
-\bibitem[Mar]{zuiprednaska}
-Mária Markošová.
-\newblock Základy umelej inteligencie 1 - prednášky.
-
 \bibitem[MHSWZ07]{timetablemodelsalgs07}
 Matthias M{\"u}ller-Hannemann, Frank Schulz, Dorothea Wagner, and Christos
   Zaroliagis.
@@ -60,13 +29,5 @@ Christian Sommer.
 Mikkel Thorup and Uri Zwick.
 \newblock Approximate distance oracles.
 \newblock {\em J. ACM}, 52\penalty0 (1):\penalty0 1--24, 2005.
-
-\bibitem[Ïur97]{Tea97}
-Pavol Ïuriš.
-\newblock Tvorba efektívnych algoritmov - prednášky, 1997.
-
-\bibitem[Wik]{LondonUnd}
-Wikipedia.
-\newblock London underground - wikipedia.
 
 \end{thebibliography}

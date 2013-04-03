@@ -87,4 +87,65 @@ In this section we would like to introduce the timetable datasets we were workin
 	\noindent Also, to provide idea as to how big the time-expanded graphs can get consult table~\ref{table:te_mainpr}. \\
 	
 \subsection{Basic properties}
+
+	\noindent First we will take a look at the optimal connection \textit{sizes} (size is the number of el. connections) in the timetables. For a given timetable $T$, we will denote the average optimal connection size as $\bm{\gamma_{T}}$ and will call it the \textbf{optimal connection radius} (OC radius). We computed an approximate OC radius for each of our datasets by measuring an average connection size of sufficiently many OCs. The results in  table~\ref{table:tt_ocradius} indicate that the average OC sizes move around value $\sqrt{n}$ (with exception of the \textit{air01} timetable).
+	
+	Next we would like to get an idea of the sparsity of the underlying graphs. We see from the table~\ref{table:tt_mainpr} that the graphs are pretty sparse (again, with exception of \textit{air01}), but we would like to make sure that the sparsity is uniform. More specifically, we will be interested in the $\delta$-density:
+	
+	\begin{definition}
+		\textbf{$\bm{\delta}$-density} \\
+		A graph $G$ of $n$ vertices and $m$ arcs is $\delta$-dense $\iff$ $\forall G' \subseteq G, n' \geq \sqrt[4]{n}: \frac{\displaystyle m'}{\displaystyle n'} \leq \delta$
+		\begin{itemize}
+			\item For a timetable $T$, we will denote its \textbf{density} as $\bm{\delta_{T}} = min \{\delta|\; ug_{T}$ is $\delta$-dense$\}$
+		\end{itemize}
+	\end{definition}
+	
+	\noindent To find out at least approximate $\delta_{T}$ values for our timetables, we have randomly sampled their UGs for (connected) sub-graphs of various sizes (starting from $\sqrt[4]{n}$). In table~\ref{table:ug_density} you can see the maximal density found during the sampling. 
+	
+	\begin{figure}[htb]
+	\centering
+	\makebox[0pt][c]{
+    \begin{minipage}{0.45\textwidth} 
+		\centering
+		\begin{tabular}{c|c}
+		%legend
+			\rowcolor{tablehead}
+			\textbf{Name} & \textbf{$\bm{\gamma_{T}}$} \\
+		%data
+			\hline
+			air01 & 2.4 \\
+			cpru & 32.3 \\
+			cpza & 33.2 \\
+			montr & 20.6 \\
+			sncf & 25.8 \\
+			sncf-inter & 8.3 \\
+			sncf-ter & 27.5 \\
+			zsr & 15.1 \\
+		\end{tabular}
+		\captionof{table}{OC radius}
+		\label{table:tt_ocradius}
+	\end{minipage}
+	\hspace{1cm}	
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\begin{tabular}{c|c}
+		%legend
+			\rowcolor{tablehead}
+			\textbf{Name} & \textbf{Maximal $\bm{\delta_{T}}$ found}\\
+		%data
+			\hline
+			air01 & 34.5 \\
+			cpru & 4.0 \\
+			cpza & 3.4 \\
+			montr & 1.9 \\
+			sncf & 4.3 \\
+			sncf-inter & 3.1 \\
+			sncf-ter & 4.7 \\
+			zsr & 3.2 \\
+		\end{tabular}
+		\captionof{table}{Approximate density of the underlying graphs}
+		\label{table:ug_density}
+	\end{minipage}
+    }
+	\end{figure}
 	

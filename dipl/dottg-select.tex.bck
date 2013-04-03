@@ -118,6 +118,7 @@
 \colorlet{waiting-clr}{olive}
 \colorlet{cmt-clr}{gray}
 \colorlet{oracle-clr}{orange!30}
+\colorlet{algsec-clr}{black!50!red}
 
 %---------------------------------------------------------------------
 %   environments
@@ -147,6 +148,7 @@
 }
 
 \newcommand{\cmt}[1]{{\color{cmt-clr} \hspace*{1cm} \# \textit{#1}}}
+\newcommand{\algsec}[1]{\textcolor{algsec-clr}{\textbf{\underline{#1}}}} 
 \newcommand{\deftoken}{\boldmath{$\mathcal{DEFINITION}$}}
 \newcommand{\restoken}{\boldmath{$\mathcal{RESULT}$}}
 \newcommand{\dotoken}{\boldmath{$\mathcal{DO METHOD}$}}
@@ -156,6 +158,7 @@
 
 \numberwithin{figure}{section}
 \numberwithin{table}{section}
+\numberwithin{equation}{section}
 
 \newtheorem{definition}{Definition}[section]
 \newtheorem{example}{Example}[section]

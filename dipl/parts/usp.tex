@@ -85,7 +85,7 @@
     	\end{enumerate}
     \end{proof}
     
-    \noindent We would like to stress, that overtaking is understood as a situation when one carrier overtakes another between \textit{two subsequent stations}. This situation is not that common, however it is still present in the real world timetables~\footnote{In Slovak rails, no overtaking has been detected. This is not surprising as (to my knowledge) there are not inter-station tracks with multiple rails going in one direction. French railways, on the other hand have designated high-speed tracks and thus overtaking is not impossible.}, as shown in table~\ref{tab:overtake}. All the same, we can simply remove the overtaken el. connections from the timetables, as they can be substituted by the quicker connection plus some waiting. \\
+    \noindent We would like to stress that overtaking is understood as a situation when one carrier overtakes another between \textit{two subsequent stations}. This situation is not that common, however it is still present in the real world timetables~\footnote{In Slovak rails, no overtaking has been detected. This is not surprising as (to my knowledge) there are no inter-station tracks with multiple rails going in one direction. French railways, on the other hand have designated high-speed tracks and thus overtaking is not impossible.}, as shown in table~\ref{tab:overtake}. All the same, we can simply remove the overtaken el. connections from the timetables, as they can be substituted by the quicker connection plus some waiting. \\
     
     \begin{table}[h!]
     	\centering
@@ -138,16 +138,18 @@
 	\end{algorithm}
 	\color{black}
 	
-	\noindent We will now have a look at the four parameters of this oracle based method. As for the \textbf{preprocessing time}, we need to find optimal connections from each \textit{event} in the timetable to each \textit{city} (or in other words - solve all possible OC queries). On these connections we apply the $path$ function to obtain the USPs. The maximum number of events in one city is the height $h$ and there is $n$ cities, thus $hn$ is the upper bound on the number of events. One search from a single event to all cities can be done in time $\mathcal{O}(n \log n + m)$ with a time-dependent Dijkstra's algorithm run on the time-dependent graph of our timetable ($TD_{T}$). In worst case, $m$ could be as much as $n^{2}$ but in our timetables $m < n \log n$ in almost every case (\textit{air01} being the exception). We therefore get the preprocessing time $\bm{\mathcal{O}(hn^{2} \log n)}$. 
+	\noindent We will now have a look at the four parameters of this oracle based method. As for the preprocessing time, we need to find optimal connections from each \textit{event} in the timetable to each \textit{city} (or in other words - solve all possible OC queries). On these connections we apply the $path$ function to obtain the USPs. The maximum number of events in one city is the height $h$ and there is $n$ cities, thus $hn$ is the upper bound on the number of events. One search from a single event to all cities can be done in time $\mathcal{O}(n \log n + m)$ with a time-dependent Dijkstra's algorithm run on the time-dependent graph of our timetable ($TD_{T}$). In worst case, $m$ could be as much as $n^{2}$ but we may bound it as $m \leq \delta_{T} n$ (where $\delta_{T}$ is the sparsity of the timetable, defined in section \ref{sec:data}). We therefore get the \textbf{preprocessing time} $\bm{\mathcal{O}(hn^{2} (\log n + \delta))}$. 
 	
-	As for the preprocessed space, we need to store USPs for each pair of the cities ($n^{2}$) and each USP might be long at most $\mathcal{O}(n)$ hops. What is more, there might be many USPs for a single pair of cities. Therefore we have two questions with respect to the space complexity of the preprocessing:
+	As for the preprocessed space, we need to store USPs for each pair of the cities ($n^{2}$ pairs) and each USP might be long at most $\mathcal{O}(n)$ hops. What is more, there might be many USPs for a single pair of cities. Therefore we have two questions with respect to the space complexity of the preprocessing:
 	\begin{enumerate}
 		\item What is the average size of the USPs?
 		\item How many are there USPs between a single pair of cities?
 	\end{enumerate}
 	\hspace*{\fill}
 	
-	\noindent The answer for the first question can be found in the table~\ref{tab:uspsize}: generally the average size of the USP is $\approx \sqrt{n}$. As for the second question, we will introduce the following definition:
+	\noindent The answer for the first question is that the average USP size is equal to the OC radius of the timetable ($\gamma_{T}$) defined in section~\ref{sec:data}. An upper bound for this value is $\mathcal{O}(n)$ but generally $\gamma_{T}$ varies around $\sqrt{n}$ (see table~\ref{tab:uspsize}). 
+	
+	\noindent To answer the second question, we will introduce the following definition:
 	
 	\begin{definition}
         \textbf{USP coefficient} \\
@@ -156,7 +158,7 @@
     
     \noindent From the table~\ref{tab:usp200} we can see, that there are not many USPs on average, meaning that $\tau$ is usually some small number. Also, we see that it slightly increases with increasing time range (plot~\ref{plot:usp-air-timerange}), but not with increasing $n$, the size of the timetable (plot~\ref{plot:usp-sncf-size}). Thus we can consider $\tau$ to be bound by a small constant when it comes to daily timetables. 
     
-    From the answers to our two questions we see that the \textbf{size of the preprocessed oracle} is about $\bm{\mathcal{O}(n^{2.5})}$ in real world timetables, though in general timetables, it is up to $\mathcal{O}(\tau n^{3})$.
+    From the answers to our two questions we see that the \textbf{size of the preprocessed oracle} is $\bm{\mathcal{O}(\tau n^{2} \gamma)}$.
 
 	\begin{figure}[htb]
 	\centering
@@ -199,7 +201,7 @@
 			sncf-ter-200d & 10.8 \\
 			zsr-200d & 13.7 \\
 		\end{tabular}
-		\captionof{table}{Average USP sizes. Note extremely low value for airline timetable - this is due to the fact that UGs of airline timetables have small-world characteristics~\cite{sommerthesis10}}
+		\captionof{table}{Average USP sizes vary around $\sqrt{n} \approx 14$. Note extremely low value for airline timetable - this is due to the fact that UGs of airline timetables have small-world characteristics~\cite{sommerthesis10}}
 		\label{tab:uspsize}
 	\end{minipage}
     }
@@ -224,45 +226,46 @@
     }
 	\end{figure}
 	
-	\noindent The query time also depends on the USP coefficient of a given pair of cities $x$, $y$, as we have to try out all USPs in $usps(x, y)$. The expansion of a USP by \textit{ExpandUsp} function takes time linear in the size of the USP~\footnote{In time-dependent graphs, this requires a constant-time retrieval of the correct interpolation point of the cost function (the piece-wise linear function that tells us the traversal time of an arc at a given time) for some time $t$. More specifically, we need to obtain an interpolation point $argmin_{(t', l)} \{t'|t' > t\}$. If we assume uniform distribution of departures throughout the time range of the timetable, this can be implemented in constant time. Otherwise, binary search lookup is possible in time $\log h$}, leading to \textbf{query time} $\mathcal{O}(\tau(x, y) n)$, or $\bm{\mathcal{O}(\sqrt{n})}$ on average if we take into consideration the sizes of USPs and size of $\tau$. Note, that this is optimal, as we need to actually output the connection, which takes linear time in its size.
+	The query time also depends on the USP coefficient of a given pair of cities $x$, $y$, as we have to try out all USPs in $usps(x, y)$. The expansion of a USP by \textit{ExpandUsp} function takes time linear in the size of the USP~\footnote{In time-dependent graphs, this requires a constant-time retrieval of the correct interpolation point of the cost function (the piece-wise linear function that tells us the traversal time of an arc at a given time) for some time $t$. More specifically, we need to obtain an interpolation point $argmin_{(t', l)} \{t'| \; t' > t\}$. If we assume uniform distribution of departures throughout the time range of the timetable, this can be implemented in constant time. Otherwise, binary search lookup is possible in time $\mathcal{O}(\log h)$}, leading to \textbf{query time} $\bm{\mathcal{O}(\tau \gamma)}$ on average. Note, that this is pretty much optimal, as $\tau$ is basically constant and we need to output the connection itself, which takes linear time in its size.
 		
 	Finally, the \textbf{stretch} of \textit{USP-OR} is \textbf{1}, as it returns exact answers. 
 	
-	\begin{table}[h!]{
+	\begin{table}[h!]
+		\centering
 		\begin{tabular}{l|c|c|c|c}
 		%legend
-			 & \cellcolor{oracle-clr} $\bm{prep}$ & \cellcolor{oracle-clr} $\bm{size}$ & \cellcolor{oracle-clr} $\bm{qtime}$ & \cellcolor{oracle-clr} $\bm{stretch}$ \\
+			\cellcolor{oracle-clr} \textit{\textbf{USP-OR}} & \cellcolor{oracle-clr} $\bm{prep}$ & \cellcolor{oracle-clr} $\bm{size}$ & \cellcolor{oracle-clr} $\bm{qtime}$ & \cellcolor{oracle-clr} $\bm{stretch}$ \\
 		%data
 			\hline
-			\cellcolor{oracle-clr} \textbf{guaranteed} & $\mathcal{O}(hn^{3})$ & $\mathcal{O}(\tau n^{3})$ & $\mathcal{O}(\tau(x, y) \cdot n)$ & $1$ \\
-			\cellcolor{oracle-clr} \textbf{on our timetables} & $\mathcal{O}(hn^{2} \log n)$ & $\mathcal{O}(n^{2.5})$ & avg. $\mathcal{O}(\sqrt{n})$ & $1$ \\
-		\end{tabular}}
-		\caption{\label{tab:uspor} The summary of the \textit{USP-OR} algorithm parameters}
+			\cellcolor{oracle-clr} \textbf{guaranteed} & $\mathcal{O}(hn^{2} (\log n + \delta_{T}))$ & $\mathcal{O}(\tau n^{2} \gamma)$ & avg. $\mathcal{O}(\tau \gamma)$ & $1$ \\
+			\cellcolor{oracle-clr} \textbf{$\bm{\tau}$ const., $\bm{\gamma \leq \sqrt{n}}$, $\bm{\delta \leq \log n}$} & $\mathcal{O}(hn^{2} \log n)$ & $\mathcal{O}(n^{2.5})$ & avg. $\mathcal{O}(\sqrt{n})$ & $1$ \\
+		\end{tabular}
+		\caption{\label{tab:uspor} The summary of the \textit{USP-OR} algorithm parameters. The second row corresponds e.g. to the \textit{sncf} dataset}
 	\end{table}
 	
 \subsection{USP-OR-A}
 	    
-	With \textit{USP-OR} the main disadvantage is its space consumption. We may decrease this space complexity by pre-computing USPs only among \textit{some} cities. The nodes that we select for this purpose will be called \textbf{access nodes} (AN for short), as for each city they would be the crucial nodes we need to pass in order to access most of the cities. It would be suitable for this access node set to have several desirable properties. In order to formulate them, we need to define a few terms first.
+	With \textit{USP-OR} the main disadvantage is its space consumption. We may decrease this space complexity by pre-computing USPs only among \textit{some} cities. The nodes that we select for this purpose will be called \textbf{access nodes} (AN for short), as for each city they would be the crucial nodes we need to pass in order to access most of the cities of $T$. It would be suitable for this access node set to have several desirable properties. In order to formulate them, we need to define a few terms first.
 	
 	\begin{definition}
         \textbf{Front neighbourhood} \\
-		Given an timetable $T$ and access node set $\mathcal{A}$, a front neighbourhood of city $x$ are all cities (including $x$) that are reachable from $x$ \textit{not} via $\mathcal{A}$. Formally $\bm{neigh_{\mathcal{A}}(x)} = \{y|\exists$ path $p = (p_{1}, p_{2}, ..., p_{k})$ from $x$ to $y$ in $ug_{T}: p_{i} \neq a \; \forall a \in \mathcal{A}, \; i \in \{2, ..., k - 1\} \}$~\footnote{We leave out subscript identifying the timetable $T$. In situation with clear context, we may also leave out the $\mathcal{A}$ subscript}
+		Given a timetable $T$ and access node set $\mathcal{A}$, a front neighbourhood of city $x$ are all cities (including $x$) that are reachable from $x$ \textit{not} via $\mathcal{A}$. Formally $\bm{neigh_{\mathcal{A}}(x)} = \{y| \; \exists$ path $p = (p_{1}, p_{2}, ..., p_{k})$ from $x$ to $y$ in $ug_{T}: p_{i} \neq a \; \forall a \in \mathcal{A}, \; i \in \{2, ..., k - 1\} \}$~\footnote{We leave out subscript identifying the timetable $T$. In situation with clear context, we may also leave out the $\mathcal{A}$ subscript}
     \end{definition}
     
-    \noindent We define analogically \textbf{back neighbourhood} (denoted $\bm{bneigh_{\mathcal{A}}(x)}$), we only use reversed UG ($\overleftarrow{ug_{T}}$) in the definition. Note that the access nodes that are on the boundary of $x$'s neighbourhoods are also part of these neighbourhoods. These access nodes form some sort of separator between the $x$'s neighbourhood and the rest of the graph and we will call them \textbf{local access nodes (LAN)} ($\bm{lan_{\mathcal{A}}(x)} = \mathcal{A} \cap neigh_{\mathcal{A}}(x)$), or analogically \textbf{back local access nodes} ($\bm{blan_{\mathcal{A}}(x)}$). \\
+    \noindent We define analogically \textbf{back neighbourhood} (denoted $\bm{bneigh_{\mathcal{A}}(x)}$), as nodes that could be reached in reversed UG ($\overleftarrow{ug_{T}}$). Note that the access nodes that are on the boundary of $x$'s neighbourhoods are also part of these neighbourhoods. These access nodes form some sort of separator between the $x$'s neighbourhood and the rest of the graph and we will call them \textbf{local access nodes (LAN)} ($\bm{lan_{\mathcal{A}}(x)} = \mathcal{A} \cap neigh_{\mathcal{A}}(x)$), or analogically \textbf{back local access nodes} ($\bm{blan_{\mathcal{A}}(x)}$). \\
     
     \noindent Now we may formulate the three desired properties of the access node set $\mathcal{A}$. Given a timetable $T$ and small constants $r_{1}$, $r_{2}$ and $r_{3}$, we would like to find access node set $\mathcal{A}$ such that:
     \begin{enumerate}
 		\item The access node set is sufficiently small \\
-		\begin{equation}
+		\begin{equation} \label{eq:r1}
 			|\mathcal{A}| \leq r_{1} \cdot \sqrt{n}
 		\end{equation}
-		\item The average square of neighbourhood size is at most $r_{2} \cdot n$: \\
-		\begin{equation}
-			\frac{\displaystyle \sum_{x \in ct_{T}}|neigh_{\mathcal{A}}(x)|^{2}}{\displaystyle n} \leq r_{2} \cdot n
+		\item The average square of neighbourhood~\footnote{We required the same for back neighbourhoods} size for cities not in $\mathcal{A}$ is at most $r_{2} \cdot n$ \\
+		\begin{equation} \label{eq:r2}
+			\frac{\displaystyle \sum_{x \in ct_{T} \setminus \mathcal{A}}|neigh_{\mathcal{A}}(x)|^{2}}{\displaystyle |ct_{T} \setminus \mathcal{A}|} \leq r_{2} \cdot n
 		\end{equation}
-		\item The number of local access nodes for each node is bound by $r_{3}$: \\
-		\begin{equation}
+		\item The number of local access nodes for each node is bounded by $r_{3}$: \\
+		\begin{equation} \label{eq:r3}
 			|lan_{\mathcal{A}}(x)| \leq r_{3}, \forall x \in ct_{T}
 		\end{equation}
 	\end{enumerate}
@@ -270,7 +273,7 @@
 	
 	\noindent An access node set $\mathcal{A}$ with the above mentioned properties will be called $\bm{(r_{1}, r_{2}, r_{3})}$ \textbf{access node set} (AN set). We will now explain how the \textit{USP-OR-A} (USP-OR with access nodes) algorithm works and return to its analysis later. 
 	
-	During preprocessing, we need to find a good AN set and compute the USPs between every pair of access nodes. For every city $x \not \in \mathcal{A}$, we also store its $neigh_{\mathcal{A}}(x)$, $bneigh_{\mathcal{A}}(x)$, $lan_{\mathcal{A}}(x)$ and $blan_{\mathcal{A}}(x)$. On a query from $x$ to $y$ at time $t$, we will make a local search in the neighbourhood of $x$ to find out optimal connections to $x$'s local access nodes. Subsequently, we want to find out the earliest arrival times to each of $y$'s \textit{back} local access nodes. To do this, we take advantage of the pre-computed USPs between access nodes - try out all the pairs $u \in lan(x)$ and $v \in blan(y)$ and expand the stored USPs. Finally, we make a local search from each of $y$'s back LANs to $y$, but we run the search \textit{restricted} to $y$'s back neighbourhood. For more details, see algorithms~\ref{alg:uspora-prepro} and~\ref{alg:uspora-query} 
+	During preprocessing, we need to find a good AN set and compute the USPs between every pair of access nodes. For every city $x \not \in \mathcal{A}$, we also store its $neigh_{\mathcal{A}}(x)$, $bneigh_{\mathcal{A}}(x)$, $lan_{\mathcal{A}}(x)$ and $blan_{\mathcal{A}}(x)$. On a query from $x$ to $y$ at time $t$, we will first make a local search in the neighbourhood of $x$ to find out optimal connections to $x$'s local access nodes. Subsequently, we want to find out the earliest arrival times to each of $y$'s \textit{back} local access nodes. To do this, we take advantage of the pre-computed USPs between access nodes - try out all the pairs $u \in lan(x)$ and $v \in blan(y)$ and expand the stored USPs. Finally, we make a local search from each of $y$'s back LANs to $y$, but we run the search \textit{restricted} to $y$'s back neighbourhood. For more details, see algorithms~\ref{alg:uspora-prepro} and~\ref{alg:uspora-query} and picture~\ref{fig:uspora}, where we have split the algorithms to 3 distinct phases.
 	
 	\color{algcolor}
 	\begin{algorithm}[H]
@@ -309,7 +312,7 @@
 			\STATE \algsec{Local front search}
 			\STATE perform time-dependent Dijkstra from $x$ at time $t$ up to $lan(x)$
 			\IF {$y \in neigh(x)$}
-				\STATE output optimal connection to $y$ obtained by Dijkstra's algorithm
+				\STATE let $c_{loc}^{*}$ be the connection to $y$ obtained by Dijkstra's algorithm \cmt{the optimal connection may still go via ANs (though it is unlikely)}
 			\ENDIF
 			\STATE $\forall u \in lan(x)$ let $ea(u)$ be the EA to this node (obtained by Dijkstra's algorithm)
 			\STATE $\forall u \in lan(x)$ let $oc(u)$ be the OC to this node (obtained by Dijkstra's algorithm)
@@ -331,7 +334,8 @@
 			\ENDFOR
 			\STATE $v^{*} = argmin_{v \in blan(y)} \{end(fin(v))\}$
 			\STATE $u^{*} = from(oc(v))$
-			\STATE output $c^{*} = oc(u^{*}) . oc(v^{*}) . fin(v^{*})$ \cmt{the dot ($.$) symbol is concatenation of connections)}
+			\STATE let $c^{*} = oc(u^{*}) . oc(v^{*}) . fin(v^{*})$ \cmt{the dot ($.$) symbol is concatenation of connections)}
+			\STATE output better out of $c_{loc}^{*}$ and $c^{*}$
 		\end{algorithmic}
 		\textbf{Output}
 		\begin{itemize}
@@ -344,130 +348,148 @@
 		\begin{center}
 			\inputTikZ{./tikzpics/uspora}
 		\end{center}
-		\caption{\label{fig:uspora} Principle of access nodes in \textit{USP-OR-A} algorithm}
+		\caption{\label{fig:uspora} Principle of \textit{USP-OR-A} algorithm. The arcs in \textbf{bold} mark areas that will be explored: all nodes in $neigh_{\mathcal{A}}(x)$, USPs between LANs of $x$ and back LANs of $y$ and the back neighbourhood of $y$ (possibly only part of it will be explored, since the local back search goes against the direction in which the back neighbourhood was created)}
 	\end{figure}
 	
+	\noindent Let us now analyse the properties of this oracle-based method. Clearly, much depends on the way we look for the access node set. We will address this issue in next subsections but for now, we will assume we can find $(r_{1}, r_{2}, r_{3})$ AN set $\mathcal{A}$ in time $f(n)$. Then, in the preprocessing, we have to find USPs among the access nodes, which requires running Dijkstra's algorithm from each event in a city from $\mathcal{A}$. There is $\mathcal{O}(r_{1}h\sqrt{n})$ such events which leads to the time complexity $\mathcal{O}(r_{1}hn^{1.5} (\log n + \delta))$. We also have to find local access nodes and neighbourhoods for each city, which can be accomplished with e.g. depth first search exploring the neighbourhood. This search algorithm (run from non-access city) has complexity linear in the number of arcs and so we could bound the total complexity as:
 	
+	$$
+	\sum_{x \in ct_{T} \setminus \mathcal{A}} |E(neigh_{\mathcal{A}}(x))| 
+	\leq \sum_{x \in ct_{T} \setminus \mathcal{A}} |neigh_{\mathcal{A}}(x)|^{2} 
+	\leq r_{2} n^{2}
+	$$
 	
-	    First we pre-compute some information on the timetable:
-	    \begin{itemize}
-	    	\item LANs for each city of the UG. Note that the only LAN for an access node is itself.
-	    	\item The so called \textbf{back local access nodes} (back-LANs) for each city. We find them as we found LANs, but in underlying graph with reversed orientation.
-	    	\item The back-neighbourhoods, created in the previous step
-	    	\item All USPs among access nodes
-	    \end{itemize}
-	    \hspace{\fill}
-	    
-	    Upon a query from $u$ to $v$ at time $t$ ($(u, t, v)$) , we will:
-	    \begin{enumerate}
-	    	\item Do a local search (Dijkstra) in the neighbourhood of $u$, until we reach all of its LANs (each of them we reach at some specific time). The so-called \textbf{local step}
-	    	\item Next we take back-LANs for the vertex $v$ and with the help of the pre-computed USPs we get the earliest arrival to each of them. The so-called \textbf{usp step}
-	    	\item Finally we run a Dijkstra from each of $v$'s back-LANs, restricted to the back-neighbourhood of $v$. The so-called \textbf{final step}
-	    \end{enumerate}
-	    \hspace{\fill}
-	    
-	    \begin{figure}[h!]
-		\begin{center}
-			\inputTikZ{./tikzpics/uspora}
-		\end{center}
-		\caption{\label{fig:uspora} Principle of access nodes in \textit{USP-OR-A} algorithm}
+	\noindent where $E(V)$ is the set of arcs among vertices of $V$. However this is very loose upper bound, as our UGs are actually very sparse. Therefore we can improve it. We know from the equation~\ref{eq:r2} that the average square of neighbourhood size is $\leq r_{2} \cdot n$. As a consequence of the Cauchy-Schwarz Inequality~\cite{cauchy} the following holds for positive real numbers $x_{i}$:
+	
+	$$ 
+	\sqrt{\frac{x_{1}^{2} + x_{2}^{2} + ... + x_{n}^{2}}{n}} 
+	\geq \frac{x_{1} + x_{2} + ... + x_{n}}{n} $$
+	
+	\noindent Applying this to our neighbourhood sizes, we get that the average size of the neighbourhood is at most $\sqrt{r_{2}n}$.  We now split the vertices of $ct_{T} \setminus \mathcal{A}$ to two categories: those with neighbourhoods of size $\leq \sqrt[4]{n}$ will be part of the set $S_{\leq}$ and those with neighbourhoods of size bigger then $\sqrt[4]{n}$ will be in $S_{>}$. A neighbourhood in the first category cannot possibly contain more than $\sqrt{n}$ arcs while those in the second category can have at most $\delta_{T}|neigh_{\mathcal{A}}(x)|$ arcs, depending on the timetable's density.
+	
+	\begin{align*}
+	\sum_{x \in ct_{T} \setminus \mathcal{A}} |E(neigh_{\mathcal{A}}(x))| \leq \\
+	\sum_{x \in S_{\leq}} \overbrace{|E(neigh_{\mathcal{A}}(x))|}^{\leq \sqrt{n}} + 
+		\sum_{x \in S_{>}} \overbrace{|E(neigh_{\mathcal{A}}(x))|}^{\leq \delta|neigh_{\mathcal{A}}(x)|} \leq \\
+	n \sqrt{n} + \delta n \sqrt{r_{2}n} \leq \\
+	\delta r_{2} n^{1.5}
+	\end{align*}
+	
+	\noindent Therefore, the total \textbf{time complexity of the preprocessing} is $\mathcal{O}(f(n) + r_{1}hn^{1.5} (\log n + \delta)) + \mathcal{O}(\delta r_{2} n^{1.5}) = \bm{\mathcal{O}(f(n) + (r_{1} + r_{2}) (\delta + \log n) h n^{1.5})}$.
+	
+	As for the size of the preprocessed data - we need to store all the neighbourhoods, LANs and USPs between access nodes. We already know that the average size of the neighbourhood is $\leq \sqrt{r_{2}n}$, thus the total size of the (front and back) neighbourhoods is $\mathcal{O}(r_{2} n^{1.5})$~\footnote{As $r_{2}$ will be a very small constant, we may disregard the square root}. This term bounds also the size of the pre-computed local access nodes for each node.
+	
+	Finally we have the preprocessed USPs. There is at most $r_{1}^{2}n$ pairs of access nodes and for each of them we have possibly several USPs. We will denote by $\bm{\tau_{\mathcal{A}}}$ the average USP coefficient between pairs of cities from $\mathcal{A}$ and by $\bm{\gamma_{\mathcal{A}}}$ the average optimal connection size (or equivalently, USP size) between cities in $\mathcal{A}$. This amounts to $\mathcal{O}(r_{1}^{2} \tau_{\mathcal{A}} \gamma_{\mathcal{A}} n)$ for storage of USPs and to a total \textbf{preprocessing size} $\bm{\mathcal{O}(r_{2} n^{1.5} + r_{1}^{2} \tau_{\mathcal{A}} \gamma_{\mathcal{A}} n)}$.
+	
+	\begin{figure}[htb]
+	\centering
+	\makebox[0pt][c]{
+    \begin{minipage}{0.45\textwidth}  
+	    \centering
+	    \inputTikZ{./tikzpics/plot_antau_cpza_size}
+	    \captionof{figure}{Changing of $\tau_{\mathcal{A}}$ with increased number of stations in \textit{cpza} dataset. $\mathcal{A}$ was obtained using algorithm we will talk about later}
+	    \label{plot:antau-cpza-size}  
+    \end{minipage}
+	\hspace{1cm}
+    \begin{minipage}{0.45\textwidth} 
+    	\centering
+	    \inputTikZ{./tikzpics/plot_angamma_cpza_size}
+	    \captionof{figure}{Changing of $\gamma_{\mathcal{A}}$ with increased number of stations in \textit{cpza} dataset. $\mathcal{A}$ was obtained using algorithm we will talk about later}
+	    \label{plot:angamma-cpza-size}   
+    \end{minipage}
+    }
 	\end{figure}
 	
-	Let us now have a look at the four parameters of this method. \\
+	On a query from $x$ at time $t$ to $y$, we first perform the \textit{local front search} (see algorithm~\ref{alg:uspora-query}). In this step we explore the neighbourhood of $x$ with a time-dependent Dijkstra's algorithm, which takes on average time $\mathcal{O}(\sqrt{r_{2}n} (\log (\sqrt{r_{2}n}) + \delta))$. We then expand all the USPs between $u$ and $v$ such that $u \in lan(x)$ and $v \in blan(y)$, which takes on average $\mathcal{O}(r_{3}^{2} \tau_{\mathcal{A}} \gamma_{\mathcal{A}})$. Finally, from each $v \in blan(y)$ we do a time-dependent Dijkstra's algorithm, restricted to $bneigh(y)$, leading to time complexity $\mathcal{O}(r_{3}\sqrt{r_{2}n} (\log (\sqrt{r_{2}n}) + \delta))$.
 	
-	\textbf{Preprocessing time}. We have to run a local search, e.g. Dijkstra's algorithm, from each city in the graph, terminating at the city's LANs. Thus the Dijkstra's algorithm runs in $neigh_{Acc}^{2}(v)$. We have $\mathcal{O}(n)$ cities with average neighbourhood of the size $\mathcal{O}(\sqrt{n})$, leading to time complexity $\mathcal{O}(n^{2})$. However, we also have to pre-compute the USPs among all pairs of access nodes, which takes time at most $\mathcal{O}(hn^{2.5})$. \\
+	Summing up the three terms we obtain the \textbf{query time} of $\bm{\mathcal{O}(r_{2} r_{3} \sqrt{n} (\log (r_{2}n) + \delta) + r_{3}^{2} \tau_{\mathcal{A}} \gamma_{\mathcal{A}})}$.
 	
-	TODO \textbf{Lema with average}. \\
+	\textbf{Stretch} of the \textit{USP-OR-A} algorithm is \textbf{1}, as it is exact. \\
 	
-	\textbf{Preprocessed space}. The pre-processed space consumption is now decreased to $\mathcal{O}(\tau n^{2})$ as we have at most $\mathcal{O}(n)$ pairs of access nodes for which we pre-compute USPs. We remember other things as well but their space complexity is bound by the mentioned term. \\
+	\noindent The resulting bounds do not look very appealing. This is because we wanted to preserve the generality - the concrete bounds will depend on what kind of properties the timetables have and what algorithm for finding the AN set is plugged in. In table~\ref{tab:uspora}, we summarize the parameters of \textit{USP-OR-A} method and provide the bounds for a case when the properties of the timetables correspond to those we have measured in our datasets and when we have an algorithm that finds good AN set.
 	
-		\textbf{Query time}. The \textit{local step} takes at most $\mathcal{O}(n)$ time. In \textit{USP step} we try all USPs for all pairs of $u$'s LANs and $v$'s back-LANs, leading to $\mathcal{O}(l^{2} \tau n)$, which is linear if we consider $\tau$ and $l$ constant. Finally, the \textit{final step} makes $l$ Dijkstra searches in the neighbourhood of $v$, which again takes linear time. Thus the overall query time may also be considered linear. \\
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{l|c|c}
+		%legend
+			\cellcolor{oracle-clr} \textit{\textbf{USP-OR-A}} & 
+			\cellcolor{oracle-clr} \textbf{guaranteed} & 
+			\cellcolor{oracle-clr} \textbf{$\bm{\tau, r_{1}, r_{2}, r_{3}}$ const., $\bm{\gamma \leq \sqrt{n}}$, $\bm{\delta \leq \log n}$} \\
+		%data
+			\hline
+			\cellcolor{oracle-clr} $\bm{prep}$ & $\mathcal{O}(f(n) + (r_{1} + r_{2}) (\delta + \log n) h n^{1.5})$ & $\mathcal{O}(f(n) + h n^{1.5} \log n)$ \\
+			\cellcolor{oracle-clr} $\bm{size}$ & $\mathcal{O}(r_{2} n^{1.5} + r_{1}^{2} \tau_{\mathcal{A}} \gamma_{\mathcal{A}} n)$ & $\mathcal{O}(n^{1.5})$ \\
+			\cellcolor{oracle-clr} $\bm{qtime}$ & avg. $\mathcal{O}(r_{2} r_{3} \sqrt{n} (\log (r_{2}n) + \delta) + r_{3}^{2} \tau_{\mathcal{A}} \gamma_{\mathcal{A}})$ & avg. $\mathcal{O}(\sqrt{n} \log n)$ \\
+			\cellcolor{oracle-clr} $\bm{stretch}$ & $1$ & $1$ \\
+		\end{tabular}
+		\caption{\label{tab:uspora} The summary of the \textit{USP-OR-A} algorithm parameters}
+	\end{table}
 	
-	\textbf{Stretch}. The algorithm is exact. \\
 	    
-	\section{Choosing the right Access node set}
+	\subsubsection{Choosing the optimal access node set}
+		
+		The challenge in the \textit{USP-OR-A} algorithm comes down to the selection of a good access node set - a $(r_{1}, r_{2}, r_{3})$ AN set with both three parameters as low as possible. However, intuitively (and experimentally verified), decreasing e.g. $r_{1}$ (the AN set size) increases $r_{2}$ (the size of the neighbourhoods). We therefore have to do some compromises. 
+		
+		To keep the query time as low as possible, we need to avoid large neighbourhood sizes, because that would mean spending too much time doing local searches. A pretty good upper bound for neighbourhood sizes seems to be $\sqrt{n}$ (i.e. $r_{1} = 1$) - the idea is that in such case the local searches cannot possibly last longer then $\mathcal{O}(n)$ while the \textit{inter-AN search} is linear in the size of the connection and can also be at most $\mathcal{O}(n)$. In practice, both of these steps will be faster because the neighbourhoods are sparse and because the connections are on average much shorter then $n$. However, it gives an idea of why $\sqrt{n}$ should be considered for a target neighbourhood size.
+		
+		Therefore, the question stands: What is the smallest set of ANs, such that the neighbourhood sizes are all under $\sqrt{n}$? More formally, for a timetable $T$, the task is to minimize $|\mathcal{A}|$ where $\mathcal{A} \subseteq ct_{T}$ and $\forall x \in ct_{T} \setminus \mathcal{A}: |neigh_{\mathcal{A}}(x)| \leq \sqrt{n}$. We will call this the \textbf{problem of the optimal access node set} and in what follows we will show that it is NP-complete.
+		
+		\begin{theorem}
+			The problem of the optimal access node set is NP-complete
+		\end{theorem}
+		
+		\begin{proof}
+			We will make a reduction of the \textit{min-set cover} problem (a NP-complete problem) to the problem of optimal AN set. \\
+			
+			\noindent Consider an instance of the min-set cover problem:
+			\begin{itemize}
+				\item A universe $U = \{1, 2, ..., m\}$
+				\item $k$ subsets of $U$: $S_{i} \subseteq U \; i = \{1, 2, ..., k\}$ whose union is $U$: $\bigcup\limits_{1 \leq i \leq k} S_{i} = U$
+			\end{itemize}
+			\hspace*{\fill}
+			
+			\noindent Denote $\mathcal{S} = \{S_{i}| \; 1 \leq i \leq k\}$. The task is to choose the smallest subset $\mathcal{S}^{*}$ of $\mathcal{S}$ that still covers the universe ($\bigcup\limits_{S_{i} \in \mathcal{S}^{*}} S_{i} = U$). We will now do a simple conversion (in polynomial time) of the instance of min-set cover to the instance of the optimal AN set problem (which is represented by the underlying graph of $T$).
+			
+			 For each $j \in U$, we will make a complete graph of $\beta_{i}$ vertices (the value of $\beta_{i}$ will be discussed later) named $m_{j}$ and for each set $S_{i}$ we will make a vertex $s_{i}$ and vertex $s_{i}'$. We will connect all vertices of $m_{j}$ to $s_{i} \iff j \in S_{i}$. Finally, for we will connect $s_{i}$ to $s_{i}'$ for $1 \leq i \leq k$. \\
+			 
+			\noindent \textbf{Example}. Let $m = 10$ (thus $U = \{1, 2, ..., 10\}$) and $k = 13$:
+			\begin{itemize}
+				\item $S_{1} = \{1, 3, 10\}$
+			 	\item $S_{2} = \{1, 2\}$
+			 	\item ...
+			 	\item $S_{13} = \{2, 3, 10\}$
+			\end{itemize}
+			\hspace*{\fill}
+			 
+			\noindent For this instance of min set-cover, we construct the graph depicted on picture~\ref{fig:reduction}.
+			 
+			\begin{figure}[h!]
+			
+				\begin{center}
+					\inputTikZ{./tikzpics/reduction}
+				\end{center}
+				\caption{\label{fig:reduction} The principle of the reduction. In $m_{i}$, there are actually complete graphs of $\beta_{i}$ vertices (as shown for $m_{1}$). \textbf{Thick} arcs represent arcs from all the vertices of respective $m_{i}$. The $s_{i}$ vertices are connected to their $s_{i}'$ versions. If e.g. $s_{1}$ is selected as an access node, $s_{1}'$ is no longer part of any neighbourhood}
+			\end{figure}
+			
+			\noindent Now we would like to clarify the sizes of $m_{i}$. Define $\alpha_{i}$ to be the number of sets $S_{j}$ that contain $i$: $\alpha_{i} = |\{S_{j} \in \mathcal{S}| \; i \in S_{j}\}|$ and assume the constructed graph has $n$ vertices. We want the $\beta_{i}$ to satisfy $\beta_{i} \geq 2$ and $\beta_{i} + 2\alpha_{i} - 1 \leq \sqrt{n}$ but $\beta_{i} + 2\alpha_{i} > \sqrt{n}$. The last two inequalities would mean that if at least one $s_{j}$ connected to $m_{i}$ is chosen as an access node, the neighbourhood for nodes in $m_{i}$ will be still $\leq$ $\sqrt{n}$, but if none of them is chosen, the neighbourhood will be just over $\sqrt{n}$. For now we will assume that we have constructed the graph in such a way that all $\beta_{i}$ satisfy the mentioned inequalities. We will return to construction of the graph at the end.
+			
+			Now consider an optimal AN set which contains a vertex from within some $m_{i}$. If this is the case, \textbf{either} some $s_{j}$ to which $m_{i}$ is connected is selected as AN, \textbf{or} \textit{all} vertices from $m_{i}$ are access nodes \textbf{or} the neighbourhood is too large. Keep in mind that the local access nodes are also part of neighbourhoods, so unless we select for AN some of the $s_{j}$ that $m_{i}$ is connected to, the neighbourhood of any non-access node in $m_{i}$ will be too large. As there are at least two nodes in every $m_{i}$, it is more efficient to select some $s_{j}$ rather then select all nodes in $m_{i}$. Thus when it comes to selecting ANs \textit{it is worth to consider only vertices $s_{j}$}.
+			
+			From this point on, it is easy to see that it is optimal to select those $s_{j}$ that correspond to the optimal solution of min-set cover. The reason is that each of the $m_{i}$ will be connected to at least one access node $s_{j}$ and will thus have neighbourhood size $\leq \sqrt{n}$, while the number of selected access nodes will be optimal. \\
+			
+			\noindent It remains to show how to choose values $\beta_{i}$. Due to the condition $\beta_{i} \leq \sqrt{n} - 2\alpha_{i} + 1$ we need to have sufficiently big $n$ to fulfil $\beta_{i} \geq 1$. We will accomplish this by adding dummy isolated vertices to the graph. Define function \textit{nextSquare($x$)} to output the smallest $y^{2} > x$ where $y$ is a natural number. We then compute $w = (max\{2\alpha_{i}\} + 2)^{2}$ and select the starting value of $n$ to be $n' =$ \textit{nextSquare($max\{w - 1, \; \sqrt{2k + m}\}$)}. We create the $s_{j}$ and $s_{j}'$ vertices and complete graphs $m_{i}$ containing so far only one vertex each. We connect everything according to the rules stated earlier in this proof and we create dummy vertices up to the capacity defined by $n$. Now we repeat the following:
+			
+			\begin{itemize}
+				\item We compute $\sqrt{n}$ which is a natural number
+				\item For $i$ from $1$ to $m$ we add vertices to $m_{i}$ till it does not contain $\sqrt{n} - 2\alpha_{i} + 1$ vertices. For each added vertex we delete one dummy vertex.
+				\item If we run out of dummy vertices, $n =$ \textit{nextSquare($n$)}
+				\item Break out of the loop if $|m_{i}| = \sqrt{n} - 2\alpha_{i} + 1 \; \forall i$
+			\end{itemize}
+			\hspace*{\fill}
+			
+			\noindent With each iteration of this little algorithm we will be forced to add one more vertex to all $m_{i}$ (since $\sqrt{n}$ increased by one), a so called \textit{inefficient increase}. At the beginning, we need to make at most $m\sqrt{n'}$ efficient increases to meet the breaking condition. And since $m$ is constant and the capacity of new dummy vertices increases linearly, after $t$ steps we create $\mathcal{O}(t^{2})$ dummy vertices that may be used for efficient increases. Therefore, the algorithm will stop after $\mathcal{O}(\sqrt{mn'})$ steps.
+		\end{proof}
 	
-	The challenge in \textit{USP-OR-A} comes down to selection of the best access node set, or at least such that satisfies the three mentioned properties. There was a detected possibility for a trade-off - by increasing the access node set size, the average number of LANs as well as average neighbourhood size went down. \\
+	\subsubsection{Choosing ANs based on node properties}
 	
-	\begin{table}[h!]{
-		\scriptsize
-	    \begin{tabular}{l|c|c|c}
-		%legend
-		\hline
-			\rowcolor{tablehead}
-	           	\textbf{Selected by} & 
-	           	\textbf{Size of AN set} &
-	           	\textbf{Avg. LAN size} &
-	           	\textbf{Avg. neighborhood size} \\
-	        %data
-	        \hline
-			high BC & 33 & 10.65 & 426.5 \\
-			high BC & 55 & 3.5 & 92.1 \\
-			high BC & 75 & 2.8 & 60.5 \\
-			high degree & 33 & 19.76 & 484 \\
-			high degree & 55 & 6.9 & 95 \\
-			high degree & 75 & 2.54 & 34.7 \\
-	        \end{tabular}}
-		\caption{\label{tab:accnodesza} Properties of access nodes selected by different methods. For underlying graph of \textit{cpza} (1128 vertices, $\sqrt{1128} \approx 33$)}
-	        \normalsize
-	\end{table}
-	
-	\begin{table}[h!]{
-		\scriptsize
-	    \begin{tabular}{l|c|c|c|c}
-		%legend
-		\hline
-			\rowcolor{tablehead}
-	           	\textbf{Selected by} & 
-	           	\textbf{n/m} &
-	           	\textbf{Size of AN set} &
-	           	\textbf{Avg. neighborhood size} ($\sqrt{n}$) &
-	           	\textbf{Avg. LAN size} \\
-	        %data
-	        \hline
-			high degree & 2646/7994 & 182 & 49.8 (51.4) & 4.24 \\
-			high degree & 2000/6075 & 130 & 44.3 (44.7) & 4.25 \\
-			high degree & 1500/4548 & 70 & 38.2 (38.7) & 3.42 \\
-			high degree & 1000/3216 & 52 & 30.1 (31.6) & 3.23 \\
-			high degree & 750/2415 & 40 & 26 (27.3) & 2.97 \\
-			high degree & 500/1583 & 22 & 22 (22.3) & 2.3 \\
-			high degree & 250/835 & 25 & 16.6 (15.8) & 3.36 \\
-			high degree & 100/313 & 16 & 10.4 (10) & 2.13 \\
-			high BC & 2646/7994 &  &  &  \\
-			high BC & 2000/6075 &  &  &  \\
-			high BC & 1500/4548 &  &  &  \\
-			high BC & 1000/3216 &  &  &  \\
-			high BC & 750/2415 &  &  &  \\
-			high BC & 500/1583 &  &  &  \\
-			high BC & 250/835 &  &  &  \\
-			high BC & 100/313 &  &  &  \\
-	        \end{tabular}}
-		\caption{\label{tab:accnodessncf} Properties of access nodes selected by different methods. For underlying graph of \textit{sncf} (French railways)}
-	        \normalsize
-	\end{table}
-	
-	\begin{table}[h!]{
-		\scriptsize
-	    \begin{tabular}{l|c|c|c|c}
-		%legend
-		\hline
-			\rowcolor{tablehead}
-	           	\textbf{Name} & 
-	           	\textbf{$|AN|$/$|LAN|$ (degs, avg)} &
-	           	\textbf{$|AN|$/$|LAN|$ (degs, max)} &
-	           	\textbf{$|AN|$/$|LAN|$ (betw, avg)} &
-	           	\textbf{$|AN|$/$|LAN|$ (betw, max)} \\
-	        %data
-	        \hline
-		        air01-200d & 56/8.4 & 87/4.1 & 67/7.7 & 200/0 \\
-				cpru-200d & 24/1.6 & 43/1.5 & 26/1.7 & 44/1.6 \\
-				cpza-200d & 18/2.0 & 77/1.3 & 24/2.3 & 47/1.5 \\
-				montr-200d & 21/2.0 & 83/1.1 & 47/1.5 & 121/1.4 \\
-				sncf-200d & 12/1.7 & 20/1.6 & 20/2.3 & 42/1.6 \\
-				sncf-inter-200d & 17/2.3 & 33/1.4 & 24/1.8 & 43/1.3 \\
-				sncf-ter-200d & 9/1.7 & 32/1.7 & 17/1.5 & 39/1.7 \\
-				zsr-200d & 16/2.0 & 50/1.4 & 18/1.7 & 41/1.5 \\
-	        \end{tabular}}
-		\caption{\label{tab:anbetwdegs} Necessary access node set sizes when choosing ANs based on degree or betweenness. The avg/max parameter specifies, if we wanted average neighborhood under $\sqrt{n}$ or all of them (maximum neighborhood under $\sqrt{n}$). Corresponding average LAN sizes are after the backslash.}
-	        \normalsize
-	\end{table}
+		In the previous sub-subsection, we have shown the problem of choosing the optimal AN set to be NP-hard. In this sub-subsection we perform a simple experiment of choosing for the access nodes the cities that seem to be the most important in the graph. 
