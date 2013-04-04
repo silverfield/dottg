@@ -1,0 +1,70 @@
+\tikzstyle{textstyle}=[font=\fontsize{9}{9}\selectfont]
+\begin{tikzpicture}[textstyle, scale=0.8]
+    \begin{axis}[
+        xlabel={$n$},
+        ylabel={$|\mathcal{A}(k)|$},
+		legend pos=north west
+        ]
+        
+    \addplot[smooth,mark=*,color=blue] plot coordinates {
+		(250,45)
+		(500,40)
+		(750,76)
+		(1000,61)
+		(1250,98)
+		(1500,84)
+		(1750,213)
+		(2000,229)
+		(2250,233)
+		(2500,274)
+		(2646,230)
+    };
+    \addlegendentry{$k_{deg}^{avg}$}
+    
+    \addplot[smooth,mark=x,color=blue] plot coordinates {
+		(250,81)
+		(500,78)
+		(750,88)
+		(1000,127)
+		(1250,326)
+		(1500,173)
+		(1750,412)
+		(2000,352)
+		(2250,520)
+		(2500,557)
+		(2646,568)
+    };
+    \addlegendentry{$k_{deg}^{max}$}
+
+    \addplot[smooth,mark=*, color=red, dashed] plot coordinates {
+		(250,31)
+		(500,75)
+		(750,116)
+		(1000,125)
+		(1250,170)
+		(1500,214)
+		(1750,272)
+		(2000,277)
+		(2250,337)
+		(2500,341)
+		(2646,382)
+    };
+    \addlegendentry{$k_{bc}^{avg}$}
+    
+    \addplot[smooth,mark=x, color=red, dashed] plot coordinates {
+		(250,80)
+		(500,162)
+		(750,184)
+		(1000,211)
+		(1250,334)
+		(1500,388)
+		(1750,431)
+		(2000,405)
+		(2250,469)
+		(2500,533)
+		(2646,563)
+    };
+    \addlegendentry{$k_{bc}^{max}$}
+    
+    \end{axis}
+\end{tikzpicture}

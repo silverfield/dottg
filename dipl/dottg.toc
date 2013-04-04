@@ -14,11 +14,12 @@
 \contentsline {subsection}{\numberline {4.2}Basic properties}{10}{subsection.4.2}
 \contentsline {section}{\numberline {5}Underlying shortest paths}{12}{section.5}
 \contentsline {subsection}{\numberline {5.1}USP}{12}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}USP-OR}{13}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}USP-OR-A}{17}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.2}\textit {USP-OR}}{13}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}\textit {USP-OR-A}}{17}{subsection.5.3}
 \contentsline {subsubsection}{\numberline {5.3.1}Modifications of \textit {USP-OR-A}}{21}{subsubsection.5.3.1}
 \contentsline {subsubsection}{\numberline {5.3.2}Choosing the optimal access node set}{23}{subsubsection.5.3.2}
 \contentsline {subsubsection}{\numberline {5.3.3}Choosing ANs based on node properties}{25}{subsubsection.5.3.3}
+\contentsline {subsubsection}{\numberline {5.3.4}Choosing ANs heuristically}{25}{subsubsection.5.3.4}
 \contentsline {section}{\numberline {6}Neural network approach}{26}{section.6}
 \contentsline {section}{\numberline {7}Application TTBlazer}{27}{section.7}
 \contentsline {section}{\numberline {8}Conclusion}{28}{section.8}

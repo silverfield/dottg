@@ -1,4 +1,4 @@
-\tikzstyle{place}=[circle,draw=orange,fill=orange!20,thick,inner sep=1pt]
+\tikzstyle{place}=[circle,draw=city-clr,fill=city-clr!20,thick,inner sep=1pt]
 \begin{tikzpicture}[>=stealth,looseness=.1,auto,scale=1.5])
 	\node (B) at (0,0) [place, label=below:{[B, 11:00]}] {};
     \node (C_1130) at (3,0) [place, label=below:{[C, 11:30]}] {};

@@ -201,6 +201,7 @@
     \setlength{\parindent}{0pt}
     \pagestyle{empty}
 %    \setcounter{page}{200} %TODO_FINAL - change in final
+% also references - square brackets
     \noindent
 
     %---------------------------------------------------------------------
@@ -321,7 +322,7 @@
     %---------------------------------------------------------------------
     \section{Preliminaries}
     \label{sec:prel}
-    \input parts/preliminaries.tex
+    %\input parts/preliminaries.tex
     \pagebreak
     
     %---------------------------------------------------------------------
@@ -345,7 +346,7 @@
     %---------------------------------------------------------------------
     \section{Underlying shortest paths}
     \label{sec:usp}
-    %\input parts/usp.tex
+    \input parts/usp.tex
     \pagebreak
     
     %---------------------------------------------------------------------

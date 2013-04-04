@@ -1,0 +1,30 @@
+\tikzstyle{textstyle}=[font=\fontsize{9}{9}\selectfont]
+\begin{tikzpicture}[textstyle, scale=0.8]
+    \begin{axis}[
+        xlabel={$n$},
+        ylabel={$25000$ queries (sec)},
+		legend pos=north west
+        ]
+        
+    \addplot[smooth,mark=*,color=blue] plot coordinates {
+		(40,0.9)
+		(80,1.18)
+		(120,1.17)
+		(160,3.32)
+		(200,4.42)
+		(217,4.46)
+    };
+    \addlegendentry{\textit{Dijkstra}}
+    
+    \addplot[smooth,mark=x,color=green!70!black] plot coordinates {
+		(40,0.18)
+		(80,0.36)
+		(120,0.18)
+		(160,0.59)
+		(200,0.57)
+		(217,0.53)
+    };
+    \addlegendentry{\textit{USP-OR}}
+    
+    \end{axis}
+\end{tikzpicture}

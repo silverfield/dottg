@@ -41,7 +41,7 @@ In this section, we would provide most of the definitions and terminology used t
 			\textcolor{city-clr}{B} & \textcolor{city-clr}{A} & 11:20 & 12:30 \\
 			\textcolor{city-clr}{C} & \textcolor{city-clr}{A} & 11:45 & 12:15 \\
 		\end{tabular}
-		\caption{\label{table:tt} An example of a timetable - the set of elementary connections (between pairs of \textcolor{city-clr}{cities}). An example of an event is a pair (A, 10:00)}
+		\caption{\label{table:tt} An example of a timetable - the set of elementary connections (between pairs of \textcolor{city-clr}{cities}). An example of an event is a pair (A, 10:00).}
 	\end{table}
 	
 	\noindent Following is a definition of a connection.
@@ -64,7 +64,7 @@ In this section, we would provide most of the definitions and terminology used t
         \begin{center}
 			\inputTikZ{./tikzpics/connection}
         \end{center}
-		\caption{\label{pic:conn} A valid connection made out of \textcolor{elcon-clr}{elementary connections} (and \textcolor{waiting-clr}{waiting}, which is implicit)}
+		\caption{\label{pic:conn} A valid connection made out of \textcolor{elcon-clr}{elementary connections} (and \textcolor{waiting-clr}{waiting}, which is implicit).}
 	\end{figure}
 	
 	\noindent Next, we continue with the underlying graph - a graph representing basically the map on top of which the timetable operates.
@@ -83,7 +83,7 @@ In this section, we would provide most of the definitions and terminology used t
         \begin{center}
 			\inputTikZ{./tikzpics/ug}
         \end{center}
-		\caption{\label{fig:ug} An optimistic underlying graph of the timetable in picture~\ref{table:tt}. The nodes are the \textcolor{city-clr}{cities}}
+		\caption{\label{fig:ug} An optimistic underlying graph of the timetable in picture~\ref{table:tt}. The nodes are the \textcolor{city-clr}{cities}.}
 	\end{figure}
 	
 	\noindent If we want to represent the timetable itself by a graph, there are two most common options~\cite{timetablemodelsalgs07}.
@@ -104,7 +104,7 @@ In this section, we would provide most of the definitions and terminology used t
 	    \begin{center}
 			\inputTikZ{./tikzpics/te}
 	    \end{center}
-    	\caption{\label{pic:te} Time-expanded graph of the timetable in picture~\ref{table:tt}. Nodes represent the \textcolor{event-clr}{events}. There are \textcolor{elcon-clr}{connection} and \textcolor{waiting-clr}{waiting} edges (dashed). The time range is 2h:30m and the height is 4 (as there are 4 events in city B)}
+    	\caption{\label{pic:te} Time-expanded graph of the timetable in picture~\ref{table:tt}. Nodes represent the \textcolor{event-clr}{events}. There are \textcolor{elcon-clr}{connection} and \textcolor{waiting-clr}{waiting} edges (dashed). The time range is 2h:30m and the height is 4 (as there are 4 events in city B).}
 	\end{figure}
         
     \begin{definition}
@@ -126,14 +126,14 @@ In this section, we would provide most of the definitions and terminology used t
 	\begin{minipage}{.45\textwidth}
 		\centering
 		\inputTikZ{./tikzpics/td}
-		\captionof{figure}{Time-dependent graph of the timetable in picture~\ref{table:tt}. The nodes are the \textcolor{city-clr}{cities}}
+		\captionof{figure}{Time-dependent graph of the timetable in picture~\ref{table:tt}. The nodes are the \textcolor{city-clr}{cities}.}
 		\label{pic:td}
 	\end{minipage}
 	\hspace{1cm}
 	\begin{minipage}{.45\textwidth}
 		\centering
 		\inputTikZ{./tikzpics/tdpiece}
-		\captionof{figure}{Piece-wise linear function - traversal times for the arc $(B, C)$. The \textcolor{red}{highlighted} points are the interpolation points}
+		\captionof{figure}{Piece-wise linear function - traversal times for the arc $(B, C)$. The \textcolor{red}{highlighted} points are the interpolation points.}
 		\label{pic:piece}
 	\end{minipage}
 	}
@@ -153,7 +153,7 @@ In this section, we would provide most of the definitions and terminology used t
 	
 	\noindent \textit{Note:} Throughout this paper, we will relax a bit the notation and leave out subscripts (e.g. $ug_{T}~\rightarrow~ug$, $n_{T}~\rightarrow~n$, etc.) in situations, where the context is clear enough. 
 
-\subsection{Earliest arrival}
+\subsection{Earliest arrival and optimal connection}
 
 	Now we would like to formulate the main problems this thesis deals with.
 	
@@ -183,7 +183,7 @@ In this section, we would provide most of the definitions and terminology used t
 	    \begin{center}
 			\inputTikZ{./tikzpics/ea}
 	    \end{center}
-    	\caption{\label{pic:ea} Optimal connection and earliest arrival time are marked in \textcolor{orange}{\textbf{bold}}}
+    	\caption{\label{pic:ea} Optimal connection and earliest arrival time are marked in \textcolor{orange}{\textbf{bold}}.}
 	\end{figure}
 	
 \subsection{(Distance) Oracles}
@@ -200,3 +200,28 @@ In this section, we would provide most of the definitions and terminology used t
 	\hspace*{\fill}
 	
 	\noindent The preprocessing time is probably the least critical resource. A reasonable polynomial should bind its time complexity, depending on the computational power of the user and the scale of the timetable. The size of the preprocessed oracle is much more important - in the optimal case, it should be bound by the space complexity of the timetable itself. Optimality of the query time depends on which problem we are solving. If we query for the whole optimal connection, we have to count with a time complexity at least proportional to the diameter of the underlying graph (as connections could be that long, or even longer). If we require only the EA value as an output, much better speed-ups could be expected. The stretch should be of course as low as possible.
+	
+\subsection{Dijkstra's algorithm} 
+\label{subsec:dijkstra}
+	
+	\noindent Throughout this thesis, we will often use Dijkstra's algorithm and its modifications both as a part of our algorithms and as a reference point against which we will compare the performance of our methods. This is a common practice. Researchers working on methods answering distance or shortest path queries in road networks commonly use the term \textit{speed-up}, i.e. \textit{how many times faster} is their algorithm against the Dijkstra's algorithm.
+	
+	Dijkstra's algorithm is originally an algorithm that looks for shortest paths in weighted oriented graphs. It was published by E. W. Dijkstra in 1959~\cite{dijkstra59} and we will not explain it at this place, as the algorithm is very well explained at many other places (e.g.~\cite{dijkstraexp}). For a good summary of Dijkstra's algorithm related implementations and publications see~\cite{sommerthesis10}.
+	
+	As our task is to compute earliest arrivals or optimal connections instead of distances and shortest paths, our ``reference point'' will be a slightly modified Dijkstra's algorithm called \textbf{time-dependent Dijkstra's algorithm}~\ref{tdroute09} (or TD Dijkstra for short). The algorithm is run on a time-dependent graph and works just like the ordinary Dijkstra's algorithm, except that the weight of each arc $(x, y)$ is determined for the time $t$ at which we had settled vertex $x$.
+	
+	If we assume that the evaluation of an arc by the cost function of the TD graph is implemented in constant time, the running time of the TD Dijkstra is $\mathcal{O}(n^{2})$, just like the normal Dijkstra's algorithm. On sparse graphs, this bound can be improved using a quick data structure to determine the next node we settle. A good option is a priority queue implemented as a \textit{Fibonacci heap}, which implements deletion in $\mathcal{O}(\log n)$ and all other operations in constant amortized time~\cite{sommerthesis10}. This yields the running time of TD Dijkstra $\mathcal{O}(n \log n + m)$.
+	
+	We may therefore introduce a fifth parameter of our oracle based methods, the speed-up:
+	
+	\begin{definition}
+		\textbf{Speed-up ($\bm{spd(m)}$)}\\
+        A speed-up of an oracle based method $m$ is the ratio $\frac{\displaystyle qtime_{avg}(TD Dijkstra)}{\displaystyle qtime_{avg}(m)}$ where $qtime_{avg}(m')$ is the average query time of the respective oracle based method $m'$~\footnote{Note that we may also consider the TD Dijkstra algorithm to be an oracle based method - it just happens that it does not require any preprocessing.}.
+	\end{definition}
+	
+	\noindent The definition is rather loose in the sense that we may refer to a concrete speed-up of the method on a concrete dataset or a general, theoretical speed-up expressed as a function of the size of input.
+	
+	
+	
+	
+	

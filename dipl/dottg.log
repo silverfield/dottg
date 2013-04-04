@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  4 APR 2013 09:29
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  4 APR 2013 16:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1300,38 +1300,38 @@ ABD: EveryShipout initializing macros
 <./pics/logouk.png, id=103, 150.5625pt x 150.5625pt>
 File: ./pics/logouk.png Graphic file (type png)
  <use ./pics/logouk.png>
-Package pdftex.def Info: ./pics/logouk.png used on input line 210.
+Package pdftex.def Info: ./pics/logouk.png used on input line 211.
 (pdftex.def)             Requested size: 79.66771pt x 79.67137pt.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 210.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 211.
 
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 210.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 211.
 
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 210
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 211
 .
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 210
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 211
 .
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 210.
+(Font)              <10> on input line 211.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 210.
+(Font)              <7> on input line 211.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 210.
+(Font)              <5> on input line 211.
  [1
 
 {/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./pics/
@@ -1340,58 +1340,58 @@ logouk.png>]
 File: ../assignment-eng.pdf Graphic file (type pdf)
 
 <use ../assignment-eng.pdf, page 1>
-Package pdftex.def Info: ../assignment-eng.pdf, page1 used on input line 248.
+Package pdftex.def Info: ../assignment-eng.pdf, page1 used on input line 249.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: ../assignment-eng.pdf Graphic file (type pdf)
  <use ../assignment-eng.pdf, page 1>
-Package pdftex.def Info: ../assignment-eng.pdf, page1 used on input line 248.
+Package pdftex.def Info: ../assignment-eng.pdf, page1 used on input line 249.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ../assignment-eng.pdf Graphic file (type pdf)
 
 <use ../assignment-eng.pdf, page 1>
-Package pdftex.def Info: ../assignment-eng.pdf, page1 used on input line 248.
+Package pdftex.def Info: ../assignment-eng.pdf, page1 used on input line 249.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ../assignment-eng.pdf Graphic file (type pdf)
  <use ../assignment-eng.pdf, page 1>
-Package pdftex.def Info: ../assignment-eng.pdf, page1 used on input line 248.
+Package pdftex.def Info: ../assignment-eng.pdf, page1 used on input line 249.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ../assignment-eng.pdf Graphic file (type pdf)
 
 <use ../assignment-eng.pdf, page 1>
-Package pdftex.def Info: ../assignment-eng.pdf, page1 used on input line 248.
+Package pdftex.def Info: ../assignment-eng.pdf, page1 used on input line 249.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
  [3 <../assignment-eng.pdf>]
 <../assignment-sk.pdf, id=154, page=1, 597.23125pt x 845.1575pt>
 File: ../assignment-sk.pdf Graphic file (type pdf)
 
 <use ../assignment-sk.pdf, page 1>
-Package pdftex.def Info: ../assignment-sk.pdf, page1 used on input line 255.
+Package pdftex.def Info: ../assignment-sk.pdf, page1 used on input line 256.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: ../assignment-sk.pdf Graphic file (type pdf)
  <use ../assignment-sk.pdf, page 1>
-Package pdftex.def Info: ../assignment-sk.pdf, page1 used on input line 255.
+Package pdftex.def Info: ../assignment-sk.pdf, page1 used on input line 256.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ../assignment-sk.pdf Graphic file (type pdf)
 
 <use ../assignment-sk.pdf, page 1>
-Package pdftex.def Info: ../assignment-sk.pdf, page1 used on input line 255.
+Package pdftex.def Info: ../assignment-sk.pdf, page1 used on input line 256.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ../assignment-sk.pdf Graphic file (type pdf)
  <use ../assignment-sk.pdf, page 1>
-Package pdftex.def Info: ../assignment-sk.pdf, page1 used on input line 255.
+Package pdftex.def Info: ../assignment-sk.pdf, page1 used on input line 256.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ../assignment-sk.pdf Graphic file (type pdf)
 
 <use ../assignment-sk.pdf, page 1>
-Package pdftex.def Info: ../assignment-sk.pdf, page1 used on input line 255.
+Package pdftex.def Info: ../assignment-sk.pdf, page1 used on input line 256.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
  [4 <../assignment-sk.pdf>] [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 282--283
+Underfull \hbox (badness 10000) in paragraph at lines 283--284
   
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 288--289
+Underfull \hbox (badness 10000) in paragraph at lines 289--290
   
  []
 
@@ -1403,7 +1403,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 288--289
  identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.318 
+l.319 
        [1] (./parts/preliminaries.tex
 LaTeX Font Info:    Try loading font information for U+eus on input line 9.
 
@@ -1442,15 +1442,15 @@ Missing character: There is no ) in font nullfont!
 er (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.95             \item $
-                        ([x, p], [y, q]) \; \forall (x, y, p, q) \in T$ - th...
+l.95             \item
+                       $([x, p], [y, q]) \; \forall (x, y, p, q) \in T$ - th...
 [3] (./tikzpics/te.tikz
 Missing character: There is no ) in font nullfont!
 )pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.122 
+l.120 
        [4] (./tikzpics/td.tikz) (./tikzpics/tdpiece.tikz)
 Underfull \hbox (badness 1616) in paragraph at lines 139--139
 []\T1/lmr/m/n/10 Figure 2.5: Piece-wise lin-ear func-tion -
@@ -1467,8 +1467,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.174 	\end{definition}
-                        [5]
+l.172 		\textbf
+               {Optimal connection problem (OCP)}\\ [5]
 Overfull \hbox (1.27023pt too wide) in paragraph at lines 179--180
 \T1/lmr/m/it/10 est ar-rival (EA) is 12:15 and the op-ti-mal con-nec-tion (OC) 
 is $\OT1/lmr/m/n/10 ((\OML/lmm/m/it/10 B; C;$\T1/lmr/m/it/10 11:00$\OML/lmm/m/i
@@ -1483,18 +1483,18 @@ Missing character: There is no ) in font nullfont!
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.197 		\item \textbf
-                     {Query time} ($\bm{qtime(m)}$) - the time complexity of...
+l.195 		\item
+              \textbf{Preprocessing time} ($\bm{prep(m)}$) - the time comple...
 [6])pdfTeX warning (ext4): destination with the same identifier (name{page.7}) 
 has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.326 
+l.327 
        [7] (./parts/relatedwrk.tex)pdfTeX warning (ext4): destination with the 
 same identifier (name{page.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.334 
+l.335 
        [8] (./parts/data.tex
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 7.
 
@@ -1651,34 +1651,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 525--526
 
  []
 
-[24]) [25] (./parts/neural.tex) [26] (./parts/ttblazer.tex) [27]
+[24] (./tikzpics/plot_hbcdeg_sncf_size.tikz
+! Package pgfplots Warning: Axis range for axis y is approximately empty; enlar
+ging it (it is [0.0:0.0])
+) (./tikzpics/plot_hbcdeg_cpru_size.tikz
+! Package pgfplots Warning: Axis range for axis y is approximately empty; enlar
+ging it (it is [0.0:0.0])
+)) [25] (./parts/neural.tex) [26] (./parts/ttblazer.tex) [27]
 (./parts/conclusion.tex) [28] (./parts/formats.tex
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 8.
  [29]) [30] (./dottg.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 397.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 398.
 
 [31]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 397.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 398.
  (./dottg.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 397.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 397.
-Package rerunfilecheck Info: File `dottg.out' has not changed.
-(rerunfilecheck)             Checksum: 9FB404F4E2659C3BC1F323BFEFF77904;1465.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 398.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 398.
 
+
+Package rerunfilecheck Warning: File `dottg.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `dottg.out':
+(rerunfilecheck)             Before: 9FB404F4E2659C3BC1F323BFEFF77904;1465
+(rerunfilecheck)             After:  87580FDB0D76B1488809D6D884159509;1551.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 397.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 398.
  ) 
 Here is how much of TeX's memory you used:
- 29458 strings out of 493488
- 599689 string characters out of 3141346
- 812333 words of memory out of 3000000
- 31814 multiletter control sequences out of 15000+200000
- 131468 words of font info for 107 fonts, out of 3000000 for 9000
+ 29508 strings out of 493488
+ 600654 string characters out of 3141346
+ 828925 words of memory out of 3000000
+ 31854 multiletter control sequences out of 15000+200000
+ 135739 words of font info for 108 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,22n,92p,1079b,2212s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 63i,22n,92p,1079b,2230s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.14} has been referenced but does not ex
 ist, replaced by a fixed one
 
@@ -1769,10 +1784,10 @@ ic/lm/lmsy7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy8
 .pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/
 local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/local/texli
 ve/2012/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on dottg.pdf (39 pages, 940730 bytes).
+Output written on dottg.pdf (39 pages, 953110 bytes).
 PDF statistics:
- 848 PDF objects out of 1000 (max. 8388607)
- 724 compressed objects within 8 object streams
- 224 named destinations out of 1000 (max. 500000)
+ 854 PDF objects out of 1000 (max. 8388607)
+ 729 compressed objects within 8 object streams
+ 228 named destinations out of 1000 (max. 500000)
  240 words of extra memory for PDF output out of 10000 (max. 10000000)
 
