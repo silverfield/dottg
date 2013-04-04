@@ -11,6 +11,11 @@
      \showURLtrue
 \fi
 
+\bibitem[Bra01]{centrality01}
+Ulrik Brandes.
+\newblock A faster algorithm for betweenness centrality.
+\newblock {\em Journal of Mathematical Sociology}, 25:\penalty0 163--177, 2001.
+
 \bibitem[MHSWZ07]{timetablemodelsalgs07}
 Matthias M{\"u}ller-Hannemann, Frank Schulz, Dorothea Wagner, and Christos
   Zaroliagis.
@@ -18,6 +23,11 @@ Matthias M{\"u}ller-Hannemann, Frank Schulz, Dorothea Wagner, and Christos
   {\em Lecture Notes in Computer Science}, chapter {Timetable Information:
   Models and Algorithms}, pages 67 -- 90.
 \newblock Springer, 2007.
+
+\bibitem[ops]{cauchy}
+Art of~problem solving.
+\newblock Root-mean square-arithmetic mean-geometric mean-harmonic mean
+  inequality.
 
 \bibitem[Som10]{sommerthesis10}
 Christian Sommer.

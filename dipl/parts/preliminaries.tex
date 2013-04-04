@@ -77,13 +77,13 @@ In this section, we would provide most of the definitions and terminology used t
         \end{itemize}
     \end{definition}
     
-    \noindent Note, that we do not specify the weights of the edges in the underlying graph - they will be specified based on the current usage of the UG. Most of the time, however, we will work with UG where the weight of each arc is the length of the shortest elementary connection on that arc. More specifically, $w(x, y) = \min_{(x, y, p, q) \in T} (q - p) \; \forall (x, y) \in E(ug_{T})$.
+    \noindent Note, that we do not specify the weights of the edges in the underlying graph - they will be specified based on the current usage of the UG. Most of the time, however, if we work with a weighted UG, the weight of an arc will be the length of the shortest elementary connection on that arc. More specifically, $w(x, y) = \min_{(x, y, p, q) \in T} (q - p) \; \forall (x, y) \in E(ug_{T})$. Such weighted UG will be called \textbf{optimistic} (denoted $ug_{T}^{opt}$).
     
     \begin{figure}[h!]
         \begin{center}
 			\inputTikZ{./tikzpics/ug}
         \end{center}
-		\caption{\label{fig:ug} Underlying graph of the timetable in picture~\ref{table:tt}. The nodes are the \textcolor{city-clr}{cities}}
+		\caption{\label{fig:ug} An optimistic underlying graph of the timetable in picture~\ref{table:tt}. The nodes are the \textcolor{city-clr}{cities}}
 	\end{figure}
 	
 	\noindent If we want to represent the timetable itself by a graph, there are two most common options~\cite{timetablemodelsalgs07}.

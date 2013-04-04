@@ -1,0 +1,148 @@
+%---------------------------------------------------------------------
+%   documentclass
+%---------------------------------------------------------------------
+\documentclass{svk_long_en}
+
+%---------------------------------------------------------------------
+%   packages
+%---------------------------------------------------------------------
+
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[titletoc, page]{appendix}
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\usepackage{bm}
+\usepackage{caption}
+\usepackage{cite} %bibtex
+\usepackage{color} %for \definecolor
+\usepackage{colortbl} %for \rowcolor command
+\usepackage{courier}
+\usepackage{enumitem}
+\usepackage{eucal} %for nice letters like \mathcal{A}
+\usepackage{floatflt} %to have tables and text beside
+\usepackage[T1]{fontenc} %pekne makcene
+\usepackage{hyperref} %odkazy
+\usepackage{listings}
+\usepackage{lmodern} %spolu s T1 smooth font!
+\usepackage{lscape}
+\usepackage{mathtools}
+\usepackage{multirow}% http://ctan.org/pkg/multirow
+\usepackage{pdfpages}
+\usepackage{pgfplots}
+\usepackage{pifont} %for ticks (check symbols)
+\usepackage{scalefnt}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{titlesec} %section titles font size change
+\usepackage{xcolor} %for \colorlet
+
+\usetikzlibrary{decorations.pathreplacing}
+
+%---------------------------------------------------------------------
+%   margins
+%---------------------------------------------------------------------
+
+
+%\linespread{1.2}
+%\renewcommand{\arraystretch}{1.1} %spacing of table rows
+
+%---------------------------------------------------------------------
+%   various settings
+%---------------------------------------------------------------------
+
+\definecolor{tablehead}{RGB}{238,233,233} %nice smooth grey
+\definecolor{algcolor}{RGB}{0,0,0}
+\definecolor{inalgcolor}{RGB}{0,0,0}
+\definecolor{lstcolor}{RGB}{238,233,233}
+
+\setlength{\parindent}{0pt} %we don't need no indentation
+
+\graphicspath{{./pics/}} %picture dir
+
+
+\colorlet{city-clr}{green!70!black}
+\colorlet{elcon-clr}{red}
+\colorlet{event-clr}{blue}
+\colorlet{waiting-clr}{olive}
+\colorlet{cmt-clr}{gray}
+\colorlet{oracle-clr}{orange!30}
+\colorlet{algsec-clr}{black!50!red}
+
+%---------------------------------------------------------------------
+%   environments
+%---------------------------------------------------------------------
+
+\newcommand{\cmt}[1]{{\color{cmt-clr} \hspace*{1cm} \# \textit{#1}}}
+\newcommand{\algsec}[1]{\textcolor{algsec-clr}{\textbf{\underline{#1}}}} 
+\newcommand{\deftoken}{\boldmath{$\mathcal{DEFINITION}$}}
+\newcommand{\restoken}{\boldmath{$\mathcal{RESULT}$}}
+\newcommand{\dotoken}{\boldmath{$\mathcal{DO METHOD}$}}
+\newcommand{\textbff}[1]{{\large \textbf{#1}}}
+\newcommand{\tick}{\ding{52}}
+\newcommand{\cross}{\ding{55}}
+
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\numberwithin{equation}{section}
+
+\interfootnotelinepenalty=10000
+
+%---------------------------------------------------------------------
+%   document
+%---------------------------------------------------------------------
+\begin{document}
+%---------------------------------------------------------------------
+%   FRONTMATTER ------------------------------------------------------
+%--------------------------------------------------------------------- 
+    \title{Underlying shortest paths in timetables}
+	\author{František Hajnoviè\inst{1}
+	\email{ferohajnovic@gmail.sk}}
+	
+	\supervisor{Rastislav Královiè\inst{1}
+	\email{kralovic@dcs.fmph.uniba.sk}}
+	
+	\titlerunning{Underlying shortest paths in timetables}
+	\authorrunning{Hajnoviè}
+	
+	\institute{
+	Katedra informatiky,
+	FMFI UK,
+	Mlynská Dolina
+	842~48~Bratislava}
+
+	\maketitle
+
+	\begin{abstract}
+	Blabla
+	
+	\keywords{}
+	\end{abstract}
+
+%---------------------------------------------------------------------
+%   MAINMATTER  ------------------------------------------------------
+%---------------------------------------------------------------------
+    %\mainmatter
+
+
+\section*{Acknowledgments}
+	The authors thank the anonymous contributors whose work largely constitutes this sample file. This work has been supported by the 
+European Community grant number xxxxx and by the Comenius University Grant for Young Researchers.
+
+%---------------------------------------------------------------------
+%   BACKMATTER  ------------------------------------------------------
+%---------------------------------------------------------------------
+    %\backmatter
+
+    %---------------------------------------------------------------------
+    %   bibliography
+    %---------------------------------------------------------------------
+
+
+
+	\nocite{*}
+	\bibliographystyle{apalike}
+	\bibliography{../bibl}
+\end{document} 

@@ -321,7 +321,7 @@
     %---------------------------------------------------------------------
     \section{Preliminaries}
     \label{sec:prel}
-    %\input parts/preliminaries.tex
+    \input parts/preliminaries.tex
     \pagebreak
     
     %---------------------------------------------------------------------
@@ -345,7 +345,7 @@
     %---------------------------------------------------------------------
     \section{Underlying shortest paths}
     \label{sec:usp}
-    \input parts/usp.tex
+    %\input parts/usp.tex
     \pagebreak
     
     %---------------------------------------------------------------------
@@ -393,5 +393,5 @@
 
     \bibliographystyle{is-alpha}
     %compile latex, bibtex, latex, latex
-    \bibliography{bibl}{}
+    \bibliography{../bibl}{}
 \end{document} 

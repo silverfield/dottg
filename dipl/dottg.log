@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  3 APR 2013 00:29
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  4 APR 2013 09:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1297,7 +1297,7 @@ ABD: EveryShipout initializing macros
  tick labels; missing features). Consider writing \pgfplotsset{compat=1.7} into
  your preamble.
 
-<./pics/logouk.png, id=95, 150.5625pt x 150.5625pt>
+<./pics/logouk.png, id=103, 150.5625pt x 150.5625pt>
 File: ./pics/logouk.png Graphic file (type png)
  <use ./pics/logouk.png>
 Package pdftex.def Info: ./pics/logouk.png used on input line 210.
@@ -1336,7 +1336,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 {/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./pics/
 logouk.png>]
-[2] <../assignment-eng.pdf, id=114, page=1, 597.23125pt x 845.1575pt>
+[2] <../assignment-eng.pdf, id=122, page=1, 597.23125pt x 845.1575pt>
 File: ../assignment-eng.pdf Graphic file (type pdf)
 
 <use ../assignment-eng.pdf, page 1>
@@ -1361,7 +1361,7 @@ File: ../assignment-eng.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../assignment-eng.pdf, page1 used on input line 248.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
  [3 <../assignment-eng.pdf>]
-<../assignment-sk.pdf, id=146, page=1, 597.23125pt x 845.1575pt>
+<../assignment-sk.pdf, id=154, page=1, 597.23125pt x 845.1575pt>
 File: ../assignment-sk.pdf Graphic file (type pdf)
 
 <use ../assignment-sk.pdf, page 1>
@@ -1479,12 +1479,8 @@ t/10 ;$\T1/lmr/m/it/10 11:30$\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 ; \OT1/lmr/m/n/1
 
 (./tikzpics/ea.tikz
 Missing character: There is no ) in font nullfont!
-)
-
-LaTeX Warning: Citation `apxdo05' on page 6 undefined on input line 191.
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has 
-been already used, duplicate ignored
+)pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has
+ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.197 		\item \textbf
@@ -1555,47 +1551,38 @@ Missing character: There is no ) in font nullfont!
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
 
  []
 
-[14]
-
-LaTeX Warning: Citation `sommerthesis10' on page 15 undefined on input line 207
-.
-
-
-LaTeX Warning: Citation `sommerthesis10' on page 15 undefined on input line 207
-.
-
-(./tikzpics/plot_usp_air01_timerange.tikz) (./tikzpics/plot_usp_sncf_size.tikz)
-
-Overfull \hbox (1.39896pt too wide) in paragraph at lines 34--226
+[14] (./tikzpics/plot_usp_air01_timerange.tikz)
+(./tikzpics/plot_usp_sncf_size.tikz)
+Overfull \hbox (1.39896pt too wide) in paragraph at lines 34--227
  [][] 
  []
 
 [15] [16]
-Underfull \hbox (badness 10000) in paragraph at lines 255--256
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
+Underfull \hbox (badness 10000) in paragraph at lines 260--261
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 263--264
+Underfull \hbox (badness 10000) in paragraph at lines 264--265
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 267--268
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
 
  []
 
@@ -1605,83 +1592,98 @@ Missing character: There is no ) in font nullfont!
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[18]
-
-LaTeX Warning: Citation `cauchy' on page 19 undefined on input line 361.
-
-[19] (./tikzpics/plot_antau_cpza_size.tikz)
-Overfull \hbox (5.11293pt too wide) in paragraph at lines 40--399
+[18] [19] (./tikzpics/plot_antau_cpza_size.tikz)
+Overfull \hbox (5.11293pt too wide) in paragraph at lines 40--403
  [][] 
  []
 
 (./tikzpics/plot_angamma_cpza_size.tikz)
-Overfull \hbox (5.11293pt too wide) in paragraph at lines 40--399
+Overfull \hbox (5.11293pt too wide) in paragraph at lines 40--403
  [][] 
  []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 406--407
-
- []
-
-
-Overfull \hbox (22.36713pt too wide) in paragraph at lines 412--424
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [20]
+Underfull \hbox (badness 10000) in paragraph at lines 410--411
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 439--440
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 441--442
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 453--454
-
- []
-
-[21] (./tikzpics/reduction.tikz
+(./tikzpics/usporaproof2.tikz
 Missing character: There is no ) in font nullfont!
 )
-Underfull \hbox (badness 10000) in paragraph at lines 479--480
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--453
 
  []
 
-[22]) [23] (./parts/neural.tex) [24] (./parts/ttblazer.tex) [25]
-(./parts/conclusion.tex) [26] (./parts/formats.tex
+[21] (./tikzpics/uspora3.tikz
+Missing character: There is no ) in font nullfont!
+) [22]
+Underfull \hbox (badness 10000) in paragraph at lines 490--491
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 501--502
+
+ []
+
+(./tikzpics/reduction.tikz
+Missing character: There is no ) in font nullfont!
+)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 525--526
+
+ []
+
+[24]) [25] (./parts/neural.tex) [26] (./parts/ttblazer.tex) [27]
+(./parts/conclusion.tex) [28] (./parts/formats.tex
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 8.
- [27]) [28] (./dottg.bbl)
+ [29]) [30] (./dottg.bbl)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 397.
 
-[29]
+[31]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 397.
  (./dottg.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 397.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 397.
 Package rerunfilecheck Info: File `dottg.out' has not changed.
-(rerunfilecheck)             Checksum: B1940A17CE0C4C0C91E4A24B4BD99A4B;1273.
+(rerunfilecheck)             Checksum: 9FB404F4E2659C3BC1F323BFEFF77904;1465.
 
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 397.
  ) 
 Here is how much of TeX's memory you used:
- 29404 strings out of 493488
- 598788 string characters out of 3141346
- 812331 words of memory out of 3000000
- 31784 multiletter control sequences out of 15000+200000
- 119134 words of font info for 101 fonts, out of 3000000 for 9000
+ 29458 strings out of 493488
+ 599689 string characters out of 3141346
+ 812333 words of memory out of 3000000
+ 31814 multiletter control sequences out of 15000+200000
+ 131468 words of font info for 107 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  63i,22n,92p,1079b,2212s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Hfootnote.13} has been referenced but does not ex
+pdfTeX warning (dest): name{Hfootnote.14} has been referenced but does not ex
 ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.13} has been referenced but does not exis
+t, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.12} has been referenced but does not exis
 t, replaced by a fixed one
@@ -1720,53 +1722,57 @@ pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
 
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/te
-xlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2012/tex
-mf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2012/texmf-dist/fo
-nts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2012/texmf-dist/fonts/enc/dv
+xlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2012
+/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2012/texmf-dist/fo
+nts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2012/texmf-dist/fonts/enc/dv
 ips/lm/lm-mathit.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmbsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/ams
 fonts/cmextra/cmbsy5.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmib10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/
-amsfonts/cmextra/cmmib6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pub
-lic/amsfonts/euler/eusb10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/p
-ublic/amsfonts/euler/eusb7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/
-public/amsfonts/euler/eusm10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type
-1/public/amsfonts/euler/eusm5.pfb></usr/local/texlive/2012/texmf-dist/fonts/typ
-e1/public/amsfonts/euler/eusm7.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
-pe1/public/lm/lmbsy7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public
-/lm/lmbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx12
-.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx5.pfb></usr/
-local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx7.pfb></usr/local/texli
-ve/2012/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2012/tex
-mf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2012/texmf-dist/fon
-ts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/
-public/lm/lmcsc10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm
-/lmex10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmi10.pf
-b></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/loc
-al/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/
-2012/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2012/texmf-
-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2012/texmf-dist/fonts/
-type1/public/lm/lmmi9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/publi
-c/lm/lmmib10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmi
-b7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr10.pfb></us
-r/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/tex
-live/2012/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2012/te
-xmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2012/texmf-dist/fon
-ts/type1/public/lm/lmr7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pub
-lic/lm/lmr8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr9.
-pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/
-local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/local/texli
-ve/2012/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2012/te
-xmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2012/texmf-dist/fo
-nts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/p
-ublic/lm/lmsy7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lm
-sy8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></u
-sr/local/texlive/2012/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on dottg.pdf (37 pages, 883828 bytes).
+/amsfonts/cmextra/cmbsy9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pub
+lic/amsfonts/cmextra/cmmib6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1
+/public/amsfonts/cmextra/cmmib9.pfb></usr/local/texlive/2012/texmf-dist/fonts/t
+ype1/public/amsfonts/euler/eusb10.pfb></usr/local/texlive/2012/texmf-dist/fonts
+/type1/public/amsfonts/euler/eusb7.pfb></usr/local/texlive/2012/texmf-dist/font
+s/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texlive/2012/texmf-dist/fo
+nts/type1/public/amsfonts/euler/eusm5.pfb></usr/local/texlive/2012/texmf-dist/f
+onts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texlive/2012/texmf-dist/
+fonts/type1/public/lm/lmbsy7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type
+1/public/lm/lmbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/l
+m/lmbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx5.pf
+b></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx6.pfb></usr/loc
+al/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx7.pfb></usr/local/texlive/
+2012/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2012/texmf-
+dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2012/texmf-dist/fonts/
+type1/public/lm/lmbxi10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pub
+lic/lm/lmcsc10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lm
+ex10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><
+/usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/
+texlive/2012/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/201
+2/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2012/texmf-dis
+t/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2012/texmf-dist/fonts/typ
+e1/public/lm/lmmi9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/l
+m/lmmib10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmib7.
+pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/l
+ocal/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texliv
+e/2012/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2012/texmf
+-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2012/texmf-dist/fonts/
+type1/public/lm/lmr7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public
+/lm/lmr8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr9.pfb
+></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/loc
+al/texlive/2012/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/local/texlive/
+2012/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2012/texmf
+-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2012/texmf-dist/fonts
+/type1/public/lm/lmsy6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/publ
+ic/lm/lmsy7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy8
+.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/
+local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/local/texli
+ve/2012/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
+Output written on dottg.pdf (39 pages, 940730 bytes).
 PDF statistics:
- 782 PDF objects out of 1000 (max. 8388607)
- 666 compressed objects within 7 object streams
- 208 named destinations out of 1000 (max. 500000)
- 224 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 848 PDF objects out of 1000 (max. 8388607)
+ 724 compressed objects within 8 object streams
+ 224 named destinations out of 1000 (max. 500000)
+ 240 words of extra memory for PDF output out of 10000 (max. 10000000)
 

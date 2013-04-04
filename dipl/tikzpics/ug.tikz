@@ -6,8 +6,13 @@
     \node (C) at (4,1) [place, label=below:C] {};
 	
     % connect nodes (pgf/TikZ v2.00 manual section 3.11)
-    \draw (A) to [bend left] (B) node [midway] {};
-    \draw (B) to [bend left] (A) node [midway] {};
-    \draw (B) to [bend left] (C) node [midway] {};
-    \draw (C) to [bend left] (A) node [midway] {};
+    \draw (A) to [bend left] (B) node [below=1.2cm, left=1.7cm] {};
+    \draw (B) to [bend left] (A) node [below=1.5cm, left=1.5cm] {};
+    \draw (B) to [bend left] (C) node [above=1.5cm, left=1.5cm] {};
+    \draw (C) to [bend left] (A) node [below=1.5cm, left=1.5cm] {};
+    
+    \node at (0.6,1.3) {45m};
+    \node at (1.5,0.8) {50m};
+    \node at (3.3,1.8) {30m};
+    \node at (2.7,0.15) {30m};
 \end{tikzpicture}

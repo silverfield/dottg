@@ -16,9 +16,10 @@
 \contentsline {subsection}{\numberline {5.1}USP}{12}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}USP-OR}{13}{subsection.5.2}
 \contentsline {subsection}{\numberline {5.3}USP-OR-A}{17}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}Choosing the optimal access node set}{21}{subsubsection.5.3.1}
-\contentsline {subsection}{\numberline {5.4}Choosing ANs based on node properties}{23}{subsection.5.4}
-\contentsline {section}{\numberline {6}Neural network approach}{24}{section.6}
-\contentsline {section}{\numberline {7}Application TTBlazer}{25}{section.7}
-\contentsline {section}{\numberline {8}Conclusion}{26}{section.8}
-\contentsline {section}{Appendix \numberline {A}File formats}{27}{Appendix.a.A}
+\contentsline {subsubsection}{\numberline {5.3.1}Modifications of \textit {USP-OR-A}}{21}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}Choosing the optimal access node set}{23}{subsubsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.3}Choosing ANs based on node properties}{25}{subsubsection.5.3.3}
+\contentsline {section}{\numberline {6}Neural network approach}{26}{section.6}
+\contentsline {section}{\numberline {7}Application TTBlazer}{27}{section.7}
+\contentsline {section}{\numberline {8}Conclusion}{28}{section.8}
+\contentsline {section}{Appendix \numberline {A}File formats}{29}{Appendix.a.A}

@@ -15,9 +15,10 @@
 \BOOKMARK [2][-]{subsection.5.1}{USP}{section.5}% 15
 \BOOKMARK [2][-]{subsection.5.2}{USP-OR}{section.5}% 16
 \BOOKMARK [2][-]{subsection.5.3}{USP-OR-A}{section.5}% 17
-\BOOKMARK [3][-]{subsubsection.5.3.1}{Choosing the optimal access node set}{subsection.5.3}% 18
-\BOOKMARK [2][-]{subsection.5.4}{Choosing ANs based on node properties}{section.5}% 19
-\BOOKMARK [1][-]{section.6}{Neural network approach}{}% 20
-\BOOKMARK [1][-]{section.7}{Application TTBlazer}{}% 21
-\BOOKMARK [1][-]{section.8}{Conclusion}{}% 22
-\BOOKMARK [1][-]{Appendix.a.A}{Appendix File formats}{}% 23
+\BOOKMARK [3][-]{subsubsection.5.3.1}{Modifications of USP-OR-A}{subsection.5.3}% 18
+\BOOKMARK [3][-]{subsubsection.5.3.2}{Choosing the optimal access node set}{subsection.5.3}% 19
+\BOOKMARK [3][-]{subsubsection.5.3.3}{Choosing ANs based on node properties}{subsection.5.3}% 20
+\BOOKMARK [1][-]{section.6}{Neural network approach}{}% 21
+\BOOKMARK [1][-]{section.7}{Application TTBlazer}{}% 22
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 23
+\BOOKMARK [1][-]{Appendix.a.A}{Appendix File formats}{}% 24

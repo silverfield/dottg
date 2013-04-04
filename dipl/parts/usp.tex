@@ -28,7 +28,7 @@
 	
 	\noindent Please note that the terminology might be a bit misleading - an USP is not necessarily a shortest path in the given UG. Connections on a shortest path may simple require too much waiting (the el. connections simply do not follow well enough one another) and thus it might be that travelling along the paths with greater distance proof to be faster options.
 	    
-\subsection{USP-OR}
+\subsection{\textit{USP-OR}}
 
 	We can easily extract the underlying path from a given connection. Now let us look at this from the other way - if, for a given EA query, we know the underlying shortest path, can we reconstruct the optimal connection? One thing we could do is to blindly follow the USP and at each stop take the first elementary connection to the next stop on the USP. This simple algorithm called \textit{ExpandUsp} is described in algorithm~\ref{alg:expusp}. 
 	
@@ -75,6 +75,7 @@
 	\end{figure}
     
     \begin{lemma}
+    	\label{lemma:expandusp}
     	Let $T$ be a timetable without overtaking, $(x, t, y)$ an EA query in this timetable and $\mathcal{P} = \{p_{1}, p_{2}, ..., p_{k}\}$ a set of all USPs from $x$ to $y$. Define $c_{i} = ExpandUsp(T, p_{i}, t)$ to be the connection returned by the algorithm ExpandUsp~\ref{alg:expusp}. Then $\exists j:\; c_{j} = c_{x, t, y}^{*}$.
     \end{lemma}
     \begin{proof}
@@ -243,7 +244,7 @@
 		\caption{\label{tab:uspor} The summary of the \textit{USP-OR} algorithm parameters. The second row corresponds e.g. to the \textit{sncf} dataset}
 	\end{table}
 	
-\subsection{USP-OR-A}
+\subsection{\textit{USP-OR-A}}
 	    
 	With \textit{USP-OR} the main disadvantage is its space consumption. We may decrease this space complexity by pre-computing USPs only among \textit{some} cities. The nodes that we select for this purpose will be called \textbf{access nodes} (AN for short), as for each city they would be the crucial nodes we need to pass in order to access most of the cities of $T$. It would be suitable for this access node set to have several desirable properties. In order to formulate them, we need to define a few terms first.
 	
@@ -309,13 +310,15 @@
 		\end{itemize}
 		\textbf{Algorithm}
 		\begin{algorithmic}
+			\STATE let $lan(x) = x$ if $x \in \mathcal{A}$
+			\STATE let $blan(y) = y$ if $y \in \mathcal{A}$
 			\STATE \algsec{Local front search}
 			\STATE perform time-dependent Dijkstra from $x$ at time $t$ up to $lan(x)$
 			\IF {$y \in neigh(x)$}
 				\STATE let $c_{loc}^{*}$ be the connection to $y$ obtained by Dijkstra's algorithm \cmt{the optimal connection may still go via ANs (though it is unlikely)}
 			\ENDIF
-			\STATE $\forall u \in lan(x)$ let $ea(u)$ be the EA to this node (obtained by Dijkstra's algorithm)
-			\STATE $\forall u \in lan(x)$ let $oc(u)$ be the OC to this node (obtained by Dijkstra's algorithm)
+			\STATE $\forall u \in lan(x)$ let $ea(u)$ be the arrival time to this node obtained by Dijkstra's algorithm
+			\STATE $\forall u \in lan(x)$ let $oc(u)$ be the connection to this node (obtained by Dijkstra's algorithm)
 			\STATE \algsec{Inter-AN search}
 			\FORALL{$v \in blan(y)$}
 				\STATE $oc(v) = null$
@@ -326,15 +329,15 @@
 					\ENDFOR
 				\ENDFOR
 			\ENDFOR
-			\STATE $\forall v \in blan(y)$ let $ea(v) = end(oc(v))$ (the EA to this node)
+			\STATE $\forall v \in blan(y)$ let $ea(v) = end(oc(v))$
 			\STATE \algsec{Local back search}
 			\FORALL{$v \in blan(y)$}
 				\STATE perform time-dependent Dijkstra from $v$ at time $ea(v)$ to $y$ restricted to $bneigh(y)$
 				\STATE let $fin(v)$ be the connection returned by Dijkstra's algorithm
 			\ENDFOR
 			\STATE $v^{*} = argmin_{v \in blan(y)} \{end(fin(v))\}$
-			\STATE $u^{*} = from(oc(v))$
-			\STATE let $c^{*} = oc(u^{*}) . oc(v^{*}) . fin(v^{*})$ \cmt{the dot ($.$) symbol is concatenation of connections)}
+			\STATE $u^{*} = from(oc(v^{*}))$
+			\STATE let $c^{*} = oc(u^{*}) . oc(v^{*}) . fin(v^{*})$ \cmt{the dot ($.$) symbol is concatenation of connections}
 			\STATE output better out of $c_{loc}^{*}$ and $c^{*}$
 		\end{algorithmic}
 		\textbf{Output}
@@ -410,6 +413,7 @@
 	
 	\begin{table}[h!]
 		\centering
+		\small
 		\begin{tabular}{l|c|c}
 		%legend
 			\cellcolor{oracle-clr} \textit{\textbf{USP-OR-A}} & 
@@ -425,6 +429,50 @@
 		\caption{\label{tab:uspora} The summary of the \textit{USP-OR-A} algorithm parameters}
 	\end{table}
 	
+	\noindent Finally, we will proof the correctness of the algorithm, i.e. that it always returns the optimal connection.
+	
+	\begin{theorem}
+		The algorithm \textit{USP-OR-A}~\ref{alg:uspora-prepro}~\ref{alg:uspora-query} always returns the optimal connection.
+	\end{theorem}
+	
+	\begin{proof}
+		Let $\mathcal{A}$ be the set of access nodes and consider a query from city $x$ to city $y$ at any time $t$. If $x \in \mathcal{A}$ and $y \in \mathcal{A}$, an optimum is returned due to lemma~\ref{lemma:expandusp} (in such a case, we basically run \textit{USP-OR} algorithm). \\
+		
+		\noindent In the following we will assume that $\bm{y \not \in neigh(x)}$, which means that the optimal connection goes through some access node $u \in lan(x)$ and $v \in blan(y)$. Note that it may be that $u = v$. \\
+		
+		\noindent What we would like to prove as a next step is that we reach the back LANs of $y$ (or $y$ itself if it is an access node) at the earliest arrival time. After the \textit{local front search}, we have reached the $x$'s local ANs at times $ea(u) \; \forall u \in lan(x)$. For some local access node this value is the true earliest arrival. Let us denote the set of such local ANs as $lan^{*}(x)$. The crucial thing to realize is, that the optimal connection to any city out of the $x$'s neighbourhood will lead via some $u \in lan^{*}(x)$ (see picture~\ref{fig:usporaproof2}). And because the \textit{inter AN search} phase finds \textit{optimal} connections between pairs $u \in lan(x)$ and $v \in blan(y)$, it follows that for each $v \in blan(y)$ the $ea(v)$ is the earliest arrival to this city after the \textit{inter AN search} phase.
+		
+		\begin{figure}[h!]
+			\begin{center}
+				\inputTikZ{./tikzpics/usporaproof2}
+			\end{center}
+			\caption{\label{fig:usporaproof2} On the picture $lan(x) = \{G, H\}$ and $blan(y) = \{G, H, I\}$. In \textbf{thick} we have highlighted the optimal connection. The connection to $H$ is sub-optimal after the \textit{local front search} phase, however the optimal connection to $y$ (and to $H$ and $I$ as well) leads through $lan^{*}(x)$ (some of $x$'s local access nodes to which we have an optimal connection after the \textit{local front search}. Particularly, it goes through $G$).}
+		\end{figure}
+		
+		In the \textit{local back search} we run a time-dependent Dijkstra search from all back LANs of $y$. And since this algorithm is exact and starts from each back LAN as early as possible, we get the optimal connection to $y$. \\
+		
+		\noindent It remains to show that if $\bm{y \in neigh(x)}$, we also get the optimal connection. In such case, we simply compare the connection that goes via access nodes and the one that was obtained solely within the neighbourhood and output the shorter one. As there are no other options, the proof is complete.
+	\end{proof}
+	
+	\subsubsection{Modifications of \textit{USP-OR-A}}
+	
+		\noindent Our implementation of the \textit{USP-OR-A} algorithm uses one slight improvement, which we did not mention in its description, since it is more of a optimization technique without any theoretical guarantees on actual improvement of the running time. However, we consider it an interesting idea so we mention it at this place.
+		
+		\begin{definition}
+	        \textbf{USP tree} \\
+			Given a pair of cities $x$ and $y$ in a timetable $T$, we will call a USP tree the graph made out of edges of all USPs in $usp_{T}(x, y)$: $\bm{usp^{3}_{T}(x, y)} = (V^{3}, E^{3})$ where $V^{3} = \{v| \; v$ lays on some $p \in usp_{T}(x, y)\}$ and $E^{3} = \{(a, b)| \; (a, b)$ is part of some $p \in usp_{T}(x, y)\}$.
+	    \end{definition}
+	    
+	    \noindent We could take advantage of these USP trees to speed up the \textit{local front search} phase of the algorithm, where we unnecessarily explore the whole neighbourhood when we could just go along the arcs of the USP trees. The picture~\ref{fig:uspora3} depicts this. 
+		
+		\begin{figure}[h!]
+			\begin{center}
+				\inputTikZ{./tikzpics/uspora3}
+			\end{center}
+			\caption{\label{fig:uspora3} Using USP trees (\textbf{thick} non-dashed arcs in \textcolor{purple}{$\bm{neigh_{\mathcal{A}}(x)}$}) to decrease the explored area in \textit{local front search}. A full neighbourhood search is done only when $y \in neigh(x)$}
+		\end{figure}
+		
+		\noindent The interesting thing about this is the exploitation of both - timetable and its underlying graph. While the neighbourhood of a node is something static, related only to the structure of the UG and generally time-independent, the USP trees reflect to some extent the properties of the timetable (e.g. which ways are frequently serviced and thus provide optimal connections). By intersecting these two things, we get the area that is \textit{worth} to be explored and that is \textit{small} at the same time (provided, of course, that the neighbourhoods are small).
 	    
 	\subsubsection{Choosing the optimal access node set}
 		
@@ -464,7 +512,6 @@
 			\noindent For this instance of min set-cover, we construct the graph depicted on picture~\ref{fig:reduction}.
 			 
 			\begin{figure}[h!]
-			
 				\begin{center}
 					\inputTikZ{./tikzpics/reduction}
 				\end{center}
@@ -492,4 +539,24 @@
 	
 	\subsubsection{Choosing ANs based on node properties}
 	
-		In the previous sub-subsection, we have shown the problem of choosing the optimal AN set to be NP-hard. In this sub-subsection we perform a simple experiment of choosing for the access nodes the cities that seem to be the most important in the graph. 
+		In the previous sub-subsection, we have shown the problem of choosing the optimal AN set to be NP-hard. In this sub-subsection we perform a simple experiment of choosing for the access nodes the cities that seem to be the most important. More specifically, in the optimistic underlying graph (see section~\ref{sec:prel}) $ug_{T}^{opt}$ we were looking for cities with:
+		\begin{enumerate}
+			\item High \textbf{degree}. We consider the sum of in-degree and out-degree~\footnote{In-degree is the number of arcs going towards to node and out-degree the number of outgoing arcs.} of the respective node $x$: $\bm{deg(x)} = deg_{in}(x) + deg_{out}(x)$.
+			\item High \textbf{betweenness centrality}. Betweenness centrality for a node $v$ is defined as 
+			
+			$$g(v) = \sum_{s \neq v \neq t} \frac{\displaystyle \sigma_{st}(v)}{\displaystyle \sigma_{st}}$$
+			
+			where $\sigma_{st}(v)$ is the number of shortest paths from $s$ to $t$ passing through $v$ and $\sigma_{st}$ is the total number of shortest paths from $s$ to $t$.~\cite{centrality01}. We then scale the values to the range $<0, 1>$ to obtain for each city $x$ its scaled betweenness centrality $\bm{bc(x)}$.
+		\end{enumerate}
+		\hspace*{\fill}
+		
+		\noindent We will denote by $\mathcal{A}_{deg}(k)$ the set of $k$ cities with highest $deg(x)$ value and similarly $\mathcal{A}_{bc}(k)$ will be the set of $k$ cities with the highest $bc(x)$ value. We were interested in the smallest $k$ such that:
+		\begin{enumerate}
+			\item $\mathcal{A}_{deg}(k)$ is $(r_{1}, r_{2}, r_{3})$ AN set with $r_{2} \leq 1$ (the average square of neighbourhoods is $\leq \sqrt{n}$). Denote such $k$ as $\bm{k_{deg}^{avg}}$.
+			\item $\forall x \in ct_{T}$: $|neigh_{\mathcal{A}_{deg}(k)}(x)| \leq \frac{3\sqrt{n}}{2}$ and $|bneigh_{\mathcal{A}_{deg}(k)}(x)| \leq \frac{3\sqrt{n}}{2}$ (all neighbourhoods are large at most $\frac{3\sqrt{n}}{2}$). Denote such $k$ as $\bm{k_{deg}^{max}}$.
+		\end{enumerate}		 
+		\hspace*{\fill}
+		
+		\noindent We define similarly $\bm{k_{bc}^{avg}}$ and $\bm{k_{bc}^{max}}$.
+		
+	\subsubsection{Choosing ANs heuristically - \textit{locsep}}

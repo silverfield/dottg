@@ -1,0 +1,69 @@
+\tikzstyle{m}=[circle,draw=red,fill=red!20,thick,inner sep=10pt]
+\tikzstyle{mdot}=[circle,draw=black,fill=black!20,thick,inner sep=1pt]
+\tikzstyle{s}=[circle,draw=orange,fill=orange!20,thick,inner sep=2pt, font=\fontsize{6}{6}\selectfont]
+\tikzstyle{ssel}=[circle,draw=orange!50!black,fill=yellow!20,very thick,inner sep=2pt, font=\fontsize{6}{6}\selectfont]
+\tikzstyle{sdummy}=[circle, dashed, draw=orange,fill=orange!20,thick,inner sep=2pt, font=\fontsize{6}{6}\selectfont]
+\tikzstyle{textstyle}=[font=\fontsize{6}{6}\selectfont]
+\begin{tikzpicture}[>=stealth,looseness=.1,auto,scale=0.85])
+	\node (m1) at (2,4) [m, label=above:{$\bm{m_{1}}$}] {};
+	\node (m11) at (m1) [mdot, yshift=-4pt, xshift=-4pt] {};
+	\node (m12) at (m1) [mdot, yshift=-6pt, xshift=3pt] {};
+	\node (m13) at (m1) [mdot, yshift=5pt, xshift=-5pt] {};
+	\node (m14) at (m1) [mdot, yshift=7pt, xshift=3pt] {};
+	\node (m15) at (m1) [mdot, yshift=0.5pt, xshift=9pt] {};
+	
+	\draw [very thin] (m11) -- (m12);
+	\draw [very thin] (m11) -- (m13);
+	\draw [very thin] (m11) -- (m14);
+	\draw [very thin] (m11) -- (m15);
+	\draw [very thin] (m12) -- (m13);
+	\draw [very thin] (m12) -- (m14);
+	\draw [very thin] (m12) -- (m15);
+	\draw [very thin] (m13) -- (m14);
+	\draw [very thin] (m13) -- (m15);
+	\draw [very thin] (m14) -- (m15);
+	
+	\node (m2) at (4,4) [m, label=above:{$\bm{m_{2}}$}] {};
+	
+	
+	\node (m3) at (6,4) [m, label=above:{$\bm{m_{3}}$}] {};
+
+	
+	\node at (8, 4) {..........};
+	
+	\node (m10) at (11,4) [m, label=above:{$\bm{m_{10}}$}] {};
+	
+
+	\draw [decorate, decoration={brace, amplitude=3pt}] (11.7, 4.5) -- (11.7, 3.5) node [black,above, midway, yshift=-0.3cm, xshift=0.8cm] {size $\beta_{10}$};
+
+	\node (s1) at (1,1) [ssel] {$\bm{s_{1}}$};
+	\node (s1d) at (1,-0.5) [sdummy] {$\bm{s_{1}'}$};
+	\node (s2) at (3,1) [s] {$\bm{s_{2}}$};
+	\node (s2d) at (3,-0.5) [sdummy] {$\bm{s_{2}'}$};
+	\node (s3) at (5,1) [s] {$\bm{s_{2}}$};
+	\node (s3d) at (5,-0.5) [sdummy] {$\bm{s_{3}'}$};
+	\node at (7.5, 1) {............};
+	\node (s12) at (10,1) [s] {$\bm{s_{12}}$};
+	\node (s12d) at (10,-0.5) [sdummy] {$\bm{s_{12}'}$};
+	\node (s13) at (12,1) [s] {$\bm{s_{13}}$};
+	\node (s13d) at (12,-0.5) [sdummy] {$\bm{s_{13}'}$};
+	
+	\draw [very thin, ->] (m11) -- (s1);
+	\draw [very thin, ->] (m12) -- (s1);
+	\draw [very thin, ->] (m13) -- (s1);
+	\draw [very thin, ->] (m14) -- (s1);
+	\draw [very thin, ->] (m15) -- (s1);
+	\draw [very thick, ->] (m1) -- (s2);
+	\draw [very thick, ->] (m2) -- (s2);
+	\draw [very thick, ->] (m2) -- (s13);
+	\draw [very thick, ->] (m3) -- (s1);
+	\draw [very thick, ->] (m3) -- (s13);
+	\draw [very thick, ->] (m10) -- (s13);
+	\draw [very thick, ->] (m10) -- (s1);
+	
+	\draw [->] (s1) -- (s1d);
+	\draw [->] (s2) -- (s2d);
+	\draw [->] (s3) -- (s3d);
+	\draw [->] (s12) -- (s12d);
+	\draw [->] (s13) -- (s13d);
+\end{tikzpicture}

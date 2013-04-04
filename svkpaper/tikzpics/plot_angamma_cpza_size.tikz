@@ -1,0 +1,40 @@
+\tikzstyle{textstyle}=[font=\fontsize{9}{9}\selectfont]
+\begin{tikzpicture}[textstyle, scale=0.8]
+    \begin{axis}[
+        xlabel={$n$},
+        ylabel={USP size},
+		legend pos=north west
+        ]
+        
+    \addplot[smooth,mark=*,blue] plot coordinates {
+		(100,10.6)
+		(200,14.0)
+		(300,12.5)
+		(400,13.5)
+		(500,17.8)
+		(600,18.7)
+		(700,21.2)
+		(800,19.2)
+		(900,22.0)
+		(1000,24.4)
+		(1100,25.8)
+    };
+    \addlegendentry{$\gamma_{\mathcal{A}}$}
+
+    \addplot[smooth,color=red,mark=x] plot coordinates {
+		(100,38)
+		(200,39)
+		(300,47)
+		(400,56)
+		(500,66)
+		(600,77)
+		(700,83)
+		(800,78)
+		(900,82)
+		(1000,100)
+		(1100,112)
+    };
+    \addlegendentry{max USP size}
+    
+    \end{axis}
+\end{tikzpicture}
