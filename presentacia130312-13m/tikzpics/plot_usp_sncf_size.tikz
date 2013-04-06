@@ -1,5 +1,5 @@
 \tikzstyle{textstyle}=[font=\fontsize{9}{9}\selectfont]
-\begin{tikzpicture}[textstyle, scale=0.65]
+\begin{tikzpicture}[textstyle, scale=0.6]
     \begin{axis}[
         xlabel={$n$},
         ylabel={USP},
@@ -28,7 +28,7 @@
 		(1300,44)
 		(1500,62)
     };
-    \addlegendentry{$\tau_{max}$}
+    \addlegendentry{max $\tau(x, y)$}
     
     \end{axis}
 \end{tikzpicture}

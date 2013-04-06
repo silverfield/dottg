@@ -7,23 +7,25 @@
 
 \tikzstyle{important}=[circle,draw=green!70!black,fill=green!70!black!20,thick,inner sep=2pt]
 \tikzstyle{textstyle}=[font=\fontsize{6}{6}\selectfont]
-\begin{tikzpicture}[>=stealth,looseness=.1,auto,scale=0.85])
+\begin{tikzpicture}[>=stealth,looseness=.1,auto,scale=1.2])
 	\draw [fill=black!5, very thin] (0, 0) ellipse (4 and 4);	
 	
 	\node (an) at (0,0) [important, label=below:{$x$}] {};
 	
-	\node (b1) at (1,-1) [bneigh] {1};
+	\node (b1) at (1,-1) [bneigh, label=above:{$b_{2}$}] {1};
 	\node (b2) at (2,-1.5) [bneigh] {2};
 	\node (b3) at (0.1,-1.3) [bneigh] {3};
 	\node (b4) at (0.8,-2.1) [bneigh] {4};
 	\node (b5) at (0.1, -2.2) [bneigh] {5};
-	\node (b6) at (-0.7,-1) [bneigh] {6};
+	\node (b6) at (-0.7,-1) [bneigh, label=above:{$b_{1}$}] {6};
 	\node (b7) at (-1.7,-2) [bneigh] {7};
 	\node (b8) at (-1.5,-3) [bneigh] {8};
 	\node (b9) at (-2,-1.2) [bneigh] {9};
 	\node (b10) at (-2.4,-2.5) [bneigh] {10};
 	
-	\draw [draw=black, fill=yellow, opacity=0.25, smooth, bend left=70] (-0.3,0.3) to (0.3,0.3) to (2.3,-1.3) to (2.3,-1.7) to (0.8,-2.3) to (0, -2.5) to (-0.3, -2.4) to (-0.3,0.3);
+	\draw [draw=black, fill=yellow, opacity=0.25, smooth, bend left=70] (1.2,-0.7) to (2.3,-1.3) to (2.3,-1.7) to (0.8,-2.3) to (0, -2.5) to (-0.3, -2.4) to (-0.3, -1.1) to (1.2, -0.7);
+	
+	\node at (1.7, -2) {$bneigh^{2}$};
 	
 	\draw [bn, very thick, ->] (b1) -- (an);
 	\draw [bn, very thick, ->] (b3) -- (b1);
@@ -38,14 +40,14 @@
 	\draw [->] (b7) -- (b9);
 	\draw [->] (b8) -- (b7);
 	
-	\node (f1) at (1,1) [fneigh] {1};
+	\node (f1) at (1,1) [fneigh, label=below:{$f_{1}$}] {1};
 	\node (f2) at (0.8,2) [fneigh] {2};
 	\node (f3) at (2,2) [fneigh] {3};
 	\node (f4) at (3,2) [fneigh] {4};
 	\node (f5) at (1.7, 2.7) [fneigh] {5};
 	\node (f6) at (1.2,3.3) [fneigh] {6};
 	\node (f7) at (0.1,1.5) [fneigh] {7};
-	\node (f8) at (-0.5,1) [fneigh] {8};
+	\node (f8) at (-0.5,1) [fneigh, label=below:{$f_{2}$}] {8};
 	\node (f9) at (-1.8, 1.6) [fneigh] {9};
 	\node (f10) at (-1.7,2.3) [fneigh] {10};
 	\node (f11) at (-2.3,2.4) [fneigh] {11};
@@ -67,7 +69,7 @@
 	\draw [->] (f9) -- (f11);
 	\draw [->] (f9) -- (f12);
 	\draw [->] (f12) -- (f13);
-	\draw [->] (f13) -- (an);
+%	\draw [->] (f13) -- (an) node [midway, above] {$f_{3}$};
 	
 	\node (n1) at (2.2,-0.3) [noneigh] {1};
 	\node (n2) at (2.9,0.8) [noneigh] {2};

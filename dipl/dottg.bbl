@@ -16,6 +16,15 @@ Ulrik Brandes.
 \newblock A faster algorithm for betweenness centrality.
 \newblock {\em Journal of Mathematical Sociology}, 25:\penalty0 163--177, 2001.
 
+\bibitem[Dij59]{dijkstra59}
+E.~W. Dijkstra.
+\newblock A note on two problems in connexion with graphs.
+\newblock {\em NUMERISCHE MATHEMATIK}, 1\penalty0 (1):\penalty0 269--271, 1959.
+
+\bibitem[KP]{dijkstraexp}
+Kelly Kinahan and Jennifer Pryor.
+\newblock Dijkstra's algorithm for shortest route problems.
+
 \bibitem[MHSWZ07]{timetablemodelsalgs07}
 Matthias M{\"u}ller-Hannemann, Frank Schulz, Dorothea Wagner, and Christos
   Zaroliagis.

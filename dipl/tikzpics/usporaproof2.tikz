@@ -75,7 +75,7 @@
 	\draw [s-bneigh, ->] (b1) -- (b3);
 	\draw [s-bneigh, ->] (b2) -- (b4);
 	\draw [s-bneigh, ->] (b3) -- (b4);
-	\draw [s-bneigh, very thick, ->] (b4) -- (B);
+	\draw [s-bneigh, ->] (b4) -- (B);
 	\draw [s-bneigh, ->] (b5) -- (b2);
 	\draw [s-bneigh, very thick, ->] (b5) -- (B);
 	\draw [s-bneigh, ->] (b6) -- (b3);

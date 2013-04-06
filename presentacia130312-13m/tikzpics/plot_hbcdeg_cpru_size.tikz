@@ -1,0 +1,36 @@
+\tikzstyle{textstyle}=[font=\fontsize{9}{9}\selectfont]
+\begin{tikzpicture}[textstyle, scale=0.5]
+    \begin{axis}[
+        xlabel={$n$},
+        ylabel={necessary $|\mathcal{A}|$},
+		legend pos=north west
+        ]
+        
+    \addplot[smooth,mark=*,color=blue] plot coordinates {
+		(100,16)
+		(200,21)
+		(300,29)
+		(400,40)
+		(500,57)
+		(600,61)
+		(700,71)
+		(800,83)
+		(871,78)
+    };
+    \addlegendentry{$deg$}
+
+    \addplot[smooth,mark=*, color=red, dashed] plot coordinates {
+		(100,19)
+		(200,40)
+		(300,50)
+		(400,72)
+		(500,82)
+		(600,93)
+		(700,108)
+		(800,154)
+		(871,181)
+    };
+    \addlegendentry{$bc$}
+    
+    \end{axis}
+\end{tikzpicture}

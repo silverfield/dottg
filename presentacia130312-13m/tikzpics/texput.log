@@ -1,18 +1,18 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  25 MAR 2013 22:23
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  6 APR 2013 21:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**uspora.tex
+**plot_locsep_sncf_size.tex
 
 ! Emergency stop.
-<*> uspora.tex
-              
+<*> plot_locsep_sncf_size.tex
+                             
 *** (job aborted, file error in nonstop mode)
 
  
 Here is how much of TeX's memory you used:
  3 strings out of 493488
- 100 string characters out of 3141346
+ 115 string characters out of 3141346
  49432 words of memory out of 3000000
  3412 multiletter control sequences out of 15000+200000
  3640 words of font info for 14 fonts, out of 3000000 for 9000

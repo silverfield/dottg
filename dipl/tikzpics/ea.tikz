@@ -18,11 +18,11 @@
 			\draw [elcon-clr] (B_680) -- (A_750) node [midway, above] {1:10};
 			\draw [very thick, orange] (C_705) -- (A_735) node [midway, above] {0:30};
 			%WAITING-----------------------------------------------------------
-			\draw [waiting-clr, dashed] (A_600) -- (A_735) node [midway, above] {2:15};
-			\draw [waiting-clr, dashed] (A_735) -- (A_750) node [midway, above] {0:15};
-			\draw [orange, very thick, dashed] (B_645) -- (B_660) node [midway, above] {0:15};
-			\draw [waiting-clr, dashed] (B_660) -- (B_680) node [midway, above] {0:20};
-			\draw [waiting-clr, dashed] (B_680) -- (B_690) node [midway, above] {0:10};
-			\draw [orange, very thick, dashed] (C_690) -- (C_705) node [midway, above] {0:15};
-			\draw [waiting-clr, dashed] (C_705) -- (C_730) node [midway, above] {0:25};
+			\draw [waiting-clr, dashed] (A_600) -- (A_735) node [midway, left] {2:15};
+			\draw [waiting-clr, dashed] (A_735) -- (A_750) node [midway, left] {0:15};
+			\draw [orange, very thick, dashed] (B_645) -- (B_660) node [midway, left] {0:15};
+			\draw [waiting-clr, dashed] (B_660) -- (B_680) node [midway, left] {0:20};
+			\draw [waiting-clr, dashed] (B_680) -- (B_690) node [midway, left] {0:10};
+			\draw [orange, very thick, dashed] (C_690) -- (C_705) node [midway, left] {0:15};
+			\draw [waiting-clr, dashed] (C_705) -- (C_730) node [midway, left] {0:25};
 		\end{tikzpicture}

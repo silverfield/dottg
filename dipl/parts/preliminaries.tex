@@ -1,8 +1,8 @@
-In this section, we would provide most of the definitions and terminology used throughout the thesis. 
+In this section, we provide most of the definitions and terminology used throughout the thesis. 
 
 	\subsection{Objects}
 
-	First, we will formalize the notion of a timetable and its derived graph forms, the underlying graph and notions related to these objects.
+	First, we will formalize the notion of a timetable and its derived graph forms, the underlying graph and terms related to these objects.
 	
 	\begin{definition}
         \textbf{Timetable (TT)} \\
@@ -15,14 +15,14 @@ In this section, we would provide most of the definitions and terminology used t
         		\item $\bm{dep(e)} = p$ is the \textbf{departure time}
         		\item $\bm{arr(e)} = q$ is the \textbf{arrival time}
         	\end{itemize}
-        	\item The set of all \textbf{cities} will be denoted as $\bm{ct_{T}} = \{x| (x, y, p, q) \in T \; or \; (y, x, p, q) \in T\}$ and the number of cities as $n_{T}$
-        	\item Pairs $(x, p)$ or $(y, q)$ such that $(x, y, p, q) \in T$ form the set of \textbf{events} $\bm{ev_{T}}$. The set of events in a specific city $x$ is $\bm{ev_{T}(x)} = \{(x, t)| (x, y, t, q) \in T \; or \; (y, x, p, t) \in T\}$
+        	\item The set of all \textbf{cities} will be denoted as $\bm{ct_{T}} = \{x| \; (x, y, p, q) \in T \; or \; (y, x, p, q) \in T\}$ and the number of cities as $n_{T}$
+        	\item Pairs $(x, p)$ or $(y, q)$ such that $(x, y, p, q) \in T$ form the set of \textbf{events} $\bm{ev_{T}}$. The set of events in a specific city $x$ is $\bm{ev_{T}(x)} = \{(x, t)| \; (x, y, t, q) \in T \; or \; (y, x, p, t) \in T\}$
         	\item Let $\bm{tlow_{T}} = \min_{e \in T} dep(e)$ and $\bm{thigh_{T}} = \max_{e \in T} arr(e)$. The value $\bm{r_{T}} = thigh_{T} - tlow_{T}$ is called the \textbf{time range} of the timetable.
         	\item \textbf{Height} of the timetable is the maximum number of events in a city: $\bm{h_{T}} = \max_{x \in cities_{T}} \{|ev_{T}(x)|\}$
         \end{itemize}
     \end{definition}
     
-    \noindent Let us describe some the defined terms more informally. An elementary connection corresponds to moving from one stop to the next one, e.g. with a bus (thus we disregard the notion of \textit{lines} in our timetables). Note that we express time as an integer - throughout this paper, this integer will represent the minutes elapsed from the time 00:00 of the first day. Thus we may take the liberty of talking about time in integer or \textit{days hh:mm} format, as convenient at the moment. Lastly, an event simply represent an arrival or departure of a e.g. train at some station. The remaining terms should be clear enough.
+    \noindent Let us describe some the defined terms more informally. An elementary connection corresponds to moving from one stop to the next one, e.g. with a bus (thus we disregard the notion of \textit{lines}, i.e. getting on and off). Note that we express time as an integer - throughout this paper, this integer will represent the minutes elapsed from the time 00:00 of the first day. Thus we may take the liberty of talking about time in integer or \textit{days hh:mm} format, as convenient at the moment. Lastly, an event simply represent an arrival or departure of a e.g. train at some station. The remaining terms should be clear enough.
     
     \begin{table}[h!]
     	\centering
@@ -41,7 +41,7 @@ In this section, we would provide most of the definitions and terminology used t
 			\textcolor{city-clr}{B} & \textcolor{city-clr}{A} & 11:20 & 12:30 \\
 			\textcolor{city-clr}{C} & \textcolor{city-clr}{A} & 11:45 & 12:15 \\
 		\end{tabular}
-		\caption{\label{table:tt} An example of a timetable - the set of elementary connections (between pairs of \textcolor{city-clr}{cities}). An example of an event is a pair (A, 10:00).}
+		\caption{\label{table:tt} An example of a timetable - the set of elementary connections (between pairs of \textcolor{city-clr}{cities}). An example of an event is a pair (A, 10:00), when some el. connection departs from $A$.}
 	\end{table}
 	
 	\noindent Following is a definition of a connection.
@@ -71,26 +71,26 @@ In this section, we would provide most of the definitions and terminology used t
 	
 	\begin{definition}
         \textbf{Underlying graph (UG graph)} \\
-        The underlying graph of a timetable $T$, denoted $\bm{ug_{T}}$, is an oriented graph $G = (V, E)$, where $V$ is the set of all timetable cities and $E = \{(x, y)|\; \exists (x, y, p, q) \in T\}$
+        The underlying graph of a timetable $T$, denoted $\bm{ug_{T}}$, is an oriented graph $(V, E)$, where $V$ is the set of all timetable cities and $E = \{(x, y)|\; \exists (x, y, p, q) \in T\}$
         \begin{itemize}
-        	\item By $m_{T}$ we will denote the number of arcs in the UG
+        	\item By $\bm{m_{T}}$ we will denote the number of arcs in the UG
         \end{itemize}
     \end{definition}
     
-    \noindent Note, that we do not specify the weights of the edges in the underlying graph - they will be specified based on the current usage of the UG. Most of the time, however, if we work with a weighted UG, the weight of an arc will be the length of the shortest elementary connection on that arc. More specifically, $w(x, y) = \min_{(x, y, p, q) \in T} (q - p) \; \forall (x, y) \in E(ug_{T})$. Such weighted UG will be called \textbf{optimistic} (denoted $ug_{T}^{opt}$).
+    \noindent Note, that we do not specify the weights of the edges in the underlying graph - they will be specified based on the current usage of the UG. Most of the time, however, if we work with a weighted UG, the weight of an arc will be the length of the shortest elementary connection on that arc. More specifically, $w(x, y) = \min_{(x, y, p, q) \in T} (q - p) \; \forall (x, y) \in E(ug_{T})$. Such weighted UG will be called \textbf{optimistic} (denoted $\bm{ug_{T}^{opt}}$).
     
     \begin{figure}[h!]
         \begin{center}
 			\inputTikZ{./tikzpics/ug}
         \end{center}
-		\caption{\label{fig:ug} An optimistic underlying graph of the timetable in picture~\ref{table:tt}. The nodes are the \textcolor{city-clr}{cities}.}
+		\caption{\label{fig:ug} An optimistic underlying graph of the timetable in picture~\ref{table:tt}. The nodes are the \textcolor{city-clr}{cities} of the timetable.}
 	\end{figure}
 	
-	\noindent If we want to represent the timetable itself by a graph, there are two most common options~\cite{timetablemodelsalgs07}.
+	\noindent If we want to represent the timetable by a graph, there are two most common options~\cite{timetablemodelsalgs07} - the time-expanded and time-dependent graph.
 	
 	\begin{definition}
 		\textbf{Time-expanded graph (TE graph)} \\
-        Let $T$ be a timetable. Time-expanded graph from $T$, denoted $\bm{te_{T}}$, is an oriented graph $G = (V, E)$ whose vertices correspond to events of $T$, that is $V = \{[x, t]| (x, t) \in ev_{T}\}$. The edges of $G$ are of two types
+        Let $T$ be a timetable. Time-expanded graph from $T$, denoted $\bm{te_{T}}$, is an oriented graph $(V, E)$ whose vertices correspond to events of $T$, that is $V = \{[x, t]| \; (x, t) \in ev_{T}\}$. The edges of $G$ are of two types
         \begin{enumerate}
             \item $([x, p], [y, q]) \; \forall (x, y, p, q) \in T$ - the so called \textbf{connection edges}
             \item $([x, p], [x, q]) \; [x, p], [x, q] \in V, \; p < q$ and $\not \exists [x, r] \in V\colon p < r < q$. - the so called \textbf{waiting edges}
@@ -109,7 +109,7 @@ In this section, we would provide most of the definitions and terminology used t
         
     \begin{definition}
 		\textbf{Time-dependent graph (TD graph)}\\
-        Let $T$ be a timetable. Time-dependent graph from $T$, denoted $\bm{td_{T}}$, is an oriented graph $G = (V, E)$ whose vertices are the timetable cities and $E = \{(x, y)| \; \exists (x, y, p, q) \in T\}$. Furthermore, the weight of an edge $(x, y) \in E$ is a piece-wise linear function $w(x, y) = f_{x, y}(t) = q - t$ where $q$ is:
+        Let $T$ be a timetable. Time-dependent graph from $T$, denoted $\bm{td_{T}}$, is an oriented graph $(V, E)$ whose vertices are the timetable cities and $E = \{(x, y)| \; \exists (x, y, p, q) \in T\}$. Furthermore, the weight of an edge $(x, y) \in E$ is a piece-wise linear function $w(x, y) = f_{x, y}(t) = q - t$ where $q$ is:
         \begin{itemize}
         	\item $\min \{arr(e) | e \in T, \; dep(e) \geq t\}$
         	\item $\infty$, if $dep(e) < t \; \forall e \in T$
@@ -176,7 +176,7 @@ In this section, we would provide most of the definitions and terminology used t
 	\noindent The instance/query in case of the optimal connection problem has the same form as EAP query. Also, note that the OCP is at least as hard to solve as EAP since having the optimal connection implies the optimal (earliest) arrival time.. In order to avoid technical issues in later parts of the thesis, we will assume the optimal connection is unique (i.e., there is not a different connection with the same end time) or that ties are won by a lexicographically first connection. 
 	
 	\begin{example}
-		Consider our timetable from table~\ref{table:tt}. For the EAP instance $(B, $10:45$, A)$, the earliest arrival (EA) is 12:15 and the optimal connection (OC) is $((B, C, $11:00$, $11:30$), (C, A, $11:45$, $12:15$))$, as could be easily seen from picture~\ref{pic:ea} of the TE graph.
+		Consider our timetable from table~\ref{table:tt}. For the EAP instance (B, 10:45, A), the earliest arrival (EA) is 12:15 and the optimal connection (OC) is ((B, C, 11:00, 11:30), (C, A, 11:45, 12:15)), as could be easily seen from picture~\ref{pic:ea} of the TE graph.
 	\end{example}
 
 	\begin{figure}[h!]

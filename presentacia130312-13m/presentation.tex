@@ -28,9 +28,11 @@
 \usepackage{pgfplots}
 \usepackage{xcolor} %for \colorlet
 \usepackage{lipsum}
+\usepackage{bm}
 
 \usepackage{tikz}
 \usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes,fit,calc,shadows,plotmarks}
 
 \colorlet{city-clr}{green!70!black}
 \colorlet{elcon-clr}{red}
@@ -38,6 +40,9 @@
 \colorlet{waiting-clr}{olive}
 \colorlet{cmt-clr}{gray}
 \colorlet{oracle-clr}{orange!30}
+\colorlet{cmt-clr}{gray}
+\colorlet{oracle-clr}{orange!30}
+\colorlet{algsec-clr}{black!50!red}
 
 %---------------------------------------------------------------------
 %   settings
@@ -140,8 +145,8 @@
 	        \begin{itemize}
 	            \item Given a timetable, we query - $(a, t, b)$ - for
 	            \begin{itemize}
-	            	\item \textbf{Earliest arrival} (EA) - $t_{(a, t, b)}^{*}$
-	            	\item \textbf{Optimal connection} (OC) - $c_{(a, t, b)}^{*}$
+	            	\item \textbf{Earliest arrival} (EA) - $\bm{t_{(a, t, b)}^{*}}$
+	            	\item \textbf{Optimal connection} (OC) - $\bm{c_{(a, t, b)}^{*}}$
 	            \end{itemize}
 	        \end{itemize}
 	        \vspace{-0.5cm}
@@ -151,16 +156,10 @@
 					\inputTikZ{./tikzpics/connection}
                 \end{center}
             \end{figure}
-            \vspace{-1cm}	
+            \vspace{-0.5cm}	
             \begin{itemize}
-            	\item<2> \textbf{Motivation}
-            	\begin{itemize}
-            		\item<2> Large-scale timetable search engines (\emph{cp.sk, imhd.sk}...)
-            	\end{itemize}
-				\item<2> \textbf{Approach}
-				\begin{itemize}
-					\item<2> (Distance) oracle-based approach~\cite{apxdo05} - pre-computation
-				\end{itemize}
+            	\item<2> Motivation: large-scale timetable search engines (\emph{cp.sk, imhd.sk}...)
+				\item<2> Approach: (distance) oracle-based approach~\cite{apxdo05} - pre-computation
 			\end{itemize}
 			\vspace{-0.5cm}
 			\uncover<2>{\begin{figure}[h!]
@@ -193,7 +192,7 @@
 						\textcolor{city-clr}{B} & \textcolor{city-clr}{A} & 11:20 & 12:30 \\
 						\textcolor{city-clr}{C} & \textcolor{city-clr}{A} & 11:45 & 12:15 \\
 					\end{tabular}}
-					\caption{\textbf{Timetable} - a set of \textcolor{elcon-clr}{\textbf{elementary connections}} (between pairs of \textbf{\textcolor{city-clr}{cities}})}
+					\caption{\textbf{Timetable} - a set of \textbf{elementary connections} (between pairs of \textbf{\textcolor{city-clr}{cities}})}
 	            	\normalsize
 				\end{table}
             \column{2.3in}
@@ -206,7 +205,7 @@
                 \end{figure}
 			\end{columns}
 			\begin{itemize}
-				\item<2> \textbf{Goals}
+				\item<2> Goals:
 				\begin{itemize}
 	                \item<2> Devise methods to tackle EA/OC problem
 		            \item<2> Analyse properties of timetables
@@ -226,33 +225,6 @@
         \end{center}
     \end{frame}
     \setbeamercolor{frametitle}{fg=black!70}
-    
-	    %---------------------------------------------------------------------
-        %   Data
-        %---------------------------------------------------------------------
-        \subsection{Data}
-        \begin{frame}
-            \frametitle{Data}
-			\begin{table}{
-                \tiny
-                \begin{tabular}{c|c|c|c|c|c|c}
-                %legend
-                    \hline
-                    \rowcolor{tablehead}
-                    \textbf{Name} & \textbf{Description} & \textbf{El. conns.} & \textbf{Cities} & \textbf{UG arcs} & \textbf{Time range} & \textbf{Height ($h$)} \\
-                %data
-					\hline
-					air01 & domestic flights (US) & 601489 & 287 & 4668 & 1 month & 24374 \\
-					cpru & regional bus (SVK) & 37148 & 871 & 2415 & 1 day & 239 \\
-					cpza & regional bus (SVK) & 60769 & 1108 & 2778 & 1 day & 370 \\
-					montr & public transport (Montreal) & 7153 & 217 & 349  & 1 day & 363 \\
-					sncf & country-wide rails (FRA) & 90676 & 2646 & 7994 & 1 day & 488 \\
-					zsr & country-wide rails (SVK) & 932052 & 233 & 588 & 1 year & 60308 \\
-				\end{tabular}}
-				\caption{Timetables datasets}
-            	\normalsize
-			\end{table}
-        \end{frame}
 
 	    %---------------------------------------------------------------------
         %   Idea
@@ -275,7 +247,8 @@
 	            \end{figure}
 	            \vspace{-0.7cm}
 	            \begin{itemize}
-	            	\item $p$ is USP $\iff$ $\exists t: path(c_{(a, t, b)}^{*}) = p$
+	            	\small
+	            	\item $p$ is \textbf{USP} $\iff$ $\exists t: path(c_{(a, t, b)}^{*}) = p$
 	            	\item we have USP $\rightarrow$ reconstruct $c_{(a, t, b)}^{*}$
 	            	\item<2-> \textbf{Overtaking}~\cite{timetablemodelsalgs07} causes problems, but can be easily removed
 	            \end{itemize}
@@ -295,12 +268,14 @@
 	                    \textbf{Name} & \textbf{Overtaken edges (\%)} \\
 	                %data
 						\hline
-						air01 & 1\% \\
-						cpru & 2\% \\
-						cpza & 2\% \\
-						montr & 1\% \\
-						sncf & 2\% \\
-						zsr & 0\% \\
+						\textit{air01} & 1\% \\
+						\textit{cpru} & 2\% \\
+						\textit{cpza} & 2\% \\
+						\textit{montr} & 1\% \\
+						\textit{sncf} & 2\% \\
+						\textit{sncf-ter} & 2\% \\
+						\textit{sncf-inter} & 8\% \\
+						\textit{zsr} & 0\% \\
 					\end{tabular}}
 	            	\normalsize
 				\end{table}}
@@ -310,88 +285,73 @@
         %---------------------------------------------------------------------
         %   USP-OR
         %---------------------------------------------------------------------
+        \subsection{USP-OR}
         \begin{frame}
-            \frametitle{USP-OR}
+            \frametitle{\textit{USP-OR}}
             \begin{columns}[c]
-            \column{2.9in}
+            \column{2.4in}
 				\begin{itemize}
 					\small
-					\item<1-> Pre-compute \textit{all conn.} - space $\mathcal{O}(h \; n^{3})$
+					\item<1-> Pre-compute \textit{all conn.} - space $\mathcal{O}(h \; n^{2} \gamma)$
 					\begin{itemize}
+						\item $\bm{\gamma}$ - the average OC size
 	                	\item daily height usually $200$ < $h$ < $800$
 	                \end{itemize}
-	                \item<2-> Pre-compute \textit{all USPs} - space $\mathcal{O}(\tau \; n^{3})$
+	                \item<2-> Pre-compute \textit{all USPs} - space $\mathcal{O}(\tau \; n^{2} \gamma)$
 	                \begin{itemize}
-	                	\item $\tau_{A, B}$ - \# of USPs between $A$ and $B$
+	                	\item $\bm{\tau(x, y)}$ - \# of USPs between $x$ and $y$
 	                \end{itemize}
-	            \end{itemize}
-	            \uncover<3->{\begin{table}{
+				\end{itemize}
+	        \column{2.6in}
+	        	\uncover<2->{\begin{table}{
 	                \scriptsize
 	                \begin{tabular}{c|c|c|c}
 	                %legend
 	                    \hline
-	                    \rowcolor{oracle-clr}
-	                    \textbf{Prep-time} & \textbf{Size} & \textbf{Q-time} & \textbf{Stretch} \\
-	                %data
-						\hline
-						$\mathcal{O}(hn^{3})$ & $\mathcal{O}(\tau \; n^{3})$ & $\mathcal{O}(\tau \; n)$ & $1$ \\
-					\end{tabular}}
-					\caption{USP-OR parameters}
-	            	\normalsize
-				\end{table}}
-				\vspace{-0.5cm}
-				\begin{itemize}
-					\item<3> $\tau$ almost constant, USP size $\approx \sqrt{n}$
-					\item<3> Space $\mathcal{O}(n^{2.5})$ too big anyway
-				\end{itemize}
-	        \column{2.1in}
-	        	\uncover<2->{\begin{table}{
-	                \scriptsize
-	                \begin{tabular}{c|c|c}
-	                %legend
-	                    \hline
 	                    \rowcolor{tablehead}
-	                    \textbf{Name} & \textbf{avg $\tau_{A, B}$} & \textbf{max $\tau_{A, B}$} \\
+	                    \textbf{Name} & \textbf{avg $\bm{\tau}$} & \textbf{max $\bm{\tau(x, y)}$} & \textbf{$\bm{\gamma}$} \\
 	                %data
 						\hline
-						air01 & 5.8 & 30 \\
-						cpru & 7.0 & 64 \\
-						cpza & 5.1 & 42 \\
-						montr & 4.3 & 30 \\
-						sncf & 4.3 & 24 \\
-						zsr & 2.5 & 19 \\
-					\end{tabular}}
-					\caption{\footnotesize Daily, 200 station timetables}
-	            	\normalsize
-				\end{table}}
-				\vspace{-0.7cm}
-				\uncover<2->{\begin{table}{
-	                \scriptsize
-	                \begin{tabular}{c|c}
-	                %legend
-	                    \hline
-	                    \rowcolor{tablehead}
-	                    \textbf{Name} & \textbf{avg USP size} \\
-	                %data
-						\hline
-						air01 & 3.0 \\
-						cpru & 13.8 \\
-						cpza & 11.1 \\
-						montr & 20.3 \\
-						sncf & 10.5 \\
-						zsr & 13.7 \\
+						\textit{air01} & 5.8 & 30 & 3.0 \\
+						\textit{cpru} & 7.0 & 64 & 13.8 \\
+						\textit{cpza} & 5.1 & 42 & 11.1 \\
+						\textit{montr} & 4.3 & 30 & 20.3 \\
+						\textit{sncf} & 4.3 & 24 & 10.5 \\
+						\textit{sncf-inter} & 0.6 & 19 & 7.9 \\
+						\textit{sncf-ter} & 6.1 & 33 & 10.8 \\
+						\textit{zsr} & 2.5 & 19 & 13.7 \\
 					\end{tabular}}
 					\caption{\footnotesize Daily, 200 station timetables}
 	            	\normalsize
 				\end{table}}
 	        \end{columns}
+	        \vspace{-0.5cm}
+	        \makebox[\linewidth]{\parbox{12cm}{
+	        \uncover<2->{\begin{table}[h!]
+	        	\scriptsize
+				\centering
+				\begin{tabular}{l|c|c|c|c}
+				%legend
+					\cellcolor{oracle-clr} \textit{\textbf{USP-OR}} & \cellcolor{oracle-clr} $\bm{prep}$ & \cellcolor{oracle-clr} $\bm{size}$ & \cellcolor{oracle-clr} $\bm{qtime}$ & \cellcolor{oracle-clr} $\bm{stretch}$ \\
+				%data
+					\hline
+					\cellcolor{oracle-clr} \textbf{guaranteed} & $\mathcal{O}(hn^{2} (\log n + \delta))$ & $\mathcal{O}(\tau n^{2} \gamma)$ & avg. $\mathcal{O}(\tau \gamma)$ & $1$ \\
+					\cellcolor{oracle-clr} \textbf{$\bm{\tau}$ const., $\bm{\gamma \leq \sqrt{n}}$, $\bm{\delta \leq \log n}$} & $\mathcal{O}(hn^{2} \log n)$ & $\mathcal{O}(n^{2.5})$ & avg. $\mathcal{O}(\sqrt{n})$ & $1$ \\
+				\end{tabular}
+				\caption{$\delta$ - the UG density $\frac{m}{n}$}
+			\end{table}}
+			}}
+			\vspace{-0.7cm}
+			\begin{itemize}
+				\item<3-> Space $\mathcal{O}(n^{2.5})$ too big anyway
+			\end{itemize}
         \end{frame}
         
         %---------------------------------------------------------------------
         %   USP-OR - grafy
         %---------------------------------------------------------------------
         \begin{frame}
-            \frametitle{USP-OR - $\tau$ evolution}
+            \frametitle{\textit{USP-OR} - $\tau$ evolution}
             \begin{columns}[c]
             \column{2.4in}
 				\begin{figure}[h]
@@ -415,17 +375,17 @@
         %---------------------------------------------------------------------
         %   USP-OR-A
         %---------------------------------------------------------------------
+        \subsection{USP-OR-A}
         \begin{frame}
-            \frametitle{USP-OR-A}
+            \frametitle{\textit{USP-OR-A}}
 		    \footnotesize
 			\begin{itemize}
-				\item Pre-compute USPs only among \textit{some} cities in UG: set of \textbf{access nodes} $\mathcal{A}$
-				\item We would like ($r1$ and $r2$ small constants w.r.t. $n$):
+				\item Pre-compute USPs only among \textit{some} cities in UG: $\bm{(r_{1}, r_{2}, r_{3})}$ \textbf{access node set}
 				\begin{itemize}
 					\footnotesize
-					\item Size $|\mathcal{A}| = \mathcal{O}(\sqrt{n})$
-					\item Small node neighbourhoods: $\forall v \; |neigh_{\mathcal{A}}(v)| < r_1 \cdot \sqrt{n}$
-					\item Few local access nodes: $\forall v \; |lan_{\mathcal{A}}(v)| \leq r_2$
+					\item Small size: $|\mathcal{A}| \leq r_{1} \cdot \sqrt{n}$
+					\item Small node neighbourhoods: $(avg \; |neigh(x)|)^{2} \leq r_{2} \cdot n$
+					\item Few local access nodes: $|lan_{\mathcal{A}}(x)| \leq r_{3}$
 				\end{itemize}
 	        \end{itemize}
 	        \vspace{-0.2cm}
@@ -434,55 +394,163 @@
                 \begin{center}
 					\inputTikZ{./tikzpics/uspora}
                 \end{center}
-			\caption{\footnotesize \textbf{1.)} Local search of $neigh_{\mathcal{A}}(A)$, \textbf{2.)} All-pairs USPs, \textbf{3.)} Local search \textit{against} $b$-$neigh_{\mathcal{A}}(B)$}
-            \end{figure}}}
+            \end{figure}
+            }}
+        \end{frame} 
+        
+		%---------------------------------------------------------------------
+        %   USP-OR-A and ANs
+        %---------------------------------------------------------------------        
+        \begin{frame}
+            \frametitle{\textit{USP-OR-A} and access nodes}
+		    \makebox[\linewidth]{\parbox{12cm}{\begin{table}[h!]
+				\centering
+				\tiny
+				\begin{tabular}{l|c|c}
+				%legend
+					\cellcolor{oracle-clr} \textit{\textbf{USP-OR-A}} & 
+					\cellcolor{oracle-clr} \textbf{guaranteed} & 
+					\cellcolor{oracle-clr} \textbf{$\bm{\tau, r_{1}, r_{2}, r_{3}}$ const., $\bm{\gamma \leq \sqrt{n}}$, $\bm{\delta \leq \log n}$} \\
+				%data
+					\hline
+					\cellcolor{oracle-clr} $\bm{prep}$ & $\mathcal{O}(f(n) + (r_{1} + r_{2}) (\delta + \log n) h n^{1.5})$ & $\mathcal{O}(f(n) + h n^{1.5} \log n)$ \\
+					\cellcolor{oracle-clr} $\bm{size}$ & $\mathcal{O}(r_{2} n^{1.5} + r_{1}^{2} \tau_{\mathcal{A}} \gamma_{\mathcal{A}} n)$ & $\mathcal{O}(n^{1.5})$ \\
+					\cellcolor{oracle-clr} $\bm{qtime}$ & avg. $\mathcal{O}(r_{2} r_{3} \sqrt{n} (\log (r_{2}n) + \delta) + r_{3}^{2} \tau_{\mathcal{A}} \gamma_{\mathcal{A}})$ & avg. $\mathcal{O}(\sqrt{n} \log n)$ \\
+					\cellcolor{oracle-clr} $\bm{stretch}$ & $1$ & $1$ \\
+				\end{tabular}
+			\end{table}
+			}}
+			\vspace{-0.5cm}
+			\begin{itemize}
+				\small
+				\item Much depends on choosing good AN set
+				\item<2-> Minimize $|\mathcal{A}|$ s.t. $\forall x: |neigh_{\mathcal{A}}(x)| \leq \sqrt{n}$ $\rightarrow$ NP-complete
+				\item<2-> Choose ANs based on degree/betweenness centrality
+			\end{itemize}
+			\vspace{-0.2cm}
+			\uncover<2->{\begin{columns}[c]
+            \column{2.4in}
+				\begin{figure}[h]
+					\scriptsize
+	                \begin{center}
+	                    \inputTikZ{./tikzpics/plot_hbcdeg_cpru_size}
+	                \end{center}
+	                \vspace{-0.3cm}
+	                \caption{\footnotesize Dataset \textit{cpru} ($\sqrt{n} \approx 30$)}
+	            \end{figure}
+	        \column{2.4in}
+	        	\begin{figure}[h]
+					\scriptsize
+	                \begin{center}
+	                    \inputTikZ{./tikzpics/plot_hbcdeg_sncf_size}
+	                \end{center}
+	                \vspace{-0.3cm}
+	                \caption{\footnotesize Dataset \textit{sncf} ($\sqrt{n} \approx 51$)}
+	            \end{figure}
+	        \end{columns}
+	        }
         \end{frame} 
         
         %---------------------------------------------------------------------
-        %   Searching for ANs
+        %   Locsep
         %---------------------------------------------------------------------
         \begin{frame}
-            \frametitle{Searching for optimal AN set}
+            \frametitle{\textit{Locsep}}
+            \begin{itemize}
+            	\item Select AN that locally separates many vertices
+            \end{itemize}
             \begin{columns}[c]
             \column{2.5in}
-				\begin{itemize}
-					\item NP-complete
-					\begin{itemize}
-						\item Reduction to min-set-cover
-					\end{itemize}
-				\end{itemize}
-			\column{2.5in}
-				\begin{figure}[h!]
-	                \includegraphics[height=0.6in]{ttblazer.png}
-	                \caption{text}
+	            \begin{figure}[h]
+					\scriptsize
+	                \begin{center}
+						\inputTikZ{./tikzpics/locsep}
+	                \end{center}
 	            \end{figure}
-			\end{columns}
-			\begin{itemize}
-				\item<2> Heuristics: node $v$ with low $|neigh_{\mathcal{A}}(v) \cap b$-$neigh_{\mathcal{A}}(v)|$ but high $\min\{|neigh_{\mathcal{A}}(v)|, |b$-$neigh_{\mathcal{A}}(v)|\}$ is good ANs
-			\end{itemize}
+	        \column{2.5in}
+	        	\begin{figure}[h]
+					\scriptsize
+	                \begin{center}
+	                    \inputTikZ{./tikzpics/plot_locsep_sncf_size}
+	                \end{center}
+	                \vspace{-0.3cm}
+	                \caption{\footnotesize Dataset \textit{sncf}. Found AN set with size $|\mathcal{A}| = r_{1} \sqrt{n} \approx r_{1} 51$.}
+	            \end{figure}
+	        \end{columns}
+
         \end{frame}
+        
+		%---------------------------------------------------------------------
+        %   Results and comparison
+        %---------------------------------------------------------------------
+        \subsection{Results and comparison}
+        \begin{frame}
+            \frametitle{Results}
+			\begin{columns}[c]
+            \column{2.4in}
+				\begin{figure}[h]
+					\scriptsize
+	                \begin{center}
+	                    \inputTikZ{./tikzpics/plot_uspora_sncf_size}
+	                \end{center}
+	                \caption{\footnotesize \textit{USP-OR-A} + \textit{Locsep} vs. \textit{USP-OR} vs. \textit{TD Dijkstra} on \textit{sncf} dataset. Changing $n$.}
+	            \end{figure}
+	        \column{2.4in}
+	        	\begin{figure}[h]
+					\scriptsize
+	                \begin{center}
+	                    \inputTikZ{./tikzpics/plot_uspora_zsr_trange}
+	                \end{center}
+	                \caption{\footnotesize \textit{USP-OR-A} + \textit{Locsep} vs. \textit{USP-OR} vs. \textit{TD Dijkstra} on \textit{zsr} dataset. Changing time range.}
+	            \end{figure}
+	        \end{columns}
+        \end{frame}      
         
         %---------------------------------------------------------------------
         %   Existing methods
         %---------------------------------------------------------------------
         \begin{frame}
             \frametitle{Existing methods}
+            \begin{columns}
+			\column{2.4in}
+				\begin{itemize}
+					\item \textbf{Time-dependent SHARC} \cite{sharc08}, \textbf{Time-dependent CH} \cite{timedepch09}
+					\begin{itemize}
+						\item Speed-ups of about 26 / 1500, respectively (EA only)
+						\item Meant for time-dependent routing in road networks
+					\end{itemize}
+					\item \textbf{Time-expanded approach} \cite{engtimeexp09}
+					\begin{itemize}
+						\item Speed-ups of about 56
+						\item Remodelling unimportant stations
+					\end{itemize}
+				\end{itemize}	
+	        \column{2.4in}
+	        	\begin{table}{
+					\scriptsize
+		        	\centering
+					\begin{tabular}{c|c|c}
+					%legend
+			            \rowcolor{tablehead}
+			            \textbf{Name} & \textit{USP-OR} & \textit{USP-OR-A} \\
+					%data
+						\hline
+						\textit{cpru} & 14.5 & 1.7 \\
+						\textit{cpza} & 14.3 & 1.7 \\
+						\textit{montr} & 8.8 & 1.5 \\
+						\textit{sncf} & 64.8 & 5.4 \\
+						\textit{sncf-inter} & 27.0 & 3.6 \\
+						\textit{sncf-ter} & 78.3 & 6.3 \\
+						\textit{zsr} (daily) & 19.3 & 2.14 \\
+					\end{tabular}}
+					\caption{\scriptsize Speed-up of \textit{USP-OR} and \textit{USP-OR-A} with \textit{Locsep}}
+				\end{table}
+	        \end{columns}
+	        \makebox[\linewidth]{\parbox{12.5cm}{
 			\begin{itemize}
-				\item \textbf{Time-dependent SHARC} \cite{sharc08}, \textbf{Time-dependent CH} \cite{timedepch09}
-				\begin{itemize}
-					\item Speed-ups of about 26 / 1500, respectively (EA only)
-					\item Meant for time-dependent routing in road networks
-				\end{itemize}
-				\item \textbf{Time-expanded approach} \cite{engtimeexp09}
-				\begin{itemize}
-					\item Speed-ups of about 56
-					\item Remodelling unimportant stations
-				\end{itemize}
-				\item \textbf{Theory vs. practice} difference
-				\begin{itemize}
-					\item Inclusion of transfers, cost...
-				\end{itemize}
-			\end{itemize}
+				\item Theory vs. practice difference: transfers, cost of travel...
+			\end{itemize}				       
+			}} 
         \end{frame}            
       
         %---------------------------------------------------------------------
@@ -492,68 +560,44 @@
         \begin{frame}
             \frametitle{Neural network approaches}
 			\begin{itemize}
+				\small
 				\item Multi-layer perceptron, back propagation
-				\item Input layer = \textcolor{event-clr}{events} + \textcolor{city-clr}{cities}. Output layer:
-				\begin{enumerate}
-					\item Arcs of UG $\rightarrow$ USP
-					\item Arcs of UG $\rightarrow$ routing
-					\item Earliest arrival value
-				\end{enumerate}
+				\item Input layer = \textcolor{event-clr}{events} + \textcolor{city-clr}{cities}. 
+				\item Output layer = arcs of UG $\rightarrow$ USP
 			\end{itemize}
 			\begin{figure}[h]
 				\scriptsize
                 \begin{center}
                     \inputTikZ{./tikzpics/neural}
                 \end{center}
-				\caption{Approach 1.)}
             \end{figure}
+            \vspace{-0.5cm}
+			\begin{columns}
+			\column{2.4in}
+				\begin{itemize}
+					\item Tendency to remember USPs
+					\item Long training times
+				\end{itemize}  
+	        \column{2.4in}
+		        \begin{table}{
+	                \tiny
+	                \begin{tabular}{c|c|c|c}
+	                %legend
+	                    \hline
+	                    \rowcolor{tablehead}
+	                    \textbf{Name} & \textbf{Conn.} & \textbf{Found} & \textbf{Was optimum (\%)} \\
+	                %data
+						\hline
+						air01 & 931 & 573 & 18.7\% \\
+						cpru & 481 & 281 & 48\% \\
+						montr & 527 & 346 & 86.7\% \\
+						zsr & 672 & 307 & 76.2\% \\
+					\end{tabular}}
+					\caption{Timetables with 30 cities}
+	            	\normalsize
+				\end{table}
+			\end{columns}
         \end{frame}  
-        
-        %---------------------------------------------------------------------
-        %   Results
-        %---------------------------------------------------------------------
-        \begin{frame}
-            \frametitle{Results}
-			\begin{itemize}
-				\item Tendency to remember USPs
-				\item Long training times
-			\end{itemize}            
-			\begin{table}{
-                \scriptsize
-                \begin{tabular}{c|c|c|c}
-                %legend
-                    \hline
-                    \rowcolor{tablehead}
-                    \textbf{Name} & \textbf{Conn.} & \textbf{Found} & \textbf{Was optimum (\%)} \\
-                %data
-					\hline
-					air01 & 931 & 573 & 18.7\% \\
-					cpru & 481 & 281 & 48\% \\
-					montr & 527 & 346 & 86.7\% \\
-					zsr & 672 & 307 & 76.2\% \\
-				\end{tabular}}
-				\caption{Tests of a trained NN on timetables with 30 cities (approach 1.)}
-            	\normalsize
-			\end{table}
-        \end{frame}
-       
-        %---------------------------------------------------------------------
-        %   TTBlazer
-        %---------------------------------------------------------------------
-        \subsection{TTBlazer application}
-        \begin{frame}
-            \frametitle{Timetable analyzer - TTBlazer}
-			\begin{itemize}
-				\item Works with UG, TE, TD, TT
-				\item Analysis ($\tau$, HD, degrees...), oracles (USP-OR, Dijkstra...), modifications (remove overtaking...), generation (subgraphs, TT $\rightarrow$ TD ...)
-				\item Running \& evaluating tests
-				\item Easily extendible
-			\end{itemize}
-			\begin{figure}[h!]
-                \includegraphics[height=0.6in]{ttblazer.png}
-                \caption{It's \textit{blazing} fast!}
-            \end{figure}
-        \end{frame}	
     
     %---------------------------------------------------------------------
 	%   Conclusion
@@ -574,17 +618,28 @@
         \begin{frame}
             \frametitle{Conclusion}
 			\begin{itemize}
-				\item Trying out novel approaches to solving EAP in timetables
+				\item Trying out \textbf{novel approaches} to find optimal connections in timetables
 				\begin{itemize}
-					\item \textit{USP-OR}: Exact and quick answers but high space and time preprocessing
+					\item \textit{USP-OR}: Exact and very quick answers (speed-up $\approx$ 60) but high space
+					\item \textit{USP-OR-A}: Exact and quick answers (speed-up $\approx$ 6) less space-consuming
 					\item \textit{NN}: Problem too challenging for NN/try different types of network
 				\end{itemize}
-				\item Analysis of \textbf{various} real-world timetables
-				\begin{itemize}
-					\item Better insight on properties of timetables
-				\end{itemize}
-				\item Useful and easily extendible application
 			\end{itemize}
+			\begin{columns}
+			\column{2.6in}
+				\begin{itemize}
+					\item \textbf{Application} created to carry out \textbf{analysis} of real-world timetables:
+					\begin{itemize}
+						\item Degrees, connectivity, BC, high. dimension, overtaking, USPs...
+						\item Running \& evaluating tests of oracles
+					\end{itemize}
+				\end{itemize}  
+	        \column{2.2in}
+		        \begin{figure}[h!]
+	                \includegraphics[height=0.6in]{ttblazer.png}
+	                \caption{It's \textit{blazing} fast!}
+	            \end{figure}
+			\end{columns}
         \end{frame}
         
 %---------------------------------------------------------------------

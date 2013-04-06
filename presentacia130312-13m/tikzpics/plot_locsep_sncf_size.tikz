@@ -1,0 +1,40 @@
+\tikzstyle{textstyle}=[font=\fontsize{9}{9}\selectfont]
+\begin{tikzpicture}[textstyle, scale=0.6]
+    \begin{axis}[
+        xlabel={$n$},
+        ylabel={$r_{1}$},
+		legend pos=north west
+        ]
+        
+    \addplot[smooth,mark=*,color=blue] plot coordinates {
+		(250,0.89)
+		(500,1.12)
+		(750,1.39)
+		(1000,1.61)
+		(1250,1.50)
+		(1500,1.55)
+		(1750,1.67)
+		(2000,1.54)
+		(2250,1.77)
+		(2500,1.72)
+		(2646,1.94)
+    };
+    \addlegendentry{\textit{Locsep}}
+    
+    \addplot[smooth,mark=x,color=black!50!red] plot coordinates {
+		(250,1.07)
+		(500,1.02)
+		(750,1.24)
+		(1000,1.23)
+		(1250,1.58)
+		(1500,1.47)
+		(1750,1.96)
+		(2000,1.66)
+		(2250,1.92)
+		(2500,1.94)
+		(2646,2.18)
+    };
+    \addlegendentry{\textit{Locsep Max}}
+    
+    \end{axis}
+\end{tikzpicture}

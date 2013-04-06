@@ -1,0 +1,36 @@
+\tikzstyle{textstyle}=[font=\fontsize{9}{9}\selectfont]
+\begin{tikzpicture}[textstyle, scale=0.8]
+    \begin{axis}[
+        xlabel={$n$},
+        ylabel={$25000$ queries (sec)},
+		legend pos=north west
+        ]
+        
+    \addplot[smooth,mark=*,color=blue] plot coordinates {
+		(100,13.1)
+		(200,27.3)
+		(300,40.4)
+		(400,54.5)
+		(500,68.7)
+		(600,80.8)
+		(700,96.0)
+		(800,108.1)
+		(871,115.1)
+    };
+    \addlegendentry{\textit{TD Dijkstra}}
+    
+    \addplot[smooth,mark=x,color=black!50!red] plot coordinates {
+		(100,14.1)
+		(200,22.2)
+		(300,37.4)
+		(400,41.4)
+		(500,42.4)
+		(600,47.5)
+		(700,46.5)
+		(800,56.6)
+		(871,57.6)
+    };
+    \addlegendentry{\textit{USP-OR-A}}
+    
+    \end{axis}
+\end{tikzpicture}

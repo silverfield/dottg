@@ -94,14 +94,14 @@ Thus the main idea which will repeat often throughout this section: \textit{when
         	\textbf{Name} & \textbf{Overtaken edges (\%)} \\
         %data
 			\hline
-			air01 & 1\% \\
-			cpru & 2\% \\
-			cpza & 2\% \\
-			montr & 1\% \\
-			sncf & 2\% \\
-			sncf-ter & 2\% \\
-			sncf-inter & 8\% \\
-			zsr & 0\% \\
+			\textit{air01} & 1\% \\
+			\textit{cpru} & 2\% \\
+			\textit{cpza} & 2\% \\
+			\textit{montr} & 1\% \\
+			\textit{sncf} & 2\% \\
+			\textit{sncf-ter} & 2\% \\
+			\textit{sncf-inter} & 8\% \\
+			\textit{zsr} & 0\% \\
 		\end{tabular}
 		\caption{\label{tab:overtake} Presence of overtaking in the timetables.}
 	\end{table}
@@ -172,14 +172,14 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 				\textbf{Name} & \textbf{$\tau$} & \textbf{max $\tau(x, y)$} \\
 			%data
 				\hline
-				air01-200d & 5.8 & 30 \\
-				cpru-200d & 7.0 & 64 \\
-				cpza-200d & 5.1 & 42 \\
-				montr-200d & 4.3 & 30 \\
-				sncf-200d & 4.3 & 24 \\
-				sncf-inter-200d & 0.6 & 19 \\
-				sncf-ter-200d & 6.1 & 33 \\
-				zsr-200d & 2.5 & 19 \\
+				\textit{air01-200d} & 5.8 & 30 \\
+				\textit{cpru-200d} & 7.0 & 64 \\
+				\textit{cpza-200d} & 5.1 & 42 \\
+				\textit{montr-200d} & 4.3 & 30 \\
+				\textit{sncf-200d} & 4.3 & 24 \\
+				\textit{sncf-inter-200d} & 0.6 & 19 \\
+				\textit{sncf-ter-200d} & 6.1 & 33 \\
+				\textit{zsr-200d} & 2.5 & 19 \\
 			\end{tabular}
 			\captionof{table}{Average and maximal USP coefficients.}
 			\label{tab:usp200}
@@ -193,14 +193,14 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 	            \textbf{Name} & \textbf{avg USP size} \\
 			%data
 				\hline
-				air01-200d & 3.0 \\
-				cpru-200d & 13.8 \\
-				cpza-200d & 11.1 \\
-				montr-200d & 20.3 \\
-				sncf-200d & 10.5 \\
-				sncf-inter-200d & 7.9 \\
-				sncf-ter-200d & 10.8 \\
-				zsr-200d & 13.7 \\
+				\textit{air01-200d} & 3.0 \\
+				\textit{cpru-200d} & 13.8 \\
+				\textit{cpza-200d} & 11.1 \\
+				\textit{montr-200d} & 20.3 \\
+				\textit{sncf-200d} & 10.5 \\
+				\textit{sncf-inter-200d} & 7.9 \\
+				\textit{sncf-ter-200d} & 10.8 \\
+				\textit{zsr-200d} & 13.7 \\
 			\end{tabular}
 			\captionof{table}{Average USP sizes vary around $\sqrt{n} \approx 14$. Note extremely low value for airline timetable - this is due to the fact that UGs of airline timetables have small-world characteristics~\cite{sommerthesis10}.}
 			\label{tab:uspsize}
@@ -238,7 +238,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 				\cellcolor{oracle-clr} \textit{\textbf{USP-OR}} & \cellcolor{oracle-clr} $\bm{prep}$ & \cellcolor{oracle-clr} $\bm{size}$ & \cellcolor{oracle-clr} $\bm{qtime}$ & \cellcolor{oracle-clr} $\bm{stretch}$ \\
 			%data
 				\hline
-				\cellcolor{oracle-clr} \textbf{guaranteed} & $\mathcal{O}(hn^{2} (\log n + \delta_{T}))$ & $\mathcal{O}(\tau n^{2} \gamma)$ & avg. $\mathcal{O}(\tau \gamma)$ & $1$ \\
+				\cellcolor{oracle-clr} \textbf{guaranteed} & $\mathcal{O}(hn^{2} (\log n + \delta))$ & $\mathcal{O}(\tau n^{2} \gamma)$ & avg. $\mathcal{O}(\tau \gamma)$ & $1$ \\
 				\cellcolor{oracle-clr} \textbf{$\bm{\tau}$ const., $\bm{\gamma \leq \sqrt{n}}$, $\bm{\delta \leq \log n}$} & $\mathcal{O}(hn^{2} \log n)$ & $\mathcal{O}(n^{2.5})$ & avg. $\mathcal{O}(\sqrt{n})$ & $1$ \\
 			\end{tabular}
 			\caption{\label{tab:uspor} The summary of the \textit{USP-OR} algorithm parameters. The second row corresponds e.g. to the \textit{sncf} dataset.}
@@ -298,9 +298,10 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 	    	\centering
 		    \inputTikZ{./tikzpics/plot_uspor_sncfter_size}
 		    \captionof{figure}{\textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{sncf-ter} dataset.}
-		    \label{plot:uspor-sncfter-size}   
+		    {plot:uspor-sncfter-size}   
 	    \end{minipage}
 	    }
+	    \caption{For }
 		\end{figure}
 		
 		\begin{figure}[h!]
@@ -309,7 +310,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 	    \begin{minipage}{0.45\textwidth}  
 		    \centering
 		    \inputTikZ{./tikzpics/plot_uspor_zsr_trange}
-		    \captionof{figure}{\textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{zsr} dataset. Here we measured how increased time range influence the query time of \textit{USP-OR}.}
+		    \captionof{figure}{\textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{zsr} dataset. Here we measured how increased time range influence the query time of \textit{USP-OR}. You may see that for both algorithms the query time almost stops increasing at some point - this is because (informally) adding time range no longer brings along new optimal connections (or underlying shortest paths in case of \textit{USP-OR}).}
 		    \label{plot:uspor-zsr-trange}  
 	    \end{minipage}
 		\hspace{1cm}
@@ -321,13 +322,13 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 	            \textbf{Name} & $\bm{n}$ & $\bm{spd}$ \\
 			%data
 				\hline
-				\textit{cpru}* & 700 & \\
-				\textit{cpza}* & 700 & \\
-				\textit{montr} & 217 & \\
-				\textit{sncf}* & 1000 & \\
-				\textit{sncf-inter} & 366 & \\
-				\textit{sncf-ter}* & 1000 & \\
-				\textit{zsr} & 233 & \\
+				\textit{cpru}* & 700 & 14.5 \\
+				\textit{cpza}* & 700 & 14.3\\
+				\textit{montr} & 217 & 8.8 \\
+				\textit{sncf}* & 1000 & 64.8 \\
+				\textit{sncf-inter} & 366 & 27.0 \\
+				\textit{sncf-ter}* & 1000 & 78.3 \\
+				\textit{zsr} & 233 & 19.3 \\
 			\end{tabular}
 			\captionof{table}{Speed-up of the \textit{USP-OR} algorithm for the whole timetables (for those marked with asterisk we took only a subset of $n$ stations, as we were limited by the space).}
 			\label{tab:uspor-speedup}
@@ -671,100 +672,222 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 		    \inputTikZ{./tikzpics/plot_hbcdeg_cpru_size}
 	    \end{minipage}
 	    }
-	    \caption{\label{plot:hbcdeg-size} Necessary sizes of access node sets based on high-degree/high-BC cities. Datasets \textit{sncf} (left) and \textit{cpru} (right).}
+	    \caption{\label{plot:hbcdeg-size} Necessary sizes of access node sets based on high-degree/high-BC cities. Datasets \textit{sncf} (left) and \textit{cpru} (right). Notice the occasional ``roller coaster'' bumps (especially on the left plot) - an explanation of this phenomena is that in the immediately smaller sub-timetable we have erased just the high-degree node that proved to be a good access node, and which now must be substituted by many other access nodes.}
 		\end{figure}
 		
 	\subsubsection{Choosing ANs heuristically}
 	
-	
+		Clearly, selecting the cities for access nodes solely by high degree or BC value is not the best way. Probably the few nodes with highest degrees and BC will indeed be part of the AN set, as they are intuitively some sort of central hubs without which the network would not work. However, after we select the these most important nodes to the AN set, we need some better measure of node's importance, or suitability to be an access node. In the following we present a simple heuristic approach run on underlying graph $ug_{T}$ of given timetable $T$ that evaluates its vertices based on how good local separators they are.
+		
+		The algorithm will work in iterations, each of them resulting in a selection~\footnote{Actually, in our implementation, we allow an occasional de-selection of an already selected node with the \textit{lowest} score, to avoid having in the resulting set cities that had high score when selected but were not very useful access nodes at the end.} of a city with highest score to the access node set $\mathcal{A}$. Similarly to the previous approach that used degree/BC, we consider two stopping criterion:
+		\begin{enumerate}
+			\item $\mathcal{A}$ is $(r_{1}, r_{2}, r_{3})$ AN set with $r_{2} \leq 1$ (the average square of neighbourhoods is $\leq \sqrt{n}$). Denote $\bm{k_{locsep}^{avg}} = |\mathcal{A}|$ when this stopping criterion is met.
+			\item $\forall x \in ct_{T}$: $|neigh_{\mathcal{A}}(x)| \leq \frac{3\sqrt{n}}{2}$ and $|bneigh_{\mathcal{A}}(x)| \leq \frac{3\sqrt{n}}{2}$ (all neighbourhoods are large at most $\frac{3\sqrt{n}}{2}$). Denote $\bm{k_{locsep}^{max}} = |\mathcal{A}|$ when this stopping criterion is met.
+		\end{enumerate}
+		\hspace{\fill}
+		
+		\noindent The algorithm using the first stopping criterion will be referred to as \textit{Locsep} and the one using the second criterion as \textit{Locsep Max}. The algorithms differ only in the stopping criterion, therefore what follows is common to both of them.
+		
+		In each iteration, we compute for each city $x$ its score, which is done in the following way: we explore an area $\bm{A_{x}}$ of $\sqrt{n}$ nearest cities around $x$. We do this in an underlying graph with no orientation and no weights. Next we get the front and back neighbourhoods of $x$ within $A_{x}$ ($\bm{fn(x)} = neigh(x) \cap A_{x}$, $\bm{bn(x)} = bneigh(x) \cap A_{x}$).
+		
+		For a set of access nodes $\mathcal{A}$, let us call a path $p$ in $ug_{T}$ \textbf{access-free} if it does not contain a node from $\mathcal{A}$. Now as long as $x$ is not in $\mathcal{A}$, there is a guarantee that for every pair $u \in bn(x)$ and $v \in fn(x)$ there is an access-free path from $u$ to $v$ within $A_{x}$. Our interest is how this will change after the selection of $x$. Let us call $\bm{af(x)}$ the number of pairs $u \in bn(x)$ and $v \in fn(x)$ such that there is an access-free path within $A_{x}$ after the selection of $x$ to $\mathcal{A}$. We define the \textbf{potential} of $x$ as:
+		
+		$$\bm{p_{x}} = \frac{af(x)}{|bn(x)||fn(x)|}$$
+		
+		\noindent Our algorithm will compute a lower bound on $p_{x}$.
+		
+		
+		\begin{figure}[h!]
+			\begin{center}
+				\inputTikZ{./tikzpics/locsep}
+			\end{center}
+			\caption{\label{fig:locsep} The principle of computing potentials in Locsep algorithm. We explored an area of $\sqrt{n}$ nearest cities (in terms of hops) around $x$. Little \textcolor{purple}{squares} are nodes from $neigh(x)$ and \textcolor{cyan}{diamonds} are part of $bneigh(x)$. The highlighted area represents the back neighbourhood for node $b_{2}$. From its nodes we run a forward search (the \textbf{thick} arcs). Nodes from the $neigh(x)$ that were not explored in this search can only be reached via $x$ itself.}
+		\end{figure}
 	
 \subsection{Performance of \textit{USP-OR-A} and comparisons}
 
-	\begin{figure}[h!]
-	\centering
-	\makebox[0pt][c]{
-    \begin{minipage}{0.45\textwidth}  
-	    \centering
-	    \inputTikZ{./tikzpics/plot_uspora_cpru_size}
-	    \captionof{figure}{\textit{USP-OR-A} algorithm compared to TD Dijkstra on the \textit{cpru} dataset.}
-	    \label{plot:uspora-cpru-size}  
-    \end{minipage}
-	\hspace{1cm}
-    \begin{minipage}{0.45\textwidth} 
-    	\centering
-	    \inputTikZ{./tikzpics/plot_uspora_cpza_size}
-	    \captionof{figure}{\textit{USP-OR-A} algorithm compared to TD Dijkstra on the \textit{cpza} dataset.}
-	    \label{plot:uspora-cpza-size}   
-    \end{minipage}
-    }
-	\end{figure}
+	\noindent In this subsection we give the results of \textit{USP-OR-A} performance on our datasets.
+
+	\subsubsection{\textit{USP-OR-A} with \textit{Locsep}}
 	
-	\begin{figure}[h!]
-	\centering
-	\makebox[0pt][c]{
-    \begin{minipage}{0.45\textwidth}  
-	    \centering
-	    \inputTikZ{./tikzpics/plot_uspora_montr_size}
-	    \captionof{figure}{\textit{USP-OR-A} algorithm compared to TD Dijkstra on the \textit{montr} dataset.}
-	    \label{plot:uspora-montr-size}  
-    \end{minipage}
-	\hspace{1cm}
-    \begin{minipage}{0.45\textwidth} 
-    	\centering
-	    \inputTikZ{./tikzpics/plot_uspora_sncf_size}
-	    \captionof{figure}{\textit{USP-OR-A} algorithm compared to TD Dijkstra on the \textit{sncf} dataset.}
-	    \label{plot:uspora-sncf-size}   
-    \end{minipage}
-    }
-	\end{figure}
+		\noindent On picture
+
+		\begin{figure}[h!]
+		\centering
+		\makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth}  
+		    \centering
+		    \inputTikZ{./tikzpics/plot_uspora_cpru_size}
+		    \captionof{figure}{\textit{USP-OR-A} algorithm with \textit{Locsep} compared to TD Dijkstra on the \textit{cpru} dataset.}
+		    \label{plot:uspora-cpru-size}  
+	    \end{minipage}
+		\hspace{1cm}
+	    \begin{minipage}{0.45\textwidth} 
+	    	\centering
+		    \inputTikZ{./tikzpics/plot_uspora_cpza_size}
+		    \captionof{figure}{\textit{USP-OR-A} algorithm with \textit{Locsep} compared to TD Dijkstra on the \textit{cpza} dataset.}
+		    \label{plot:uspora-cpza-size}   
+	    \end{minipage}
+	    }
+		\end{figure}
+		
+		\begin{figure}[h!]
+		\centering
+		\makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth}  
+		    \centering
+		    \inputTikZ{./tikzpics/plot_uspora_montr_size}
+		    \captionof{figure}{\textit{USP-OR-A} algorithm with \textit{Locsep} compared to TD Dijkstra on the \textit{montr} dataset.}
+		    \label{plot:uspora-montr-size}  
+	    \end{minipage}
+		\hspace{1cm}
+	    \begin{minipage}{0.45\textwidth} 
+	    	\centering
+		    \inputTikZ{./tikzpics/plot_uspora_sncf_size}
+		    \captionof{figure}{\textit{USP-OR-A} algorithm with \textit{Locsep} compared to TD Dijkstra on the \textit{sncf} dataset.}
+		    \label{plot:uspora-sncf-size}   
+	    \end{minipage}
+	    }
+		\end{figure}
+		
+		\begin{figure}[h!]
+		\centering
+		\makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth}  
+		    \centering
+		    \inputTikZ{./tikzpics/plot_uspora_sncfinter_size}
+		    \captionof{figure}{\textit{USP-OR-A} algorithm with \textit{Locsep} compared to TD Dijkstra on the \textit{sncf-inter} dataset.}
+		    \label{plot:uspora-sncfinter-size}  
+	    \end{minipage}
+		\hspace{1cm}
+	    \begin{minipage}{0.45\textwidth} 
+	    	\centering
+		    \inputTikZ{./tikzpics/plot_uspora_sncfter_size}
+		    \captionof{figure}{\textit{USP-OR-A} algorithm with \textit{Locsep} compared to TD Dijkstra on the \textit{sncf-ter} dataset.}
+		    \label{plot:uspora-sncfter-size}   
+	    \end{minipage}
+	    }
+		\end{figure}
+		
+		\begin{figure}[h!]
+		\centering
+		\makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth}  
+		    \centering
+		    \inputTikZ{./tikzpics/plot_uspora_zsr_trange}
+		    \captionof{figure}{\textit{USP-OR-A} algorithm with \textit{Locsep} compared to TD Dijkstra on the \textit{zsr} dataset. Here we measured how increased time range influence the query time of \textit{USP-OR-A}.}
+		    \label{plot:uspora-zsr-trange}  
+	    \end{minipage}
+		\hspace{1cm}
+	    \begin{minipage}{0.45\textwidth} 
+	    	\centering
+			\begin{tabular}{c|c|c|c}
+			%legend
+	            \rowcolor{tablehead}
+	            \textbf{Name} & $\bm{n}$ & $\bm{spd}$ & $\bm{r_{1}}$ \\
+			%data
+				\hline
+				\textit{cpru} & 871 & 1.7 & 1.5 \\
+				\textit{cpza} & 1108 & 1.7 & 1.7 \\
+				\textit{montr} & 217 & 1.5 & 1.3 \\
+				\textit{sncf} & 2646 & 5.4 & 1.9 \\
+				\textit{sncf-inter} & 366 & 3.6 & 1.5 \\
+				\textit{sncf-ter} & 2637 & 6.3 & 1.6 \\
+				\textit{zsr} (daily) & 233 & 2.14 & 1.1 \\
+			\end{tabular}
+			\captionof{table}{Speed-up of the \textit{USP-OR-A} algorithm with \textit{Locsep} for the whole timetables. In the last column is the $r_{1}$ parameter of $\mathcal{A}$ ($|\mathcal{A}| = r_{1} \sqrt{n}$).}
+			\label{tab:uspora-speedup}
+	    \end{minipage}
+	    }
+		\end{figure}
 	
-	\begin{figure}[h!]
-	\centering
-	\makebox[0pt][c]{
-    \begin{minipage}{0.45\textwidth}  
-	    \centering
-	    \inputTikZ{./tikzpics/plot_uspora_sncfinter_size}
-	    \captionof{figure}{\textit{USP-OR-A} algorithm compared to TD Dijkstra on the \textit{sncf-inter} dataset.}
-	    \label{plot:uspora-sncfinter-size}  
-    \end{minipage}
-	\hspace{1cm}
-    \begin{minipage}{0.45\textwidth} 
-    	\centering
-	    \inputTikZ{./tikzpics/plot_uspora_sncfter_size}
-	    \captionof{figure}{\textit{USP-OR-A} algorithm compared to TD Dijkstra on the \textit{sncf-ter} dataset.}
-	    \label{plot:uspora-sncfter-size}   
-    \end{minipage}
-    }
-	\end{figure}
+	\subsubsection{\textit{USP-OR-A} with \textit{Locsep Max}}
 	
-	\begin{figure}[h!]
-	\centering
-	\makebox[0pt][c]{
-    \begin{minipage}{0.45\textwidth}  
+		\begin{figure}[h!]
 	    \centering
-	    \inputTikZ{./tikzpics/plot_uspora_zsr_trange}
-	    \captionof{figure}{\textit{USP-OR-A} algorithm compared to TD Dijkstra on the \textit{zsr} dataset. Here we measured how increased time range influence the query time of \textit{USP-OR-A}.}
-	    \label{plot:uspora-zsr-trange}  
-    \end{minipage}
-	\hspace{1cm}
-    \begin{minipage}{0.45\textwidth} 
-    	\centering
-		\begin{tabular}{c|c|c}
-		%legend
-            \rowcolor{tablehead}
-            \textbf{Name} & $\bm{n}$ & $\bm{spd}$ \\
-		%data
-			\hline
-			\textit{cpru} & 871 & \\
-			\textit{cpza} & 1108 & \\
-			\textit{montr} & 217 & \\
-			\textit{sncf} & 2646 & \\
-			\textit{sncf-inter} & 366 & \\
-			\textit{sncf-ter} & 2637 & \\
-			\textit{zsr} & 233 & \\
-		\end{tabular}
-		\captionof{table}{Speed-up of the \textit{USP-OR-A} algorithm for the whole timetables.}
-		\label{tab:uspora-speedup}
-    \end{minipage}
-    }
-	\end{figure}
+	    \makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth}
+	        \centering
+	        \inputTikZ{./tikzpics/plot_usporam_cpru_size}
+	        \captionof{figure}{\textit{USP-OR-A} algorithm with \textit{Locsep Max} compared to TD Dijkstra on the \textit{cpru} dataset.}
+	        \label{plot:usporam-cpru-size}
+	    \end{minipage}
+	    \hspace{1cm}
+	    \begin{minipage}{0.45\textwidth}
+	        \centering
+	        \inputTikZ{./tikzpics/plot_usporam_cpza_size}
+	        \captionof{figure}{\textit{USP-OR-A} algorithm with \textit{Locsep Max} compared to TD Dijkstra on the \textit{cpza} dataset.}
+	        \label{plot:usporam-cpza-size}
+	    \end{minipage}
+	    }
+	    \end{figure}
+	
+	    \begin{figure}[h!]
+	    \centering
+	    \makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth}
+	        \centering
+	        \inputTikZ{./tikzpics/plot_usporam_montr_size}
+	        \captionof{figure}{\textit{USP-OR-A} algorithm with \textit{Locsep Max} compared to TD Dijkstra on the \textit{montr} dataset.}
+	        \label{plot:usporam-montr-size}
+	    \end{minipage}
+	    \hspace{1cm}
+	    \begin{minipage}{0.45\textwidth}
+	        \centering
+	        \inputTikZ{./tikzpics/plot_usporam_sncf_size}
+	        \captionof{figure}{\textit{USP-OR-A} algorithm with \textit{Locsep Max} compared to TD Dijkstra on the \textit{sncf} dataset.}
+	        \label{plot:usporam-sncf-size}
+	    \end{minipage}
+	    }
+	    \end{figure}
+
+	    \begin{figure}[h!]
+	    \centering
+	    \makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth}
+	        \centering
+	        \inputTikZ{./tikzpics/plot_usporam_sncfinter_size}
+	        \captionof{figure}{\textit{USP-OR-A} algorithm with \textit{Locsep Max} compared to TD Dijkstra on the \textit{sncf-inter} dataset.}
+	        \label{plot:usporam-sncfinter-size}
+	    \end{minipage}
+	    \hspace{1cm}
+	    \begin{minipage}{0.45\textwidth}
+	        \centering
+	        \inputTikZ{./tikzpics/plot_usporam_sncfter_size}
+	        \captionof{figure}{\textit{USP-OR-A} algorithm with \textit{Locsep Max} compared to TD Dijkstra on the \textit{sncf-ter} dataset.}
+	        \label{plot:usporam-sncfter-size}
+	    \end{minipage}
+	    }
+	    \end{figure}
+	
+	    \begin{figure}[h!]
+	    \centering
+	    \makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth}
+	        \centering
+	        \inputTikZ{./tikzpics/plot_usporam_zsr_trange}
+	        \captionof{figure}{\textit{USP-OR-A} algorithm with \textit{Locsep Max} compared to TD Dijkstra on the \textit{zsr} dataset. Here we measured how increased time range influence the query time of \textit{USP-OR-A}.}
+	        \label{plot:usporam-zsr-trange}
+	    \end{minipage}
+	    \hspace{1cm}
+	    \begin{minipage}{0.45\textwidth}
+	        \centering
+	        \begin{tabular}{c|c|c|c}
+	        %legend
+	            \rowcolor{tablehead}
+	            \textbf{Name} & $\bm{n}$ & $\bm{spd}$ & $\bm{r_{1}}$  \\
+	        %data
+	            \hline
+	            \textit{cpru} & 871 & 2.0 & 2.1 \\
+	            \textit{cpza} & 1108 & 1.7 & 2.1 \\
+	            \textit{montr} & 217 & 2.2 & 3.3 \\
+	            \textit{sncf} & 2646 & 6.2 & 2.2 \\
+	            \textit{sncf-inter} & 366 & 4.7 & 1.4 \\
+	            \textit{sncf-ter} & 2637 & 7.6 & 1.8 \\
+	            \textit{zsr} (daily) & 233 & 2.4 & 1.5 \\
+	        \end{tabular}
+	        \captionof{table}{Speed-up of the \textit{USP-OR-A} algorithm with \textit{Locsep Max} for the whole timetables. In the last column is the $r_{1}$ parameter of $\mathcal{A}$ ($|\mathcal{A}| = r_{1} \sqrt{n}$).}
+	        \label{tab:usporam-speedup}
+	    \end{minipage}
+	    }
+	    \end{figure}
