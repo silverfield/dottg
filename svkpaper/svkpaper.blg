@@ -1,0 +1,66 @@
+This is BibTeX, Version 0.99d (TeX Live 2012)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: svkpaper.aux
+The style file: apalike.bst
+Database file #1: ../bibl.bib
+I was expecting a `,' or a `}'---line 1591 of file ../bibl.bib
+ :     
+ :     ee      =   {http://optlab-server.sce.carleton.ca/POAnimations2007/DijkstrasAlgo.html}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--to sort, need editor or key in DBLP:conf/focs/2009
+Warning--to sort, need editor or key in DBLP:conf/icde/2009
+Warning--to sort, need author or key in PowerLawPict
+Warning--empty year in PowerLawPict
+Warning--empty year in transithh
+Warning--empty year in separators2
+Warning--empty year in ScaleFreePict
+Warning--empty year in MapImhd
+Warning--empty year in dijkstraexp
+Warning--empty year in SeparatorPict
+Warning--empty year in zuiprednaska
+Warning--empty year in cauchy
+Warning--empty year in Elektricka
+Warning--empty year in LondonUnd
+You've used 61 entries,
+            1935 wiz_defined-function locations,
+            779 strings with 12136 characters,
+and the built_in function-call counts, 21551 in all, are:
+= -- 2156
+> -- 810
+< -- 62
++ -- 269
+- -- 257
+* -- 1680
+:= -- 3742
+add.period$ -- 168
+call.type$ -- 61
+change.case$ -- 415
+chr.to.int$ -- 59
+cite$ -- 78
+duplicate$ -- 904
+empty$ -- 1448
+format.name$ -- 341
+if$ -- 4295
+int.to.chr$ -- 3
+int.to.str$ -- 0
+missing$ -- 30
+newline$ -- 277
+num.names$ -- 189
+pop$ -- 402
+preamble$ -- 1
+purify$ -- 430
+quote$ -- 0
+skip$ -- 711
+stack$ -- 0
+substring$ -- 1315
+swap$ -- 174
+text.length$ -- 24
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 362
+warning$ -- 14
+while$ -- 162
+width$ -- 0
+write$ -- 712
+(There was 1 error message)

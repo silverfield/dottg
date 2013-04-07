@@ -7,7 +7,7 @@
 
 \tikzstyle{important}=[circle,draw=green!70!black,fill=green!70!black!20,thick,inner sep=2pt]
 \tikzstyle{textstyle}=[font=\fontsize{6}{6}\selectfont]
-\begin{tikzpicture}[>=stealth,looseness=.1,auto,scale=1.2])
+\begin{tikzpicture}[>=stealth,looseness=.1,auto,scale=1])
 	\draw [fill=black!5, very thin] (0, 0) ellipse (4 and 4);	
 	
 	\node (an) at (0,0) [important, label=below:{$x$}] {};

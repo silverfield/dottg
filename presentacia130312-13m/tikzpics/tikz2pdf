@@ -82,6 +82,7 @@ else:
 \usepackage{tikz,nicefrac,amsmath,pifont}
 \usetkzobj{all}
 \usetikzlibrary{arrows,snakes,backgrounds,patterns,matrix,shapes,fit,calc,shadows,plotmarks}
+\usepackage{pgfplots}
 
 \usepackage[graphics,tightpage,active]{preview}
 \PreviewEnvironment{tikzpicture}

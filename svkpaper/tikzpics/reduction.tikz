@@ -4,7 +4,7 @@
 \tikzstyle{ssel}=[circle,draw=orange!50!black,fill=yellow!20,very thick,inner sep=2pt, font=\fontsize{6}{6}\selectfont]
 \tikzstyle{sdummy}=[circle, dashed, draw=orange,fill=orange!20,thick,inner sep=2pt, font=\fontsize{6}{6}\selectfont]
 \tikzstyle{textstyle}=[font=\fontsize{6}{6}\selectfont]
-\begin{tikzpicture}[>=stealth,looseness=.1,auto,scale=0.85])
+\begin{tikzpicture}[>=stealth,looseness=.1,auto,scale=0.55])
 	\node (m1) at (2,4) [m, label=above:{$\bm{m_{1}}$}] {};
 	\node (m11) at (m1) [mdot, yshift=-4pt, xshift=-4pt] {};
 	\node (m12) at (m1) [mdot, yshift=-6pt, xshift=3pt] {};
@@ -34,7 +34,7 @@
 	\node (m10) at (11,4) [m, label=above:{$\bm{m_{10}}$}] {};
 	
 
-	\draw [decorate, decoration={brace, amplitude=3pt}] (11.7, 4.5) -- (11.7, 3.5) node [black,above, midway, yshift=-0.3cm, xshift=0.8cm] {size $\beta_{10}$};
+	\draw [decorate, decoration={brace, amplitude=3pt}] (12, 4.5) -- (12, 3.5) node [black,above, midway, yshift=-0.3cm, xshift=0.8cm] {size $\beta_{10}$};
 
 	\node (s1) at (1,1) [ssel] {$\bm{s_{1}}$};
 	\node (s1d) at (1,-0.5) [sdummy] {$\bm{s_{1}'}$};

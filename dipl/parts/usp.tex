@@ -58,7 +58,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 	\end{algorithm}
 	\color{black}	
 	
-	\noindent Will we get an optimal connection if we expanded all possible USPs between a pair of cities? We show that we will, provided the timetable has no \textit{overtaking} of elementary connections.
+	\noindent Will we get an optimal connection if we expanded all possible USPs between a pair of cities? We show that we will, provided the timetable has no \textit{overtaking}~\cite{timetablemodelsalgs07}~\cite{tdroute09} of elementary connections.
 	
 	\begin{definition}
         \textbf{Overtaking} \\
@@ -597,7 +597,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 			
 			\noindent Denote $\mathcal{S} = \{S_{i}| \; 1 \leq i \leq k\}$. The task is to choose the smallest subset $\mathcal{S}^{*}$ of $\mathcal{S}$ that still covers the universe ($\bigcup\limits_{S_{i} \in \mathcal{S}^{*}} S_{i} = U$). We will now do a simple conversion (in polynomial time) of the instance of min-set cover to the instance of the optimal AN set problem (which is represented by the underlying graph of $T$).
 			
-			 For each $j \in U$, we will make a complete graph of $\beta_{i}$ vertices (the value of $\beta_{i}$ will be discussed later) named $m_{j}$ and for each set $S_{i}$ we will make a vertex $s_{i}$ and vertex $s_{i}'$. We will connect all vertices of $m_{j}$ to $s_{i} \iff j \in S_{i}$. Finally, for we will connect $s_{i}$ to $s_{i}'$ for $1 \leq i \leq k$. \\
+			 For each $j \in U$, we will make a complete graph of $\beta_{i}$ vertices (the value of $\beta_{i}$ will be discussed later) named $m_{j}$ and for each set $S_{i}$ we make a vertex $s_{i}$ and vertex $s_{i}'$. We now connect all vertices of $m_{j}$ to $s_{i} \iff j \in S_{i}$. Finally, for we connect $s_{i}$ to $s_{i}'$ for $1 \leq i \leq k$. \\
 			 
 			\noindent \textbf{Example}. Let $m = 10$ (thus $U = \{1, 2, ..., 10\}$) and $k = 13$:
 			\begin{itemize}
@@ -645,7 +645,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 			
 			$$g(v) = \sum_{s \neq v \neq t} \frac{\displaystyle \sigma_{st}(v)}{\displaystyle \sigma_{st}}$$
 			
-			where $\sigma_{st}(v)$ is the number of shortest paths from $s$ to $t$ passing through $v$ and $\sigma_{st}$ is the total number of shortest paths from $s$ to $t$.~\cite{centrality01}. We then scale the values to the range $<0, 1>$ to obtain for each city $x$ its scaled betweenness centrality $\bm{bc(x)}$.
+			where $\sigma_{st}(v)$ is the number of shortest paths from $s$ to $t$ passing through $v$ and $\sigma_{st}$ is the total number of shortest paths from $s$ to $t$~\cite{centrality01}. We then scale the values to the range $<0, 1>$ to obtain for each city $x$ its scaled betweenness centrality $\bm{bc(x)}$.
 		\end{enumerate}
 		\hspace*{\fill}
 		
@@ -671,7 +671,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 		    \inputTikZ{./tikzpics/plot_hbcdeg_cpru_size}
 	    \end{minipage}
 	    }
-	    \caption{\label{plot:hbcdeg-size} Necessary sizes of access node sets based on high-degree/high-BC cities. Datasets \textit{sncf} (left) and \textit{cpru} (right). Notice the occasional ``roller coaster'' bumps (especially on the left plot) - an explanation of this phenomena is that in the immediately smaller sub-timetable we have erased just the high-degree node that proved to be a good access node, and which now must be substituted by many other access nodes.}
+	    \caption{\label{plot:hbcdeg-size} Necessary sizes of access node sets ($|\mathcal{A}| = r_{1} \sqrt{n}$) based on high-degree/high-BC cities. Datasets \textit{sncf} (left) and \textit{cpru} (right). Notice the occasional ``roller coaster'' bumps (especially on the left plot) - an explanation of this phenomena is that in the immediately smaller sub-timetable we have erased just the high-degree node that proved to be a good access node, and which now must be substituted by many other access nodes.}
 		\end{figure}
 		
 	\subsubsection{Choosing ANs heuristically}
@@ -700,7 +700,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 			\begin{center}
 				\inputTikZ{./tikzpics/locsep}
 			\end{center}
-			\caption{\label{fig:locsep} The principle of computing potentials in Locsep algorithm. We explored an area of $\sqrt{n}$ nearest cities (in terms of hops) around $x$. Little \textcolor{purple}{squares} are nodes from $neigh(x)$ and \textcolor{cyan}{diamonds} are part of $bneigh(x)$. The highlighted area represents the back neighbourhood for node $b_{2}$. From its nodes we run a forward search (the \textbf{thick} arcs). Nodes from the $neigh(x)$ that were not explored in this search can only be reached via $x$ itself.}
+			\caption{\label{fig:locsep} The principle of computing potentials in Locsep algorithm. We explored an area of $\sqrt{n}$ nearest cities (in terms of hops) around $x$. Little \textcolor{purple}{squares} are nodes from $neigh(x)$ and \textcolor{cyan}{diamonds} are part of $bneigh(x)$. The highlighted area represents the back neighbourhood for node $b_{2}$. From its nodes we run a forward search (the \textbf{thick} arcs). Nodes from the $neigh(x)$ that were not explored in this search can only be reached via $x$ itself and contribute to $x$'s potential.}
 		\end{figure}
 	
 \subsection{Performance of \textit{USP-OR-A} and comparisons}
