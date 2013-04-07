@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  4 APR 2013 12:50
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  7 APR 2013 19:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -439,41 +439,13 @@ File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 \Gin@req@height=\dimen109
 \Gin@req@width=\dimen110
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/mathptmx.sty
-Package: mathptmx 2005/04/12 PSNFSS-v9.2a Times w/ Math, improved (SPQR, WaS) 
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 28.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/ztmcm/m/n on input line 28.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/ztmcm/m/n on input line 28.
-LaTeX Font Info:    Redeclaring symbol font `letters' on input line 29.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
-(Font)                  OML/cmm/m/it --> OML/ztmcm/m/it on input line 29.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  OML/cmm/b/it --> OML/ztmcm/m/it on input line 29.
-LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 30.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/cmsy/m/n --> OMS/ztmcm/m/n on input line 30.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/cmsy/b/n --> OMS/ztmcm/m/n on input line 30.
-LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 31.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
-\symbold=\mathgroup4
-\symitalic=\mathgroup5
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 34.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 35.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/ptm/m/it on input line 35.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 35.
-LaTeX Info: Redefining \hbar on input line 50.
+(/usr/local/texlive/2012/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2004/02/26 v1.1c Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup4
+\symboldletters=\mathgroup5
+\symboldsymbols=\mathgroup6
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 138.
+LaTeX Info: Redefining \bm on input line 204.
 )
 (/usr/local/texlive/2012/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count100
@@ -502,7 +474,7 @@ Package: listings 2007/02/22 1.4 (Carsten Heinz)
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
-\symlasy=\mathgroup6
+\symlasy=\mathgroup7
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
 )
@@ -537,11 +509,6 @@ Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
 )
 \c@@inst=\count109
 \c@theorem=\count110
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 222.
-
-(/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/t1ptm.fd
-File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
-)
 \c@case=\count111
 \c@conjecture=\count112
 \c@corollary=\count113
@@ -593,6 +560,7 @@ Package: amstext 2000/06/29 v2.01
 )
 (/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
+LaTeX Info: Redefining \boldsymbol on input line 54.
 \pmbraise@=\dimen116
 )
 \inf@bad=\count129
@@ -658,11 +626,6 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \@thisruleclass=\count146
 \@lastruleclass=\count147
 \@thisrulewidth=\dimen136
-)
-(/usr/local/texlive/2012/texmf-dist/tex/latex/tools/bm.sty
-Package: bm 2004/02/26 v1.1c Bold Symbol Support (DPC/FMi)
-\symboldlasy=\mathgroup7
-LaTeX Info: Redefining \bm on input line 204.
 )
 (/usr/local/texlive/2012/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2012/02/19 v3.2f Customizing captions (AR)
@@ -757,35 +720,35 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/lmodern.sty
 Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/ztmcm/m/n --> OT1/lmr/m/n on input line 22.
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
-(Font)                  OML/ztmcm/m/it --> OML/lmm/m/it on input line 23.
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/ztmcm/m/n --> OMS/lmsy/m/n on input line 24.
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/ztmcm/m/n --> OMX/lmex/m/n on input line 25.
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/ztmcm/m/n --> OT1/lmr/bx/n on input line 26.
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  OML/ztmcm/m/it --> OML/lmm/b/it on input line 27.
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/ztmcm/m/n --> OMS/lmsy/b/n on input line 28.
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/ztmcm/m/n --> OMX/lmex/m/n on input line 29.
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/ptm/bx/n --> OT1/lmr/bx/n on input line 31.
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
 (Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/ptm/m/it --> OT1/lmr/m/it on input line 33.
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/ptm/bx/n --> OT1/lmr/bx/n on input line 35.
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/ptm/m/it --> OT1/lmr/bx/it on input line 37.
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
 )
@@ -1287,26 +1250,26 @@ Package: titlesec 2011/12/15 v2.10.0 Sectioning titles
 (./svkpaper.aux)
 \openout1 = `svkpaper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 96.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 103.
  (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 \AtBeginShipoutBox=\box52
-Package hyperref Info: Link coloring OFF on input line 96.
+Package hyperref Info: Link coloring OFF on input line 103.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/07/31 v2.42 Cross-referencing by name of section
@@ -1316,9 +1279,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count193
 )
-LaTeX Info: Redefining \ref on input line 96.
-LaTeX Info: Redefining \pageref on input line 96.
-LaTeX Info: Redefining \nameref on input line 96.
+LaTeX Info: Redefining \ref on input line 103.
+LaTeX Info: Redefining \pageref on input line 103.
+LaTeX Info: Redefining \nameref on input line 103.
 
 (./svkpaper.out) (./svkpaper.out)
 \@outlinefile=\write4
@@ -1360,7 +1323,7 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 96.
+(lastpage)             ! on input line 103.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: floatflt package is loaded.
 Package caption Info: End \AtBeginDocument code.
@@ -1370,131 +1333,217 @@ ABD: EveryShipout initializing macros
  tick labels; missing features). Consider writing \pgfplotsset{compat=1.7} into
  your preamble.
 
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 117.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 124.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 117.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 124.
 
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 117
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 124
 .
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 117
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 124
 .
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 117.
+(Font)              <10.95> on input line 124.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 117.
+(Font)              <8> on input line 124.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 117.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 117.
-
-
-(/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/ot1ptm.fd
-File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
-)
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 117.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 117.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 117.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 117.
+(Font)              <6> on input line 124.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 124.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 117.
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 117.
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 117.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 124.
 
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 117.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 124.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 117.
+(Font)              <9> on input line 124.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 117.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 117.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 117.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 117.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 117.
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <9> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 117.
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 117.
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 117.
-LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <7> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 117.
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 117.
+(Font)              <5> on input line 124.
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <6> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 124.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 124.
 
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-No file svkpaper.bbl.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 137.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 137.
+ (./tikzpics/ug.tikz)
+Underfull \hbox (badness 2150) in paragraph at lines 163--163
+[]\T1/lmr/m/n/10.95 Figure 1.1: |[] An un-der-ly-ing graph of the
+ []
 
-AED: lastpage setting LastPage
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 2894) in paragraph at lines 166--167
+[]\T1/lmr/m/n/10.95 Finally, we de-fine the \T1/lmr/bx/n/10.95 un-der-ly-ing sh
+ort-
+ []
+
+(./tikzpics/pathfunc.tikz
+Missing character: There is no ) in font nullfont!
+)
+Overfull \hbox (10.04842pt too wide) in paragraph at lines 27--171
+ [] 
+ []
+
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 184.
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 188.
+
+Underfull \hbox (badness 1466) in paragraph at lines 193--194
+[]$\OMS/lmsy/m/n/10.95 8\OML/lmm/m/it/10.95 x; y \OT1/lmr/m/n/10.95 :$ \T1/lmr/
+m/n/10.95 set of USPs be-tween $\OML/lmm/m/it/10.95 x$ \T1/lmr/m/n/10.95 and $\
+OML/lmm/m/it/10.95 y$
+ []
+
 [1{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
+]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 221.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 221.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 223.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 223.
+LaTeX Font Info:    Try loading font information for U+eus on input line 223.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/ueus.fd
+File: ueus.fd 2009/06/22 v3.00 Euler Script
+)
+(./tikzpics/plot_usp_sncf_size.tikz)
+Underfull \hbox (badness 10000) in paragraph at lines 244--245
+
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.301 		\end{algorithm}
+                        [2] (./tikzpics/uspora.tikz
+Missing character: There is no ) in font nullfont!
+)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (8.145pt too wide) in paragraph at lines 324--335
+ [][] 
+ []
+
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <9> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 344.
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.363 
+       [3]
+No file svkpaper.bbl.
+
+AED: lastpage setting LastPage
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.378 \end{document}
+                     [4
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 148.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 148.
-
-(./svkpaper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 148.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 148.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 378.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 378.
+ (./svkpaper.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 378.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 378.
 Package rerunfilecheck Info: File `svkpaper.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 148.
+(rerunfilecheck)             Checksum: BCEDA4B7188C0F648185141946C9F4F3;288.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 378.
  ) 
 Here is how much of TeX's memory you used:
- 27124 strings out of 493488
- 561921 string characters out of 3141346
- 723204 words of memory out of 3000000
- 29812 multiletter control sequences out of 15000+200000
- 69017 words of font info for 70 fonts, out of 3000000 for 9000
+ 28159 strings out of 493488
+ 584063 string characters out of 3141346
+ 749487 words of memory out of 3000000
+ 30746 multiletter control sequences out of 15000+200000
+ 138508 words of font info for 129 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,14n,92p,750b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
-texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/20
-12/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}</usr/local/texlive/2012/texmf-dist/
-fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type
-1/public/lm/lmbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/l
-m/lmr10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr17.pfb
-></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local
+ 63i,19n,92p,778b,2133s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{algorithm.2} has been referenced but does not exi
+st, replaced by a fixed one
+
+{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/te
+xlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2012
+/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2012/texmf-dis
+t/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/
+public/amsfonts/cmextra/cmbsy9.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2012/texmf-dist/fonts/typ
+e1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2012/texmf-dist/fonts
+/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/local/texlive/2012/texmf-dist/f
+onts/type1/public/amsfonts/euler/eusb10.pfb></usr/local/texlive/2012/texmf-dist
+/fonts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texlive/2012/texmf-di
+st/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texlive/2012/texmf-d
+ist/fonts/type1/public/lm/lmbsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts
+/type1/public/lm/lmbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pub
+lic/lm/lmbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmb
+x6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></us
+r/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/tex
+live/2012/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2012
+/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2012/texmf-dis
+t/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2012/texmf-dist/fonts/typ
+e1/public/lm/lmmi7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/l
+m/lmmi8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmi9.pfb
+></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmib10.pfb></usr/lo
+cal/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive
+/2012/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2012/texmf
+-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2012/texmf-dist/fonts/
+type1/public/lm/lmr6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public
+/lm/lmr7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr8.pfb
+></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local
 /texlive/2012/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2
-012/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2012/texmf-d
-ist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2012/texmf-dist/fonts/t
-ype1/public/lm/lmtt9.pfb>
-Output written on svkpaper.pdf (1 page, 158687 bytes).
+012/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2012/texmf-
+dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2012/texmf-dist/fonts/
+type1/public/lm/lmsy8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/publi
+c/lm/lmsy9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtt9.
+pfb>
+Output written on svkpaper.pdf (4 pages, 469144 bytes).
 PDF statistics:
- 57 PDF objects out of 1000 (max. 8388607)
- 44 compressed objects within 1 object stream
- 2 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 273 PDF objects out of 1000 (max. 8388607)
+ 228 compressed objects within 3 object streams
+ 50 named destinations out of 1000 (max. 500000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

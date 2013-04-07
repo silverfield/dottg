@@ -15,9 +15,9 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 \begin{definition}
         \textbf{Underlying shortest path (USP)} \\
 	A path $p = (v_{1}, v_{2}, ..., v_{k})$ in $UG_{T}$ is an \textbf{underlying shortest path} if and only if $\exists t \in \mathcal{N}: p = path(c_{(v_{1}, t, v_{k})}^{*}), c_{(v_{1}, t, v_{k})}^{*} \in C_{T}$
-    \end{definition}
+\end{definition}
     
-    \begin{figure}[h!]
+\begin{figure}[h!]
 	\begin{center}
 		\inputTikZ{./tikzpics/pathfunc}
 	\end{center}
@@ -28,17 +28,17 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 	    
 \subsection{\textit{USP-OR}}
 
-	We can easily extract the underlying path from a given connection. Now let us look at this from the other way - if, for a given EA query, we know the underlying shortest path, can we reconstruct the optimal connection? One thing we could do is to blindly follow the USP and at each stop take the first elementary connection to the next stop on the USP. This simple algorithm called \textit{ExpandUsp} is described in algorithm~\ref{alg:expusp}. 
+	We can easily extract the underlying path from a given connection. Now let us look at this from the other way - if, for a given EA query, we know the underlying shortest path, can we reconstruct the optimal connection? One thing we could do is to blindly follow the USP and at each stop take the first elementary connection to the next stop on the USP. This simple algorithm called \textit{Expand} is described in algorithm~\ref{alg:expand}. 
 	
 	\color{algcolor}
 	\begin{algorithm}[H]
 		\color{inalgcolor}
-		\caption{ExpandUsp}
-		\label{alg:expusp}
+		\caption{Expand}
+		\label{alg:expand}
 		\textbf{Input} 
 		\begin{itemize}
 			\item timetable $T$
-			\item USP $p = (v_{1}, v_{2}, ..., v_{k})$
+			\item path $p = (v_{1}, v_{2}, ..., v_{k})$, $v_{i} \in ct_{T}$
 			\item departure time $t$
 		\end{itemize}
 		\textbf{Algorithm}
@@ -74,13 +74,13 @@ Thus the main idea which will repeat often throughout this section: \textit{when
     
     \begin{lemma}
     	\label{lemma:expandusp}
-    	Let $T$ be a timetable without overtaking, $(x, t, y)$ an EA query in this timetable and $\mathcal{P} = \{p_{1}, p_{2}, ..., p_{k}\}$ a set of all USPs from $x$ to $y$. Define $c_{i} = ExpandUsp(T, p_{i}, t)$ to be the connection returned by the algorithm ExpandUsp~\ref{alg:expusp}. Then $\exists j:\; c_{j} = c_{x, t, y}^{*}$.
+    	Let $T$ be a timetable without overtaking, $(x, t, y)$ an EA query in this timetable and $\mathcal{P} = \{p_{1}, p_{2}, ..., p_{k}\}$ a set of all USPs from $x$ to $y$. Define $c_{i} = Expand(T, p_{i}, t)$ to be the connection returned by the algorithm Expand~\ref{alg:expand}. Then $\exists j:\; c_{j} = c_{x, t, y}^{*}$.
     \end{lemma}
     \begin{proof}
     	The optimal connection $c_{x, t, y}^{*}$ has an USP $p$ which must be present in the set $\mathcal{P}$, as it is the set of all USPs from $x$ to $y$. So $p = p_{j} = (v_{1}, v_{2},..., v_{l})$ from some $j$. We want to show that $c_{j}$ is the optimal connection. This may be shown inductively:
     	\begin{enumerate}
-    		\item \textit{Base:} ExpandUsp reaches city $v_{1} = x$ as soon as possible (since the connection just starts there)
-    		\item \textit{Induction:} ExpandUsp reached city $v_{i}$ as soon as possible, it then takes the first available el. connection to the next city $v_{i + 1}$. Since the el. connections do not overtake, ExpandUsp reached the city $v_{i + 1}$ as soon as possible.
+    		\item \textit{Base:} Expand reaches city $v_{1} = x$ as soon as possible (since the connection just starts there)
+    		\item \textit{Induction:} Expand reached city $v_{i}$ as soon as possible, it then takes the first available el. connection to the next city $v_{i + 1}$. Since the el. connections do not overtake, Expand reached the city $v_{i + 1}$ as soon as possible.
     	\end{enumerate}
     \end{proof}
     
@@ -111,7 +111,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 	\color{algcolor}
 	\begin{algorithm}[H]
 		\color{inalgcolor}
-		\caption{USP-OR query}
+		\caption{\textit{USP-OR} query}
 		\label{alg:uspor-query}
 		\textbf{Input} 
 		\begin{itemize}
@@ -126,7 +126,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 		\begin{algorithmic}
 			\STATE $c^{*} = null$
 			\FORALL{$p \in usps_{x, y}$}
-				\STATE $c =$ \textit{ExpandUsp}$(T, p, t)$
+				\STATE $c =$ \textit{Expand}$(T, p, t)$
 				\STATE $c^{*} =$ better out of $c^{*}$ and $c$
 			\ENDFOR
 		\end{algorithmic}
@@ -135,7 +135,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 			\item connection $c$
 		\end{itemize}
 	\end{algorithm}
-	\color{black}
+	\color{black}	
 	
 	\subsubsection{Analysis of \textit{USP-OR}}	
 	
@@ -227,7 +227,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 	    }
 		\end{figure}
 		
-		The query time also depends on the USP coefficient of a given pair of cities $x$, $y$, as we have to try out all USPs in $usps(x, y)$. The expansion of a USP by \textit{ExpandUsp} function takes time linear in the size of the USP~\footnote{In time-dependent graphs, this requires a constant-time retrieval of the correct interpolation point of the cost function (the piece-wise linear function that tells us the traversal time of an arc at a given time) for some time $t$. More specifically, we need to obtain an interpolation point $argmin_{(t', l)} \{t'| \; t' > t\}$. If we assume uniform distribution of departures throughout the time range of the timetable, this can be implemented in constant time. Otherwise, binary search lookup is possible in time $\mathcal{O}(\log h)$}, leading to \textbf{query time} $\bm{\mathcal{O}(\tau \gamma)}$ on average. Note, that this is pretty much optimal, as $\tau$ is basically constant and we need to output the connection itself, which takes linear time in its size.
+		The query time also depends on the USP coefficient of a given pair of cities $x$, $y$, as we have to try out all USPs in $usps(x, y)$. The expansion of a USP by \textit{Expand} function takes time linear in the size of the USP~\footnote{In time-dependent graphs, this requires a constant-time retrieval of the correct interpolation point of the cost function (the piece-wise linear function that tells us the traversal time of an arc at a given time) for some time $t$. More specifically, we need to obtain an interpolation point $argmin_{(t', l)} \{t'| \; t' > t\}$. If we assume uniform distribution of departures throughout the time range of the timetable, this can be implemented in constant time. Otherwise, binary search lookup is possible in time $\mathcal{O}(\log h)$}, leading to \textbf{query time} $\bm{\mathcal{O}(\tau \gamma)}$ on average. Note, that this is pretty much optimal, as $\tau$ is basically constant and we need to output the connection itself, which takes linear time in its size.
 			
 		Finally, the \textbf{stretch} of \textit{USP-OR} is \textbf{1}, as it returns exact answers. 
 		
@@ -364,14 +364,14 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 	\end{enumerate}
 	\hspace{\fill}
 	
-	\noindent An access node set $\mathcal{A}$ with the above mentioned properties will be called $\bm{(r_{1}, r_{2}, r_{3})}$ \textbf{access node set} (AN set). We will now explain how the \textit{USP-OR-A} (USP-OR with access nodes) algorithm works and return to its analysis later. 
+	\noindent An access node set $\mathcal{A}$ with the above mentioned properties will be called $\bm{(r_{1}, r_{2}, r_{3})}$ \textbf{access node set} (AN set). We will now explain how the \textit{USP-OR-A} (\textit{USP-OR} with access nodes) algorithm works and return to its analysis later. 
 	
-	During preprocessing, we need to find a good AN set and compute the USPs between every pair of access nodes. For every city $x \not \in \mathcal{A}$, we also store its $neigh_{\mathcal{A}}(x)$, $bneigh_{\mathcal{A}}(x)$, $lan_{\mathcal{A}}(x)$ and $blan_{\mathcal{A}}(x)$. On a query from $x$ to $y$ at time $t$, we will first make a local search in the neighbourhood of $x$ to find out optimal connections to $x$'s local access nodes. Subsequently, we want to find out the earliest arrival times to each of $y$'s \textit{back} local access nodes. To do this, we take advantage of the pre-computed USPs between access nodes - try out all the pairs $u \in lan(x)$ and $v \in blan(y)$ and expand the stored USPs. Finally, we make a local search from each of $y$'s back LANs to $y$, but we run the search \textit{restricted} to $y$'s back neighbourhood. For more details, see algorithms~\ref{alg:uspora-prepro} and~\ref{alg:uspora-query} and picture~\ref{fig:uspora}, where we have split the algorithms to 3 distinct phases.
+	During preprocessing, we need to find a good AN set and compute the USPs between every pair of access nodes. For every city $x \not \in \mathcal{A}$, we also store its $neigh_{\mathcal{A}}(x)$, $bneigh_{\mathcal{A}}(x)$, $lan_{\mathcal{A}}(x)$ and $blan_{\mathcal{A}}(x)$. On a query from $x$ to $y$ at time $t$, we will first make a local search in the neighbourhood of $x$ up to $x$'s local access nodes. Subsequently, we want to find out the earliest arrival times to each of $y$'s \textit{back} local access nodes. To do this, we take advantage of the pre-computed USPs between access nodes - try out all the pairs $u \in lan(x)$ and $v \in blan(y)$ and expand the stored USPs. Finally, we make a local search from each of $y$'s back LANs to $y$, but we run the search \textit{restricted} to $y$'s back neighbourhood. For more details, see algorithms~\ref{alg:uspora-prepro} and~\ref{alg:uspora-query} and picture~\ref{fig:uspora}, where we have split the algorithms to 3 distinct phases.
 	
 	\color{algcolor}
 	\begin{algorithm}[H]
 		\color{inalgcolor}
-		\caption{USP-OR-A preprocessing}
+		\caption{\textit{USP-OR-A} preprocessing}
 		\label{alg:uspora-prepro}
 		\textbf{Input} 
 		\begin{itemize}
@@ -393,7 +393,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 	\color{algcolor}
 	\begin{algorithm}[H]
 		\color{inalgcolor}
-		\caption{USP-OR-A query}
+		\caption{\textit{USP-OR-A} query}
 		\label{alg:uspora-query}
 		\textbf{Input} 
 		\begin{itemize}
@@ -407,16 +407,15 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 			\STATE \algsec{Local front search}
 			\STATE perform TD Dijkstra from $x$ at time $t$ up to $lan(x)$
 			\IF {$y \in neigh(x)$}
-				\STATE let $c_{loc}^{*}$ be the connection to $y$ obtained by Dijkstra's algorithm \cmt{the optimal connection may still go via ANs (though it is unlikely)}
+				\STATE let $c_{loc}^{*}$ be the connection to $y$ obtained by TD Dijkstra \cmt{the optimal connection may still go via ANs (though it is unlikely)}
 			\ENDIF
-			\STATE $\forall u \in lan(x)$ let $ea(u)$ be the arrival time to this node obtained by Dijkstra's algorithm
-			\STATE $\forall u \in lan(x)$ let $oc(u)$ be the connection to this node (obtained by Dijkstra's algorithm)
+			\STATE $\forall u \in lan(x)$ let $ea(u)$ the arrival time and $oc(u)$ the conn. to $u$ obtained by TD Dijkstra
 			\STATE \algsec{Inter-AN search}
 			\FORALL{$v \in blan(y)$}
 				\STATE $oc(v) = null$
 				\FORALL{$u \in lan(x)$}
 					\FORALL{$p \in usps(u, v)$}
-						\STATE $c =$ \textit{ExpandUsp}$(T, p, ea(u))$
+						\STATE $c =$ \textit{Expand}$(T, p, ea(u))$
 						\STATE $oc(v) =$ better out of $oc(v)$ and $c$
 					\ENDFOR
 				\ENDFOR
@@ -425,7 +424,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 			\STATE \algsec{Local back search}
 			\FORALL{$v \in blan(y)$}
 				\STATE perform TD Dijkstra from $v$ at time $ea(v)$ to $y$ restricted to $bneigh(y)$
-				\STATE let $fin(v)$ be the connection returned by Dijkstra's algorithm
+				\STATE let $fin(v)$ be the connection returned by TD Dijkstra
 			\ENDFOR
 			\STATE $v^{*} = argmin_{v \in blan(y)} \{end(fin(v))\}$
 			\STATE $u^{*} = from(oc(v^{*}))$
@@ -536,7 +535,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 			
 			\noindent In the following we will assume that $\bm{y \not \in neigh(x)}$, which means that the optimal connection goes through some access node $u \in lan(x)$ and $v \in blan(y)$. Note that it may be that $u = v$. \\
 			
-			\noindent What we would like to prove as a next step is that we reach the back LANs of $y$ (or $y$ itself if it is an access node) at the earliest arrival time. After the \textit{local front search}, we have reached the $x$'s local ANs at times $ea(u) \; \forall u \in lan(x)$. For some local access node this value is the true earliest arrival. Let us denote the set of such local ANs as $lan^{*}(x)$. The crucial thing to realize is, that the optimal connection to any city out of the $x$'s neighbourhood will lead via some $u \in lan^{*}(x)$ (see picture~\ref{fig:usporaproof2}). And because the \textit{inter AN search} phase finds \textit{optimal} connections between pairs $u \in lan(x)$ and $v \in blan(y)$, it follows that for each $v \in blan(y)$ the $ea(v)$ is the earliest arrival to this city after the \textit{inter AN search} phase.
+			\noindent What we would like to prove as a next step is that we reach the back LANs of $y$ (or $y$ itself if it is an access node) at the earliest arrival time. After the \textit{local front search}, we have reached the $x$'s local ANs at times $ea(u) \; \forall u \in lan(x)$. For some local access node this value is the true earliest arrival. Let us denote the set of such local ANs as $lan^{*}(x)$. The crucial thing to realize is, that the optimal connection to any city out of the $x$'s neighbourhood will lead via some $u \in lan^{*}(x)$ (see picture~\ref{fig:usporaproof2}). And because the \textit{inter-AN search} phase finds \textit{optimal} connections between pairs $u \in lan(x)$ and $v \in blan(y)$, it follows that for each $v \in blan(y)$ the $ea(v)$ is the earliest arrival to this city after the \textit{inter-AN search} phase.
 			
 			\begin{figure}[h!]
 				\begin{center}

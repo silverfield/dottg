@@ -13,7 +13,6 @@
 \usepackage{amsthm}
 \usepackage[titletoc, page]{appendix}
 \usepackage{booktabs}% http://ctan.org/pkg/booktabs
-\usepackage{bm}
 \usepackage{caption}
 \usepackage{cite} %bibtex
 \usepackage{color} %for \definecolor
@@ -62,6 +61,7 @@
 
 \graphicspath{{./pics/}} %picture dir
 
+\setlist{nolistsep} %so that lists have normal spacing
 
 \colorlet{city-clr}{green!70!black}
 \colorlet{elcon-clr}{red}
@@ -84,11 +84,18 @@
 \newcommand{\tick}{\ding{52}}
 \newcommand{\cross}{\ding{55}}
 
+\numberwithin{algorithm}{section}
 \numberwithin{figure}{section}
 \numberwithin{table}{section}
 \numberwithin{equation}{section}
 
 \interfootnotelinepenalty=10000
+
+\newcommand{\inputTikZ}[1]{%
+    \beginpgfgraphicnamed{#1-external}%
+    \input{#1.tikz}%
+    \endpgfgraphicnamed%
+}
 
 %---------------------------------------------------------------------
 %   document
@@ -116,15 +123,239 @@
 	\maketitle
 
 	\begin{abstract}
-	Blabla
-	
-	\keywords{}
+	We introduce methods to speed-up optimal-connection queries in timetables based on pre-computing paths that are worth to follow. We present a very fast but space consuming method \textit{USP-OR} which we enhance to considerably decrease the size of pre-processed data while still achieving speed-ups up to 6 against time-dependent Dijkstra's algorithm implemented with Fibonacci heap priority queue.
+	\keywords{optimal connection, timetable, Dijkstra's algorithm, underlying shortest paths}
 	\end{abstract}
 
 %---------------------------------------------------------------------
 %   MAINMATTER  ------------------------------------------------------
 %---------------------------------------------------------------------
     %\mainmatter
+    
+\section{Introduction}
+
+	We consider a problem of looking for an optimal connection (from $a$ at time $t$ to $b$ $\rightarrow$ $\bm{c^{*}_{(a, t, b)}}$)  in timetables on which we carried out some pre-processing. We define \textbf{timetable} simply as a set of \textbf{elementary connections}, which are quadruples $(x, y, p, q)$ meaning that a train departs from \textbf{city} $x$ at time $p$ an arrives to city $y$ at time $q$. A \textbf{connection} is simply a valid sequence of elementary connections which may include also waiting in visited cities. We also define an \textbf{underlying graph} ($\bm{ug_{T}}$) of the timetable $T$ whose nodes are the cities and there is an arc $(x, y)$ if some el. connection $(x, y, p, q) \in T$.
+
+\begin{table}[h!]
+    	\centering
+        \begin{tabular}{c|c|c|c}
+        %legend
+            \rowcolor{tablehead}
+            \multicolumn{2}{>{\columncolor{tablehead}}c|}{\textbf{Place}} & \multicolumn{2}{>{\columncolor{tablehead}}c}{\textbf{Time}} \\
+			\hline
+           	\rowcolor{tablehead}
+            \textbf{From} & \textbf{To} & \textbf{Departure} & \textbf{Arrival} \\
+		%data
+			\hline
+            \textcolor{city-clr}{A} & \textcolor{city-clr}{B} & 10:00 & 10:45 \\
+			\textcolor{city-clr}{B} & \textcolor{city-clr}{C} & 11:00 & 11:30 \\
+			\textcolor{city-clr}{B} & \textcolor{city-clr}{C} & 11:30 & 12:10 \\
+			\textcolor{city-clr}{B} & \textcolor{city-clr}{A} & 11:20 & 12:30 \\
+			\textcolor{city-clr}{C} & \textcolor{city-clr}{A} & 11:45 & 12:15 \\
+		\end{tabular}
+		\caption{\label{table:tt} An example of a timetable.}
+	\end{table}
+	
+	\begin{figure}[h!]
+        \begin{center}
+			\inputTikZ{./tikzpics/ug}
+        \end{center}
+		\caption{\label{fig:ug} An underlying graph of the timetable~\ref{table:tt}.}
+	\end{figure}
+	
+	Finally, we define the \textbf{underlying shortest path} (USP) to be every path $p$ in $ug_{T}$ such that for some optimal connection $c^{*}_{(a, t, b)}$: $path(c^{*}_{(a, t, b)}) = p$, where function $path$ simply extracts the sequence of cities visited by the connection (see picture~\ref{fig:pathfunc}).
+	
+	\begin{figure}[h!]
+		\begin{center}
+			\inputTikZ{./tikzpics/pathfunc}
+		\end{center}
+		\caption{\label{fig:pathfunc} The $path$ function applied on a connection to get the underlying path.}
+	\end{figure}
+
+\section{Methods}
+
+	\subsection{\textit{USP-OR}}
+	
+		Our first method, called \textit{USP-OR}, is based on pre-computing USPs between every pair of cities. Then, upon a query from $x$ to $y$ at time $t$ we consider one by one the computed USPs between $x$ and $y$ and perform a reverse operation to the $path$ function - $expand(p)$ where $p$ is an USP. The $expand$ function simply follows the sequence of cities in $p$ and from each of them it takes the first available el. connection to the next one, thus constructing one by one a connection from $x$ to $y$. 
+		
+		\color{algcolor}
+		\begin{algorithm}[H]
+			\color{inalgcolor}
+			\caption{\textit{USP-OR} query}
+			\label{alg:uspor-query}
+			\textbf{Input} 
+			\begin{itemize}
+				\item timetable $T$
+				\item OC query $(x, t, y)$
+			\end{itemize}
+			\textbf{Pre-computed} 
+			\begin{itemize}
+				\item $\forall x, y:$ set of USPs between $x$ and $y$ ($usps(x, y)$)
+			\end{itemize}
+			\textbf{Algorithm}
+			\begin{algorithmic}
+				\STATE $c^{*} = null$
+				\FORALL{$p \in usps_{x, y}$}
+					\STATE $c =$ \textit{Expand}$(T, p, t)$
+					\STATE $c^{*} =$ better out of $c^{*}$ and $c$
+				\ENDFOR
+			\end{algorithmic}
+			\textbf{Output}
+			\begin{itemize}
+				\item connection $c$
+			\end{itemize}
+		\end{algorithm}
+		\color{black}
+
+		Define an elementary connection $e_{1}$ to \textbf{overtake} $e_{2}$ $\iff$ $depart(e_{1}) > depart(e_{2})$ and $arrive(e_{1}) < arrive(e_{2})$. If the timetable $T$ has no overtaking el. connections, the \textit{USP-OR} algorithm returns exact answers, which can be easily proved. The table~\ref{tab:uspor} summarizes the parameters of \textit{USP-OR} based on the following parameters of the timetable:
+		\begin{itemize}
+			\item $\bm{\tau}$ - the average number of different USPs between pairs of cities - the \textbf{USP coefficient}
+			\item $\bm{\gamma}$ - the average size (i.e. number of el. conn.) of optimal connections - the \textbf{OC radius}
+			\item $\bm{\delta}$ - the \textbf{density} of $T$ defined by $\frac{\bm{m}}{\bm{n}}$ - number of arcs of $ug_{T}$ divided by number of cities
+			\item $\bm{h}$ - the \textbf{height} of the timetable - the maximal number of events (arrival/departure) in a city
+		\end{itemize}
+		
+		\begin{table}[h!]
+			\centering
+			\small
+			\begin{tabular}{l|c|c}
+			%legend
+				\cellcolor{oracle-clr} \textit{\textbf{USP-OR}} & \cellcolor{oracle-clr} \textbf{guaranteed} & \cellcolor{oracle-clr} \parbox{1.8cm}{\textbf{$\bm{\tau = \mathcal{O}(1)}$,\\ $\bm{\gamma \leq \sqrt{n}}$,\\ $\bm{\delta \leq \log n}$}} \\ [3ex]
+			%data
+				\hline
+				\cellcolor{oracle-clr} $\bm{prep}$ & $\mathcal{O}(hn^{2} (\log n + \delta))$ & $\mathcal{O}(hn^{2} \log n)$ \\	
+				\cellcolor{oracle-clr} $\bm{size}$ & $\mathcal{O}(\tau n^{2} \gamma)$ & $\mathcal{O}(n^{2.5})$ \\
+				\cellcolor{oracle-clr} $\bm{qtime}$ & avg. $\mathcal{O}(\tau \gamma)$ & avg. $\mathcal{O}(\sqrt{n})$ \\
+				\cellcolor{oracle-clr} $\bm{stretch}$ & $1$ & $1$ \\
+			\end{tabular}
+			\caption{\label{tab:uspor} The summary of the \textit{USP-OR} algorithm parameters.}
+		\end{table}
+		
+		The value of $\tau$ for our datasets was found to be quite small ($\approx 10$) and just slightly, if at all, increasing with increasing $n$ (see plot~\ref{plot:usp-sncf-size}). Average optimal connection size and the density $\delta$ were as in the second column of table~\ref{tab:uspor} for our timetables. Still, the size of the preprocessed data is too large for practical use, hence the extension of this algorithm, called \textit{USP-OR-A}.
+		
+		\begin{figure}
+			\centering
+		    \inputTikZ{./tikzpics/plot_usp_sncf_size}
+		    \caption{\label{plot:usp-sncf-size} Changing of $\tau$ with increased number of stations in \textit{sncf} dataset.}
+		\end{figure}
+		
+	\subsection{\textit{USP-OR-A}}
+	
+		To decrease the space complexity, in \textit{USP-OR-A} we compute USPs only among cities from a smaller set - called \textbf{access node set} (AN set, denoted $\bm{\mathcal{A}}$). Given such set in timetable $T$, we define for a city $x$ its \textbf{neighbourhood} $neigh(x)$ as all the cities reachable in $ug_{T}$ \textit{not} via ANs. The access nodes within this neighbourhood are called \textbf{local access nodes} (LAN). We do the same in $\overleftarrow{ug_{T}}$ ($ug_{T}$ with reversed orientation) to get \textbf{back neighbourhood} and \textbf{back LANs}. \\
+		
+		In the pre-processing, we:
+		\begin{itemize}
+			\item find $\mathcal{A}$ (discussed later)
+			\item $\forall x, y \in \mathcal{A}$ compute USPs between $x$ and $y$
+			\item $\forall$ cities  $x \not \in \mathcal{A}$ compute $neigh(x)$, $bneigh(x)$, $lan(x)$ and $blan(x)$
+		\end{itemize}
+		\hspace{\fill}
+		
+		On a query from $x$ to $y$ at time $t$, we will first make a local search in the neighbourhood of $x$ up to $x$'s local access nodes (\textit{local front search} phase). Subsequently, we want to find out the earliest arrival times to each of $y$'s \textit{back} local access nodes. To do this, we take advantage of the pre-computed USPs between access nodes - try out all the pairs $u \in lan(x)$ and $v \in blan(y)$ and expand the stored USPs (\textit{inter-AN search} phase). Finally, we make a local search from each of $y$'s back LANs to $y$, but we run the search \textit{restricted} to $y$'s back neighbourhood (\textit{local back search} phase). See algorithm~\ref{alg:uspora-query} and picture~\ref{fig:uspora} for more clarification.
+		
+		\color{algcolor}
+		\begin{algorithm}[H]
+			\color{inalgcolor}
+			\caption{\textit{USP-OR-A} query}
+			\label{alg:uspora-query}
+			\textbf{Input} 
+			\begin{itemize}
+				\item timetable $T$
+				\item OC query $(x, t, y)$
+			\end{itemize}
+			\textbf{Algorithm}
+			\begin{algorithmic}
+				\STATE let $lan(x) = x$ if $x \in \mathcal{A}$
+				\STATE let $blan(y) = y$ if $y \in \mathcal{A}$
+				\STATE \algsec{Local front search}
+				\STATE do TD Dijkstra from $x$ at time $t$ up to $lan(x)$
+				\IF {$y \in neigh(x)$}
+					\STATE $c_{loc}^{*} =$ conn. to $y$ obtained by TD Dijkstra
+				\ENDIF
+				\STATE $\forall u \in lan(x)$ let $ea(u)$ the arrival time and $oc(u)$ the conn. to $u$ obtained by TD Dijkstra
+				\STATE \algsec{Inter-AN search}
+				\FORALL{$v \in blan(y)$}
+					\STATE $oc(v) = null$
+					\FORALL{$u \in lan(x)$}
+						\FORALL{$p \in usps(u, v)$}
+							\STATE $c =$ \textit{Expand}$(T, p, ea(u))$
+							\STATE $oc(v) =$ better out of $oc(v)$ and $c$
+						\ENDFOR
+					\ENDFOR
+				\ENDFOR
+				\STATE $\forall v \in blan(y)$ let $ea(v) = end(oc(v))$
+				\STATE \algsec{Local back search}
+				\FORALL{$v \in blan(y)$}
+					\STATE perform TD Dijkstra from $v$ at time $ea(v)$ to $y$ restricted to $bneigh(y)$
+					\STATE $fin(v) =$ the conn. returned by TD Dijkstra	
+				\ENDFOR
+				\STATE $v^{*} = argmin_{v \in blan(y)} \{end(fin(v))\}$
+				\STATE $u^{*} = from(oc(v^{*}))$
+				\STATE $c^{*} = oc(u^{*}) . oc(v^{*}) . fin(v^{*})$ \cmt{concat.}
+				\STATE output better out of $c_{loc}^{*}$ and $c^{*}$
+			\end{algorithmic}
+			\textbf{Output}
+			\begin{itemize}
+				\item optimal connection $c_{(x, t, y)}^{*}$
+			\end{itemize}
+		\end{algorithm}
+		\color{black}
+		
+		\begin{figure}[h!]
+			\begin{center}
+				\scriptsize
+				\inputTikZ{./tikzpics/uspora}
+			\end{center}
+			\caption{\label{fig:uspora} Principle of \textit{USP-OR-A} algorithm. The arcs in \textbf{bold} mark areas that will be explored: all nodes in $neigh_{\mathcal{A}}(x)$, USPs between LANs of $x$ and back LANs of $y$ and the back neighbourhood of $y$ (possibly only part of it will be explored, since the local back search goes against the direction in which the back neighbourhood was created).}
+		\end{figure}
+		
+		We will call $\mathcal{A}$ a $\bm{(r_{1}, r_{2}, r_{3})}$ \textbf{AN set} if:
+		\begin{itemize}
+			\item $|\mathcal{A}| \leq r_{1} \cdot \sqrt{n}$
+			\item $(avg \; |neigh(x)|)^{2} \leq r_{2} \cdot n$
+			\item $|lan_{\mathcal{A}}(x)| \leq r_{3}$
+		\end{itemize}
+		\hspace{\fill}
+		
+		If we can manage to find a $(r_{1}, r_{2}, r_{3})$ AN set in time $f(n)$, the parameters of the \textit{USP-OR-A} algorithm are as summarized in table~\ref{tab:uspora-guar}. Table~\ref{tab:uspora-cond} lists the parameters of \textit{USP-OR-A} for timetables with specific conditions (as had our datasets) and on which we can find $(r_{1}, r_{2}, r_{3})$ AN set with $r_{i}$ being a constant (with regard to $n$).
+		
+		\begin{table}[h!]
+			\centering
+			\footnotesize
+			\begin{tabular}{l|c}
+			%legend
+				\cellcolor{oracle-clr} \textit{\textbf{USP-OR-A}} & 
+				\cellcolor{oracle-clr} \textbf{guaranteed} \\
+			%data
+				\hline
+				\cellcolor{oracle-clr} $\bm{prep}$ & $\mathcal{O}(f(n) + (r_{1} + r_{2}) (\delta + \log n) h n^{1.5})$ \\
+				\cellcolor{oracle-clr} $\bm{size}$ & $\mathcal{O}(r_{2} n^{1.5} + r_{1}^{2} \tau_{\mathcal{A}} \gamma_{\mathcal{A}} n)$ \\
+				\cellcolor{oracle-clr} $\bm{qtime}$ & avg. $\mathcal{O}(r_{2} r_{3} \sqrt{n} (\log (r_{2}n) + \delta) + r_{3}^{2} \tau_{\mathcal{A}} \gamma_{\mathcal{A}})$ \\
+				\cellcolor{oracle-clr} $\bm{stretch}$ & $1$ \\
+			\end{tabular}
+			\caption{\label{tab:uspora-guar} Guaranteed parameters of the \textit{USP-OR-A} algorithm. $\tau_{\mathcal{A}}$ and $\gamma_{\mathcal{A}}$ are defined just like $\tau$ and $\gamma$, but on the set of cities $\in \mathcal{A}$.}
+		\end{table}
+		
+		\begin{table}[h!]
+			\centering
+			\footnotesize
+			\begin{tabular}{l|c}
+			%legend
+				\cellcolor{oracle-clr} \textit{\textbf{USP-OR-A}} & 
+				\cellcolor{oracle-clr} \parbox{3cm}{\textbf{$\bm{\tau, r_{1}, r_{2}, r_{3}}$ const., $\bm{\gamma \leq \sqrt{n}}$, $\bm{\delta \leq \log n}$}} \\ [2ex]
+			%data
+				\hline
+				\cellcolor{oracle-clr} $\bm{prep}$ & $\mathcal{O}(f(n) + h n^{1.5} \log n)$ \\
+				\cellcolor{oracle-clr} $\bm{size}$ & $\mathcal{O}(n^{1.5})$ \\
+				\cellcolor{oracle-clr} $\bm{qtime}$ & avg. $\mathcal{O}(\sqrt{n} \log n)$ \\
+				\cellcolor{oracle-clr} $\bm{stretch}$ & $1$ \\
+			\end{tabular}
+			\caption{\label{tab:uspora-cond} Parameters of the \textit{USP-OR-A} algorithm under certain conditions, generally fulfilled by our timetables.}
+		\end{table}
+	
+\section{Results}
+
+\section{Conclusion}
 
 
 \section*{Acknowledgments}

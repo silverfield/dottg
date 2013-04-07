@@ -35,7 +35,8 @@
 \RequirePackage{url}
 \RequirePackage{hyperref}
 \RequirePackage{graphicx}
-\RequirePackage{mathptmx}
+\usepackage{bm}
+%\RequirePackage{mathptmx}
 \RequirePackage{listings}
 \RequirePackage{latexsym}
 \RequirePackage{amsthm}

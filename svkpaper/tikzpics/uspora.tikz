@@ -3,8 +3,8 @@
 \tikzstyle{s-usp}=[orange]
 \tikzstyle{place}=[circle,draw=city-clr,fill=city-clr!20,thick,inner sep=1pt, font=\fontsize{2}{2}\selectfont]
 \tikzstyle{important}=[circle,draw=city-clr,fill=city-clr!20,thick,inner sep=2pt]
-\tikzstyle{textstyle}=[font=\fontsize{6}{6}\selectfont]
-\begin{tikzpicture}[>=stealth,looseness=.1,auto,scale=0.85])
+\tikzstyle{textstyle}=[font=\fontsize{4}{4}\selectfont]
+\begin{tikzpicture}[>=stealth,looseness=.1,auto,scale=0.45])
 	\node (A) at (0,0) [important, label=below:{\textbf{A}}] {};
 	
 	\node (a1) at (1,0) [place] {1};
@@ -20,7 +20,7 @@
 	\node (A2) at (4,0) [important, label=below:{D}] {};	
 	\node (A3) at (4,-2) [important, label=below:{F}] {};
 	
-	\draw [decorate, decoration={brace, amplitude=3pt}] (4.3 , -2.7) -- (-0.3, -2.7) node [black,above, midway, yshift=-0.6cm] {$neigh_\mathcal{A}(A)$};
+	\draw [decorate, decoration={brace, amplitude=3pt}] (4.3 , -3.0) -- (-0.3, -3.0) node [black,above, midway, yshift=-0.6cm] {$neigh_\mathcal{A}(A)$};
 	
 	\draw [s-fneigh, very thick, ->] (A) -- (a1);
 	\draw [s-fneigh, very thick, ->] (A) -- (a2);
@@ -97,7 +97,7 @@
 	\node (b5) at (14.5, -1.8) [place] {5};
 	\node (b6) at (13.5, 1.7) [place] {6};
 	
-	\draw [decorate, decoration={brace, amplitude=3pt}] (16.3 , -2.7) -- (11.7, -2.7) node [black,above, midway, yshift=-0.6cm] {$bneigh_\mathcal{A}(B)$};
+	\draw [decorate, decoration={brace, amplitude=3pt}] (16.3 , -3.0) -- (11.7, -3.0) node [black,above, midway, yshift=-0.6cm] {$bneigh_\mathcal{A}(B)$};
 		
 	\node (B) at (16,0) [important, label=below:{\textbf{B}}] {};
 	
@@ -118,7 +118,7 @@
 	\draw [thin, dashed, ->] (b4) -- (15.5, 1.3);
 	\draw [thin, dashed, ->] (b5) -- (14.8, -2.5);
 	
-	\draw [decorate, decoration={brace, amplitude=3pt}] (0, 3.3) -- (3.9, 3.3) node [black,above, midway, yshift=0.15cm] {Local front search};
-	\draw [decorate, decoration={brace, amplitude=3pt}] (4, 3.3) -- (11.9, 3.3) node [black,above, midway, yshift=0.15cm] {Inter-AN search};
-	\draw [decorate, decoration={brace, amplitude=3pt}] (12, 3.3) -- (16, 3.3) node [black,above, midway, yshift=0.15cm] {Local back search};
+	\draw [decorate, decoration={brace, amplitude=3pt}] (0, 3.7) -- (3.9, 3.7) node [black,above, midway, yshift=0.15cm] {Local front search};
+	\draw [decorate, decoration={brace, amplitude=3pt}] (4, 3.7) -- (11.9, 3.7) node [black,above, midway, yshift=0.15cm] {Inter-AN search};
+	\draw [decorate, decoration={brace, amplitude=3pt}] (12, 3.7) -- (16, 3.7) node [black,above, midway, yshift=0.15cm] {Local back search};
 \end{tikzpicture}

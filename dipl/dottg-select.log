@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  6 APR 2013 22:27
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  7 APR 2013 19:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1717,49 +1717,49 @@ Missing character: There is no ) in font nullfont!
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Citation `cauchy' on page 20 undefined on input line 459.
+LaTeX Warning: Citation `cauchy' on page 20 undefined on input line 458.
 
 [20] [21] (./tikzpics/plot_antau_cpza_size.tikz)
-Overfull \hbox (5.11293pt too wide) in paragraph at lines 40--497
+Overfull \hbox (5.11293pt too wide) in paragraph at lines 40--496
  [][] 
  []
 
 (./tikzpics/plot_angamma_cpza_size.tikz)
-Overfull \hbox (5.11293pt too wide) in paragraph at lines 40--497
+Overfull \hbox (5.11293pt too wide) in paragraph at lines 40--496
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 504--505
+Underfull \hbox (badness 10000) in paragraph at lines 503--504
 
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 535--536
+Underfull \hbox (badness 10000) in paragraph at lines 534--535
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 537--538
+Underfull \hbox (badness 10000) in paragraph at lines 536--537
 
  []
 
 (./tikzpics/usporaproof2.tikz
 Missing character: There is no ) in font nullfont!
 )
-Underfull \hbox (badness 10000) in paragraph at lines 548--549
+Underfull \hbox (badness 10000) in paragraph at lines 547--548
 
  []
 
 [23] (./tikzpics/uspora3.tikz
 Missing character: There is no ) in font nullfont!
 ) [24]
-Underfull \hbox (badness 10000) in paragraph at lines 590--591
+Underfull \hbox (badness 10000) in paragraph at lines 589--590
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 601--602
+Underfull \hbox (badness 10000) in paragraph at lines 600--601
 
  []
 
@@ -1770,13 +1770,13 @@ Missing character: There is no ) in font nullfont!
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 625--626
+Underfull \hbox (badness 10000) in paragraph at lines 624--625
 
  []
 
 [26]
 
-LaTeX Warning: Citation `centrality01' on page 27 undefined on input line 649.
+LaTeX Warning: Citation `centrality01' on page 27 undefined on input line 648.
 
 (./tikzpics/plot_hbcdeg_sncf_size.tikz) (./tikzpics/plot_hbcdeg_cpru_size.tikz)
 [27] (./tikzpics/locsep.tikz
@@ -1787,7 +1787,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 (./tikzpics/plot_uspora_cpru_size.tikz) (./tikzpics/plot_uspora_cpza_size.tikz)
 
-Overfull \hbox (5.09831pt too wide) in paragraph at lines 42--731
+Overfull \hbox (5.09831pt too wide) in paragraph at lines 42--730
  [][] 
  []
 
@@ -1810,7 +1810,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 (./tikzpics/plot_usporam_cpru_size.tikz)
 (./tikzpics/plot_usporam_cpza_size.tikz)
-Overfull \hbox (5.09831pt too wide) in paragraph at lines 42--822
+Overfull \hbox (5.09831pt too wide) in paragraph at lines 42--821
  [][] 
  []
 
@@ -1851,13 +1851,13 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 399.
  ) 
 Here is how much of TeX's memory you used:
- 32130 strings out of 493488
- 669912 string characters out of 3141346
- 1043554 words of memory out of 3000000
+ 32129 strings out of 493488
+ 669899 string characters out of 3141346
+ 1043527 words of memory out of 3000000
  34332 multiletter control sequences out of 15000+200000
  135739 words of font info for 108 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,22n,92p,1127b,2231s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 63i,22n,92p,1111b,2231s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.16} has been referenced but does not ex
 ist, replaced by a fixed one
 
@@ -1955,10 +1955,10 @@ ic/lm/lmsy6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy7
 local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texli
 ve/2012/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/local/texlive/2012/tex
 mf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on dottg-select.pdf (42 pages, 1048084 bytes).
+Output written on dottg-select.pdf (42 pages, 1047804 bytes).
 PDF statistics:
- 943 PDF objects out of 1000 (max. 8388607)
- 799 compressed objects within 8 object streams
- 252 named destinations out of 1000 (max. 500000)
+ 942 PDF objects out of 1000 (max. 8388607)
+ 798 compressed objects within 8 object streams
+ 251 named destinations out of 1000 (max. 500000)
  408 words of extra memory for PDF output out of 10000 (max. 10000000)
 

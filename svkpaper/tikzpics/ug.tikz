@@ -1,5 +1,5 @@
 \tikzstyle{place}=[circle,draw=city-clr,fill=city-clr!20,thick,inner sep=1pt]
-\begin{tikzpicture}[>=stealth,->,shorten >=2pt,looseness=.5,auto, scale=1.5]
+\begin{tikzpicture}[>=stealth,->,shorten >=2pt,looseness=.5,auto, scale=1]
     % draw nodes (pgf/TikZ v2.00 manual sections 3.4, 3.7, 3.9)
     \node (A) at (0,0) [place, label=below:A] {};
     \node (B) at (2,2) [place, label=below:B] {};
