@@ -42,14 +42,6 @@
 \usetikzlibrary{shapes,fit,calc,shadows,plotmarks}
 
 %---------------------------------------------------------------------
-%   margins
-%---------------------------------------------------------------------
-
-
-%\linespread{1.2}
-%\renewcommand{\arraystretch}{1.1} %spacing of table rows
-
-%---------------------------------------------------------------------
 %   various settings
 %---------------------------------------------------------------------
 
@@ -72,6 +64,8 @@
 \colorlet{oracle-clr}{orange!30}
 \colorlet{algsec-clr}{black!50!red}
 
+\renewcommand{\arraystretch}{1.1} %spacing of table rows
+
 %---------------------------------------------------------------------
 %   environments
 %---------------------------------------------------------------------
@@ -84,11 +78,6 @@
 \newcommand{\textbff}[1]{{\large \textbf{#1}}}
 \newcommand{\tick}{\ding{52}}
 \newcommand{\cross}{\ding{55}}
-
-\numberwithin{algorithm}{section}
-\numberwithin{figure}{section}
-\numberwithin{table}{section}
-\numberwithin{equation}{section}
 
 \interfootnotelinepenalty=10000
 
@@ -124,7 +113,7 @@
 	\maketitle
 
 	\begin{abstract}
-	We introduce methods to speed-up optimal-connection queries in timetables based on pre-computing paths that are worth to follow. We present a very fast but space consuming method \textit{USP-OR} which we enhance to considerably decrease the size of pre-processed data while still achieving speed-ups up to 6 against time-dependent Dijkstra's algorithm implemented with Fibonacci heap priority queue.
+	We introduce methods to speed-up optimal connection queries in timetables based on pre-computing paths that are worth to follow. We present a very fast but space consuming method \textit{USP-OR} which we enhance to considerably decrease the size of the preprocessed data while still achieving speed-ups up to 6 against time-dependent Dijkstra's algorithm implemented with Fibonacci heap priority queue.
 	\keywords{optimal connection, timetable, Dijkstra's algorithm, underlying shortest paths}
 	\end{abstract}
 
@@ -135,7 +124,7 @@
     
 \section{Introduction}
 
-	We consider a problem of looking for an optimal connection (from $a$ at time $t$ to $b$ $\rightarrow$ $\bm{c^{*}_{(a, t, b)}}$)  in timetables on which we carried out some pre-processing. We define \textbf{timetable} simply as a set of \textbf{elementary connections}, which are quadruples $(x, y, p, q)$ meaning that a train departs from \textbf{city} $x$ at time $p$ an arrives to city $y$ at time $q$. A \textbf{connection} is simply a valid sequence of elementary connections which may include also waiting in visited cities. We also define an \textbf{underlying graph} ($\bm{ug_{T}}$) of the timetable $T$ whose nodes are the cities and there is an arc $(x, y)$ if some el. connection $(x, y, p, q) \in T$.
+	We consider a problem of looking for an optimal connection (from $a$ at time $t$ to $b$ $\rightarrow$ $\bm{c^{*}_{(a, t, b)}}$)  in timetables on which we carried out some pre-processing. We define \textbf{timetable} simply as a set of \textbf{elementary connections}, which are quadruples $(x, y, p, q)$ meaning that a train departs from \textbf{city} $x$ at time $p$ an arrives to city $y$ at time $q$. A \textbf{connection} is simply a valid sequence of elementary connections which may include also some waiting in visited cities. We also define an \textbf{underlying graph} ($\bm{ug_{T}}$) of the timetable $T$ whose nodes are the cities and there is an arc $(x, y) \iff$ some el. connection $(x, y, p, q) \in T$.
 
 \begin{table}[h!]
     	\centering
@@ -177,7 +166,7 @@
 
 	\subsection{\textit{USP-OR}}
 	
-		Our first method, called \textit{USP-OR}, is based on pre-computing USPs between every pair of cities. Then, upon a query from $x$ to $y$ at time $t$ we consider one by one the computed USPs between $x$ and $y$ and perform a reverse operation to the $path$ function - $expand(p)$ where $p$ is an USP. The $expand$ function simply follows the sequence of cities in $p$ and from each of them it takes the first available el. connection to the next one, thus constructing one by one a connection from $x$ to $y$. 
+		Our first method, called \textit{USP-OR} (\textbf{USP} \textbf{or}acle), is based on pre-computing USPs between every pair of cities. Then, upon a query from $x$ to $y$ at time $t$ we consider one by one the computed USPs between $x$ and $y$ and perform a reverse operation to the $path$ function - $expand(p)$ where $p$ is an USP. The $expand$ function simply follows the sequence of cities in $p$ and from each of them it takes the first available el. connection to the next one, thus constructing one by one a connection from $x$ to $y$. 
 		
 		\color{algcolor}
 		\begin{algorithm}[H]
@@ -208,12 +197,12 @@
 		\end{algorithm}
 		\color{black}
 
-		Define an elementary connection $e_{1}$ to \textbf{overtake}~\cite{tdroute09} $e_{2}$ $\iff$ $depart(e_{1}) > depart(e_{2})$ and $arrive(e_{1}) < arrive(e_{2})$. If the timetable $T$ has no overtaking el. connections, the \textit{USP-OR} algorithm returns exact answers, which can be easily proved. The table~\ref{tab:uspor} summarizes the parameters of \textit{USP-OR} based on the following parameters of the timetable:
+		Define an elementary connection $e_{1}$ to \textbf{overtake} $e_{2}$ $\iff$ $depart(e_{1}) > depart(e_{2})$ and $arrive(e_{1}) < arrive(e_{2})$~\cite{tdroute09}. If the timetable $T$ has no overtaking el. connections, the \textit{USP-OR} algorithm returns exact answers, which can be easily proved. The table~\ref{tab:uspor} summarizes the parameters of \textit{USP-OR} based on the following parameters of the timetable:
 		\begin{itemize}
 			\item $\bm{\tau}$ - the average number of different USPs between pairs of cities - the \textbf{USP coefficient}
 			\item $\bm{\gamma}$ - the average size (i.e. number of el. conn.) of optimal connections - the \textbf{OC radius}
 			\item $\bm{\delta}$ - the \textbf{density} of $T$ defined by $\frac{\bm{m}}{\bm{n}}$ - number of arcs of $ug_{T}$ divided by number of cities
-			\item $\bm{h}$ - the \textbf{height} of the timetable - the maximal number of events (arrival/departure) in a city
+			\item $\bm{h}$ - the \textbf{height} of the timetable - the maximal number of events (i.e. arrival or departure of el. conn.) in a city
 		\end{itemize}
 		
 		\begin{table}[h!]
@@ -221,7 +210,7 @@
 			\small
 			\begin{tabular}{l|c|c}
 			%legend
-				\cellcolor{oracle-clr} \textit{\textbf{USP-OR}} & \cellcolor{oracle-clr} \textbf{guaranteed} & \cellcolor{oracle-clr} \parbox{1.8cm}{\textbf{$\bm{\tau = \mathcal{O}(1)}$,\\ $\bm{\gamma \leq \sqrt{n}}$,\\ $\bm{\delta \leq \log n}$}} \\ [3ex]
+				\cellcolor{oracle-clr} \textit{\textbf{USP-OR}} & \cellcolor{oracle-clr} \textbf{guaranteed} & \cellcolor{oracle-clr} \parbox{1.8cm}{\textbf{$\bm{\tau = \mathcal{O}(1)}$,\\ $\bm{\gamma \leq \sqrt{n}}$,\\ $\bm{\delta \leq \log n}$}} \\ [2.75ex]
 			%data
 				\hline
 				\cellcolor{oracle-clr} $\bm{prep}$ & $\mathcal{O}(hn^{2} (\log n + \delta))$ & $\mathcal{O}(hn^{2} \log n)$ \\	
@@ -237,14 +226,14 @@
 		\begin{figure}
 			\centering
 		    \inputTikZ{./tikzpics/plot_usp_sncf_size}
-		    \caption{\label{plot:usp-sncf-size} Changing of $\tau$ with increased number of stations in \textit{sncf} dataset.}
+		    \caption{\label{plot:usp-sncf-size} Changing of $\tau$ with increased number of stations in \textit{sncf} dataset (French railways).}
 		\end{figure}
 		
 	\subsection{\textit{USP-OR-A}}
 	
-		To decrease the space complexity, in \textit{USP-OR-A} we compute USPs only among cities from a smaller set - called \textbf{access node set} (AN set, denoted $\bm{\mathcal{A}}$). Given such set in timetable $T$, we define for a city $x$ its \textbf{neighbourhood} $\bm{neigh_{\mathcal{A}}(x)}$ as all the cities reachable in $ug_{T}$ \textit{not} via ANs. The access nodes within this neighbourhood are called \textbf{local access nodes} (LANs, $\bm{lan_{\mathcal{A}}(x)}$). We do the same in $\overleftarrow{ug_{T}}$ ($ug_{T}$ with reversed orientation) to get \textbf{back neighbourhood} and \textbf{back LANs}. \\
+		To decrease the space complexity, in \textit{USP-OR-A} (\textbf{USP} \textbf{or}acle with \textbf{a}ccess nodes) we compute USPs only among cities from a smaller set - called \textbf{access node set} (AN set, denoted $\bm{\mathcal{A}}$). Given such set in timetable $T$, we define for a city $x$ its \textbf{neighbourhood} $\bm{neigh_{\mathcal{A}}(x)}$ as all the cities reachable in $ug_{T}$ \textit{not} via ANs. The access nodes within this neighbourhood are called \textbf{local access nodes} (LANs, $\bm{lan_{\mathcal{A}}(x)}$). We do the same in $\overleftarrow{ug_{T}}$ ($ug_{T}$ with reversed orientation) to get \textbf{back neighbourhood} and \textbf{back LANs}. \\
 		
-		In the pre-processing, we:
+		In the preprocessing we:
 		\begin{itemize}
 			\item find $\mathcal{A}$ (discussed later)
 			\item $\forall x, y \in \mathcal{A}$ compute USPs between $x$ and $y$
@@ -273,7 +262,7 @@
 				\IF {$y \in neigh(x)$}
 					\STATE $c_{loc}^{*} =$ conn. to $y$ obtained by TD Dijkstra
 				\ENDIF
-				\STATE $\forall u \in lan(x)$ let $ea(u)$ the arrival time and $oc(u)$ the conn. to $u$ obtained by TD Dijkstra
+				\STATE $\forall u \in lan(x)$ let $ea(u)$ be the arrival time and $oc(u)$ the conn. to $u$ obtained by TD Dijkstra
 				\STATE \algsec{Inter-AN search}
 				\FORALL{$v \in blan(y)$}
 					\STATE $oc(v) = null$
@@ -313,12 +302,12 @@
 		We will call $\mathcal{A}$ a $\bm{(r_{1}, r_{2}, r_{3})}$ \textbf{AN set} if:
 		\begin{itemize}
 			\item $|\mathcal{A}| \leq r_{1} \cdot \sqrt{n}$
-			\item $(avg \; |neigh_{\mathcal{A}}(x)|)^{2} \leq r_{2} \cdot n$
+			\item $avg \; (|neigh_{\mathcal{A}}(x)|)^{2} \leq r_{2} \cdot n$
 			\item $|lan_{\mathcal{A}}(x)| \leq r_{3}$
 		\end{itemize}
 		\hspace{\fill}
 		
-		If we can manage to find a $(r_{1}, r_{2}, r_{3})$ AN set in time $f(n)$, the parameters of the \textit{USP-OR-A} algorithm are as summarized in table~\ref{tab:uspora-guar}. Table~\ref{tab:uspora-cond} lists the parameters of \textit{USP-OR-A} for timetables with specific properties (as had our datasets) and on which we can find $(r_{1}, r_{2}, r_{3})$ AN set with $r_{i}$ being a constant (with regard to $n$).
+		If we can manage to find a $(r_{1}, r_{2}, r_{3})$ AN set in time $f(n)$, the parameters of the \textit{USP-OR-A} algorithm are as summarized in table~\ref{tab:uspora-guar}. Table~\ref{tab:uspora-cond} lists the parameters of \textit{USP-OR-A} for timetables with specific properties (as had our datasets) and on which we can find $(r_{1}, r_{2}, r_{3})$ AN set with each $r_{i}$ being a constant (with regard to $n$).
 		
 		\begin{table}[h!]
 			\centering
@@ -334,7 +323,7 @@
 				\cellcolor{oracle-clr} $\bm{qtime}$ & avg. $\mathcal{O}(r_{2} r_{3} \sqrt{n} (\log (r_{2}n) + \delta) + r_{3}^{2} \tau_{\mathcal{A}} \gamma_{\mathcal{A}})$ \\
 				\cellcolor{oracle-clr} $\bm{stretch}$ & $1$ \\
 			\end{tabular}
-			\caption{\label{tab:uspora-guar} Guaranteed parameters of the \textit{USP-OR-A} algorithm. $\tau_{\mathcal{A}}$ and $\gamma_{\mathcal{A}}$ are defined just like $\tau$ and $\gamma$, but on the set of cities $\in \mathcal{A}$.}
+			\caption{\label{tab:uspora-guar} Guaranteed parameters of the \textit{USP-OR-A} algorithm. $\tau_{\mathcal{A}}$ and $\gamma_{\mathcal{A}}$ are defined just like $\tau$ and $\gamma$, but on the set of cities from $\mathcal{A}$.}
 		\end{table}
 		
 		\begin{table}[h!]
@@ -343,7 +332,7 @@
 			\begin{tabular}{l|c}
 			%legend
 				\cellcolor{oracle-clr} \textit{\textbf{USP-OR-A}} & 
-				\cellcolor{oracle-clr} \parbox{3cm}{\textbf{$\bm{\tau, r_{1}, r_{2}, r_{3}}$ const., $\bm{\gamma \leq \sqrt{n}}$, $\bm{\delta \leq \log n}$}} \\ [2ex]
+				\cellcolor{oracle-clr} \parbox{3cm}{\textbf{$\bm{\tau, r_{1}, r_{2}, r_{3}}$ const., $\bm{\gamma \leq \sqrt{n}}$, $\bm{\delta \leq \log n}$}} \\ [1.5ex]
 			%
 				\hline
 				\cellcolor{oracle-clr} $\bm{prep}$ & $\mathcal{O}(f(n) + h n^{1.5} \log n)$ \\
@@ -371,7 +360,7 @@
 			\end{itemize}
 			\hspace*{\fill}
 			
-			\noindent Denote $\mathcal{S} = \{S_{i}| \; 1 \leq i \leq k\}$. The task is to choose the smallest subset $\mathcal{S}^{*}$ of $\mathcal{S}$ that still covers the universe ($\bigcup\limits_{S_{i} \in \mathcal{S}^{*}} S_{i} = U$). For each $j \in U$, we will make a complete graph of $\beta_{i}$ vertices (the value of $\beta_{i}$ will be discussed later) named $m_{j}$ and for each set $S_{i}$ we make a vertex $s_{i}$ and vertex $s_{i}'$. We now connect all vertices of $m_{j}$ to $s_{i} \iff j \in S_{i}$. Finally, for we connect $s_{i}$ to $s_{i}'$ for $1 \leq i \leq k$. \\
+			\noindent Denote $\mathcal{S} = \{S_{i}| \; 1 \leq i \leq k\}$. The task is to choose the smallest subset $\mathcal{S}^{*}$ of $\mathcal{S}$ that still covers the universe ($\bigcup\limits_{S_{i} \in \mathcal{S}^{*}} S_{i} = U$). For each $j \in U$, we will make a complete graph of $\beta_{j}$ vertices (the value of $\beta_{j}$ will be discussed later) named $m_{j}$ and for each set $S_{i}$ we make a vertex $s_{i}$ and vertex $s_{i}'$. We now connect all vertices of $m_{j}$ to $s_{i} \iff j \in S_{i}$. Finally, for we connect $s_{i}$ to $s_{i}'$, $1 \leq i \leq k$. \\
 			 
 			\noindent \textbf{Example}. Let $m = 10$ (thus $U = \{1, 2, ..., 10\}$) and $k = 13$:
 			\begin{itemize}
@@ -408,7 +397,7 @@
 		
 		Our algorithm, called \textit{Locsep}, computes the city's potential in the following way: we explore an area $\bm{A_{x}}$ of $\sqrt{n}$ nearest cities around $x$. We do this in an underlying graph with no orientation and no weights. Next we get the front and back neighbourhoods of $x$ within $A_{x}$ ($\bm{fn(x)} = neigh(x) \cap A_{x}$, $\bm{bn(x)} = bneigh(x) \cap A_{x}$). For a set of access nodes $\mathcal{A}$, let us call a path $p$ in $ug_{T}$ \textbf{access-free} if it does not contain a node from $\mathcal{A}$. Now as long as $x$ is not in $\mathcal{A}$, there is a guarantee that for every pair $u \in bn(x)$ and $v \in fn(x)$ there is an access-free path from $u$ to $v$ within $A_{x}$. Our interest is how this will change after the selection of $x$. \\
 		
-		Let $bneigh_{i} = bneigh(b_{i}) \cap A_{x}$ for each arc $(b_{i}, x) \in ug_{T}$. We run a restricted (to $A_{x} \setminus \{x\}$) search from each $bneigh_{i}$ during which we explore $e_{i}$ vertices in $fn(x)$. This is going to contribute up to $e_{i}|bneigh_{i}|$ to $x$'s potential, depending on if the cities in $bneigh_{i}$ actually have large neighbourhoods (and thus selecting $x$ would help). More details regarding the \textit{Locsep} algorithm will be in~\cite{dottg13}.
+		Let $bneigh_{i} = bneigh(b_{i}) \cap A_{x}$ for each arc $(b_{i}, x) \in ug_{T}$. We run a restricted (to $A_{x} \setminus \{x\}$) search from each $bneigh_{i}$ during which we explore $e_{i}$ vertices in $fn(x)$. This is going to contribute up to $e_{i}|bneigh_{i}|$ to $x$'s potential, depending on if the cities in $bneigh_{i}$ actually have large neighbourhoods (and thus selecting $x$ would help). More details regarding the \textit{Locsep} algorithm will be in~\cite{dottg13}. For illustration of the principle of computing the potential, see picture~\ref{fig:locsep}. Also, see plot~\ref{plot:locsep-sncf-size} for comparison of \textit{Locsep} algorithm to the approach of choosing ANs based on high degree/BC values.
 		
 		\begin{figure}[h!]
 			\begin{center}
@@ -416,13 +405,129 @@
 			\end{center}
 			\caption{\label{fig:locsep} The principle of computing potentials in Locsep algorithm. We explored an area of $\sqrt{n}$ nearest cities (in terms of hops) around $x$. Little \textcolor{purple}{squares} are nodes from $neigh(x)$ and \textcolor{cyan}{diamonds} are part of $bneigh(x)$. The highlighted area represents the back neighbourhood for node $b_{2}$. From its nodes we run a forward search (the \textbf{thick} arcs). Nodes from the $neigh(x)$ that were not explored in this search can only be reached via $x$ itself and contribute to $x$'s potential.}
 		\end{figure}
-\section{Results}
+		
+		\begin{figure}[h!]
+            \begin{center}
+                \inputTikZ{./tikzpics/plot_locsep_sncf_size}
+            \end{center}
+            \vspace{-0.3cm}
+            \caption{\label{plot:locsep-sncf-size} The necessary size of $\mathcal{A}$ when selecting ANs based on degree, BC or \textit{Locsep} potential in \textit{sncf} dataset ($|\mathcal{A}| = r_{1} \sqrt{n} \approx r_{1} 51$). Ideal situation would be a constant or non-increasing value, to which \textit{Locsep} comes closest.}
+		\end{figure}
+		
+\section{Performance and comparisons}
+
+	We have run tests on the datasets described in table~\ref{table:tt_mainpr}. We compared the query time of \textit{USP-OR}, \textit{USP-OR-A} with \textit{Locsep} and time-dependent Dijkstra's algorithm using priority queues based on Fibonacci heaps (\textit{TD Dijkstra} for short). The average query times for these algorithms (at our timetables) are theoretically determined as:
+	\begin{itemize}
+		\item $\mathcal{O}(\sqrt{n})$ for \textit{USP-OR}
+		\item $\mathcal{O}(\sqrt{n} \log n)$ for \textit{USP-OR-A} with \textit{Locsep}
+		\item $\mathcal{O}(n \log n)$ for \textit{TD Dijkstra}~\footnote{Actually, the complexity of time-dependent Dijkstra's algorithm with Fibonacci heap priority queues is $\mathcal{O}(m + n \log n)$~\cite{sommerthesis10}, but in our timetables $m \leq n \log n$}
+	\end{itemize}
+	\hspace{\fill}
+	
+	For the dataset of French railways (\textit{sncf}) we measured how the query times evolve with increased $n$ (see plot~\ref{plot:usporall-sncf-size}) and for the dataset of Slovak railways (\textit{zsr}) we measured the evolution of query times with respect to increased time range (plot~\ref{plot:usporall-zsr-trange}). Finally, for all of our timetables, we measured the speed-up against TD Dijkstra, i.e. how many times faster were our algorithms then TD Dijkstra. For the speed-ups, refer to table~\ref{tab:speedup}. \\
+	
+	\begin{table}[h!]
+		\centering
+		\footnotesize
+		\begin{tabular}{c|c|c|c}
+		%legend
+			\rowcolor{tablehead}
+			\textbf{Name} & \textbf{Description} & \textbf{Cities} & \textbf{UG arcs} \\
+		%data
+			\hline
+			\textit{cpru} & Reg. bus (SVK - RK) & 871 & 2415 \\
+			\textit{cpza} & Reg. bus (SVK - ZA) & 1108 & 2778 \\
+			\textit{montr} & Public tr. (Montreal) & 217 & 349  \\
+			\textit{sncf} & Railways (FRA) & 2646 & 7994 \\
+			\textit{sncf-inter} & Inter-city rail. (FRA) & 366 & 901 \\
+			\textit{sncf-ter} & Regional rail. (FRA) & 2637 & 7647 \\
+			\textit{zsr} & Railways (SVK) & 233 & 588 \\
+		\end{tabular}
+		\caption{\label{table:tt_mainpr} Datasets used for testing.}
+		\normalsize
+	\end{table}	
+
+	\begin{figure}[h!]
+		\begin{center}
+        	\inputTikZ{./tikzpics/plot_usporall_sncf_size}
+		\end{center}
+		\caption{\label{plot:usporall-sncf-size} Query times (in sec., 25000 queries). \textit{USP-OR-A} + \textit{Locsep} vs. \textit{USP-OR} vs. \textit{TD Dijkstra} on \textit{sncf} dataset. Changing $n$.}
+	\end{figure}
+	\begin{figure}[h!]
+		\begin{center}
+			\inputTikZ{./tikzpics/plot_usporall_zsr_trange}
+		\end{center}
+		\caption{\label{plot:usporall-zsr-trange} Query times (in sec., 25000 queries). \textit{USP-OR-A} + \textit{Locsep} vs. \textit{USP-OR} vs. \textit{TD Dijkstra} on \textit{zsr} dataset. Changing time range.}
+	\end{figure}
+	
+	\begin{table}[h!]
+        \centering
+		\begin{tabular}{c|c|c}
+		%legend
+            \rowcolor{tablehead}
+            \textbf{Name} & \textit{\textbf{USP-OR}} & \textit{\textbf{USP-OR-A}} \\
+		%data
+			\hline
+			\textit{cpru} & 14.5 & 1.7 \\
+			\textit{cpza} & 14.3 & 1.7 \\
+			\textit{montr} & 8.8 & 1.5 \\
+			\textit{sncf} & 64.8 & 5.4 \\
+			\textit{sncf-inter} & 27.0 & 3.6 \\
+			\textit{sncf-ter} & 78.3 & 6.3 \\
+			\textit{zsr} (daily) & 19.3 & 2.14 \\
+		\end{tabular}
+		\caption{\label{tab:speedup} Speed-up of \textit{USP-OR} and \textit{USP-OR-A} with \textit{Locsep}.}
+	\end{table}
+	
+	As for the size of the preprocessed data, we compared \textit{USP-OR} to \textit{USP-OR-A} with \textit{Locsep} in a similar way we did for the query times: in plots~\ref{plot:usporalls-sncf-size},~\ref{plot:usporalls-zsr-trange} there are the actual sizes (in MB) of the data preprocessed by our algorithms and the amount of memory needed to actually represent the timetable in memory (as a time-dependent graph~\cite{tdroute09}). In table~\ref{tab:size} we provided the ratios specifying how many times more MB was pre-computed then the memory needed for the time-dependent graph. Again we remind the theoretically determined sizes of preprocessed data for our algorithms (and on our timetables):
+	\begin{itemize}
+		\item $\mathcal{O}(n^{2.5})$ for \textit{USP-OR}
+		\item $\mathcal{O}(n^{1.5})$ for \textit{USP-OR-A} with \textit{Locsep}
+	\end{itemize}
+	\hspace{\fill}
+	
+	\begin{figure}[h!]
+		\begin{center}
+        	\inputTikZ{./tikzpics/plot_usporalls_sncf_size}
+		\end{center}
+		\caption{\label{plot:usporalls-sncf-size} Size (in MB) of preprocessed data. \textit{USP-OR-A} + \textit{Locsep} vs. \textit{USP-OR} vs. \textit{TD Dijkstra} on \textit{sncf} dataset. Changing $n$.}
+	\end{figure}
+	\begin{figure}[h!]
+		\begin{center}
+			\inputTikZ{./tikzpics/plot_usporalls_zsr_trange}
+		\end{center}
+		\caption{\label{plot:usporalls-zsr-trange} Size (in MB) of preprocessed data. \textit{USP-OR-A} + \textit{Locsep} vs. \textit{USP-OR} vs. \textit{TD Dijkstra} on \textit{zsr} dataset. Changing time range.}
+	\end{figure}	
+	
+	\begin{table}[h!]
+        \centering
+		\begin{tabular}{c|c|c}
+		%legend
+            \rowcolor{tablehead}
+            \textbf{Name} & \textit{\textbf{USP-OR}} & \textit{\textbf{USP-OR-A}} \\
+		%data
+			\hline
+			\textit{cpru} & 396.7 & 3.0 \\
+			\textit{cpza} & 265.1 & 3.5 \\
+			\textit{montr} & 61.1 & 1.3 \\
+			\textit{sncf} & 106.2 & 4.0 \\
+			\textit{sncf-inter} & 30.3 & 1.5 \\
+			\textit{sncf-ter} & 87.4 & 2.6 \\
+			\textit{zsr} (daily) & 60.8 & 2.2 \\
+		\end{tabular}
+		\caption{\label{tab:size} The ratio $\frac{\text{size of TD graph}}{\text{preprocessed size}}$ for \textit{USP-OR} and \textit{USP-OR-A} with \textit{Locsep}.}
+	\end{table}
 
 \section{Conclusion}
 
+	In~\cite{engtimeexp09} the authors have considered the optimal connection problem in time-expanded graphs, and achieved speed-ups of up to 56 against Dijkstra's algorithm in railway timetables with about 30000 stations. \\
+
+	We approached the problem through the time-\textit{dependent} model and have developed exact methods to considerably speed-up the query time for optimal connections in timetables compared to the time-dependent Dijkstra's algorithm using Fibonacci heaps as priority queues (running in $\mathcal{O}(m + n \log n)$). Our first algorithm - \textit{USP-OR} - achieves speed-ups of up to 65 on our largest dataset representing French railways (2500+ stations). However, it does so at the cost of high space consumption, requiring more that 100 times the space that is needed to represent the timetable itself. Theoretically, for real-world timetables (that usually have certain properties), this algorithm has the space complexity $\mathcal{O}(n^{2.5})$ and the average query time $\mathcal{O}(\sqrt{n})$. \\
+	
+	Our second algorithm called \textit{USP-OR-A} is still 6 times faster then time-dependent Dijkstra's algorithm and at the same time, for all of our datasets it requires space up to 4 times the space needed to represent the timetable. We believe the speed-up of \textit{USP-OR-A} against Dijkstra's algorithm can be even higher for bigger timetables, since its query time is theoretically determined as $\mathcal{O}(\sqrt{n} \log n)$, while the algorithm can handle much bigger datasets for its space complexity is essentially $\mathcal{O}(n^{1.5})$. \\
 
 \section*{Acknowledgments}
-	I would like to thank very much to my supervisor Rastislav Královiè for valuable remarks, useful advices and consultations that helped me stay on the right path during my work on this paper.
+	I would like to thank very much to my supervisor Rastislav Královiè for valuable remarks, useful advices and consultations that helped me stay on the right path during my work on this project.
 
 %---------------------------------------------------------------------
 %   BACKMATTER  ------------------------------------------------------
@@ -437,5 +542,5 @@
 
 	\nocite{*}
 	\bibliographystyle{apalike}
-	\bibliography{../bibl}
+	\bibliography{bibl}
 \end{document} 

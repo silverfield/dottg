@@ -3,7 +3,7 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: dottg.aux
 The style file: is-alpha.bst
 Database file #1: ../bibl.bib
-I was expecting a `,' or a `}'---line 1567 of file ../bibl.bib
+I was expecting a `,' or a `}'---line 1591 of file ../bibl.bib
  :     
  :     ee      =   {http://optlab-server.sce.carleton.ca/POAnimations2007/DijkstrasAlgo.html}
 (Error may have been on previous line)

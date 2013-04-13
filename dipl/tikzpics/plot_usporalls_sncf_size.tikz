@@ -1,0 +1,54 @@
+\tikzstyle{textstyle}=[font=\fontsize{9}{9}\selectfont]
+\begin{tikzpicture}[textstyle, scale=0.85]
+    \begin{axis}[
+        xlabel={$n$},
+        ylabel={size (MB)},
+		legend pos=north west
+        ]
+        
+    \addplot[smooth,mark=*,color=blue, solid] plot coordinates {
+		(250,0.5)
+		(500,0.9)
+		(750,1.4)
+		(1000,1.9)
+		(1250,2.4)
+		(1500,2.9)
+		(1750,3.3)
+		(2000,3.8)
+		(2250,4.2)
+		(2500,4.8)
+		(2646,5)
+    };
+    \addlegendentry{\textit{TD graph}}
+    
+    \addplot[smooth,mark=|,color=black!50!red, solid] plot coordinates {
+		(250,0.5)
+		(500,1.2)
+		(750,2.2)
+		(1000,5)
+		(1250,6)
+		(1500,7)
+		(1750,10)
+		(2000,11)
+		(2250,14)
+		(2500,17)
+		(2646,20)
+    };
+    \addlegendentry{\textit{USP-OR-A}}
+    
+    \addplot[smooth,mark=x,color=green!70!black, solid] plot coordinates {
+		(100,2.4)
+		(200,7)
+		(300,20)
+		(400,67)
+		(500,103)
+		(600,165)
+		(700,215)
+		(800,311)
+		(900,438)
+		(1000,531)
+    };
+    \addlegendentry{\textit{USP-OR}}
+    
+    \end{axis}
+\end{tikzpicture}

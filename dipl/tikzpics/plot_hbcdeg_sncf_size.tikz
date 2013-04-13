@@ -19,7 +19,7 @@
 		(2500,5.36)
 		(2646,4.49)
     };
-    \addlegendentry{$k_{deg}^{avg}$}
+    \addlegendentry{$r_{deg}^{avg}$}
     
     \addplot[smooth,mark=x,color=blue] plot coordinates {
 		(250,2.97)
@@ -34,7 +34,7 @@
 		(2500,11.1)
 		(2646,11.20)
     };
-    \addlegendentry{$k_{deg}^{max}$}
+    \addlegendentry{$r_{deg}^{max}$}
 
     \addplot[smooth,mark=*, color=red, dashed] plot coordinates {
 		(250,2.78)
@@ -49,7 +49,7 @@
 		(2500,6.78)
 		(2646,7.52)
     };
-    \addlegendentry{$k_{bc}^{avg}$}
+    \addlegendentry{$r_{bc}^{avg}$}
     
     \addplot[smooth,mark=x, color=red, dashed] plot coordinates {
 		(250,8.29)
@@ -64,7 +64,7 @@
 		(2500,9.78)
 		(2646,11.66)
     };
-    \addlegendentry{$k_{bc}^{max}$}
+    \addlegendentry{$r_{bc}^{max}$}
     
     \end{axis}
 \end{tikzpicture}

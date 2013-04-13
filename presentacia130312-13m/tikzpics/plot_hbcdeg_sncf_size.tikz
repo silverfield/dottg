@@ -6,7 +6,7 @@
 		legend pos=north west
         ]
         
-    \addplot[smooth,mark=*,color=blue] plot coordinates {
+    \addplot[smooth,mark=*,color=blue, solid] plot coordinates {
 		(250,1.01)
 		(500,1.34)
 		(750,1.46)
@@ -21,7 +21,7 @@
     };
     \addlegendentry{$deg$}
 
-    \addplot[smooth,mark=*, color=red, dashed] plot coordinates {
+    \addplot[smooth,mark=o, color=red, solid] plot coordinates {
 		(250,2.78)
 		(500,2.68)
 		(750,3.76)

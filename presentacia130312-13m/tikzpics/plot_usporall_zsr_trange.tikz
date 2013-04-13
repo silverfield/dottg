@@ -1,0 +1,82 @@
+\tikzstyle{textstyle}=[font=\fontsize{9}{9}\selectfont]
+\begin{tikzpicture}[textstyle, scale=0.6]
+    \begin{axis}[
+        xlabel={time range (days)},
+        ylabel={$25000$ queries (sec)},
+		legend pos=north west
+        ]
+        
+    \addplot[smooth,mark=*,color=blue, solid] plot coordinates {
+		(1,21.2)
+		(2,26.3)
+		(3,28.3)
+		(4,32.3)
+		(5,30.3)
+		(6,32.3)
+		(7,32.3)
+		(8,34.3)
+		(9,34.3)
+		(10,35.4)
+		(11,35.4)
+		(12,35.4)
+		(13,35.4)
+		(14,34.3)
+		(15,34.4)
+		(16,35.4)
+		(17,34.3)
+		(18,35.4)
+		(19,35.4)
+		(20,35.4)
+    };
+    \addlegendentry{\textit{TD Dijkstra}}
+    
+    \addplot[smooth,mark=|,color=black!50!red, solid] plot coordinates {
+		(1,9.9)
+		(2,15.2)
+		(3,17.2)
+		(4,17.2)
+		(5,21.2)
+		(6,20.2)
+		(7,25.3)
+		(8,24.2)
+		(9,26.3)
+		(10,25.3)
+		(11,24.2)
+		(12,27.3)
+		(13,25.3)
+		(14,26.3)
+		(15,28.3)
+		(16,26.3)
+		(17,28.3)
+		(18,27.3)
+		(19,29.3)
+		(20,28.3)
+    };
+    \addlegendentry{\textit{USP-OR-A}}
+    
+    \addplot[smooth,mark=x,color=green!70!black, solid] plot coordinates {
+		(1,1.1)
+		(2,2.2)
+		(3,2.2)
+		(4,2.3)
+		(5,2.3)
+		(6,2.3)
+		(7,2.3)
+		(8,3.3)
+		(9,3.3)
+		(10,3.3)
+		(11,3.4)
+		(12,3.3)
+		(13,3.3)
+		(14,3.3)
+		(15,3.4)
+		(16,4.4)
+		(17,3.4)
+		(18,4.4)
+		(19,3.4)
+		(20,3.4)
+    };
+    \addlegendentry{\textit{USP-OR}}
+    
+    \end{axis}
+\end{tikzpicture}

@@ -1,19 +1,5 @@
 \begin{thebibliography}{}
 
-\bibitem[Pow, ]{PowerLawPict}
-Information about scale free networks.
-
-\bibitem[DBL, 2009a]{DBLP:conf/focs/2009}
- (2009a).
-\newblock {\em 50th Annual IEEE Symposium on Foundations of Computer Science,
-  FOCS 2009, October 25-27, 2009, Atlanta, Georgia, USA}. IEEE Computer
-  Society.
-
-\bibitem[DBL, 2009b]{DBLP:conf/icde/2009}
- (2009b).
-\newblock {\em Proceedings of the 25th International Conference on Data
-  Engineering, ICDE 2009, March 29 2009 - April 2 2009, Shanghai, China}. IEEE.
-
 \bibitem[Abraham et~al., 2010]{highwaydim10}
 Abraham, I., Fiat, A., Goldberg, A.~V., and Werneck, R. F.~F. (2010).
 \newblock Highway dimension, shortest paths, and provably efficient algorithms.
@@ -24,10 +10,6 @@ Arge, L., Italiano, G.~F., and Sedgewick, R., editors (2004).
 \newblock {\em Proceedings of the Sixth Workshop on Algorithm Engineering and
   Experiments and the First Workshop on Analytic Algorithmics and
   Combinatorics, New Orleans, LA, USA, January 10, 2004}. SIAM.
-
-\bibitem[Bast, 2009]{twoworlds09}
-Bast, H. (2009).
-\newblock Efficient algorithms.
 
 \bibitem[Bast et~al., 2006]{transit06}
 Bast, H., Funke, S., and Matijevic, D. (2006).
@@ -42,16 +24,6 @@ Bast, H., Funke, S., Matijevic, D., Sanders, P., and Schultes, D.
 Batz, G.~V., Delling, D., Sanders, P., and Vetter, C. (2009).
 \newblock Time-dependent contraction hierarchies.
 \newblock In \cite{DBLP:conf/alenex/2009}, pages 97--105.
-
-\bibitem[Blelloch, 2002]{separators02}
-Blelloch, G. (2002).
-\newblock Graph separators.
-
-\bibitem[Bose and Morin, 2002]{DBLP:conf/isaac/2002}
-Bose, P. and Morin, P., editors (2002).
-\newblock {\em Algorithms and Computation, 13th International Symposium, ISAAC
-  2002 Vancouver, BC, Canada, November 21-23, 2002, Proceedings}, volume 2518
-  of {\em Lecture Notes in Computer Science}. Springer.
 
 \bibitem[Brandes, 2001]{centrality01}
 Brandes, U. (2001).
@@ -69,33 +41,6 @@ Charikar, M., editor (2010).
 \newblock {\em Proceedings of the Twenty-First Annual ACM-SIAM Symposium on
   Discrete Algorithms, SODA 2010, Austin, Texas, USA, January 17-19, 2010}.
   SIAM.
-
-\bibitem[Chechik et~al., 2010]{fsensitivity10}
-Chechik, S., Langberg, M., Peleg, D., and Roditty, L. (2010).
-\newblock f-sensitivity distance oracles and routing schemes.
-\newblock In de~Berg, M. and Meyer, U., editors, {\em Algorithms – ESA 2010},
-  volume 6346 of {\em Lecture Notes in Computer Science}, pages 84--96.
-  Springer Berlin / Heidelberg.
-
-\bibitem[Chen et~al., 2009]{powerlaw09}
-Chen, W., Sommer, C., Teng, S.-H., and Wang, Y. (2009).
-\newblock A compact routing scheme and approximate distance oracle for
-  power-law graphs.
-\newblock {\em Distributed Computing}, ?(Disc 2009):379--391.
-
-\bibitem[Chowdhury and Ramachandran, 2002]{linkfailure02}
-Chowdhury, R.~A. and Ramachandran, V. (2002).
-\newblock Improved distance oracles for avoiding link-failure.
-\newblock In \cite{DBLP:conf/isaac/2002}, pages 523--534.
-
-\bibitem[Cohen et~al., 2003]{2hop03}
-Cohen, E., Halperin, E., Kaplan, H., and Zwick, U. (2003).
-\newblock Reachability and distance queries via 2-hop labels.
-\newblock {\em SIAM J. Comput.}, 32(5):1338--1355.
-
-\bibitem[CompSci767, 2011]{hierplan11}
-CompSci767 (2011).
-\newblock Hierarchical planning.
 
 \bibitem[Davison et~al., 2010]{DBLP:conf/wsdm/2010}
 Davison, B.~D., Suel, T., Craswell, N., and Liu, B., editors (2010).
@@ -130,28 +75,10 @@ Dijkstra, E.~W. (1959).
 \newblock A note on two problems in connexion with graphs.
 \newblock {\em NUMERISCHE MATHEMATIK}, 1(1):269--271.
 
-\bibitem[Erickson, ]{separators2}
-Erickson, J.
-\newblock Graph separators.
-
-\bibitem[Farnish, ]{ScaleFreePict}
-Farnish, K.
-\newblock A matter of scale.
-
 \bibitem[Finocchi and Hershberger, 2009]{DBLP:conf/alenex/2009}
 Finocchi, I. and Hershberger, J., editors (2009).
 \newblock {\em Proceedings of the Workshop on Algorithm Engineering and
   Experiments, ALENEX 2009, New York, New York, USA, January 3, 2009}. SIAM.
-
-\bibitem[Fredman, 2008]{ramseyphd08}
-Fredman, C. (2008).
-\newblock {\em Ramsey Partitions Based Approximate Distance Oracles}.
-\newblock PhD thesis, The Open University Of Israel.
-
-\bibitem[Gavoille et~al., 2004]{distlabel04}
-Gavoille, C., Peleg, D., Pérennes, S., and Raz, R. (2004).
-\newblock Distance labeling in graphs.
-\newblock {\em Journal of Algorithms}, 53(1):85 -- 112.
 
 \bibitem[Geisberger et~al., 2008]{contracthier08}
 Geisberger, R., Sanders, P., Schultes, D., and Delling, D. (2008).
@@ -159,19 +86,11 @@ Geisberger, R., Sanders, P., Schultes, D., and Delling, D. (2008).
   road networks.
 \newblock In \cite{DBLP:conf/wea/2008}, pages 319--333.
 
-\bibitem[Goldberg et~al., 2006]{reachforastar06}
-Goldberg, A.~V., Kaplan, H., and Werneck, R.~F. (2006).
-\newblock Reach for a*: Efficient point-to-point shortest path algorithms.
-
 \bibitem[Hajnovic, 2013]{dottg13}
 Hajnovic, F. (2013).
 \newblock Distance oracles for timetable graphs.
 \newblock Master's thesis, Faculty of Mathematics, Physics and Informatics,
   Comenius University in Bratislava.
-
-\bibitem[Hajnoviè, 2012]{hajnresearch12}
-Hajnoviè, F. (2012).
-\newblock Distance oracles for timetable graphs - research.
 
 \bibitem[Halperin and Mehlhorn, 2008]{DBLP:conf/esa/2008}
 Halperin, D. and Mehlhorn, K., editors (2008).
@@ -179,30 +98,14 @@ Halperin, D. and Mehlhorn, K., editors (2008).
   Karlsruhe, Germany, September 15-17, 2008. Proceedings}, volume 5193 of {\em
   Lecture Notes in Computer Science}. Springer.
 
-\bibitem[imhd.sk, ]{MapImhd}
-imhd.sk.
-\newblock Mapa mhd ba.
-
 \bibitem[Kannan et~al., 1988]{imprepr88}
 Kannan, S., Naor, M., and Rudich, S. (1988).
 \newblock Implicit representation of graphs.
 \newblock In \cite{DBLP:conf/stoc/STOC20}, pages 334--343.
 
-\bibitem[Kerber, 0405]{hierplan204}
-Kerber, M. (2004/05).
-\newblock Hierarchical planning.
-
 \bibitem[Kinahan and Pryor, ]{dijkstraexp}
 Kinahan, K. and Pryor, J.
 \newblock Dijkstra's algorithm for shortest route problems.
-
-\bibitem[Lee, ]{SeparatorPict}
-Lee, J.
-\newblock Separator.
-
-\bibitem[Markošová, ]{zuiprednaska}
-Markošová, M.
-\newblock Základy umelej inteligencie 1 - prednášky.
 
 \bibitem[McGeoch, 2008]{DBLP:conf/wea/2008}
 McGeoch, C.~C., editor (2008).
@@ -222,11 +125,6 @@ M{\"u}ller-Hannemann, M., Schulz, F., Wagner, D., and Zaroliagis, C. (2007).
   Models and Algorithms}, pages 67 -- 90.
 \newblock Springer.
 
-\bibitem[of~problem solving, ]{cauchy}
-of~problem solving, A.
-\newblock Root-mean square-arithmetic mean-geometric mean-harmonic mean
-  inequality.
-
 \bibitem[Pyrga et~al., 2004]{compshpathapp04}
 Pyrga, E., Schulz, F., Wagner, D., and Zaroliagis, C.~D. (2004).
 \newblock Experimental comparison of shortest path approaches for timetable
@@ -243,11 +141,6 @@ Sanders, P. and Schultes, D. (2005).
 \newblock Highway hierarchies hasten exact shortest path queries.
 \newblock In \cite{DBLP:conf/esa/2005}, pages 568--579.
 
-\bibitem[Sankaranarayanan and Samet, 2009]{spatialnetw09}
-Sankaranarayanan, J. and Samet, H. (2009).
-\newblock Distance oracles for spatial networks.
-\newblock In \cite{DBLP:conf/icde/2009}, pages 652--663.
-
 \bibitem[Sarma et~al., 2010]{sketchbased10}
 Sarma, A.~D., Gollapudi, S., Najork, M., and Panigrahy, R. (2010).
 \newblock A sketch-based distance oracle for web-scale graphs.
@@ -257,14 +150,6 @@ Sarma, A.~D., Gollapudi, S., Najork, M., and Panigrahy, R. (2010).
 Schultes, D. (2008).
 \newblock {\em Route Planning in Road Networks}.
 \newblock VDM Verlag, Saarbr\&\#252;cken, Germany, Germany.
-
-\bibitem[Schulz et~al., 2002]{multilevelgr02}
-Schulz, F., Wagner, D., and Zaroliagis, C. (2002).
-\newblock Using multi-level graphs for timetable information in railway
-  systems.
-\newblock In Mount, D. and Stein, C., editors, {\em Algorithm Engineering and
-  Experiments}, volume 2409 of {\em Lecture Notes in Computer Science}, pages
-  43--59. Springer Berlin / Heidelberg.
 
 \bibitem[Simon, 1988]{DBLP:conf/stoc/STOC20}
 Simon, J., editor (1988).
@@ -277,37 +162,9 @@ Sommer, C. (2010).
 \newblock PhD thesis, Graduate School of Information Science and Technology,
   The University of Tokyo.
 
-\bibitem[Sommer et~al., 2009]{sparse09}
-Sommer, C., Verbin, E., and Yu, W. (2009).
-\newblock Distance oracles for sparse graphs.
-\newblock In \cite{DBLP:conf/focs/2009}, pages 703--712.
-
-\bibitem[TASR, ]{Elektricka}
-TASR.
-\newblock Tretie kolo diskusie o nosnom dopravnom systéme v bratislave bude
-  27.6.
-
 \bibitem[Thorup and Zwick, 2005]{apxdo05}
 Thorup, M. and Zwick, U. (2005).
 \newblock Approximate distance oracles.
 \newblock {\em J. ACM}, 52(1):1--24.
-
-\bibitem[Wang and Chen, 2003]{complexnetw03}
-Wang, X.~F. and Chen, G. (2003).
-\newblock {Complex networks: small-world, scale-free and beyond}.
-\newblock {\em Circuits and Systems Magazine, IEEE}, 3(1):6--20.
-
-\bibitem[Watts and Strogatz, 1998]{smallworld98}
-Watts, D.~J. and Strogatz, S.~H. (1998).
-\newblock {Collective dynamics of 'small-world' networks}.
-\newblock {\em Nature}, 393(6684):440--442.
-
-\bibitem[Wikipedia, ]{LondonUnd}
-Wikipedia.
-\newblock London underground - wikipedia.
-
-\bibitem[Ïuriš, 1997]{Tea97}
-Ïuriš, P. (1997).
-\newblock Tvorba efektívnych algoritmov - prednášky.
 
 \end{thebibliography}

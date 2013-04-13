@@ -13,7 +13,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 \noindent Note, that if the connection involves waiting in a city (as e.g. in picture~\ref{fig:pathfunc}), $e_{x}^{i} = e_{x}^{i + 1}$ for some $i$. That is why we apply the $shrink$ function, which replaces any sub-sequences of the type $(z, z, ..., z)$ by $(z)$ in a sequence. This was rather technical way of expressing a simple intuition - for a given connection, the $path$ function simply outputs a sequence of visited cities. Now we can formalize the underlying shortest path.
 
 \begin{definition}
-        \textbf{Underlying shortest path (USP)} \\
+    \textbf{Underlying shortest path (USP)} \\
 	A path $p = (v_{1}, v_{2}, ..., v_{k})$ in $UG_{T}$ is an \textbf{underlying shortest path} if and only if $\exists t \in \mathcal{N}: p = path(c_{(v_{1}, t, v_{k})}^{*}), c_{(v_{1}, t, v_{k})}^{*} \in C_{T}$
 \end{definition}
     
@@ -242,99 +242,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 				\cellcolor{oracle-clr} \textbf{$\bm{\tau}$ const., $\bm{\gamma \leq \sqrt{n}}$, $\bm{\delta \leq \log n}$} & $\mathcal{O}(hn^{2} \log n)$ & $\mathcal{O}(n^{2.5})$ & avg. $\mathcal{O}(\sqrt{n})$ & $1$ \\
 			\end{tabular}
 			\caption{\label{tab:uspor} The summary of the \textit{USP-OR} algorithm parameters. The second row corresponds e.g. to the \textit{sncf} dataset.}
-		\end{table}
-		
-	\subsubsection{Performance of \textit{USP-OR}}
-	
-		\begin{figure}[h!]
-		\centering
-		\makebox[0pt][c]{
-	    \begin{minipage}{0.45\textwidth}  
-		    \centering
-		    \inputTikZ{./tikzpics/plot_uspor_cpru_size}
-		    \captionof{figure}{\textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{cpru} dataset.}
-		    \label{plot:uspor-cpru-size}  
-	    \end{minipage}
-		\hspace{1cm}
-	    \begin{minipage}{0.45\textwidth} 
-	    	\centering
-		    \inputTikZ{./tikzpics/plot_uspor_cpza_size}
-		    \captionof{figure}{\textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{cpza} dataset.}
-		    \label{plot:uspor-cpza-size}   
-	    \end{minipage}
-	    }
-		\end{figure}
-		
-		\begin{figure}[h!]
-		\centering
-		\makebox[0pt][c]{
-	    \begin{minipage}{0.45\textwidth}  
-		    \centering
-		    \inputTikZ{./tikzpics/plot_uspor_montr_size}
-		    \captionof{figure}{\textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{montr} dataset.}
-		    \label{plot:uspor-montr-size}  
-	    \end{minipage}
-		\hspace{1cm}
-	    \begin{minipage}{0.45\textwidth} 
-	    	\centering
-		    \inputTikZ{./tikzpics/plot_uspor_sncf_size}
-		    \captionof{figure}{\textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{sncf} dataset.}
-		    \label{plot:uspor-sncf-size}   
-	    \end{minipage}
-	    }
-		\end{figure}
-		
-		\begin{figure}[h!]
-		\centering
-		\makebox[0pt][c]{
-	    \begin{minipage}{0.45\textwidth}  
-		    \centering
-		    \inputTikZ{./tikzpics/plot_uspor_sncfinter_size}
-		    \captionof{figure}{\textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{sncf-inter} dataset.}
-		    \label{plot:uspor-sncfinter-size}  
-	    \end{minipage}
-		\hspace{1cm}
-	    \begin{minipage}{0.45\textwidth} 
-	    	\centering
-		    \inputTikZ{./tikzpics/plot_uspor_sncfter_size}
-		    \captionof{figure}{\textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{sncf-ter} dataset.}
-		    {plot:uspor-sncfter-size}   
-	    \end{minipage}
-	    }
-	    \caption{For }
-		\end{figure}
-		
-		\begin{figure}[h!]
-		\centering
-		\makebox[0pt][c]{
-	    \begin{minipage}{0.45\textwidth}  
-		    \centering
-		    \inputTikZ{./tikzpics/plot_uspor_zsr_trange}
-		    \captionof{figure}{\textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{zsr} dataset. Here we measured how increased time range influence the query time of \textit{USP-OR}. You may see that for both algorithms the query time almost stops increasing at some point - this is because (informally) adding time range no longer brings along new optimal connections (or underlying shortest paths in case of \textit{USP-OR}).}
-		    \label{plot:uspor-zsr-trange}  
-	    \end{minipage}
-		\hspace{1cm}
-	    \begin{minipage}{0.45\textwidth} 
-	    	\centering
-			\begin{tabular}{c|c|c}
-			%legend
-	            \rowcolor{tablehead}
-	            \textbf{Name} & $\bm{n}$ & $\bm{spd}$ \\
-			%data
-				\hline
-				\textit{cpru}* & 700 & 14.5 \\
-				\textit{cpza}* & 700 & 14.3\\
-				\textit{montr} & 217 & 8.8 \\
-				\textit{sncf}* & 1000 & 64.8 \\
-				\textit{sncf-inter} & 366 & 27.0 \\
-				\textit{sncf-ter}* & 1000 & 78.3 \\
-				\textit{zsr} & 233 & 19.3 \\
-			\end{tabular}
-			\captionof{table}{Speed-up of the \textit{USP-OR} algorithm for the whole timetables (for those marked with asterisk we took only a subset of $n$ stations, as we were limited by the space).}
-			\label{tab:uspor-speedup}
-	    \end{minipage}
-	    }
-		\end{figure}	
+		\end{table}	
 	
 \subsection{\textit{USP-OR-A}}
 	    
@@ -409,7 +317,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 			\IF {$y \in neigh(x)$}
 				\STATE let $c_{loc}^{*}$ be the connection to $y$ obtained by TD Dijkstra \cmt{the optimal connection may still go via ANs (though it is unlikely)}
 			\ENDIF
-			\STATE $\forall u \in lan(x)$ let $ea(u)$ the arrival time and $oc(u)$ the conn. to $u$ obtained by TD Dijkstra
+			\STATE $\forall u \in lan(x)$ let $ea(u)$ be the arrival time and $oc(u)$ the conn. to $u$ obtained by TD Dijkstra
 			\STATE \algsec{Inter-AN search}
 			\FORALL{$v \in blan(y)$}
 				\STATE $oc(v) = null$
@@ -500,7 +408,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 		
 		Summing up the three terms we obtain the \textbf{query time} of $\bm{\mathcal{O}(r_{2} r_{3} \sqrt{n} (\log (r_{2}n) + \delta) + r_{3}^{2} \tau_{\mathcal{A}} \gamma_{\mathcal{A}})}$.
 		
-		\textbf{Stretch} of the \textit{USP-OR-A} algorithm is \textbf{1}, as it is exact. \\
+		\textbf{Stretch} of the \textit{USP-OR-A} algorithm is \textbf{1}, as it is exact algorithm. \\
 		
 		\noindent The resulting bounds do not look very appealing. This is because we wanted to preserve the generality - the concrete bounds will depend on what kind of properties the timetables have and what algorithm for finding the AN set is plugged in. In table~\ref{tab:uspora}, we summarize the parameters of \textit{USP-OR-A} method and provide the bounds for a case when the properties of the timetables correspond to those we have measured in our datasets and when we have an algorithm that finds good AN set.
 		
@@ -597,7 +505,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 			
 			\noindent Denote $\mathcal{S} = \{S_{i}| \; 1 \leq i \leq k\}$. The task is to choose the smallest subset $\mathcal{S}^{*}$ of $\mathcal{S}$ that still covers the universe ($\bigcup\limits_{S_{i} \in \mathcal{S}^{*}} S_{i} = U$). We will now do a simple conversion (in polynomial time) of the instance of min-set cover to the instance of the optimal AN set problem (which is represented by the underlying graph of $T$).
 			
-			 For each $j \in U$, we will make a complete graph of $\beta_{i}$ vertices (the value of $\beta_{i}$ will be discussed later) named $m_{j}$ and for each set $S_{i}$ we make a vertex $s_{i}$ and vertex $s_{i}'$. We now connect all vertices of $m_{j}$ to $s_{i} \iff j \in S_{i}$. Finally, for we connect $s_{i}$ to $s_{i}'$ for $1 \leq i \leq k$. \\
+			 For each $j \in U$, we will make a complete graph of $\beta_{j}$ vertices (the value of $\beta_{j}$ will be discussed later) named $m_{j}$ and for each set $S_{i}$ we make a vertex $s_{i}$ and vertex $s_{i}'$. We now connect all vertices of $m_{j}$ to $s_{i} \iff j \in S_{i}$. Finally, for we connect $s_{i}$ to $s_{i}'$, $1 \leq i \leq k$. \\
 			 
 			\noindent \textbf{Example}. Let $m = 10$ (thus $U = \{1, 2, ..., 10\}$) and $k = 13$:
 			\begin{itemize}
@@ -649,14 +557,14 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 		\end{enumerate}
 		\hspace*{\fill}
 		
-		\noindent We will denote by $\mathcal{A}_{deg}(k)$ the set of $k$ cities with highest $deg(x)$ value and similarly $\mathcal{A}_{bc}(k)$ will be the set of $k$ cities with the highest $bc(x)$ value. We were interested in the smallest $k$ such that:
+		\noindent We will denote by $\mathcal{A}_{deg}(k)$ the set of $k$ cities with highest $deg(x)$ value. We were interested in the smallest $k$ such that:
 		\begin{enumerate}
-			\item $\mathcal{A}_{deg}(k)$ is $(r_{1}, r_{2}, r_{3})$ AN set with $r_{2} \leq 1$ (the average square of neighbourhoods is $\leq \sqrt{n}$). Denote such $k$ as $\bm{k_{deg}^{avg}}$.
-			\item $\forall x \in ct_{T}$: $|neigh_{\mathcal{A}_{deg}(k)}(x)| \leq \frac{3\sqrt{n}}{2}$ and $|bneigh_{\mathcal{A}_{deg}(k)}(x)| \leq \frac{3\sqrt{n}}{2}$ (all neighbourhoods are large at most $\frac{3\sqrt{n}}{2}$). Denote such $k$ as $\bm{k_{deg}^{max}}$.
+			\item $\mathcal{A}_{deg}(k)$ is $(r_{1}, r_{2}, r_{3})$ AN set with $r_{2} \leq 1$ (the average square of neighbourhoods is $\leq \sqrt{n}$). Denote such $r_{1}$ as $\bm{r_{deg}^{avg}}$~\footnote{Intuitively - $r_{deg}^{avg}$ is the smallest $r_{1}$ such that $r_{1}\sqrt{n}$ highest-degree nodes selected as ANs are enough to satisfy that the average square of neighbourhoods is $\leq \sqrt{n}$}.
+			\item $\mathcal{A}_{deg}(k)$ is $(r_{1}, r_{2}, r_{3})$ AN set where $\forall x \in ct_{T}$: $|neigh_{\mathcal{A}_{deg}(k)}(x)| \leq \frac{3\sqrt{n}}{2}$ and $|bneigh_{\mathcal{A}_{deg}(k)}(x)| \leq \frac{3\sqrt{n}}{2}$ (all neighbourhoods are large at most $\frac{3\sqrt{n}}{2}$). Denote such $r_{1}$ as $\bm{r_{deg}^{max}}$.
 		\end{enumerate}		 
 		\hspace*{\fill}
 		
-		\noindent We define similarly $\bm{k_{bc}^{avg}}$ and $\bm{k_{bc}^{max}}$. The resulting values for datasets \textit{sncf} and \textit{cpru} could be seen on plots~\ref{plot:hbcdeg-size}.
+		\noindent We define similarly $\bm{r_{bc}^{avg}}$ and $\bm{r_{bc}^{max}}$. The resulting values for datasets \textit{sncf} and \textit{cpru} could be seen on plots~\ref{plot:hbcdeg-size}.
 		
 		\begin{figure}[htb]
 		\centering
@@ -674,38 +582,211 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 	    \caption{\label{plot:hbcdeg-size} Necessary sizes of access node sets ($|\mathcal{A}| = r_{1} \sqrt{n}$) based on high-degree/high-BC cities. Datasets \textit{sncf} (left) and \textit{cpru} (right). Notice the occasional ``roller coaster'' bumps (especially on the left plot) - an explanation of this phenomena is that in the immediately smaller sub-timetable we have erased just the high-degree node that proved to be a good access node, and which now must be substituted by many other access nodes.}
 		\end{figure}
 		
-	\subsubsection{Choosing ANs heuristically}
+	\subsubsection{Choosing ANs heuristically - the \textit{Locsep} algorithm}
 	
 		Clearly, selecting the cities for access nodes solely by high degree or BC value is not the best way. Probably the few nodes with highest degrees and BC will indeed be part of the AN set, as they are intuitively some sort of central hubs without which the network would not work. However, after we select the these most important nodes to the AN set, we need some better measure of node's importance, or suitability to be an access node. In the following we present a simple heuristic approach run on underlying graph $ug_{T}$ of given timetable $T$ that evaluates its vertices based on how good local separators they are.
 		
 		The algorithm will work in iterations, each of them resulting in a selection~\footnote{Actually, in our implementation, we allow an occasional de-selection of an already selected node with the \textit{lowest} score, to avoid having in the resulting set cities that had high score when selected but were not very useful access nodes at the end.} of a city with highest score to the access node set $\mathcal{A}$. Similarly to the previous approach that used degree/BC, we consider two stopping criterion:
-		\begin{enumerate}
-			\item $\mathcal{A}$ is $(r_{1}, r_{2}, r_{3})$ AN set with $r_{2} \leq 1$ (the average square of neighbourhoods is $\leq \sqrt{n}$). Denote $\bm{k_{locsep}^{avg}} = |\mathcal{A}|$ when this stopping criterion is met.
-			\item $\forall x \in ct_{T}$: $|neigh_{\mathcal{A}}(x)| \leq \frac{3\sqrt{n}}{2}$ and $|bneigh_{\mathcal{A}}(x)| \leq \frac{3\sqrt{n}}{2}$ (all neighbourhoods are large at most $\frac{3\sqrt{n}}{2}$). Denote $\bm{k_{locsep}^{max}} = |\mathcal{A}|$ when this stopping criterion is met.
+		\begin{enumerate}		
+			\item $\mathcal{A}$ is $(r_{1}, r_{2}, r_{3})$ AN set with $r_{2} \leq 1$ (the average square of neighbourhoods is $\leq \sqrt{n}$). Denote $\bm{r_{locsep}^{avg}} = r_{1}$ when this stopping criterion is met.
+			\item $\forall x \in ct_{T}$: $|neigh_{\mathcal{A}}(x)| \leq \frac{3\sqrt{n}}{2}$ and $|bneigh_{\mathcal{A}}(x)| \leq \frac{3\sqrt{n}}{2}$ (all neighbourhoods are large at most $\frac{3\sqrt{n}}{2}$). Denote $\bm{r_{locsep}^{max}} = r_{1}$ when this stopping criterion is met.
 		\end{enumerate}
 		\hspace{\fill}
 		
-		\noindent The algorithm using the first stopping criterion will be referred to as \textit{Locsep} and the one using the second criterion as \textit{Locsep Max}. The algorithms differ only in the stopping criterion, therefore what follows is common to both of them.
+		\noindent The algorithm using the first stopping criterion will be referred to as \textit{Locsep} and the one using the second criterion as \textit{Locsep Max}. The algorithms differ only in the stopping criterion, therefore what follows is common to both of them. \\
 		
-		In each iteration, we compute for each city $x$ its score, which is done in the following way: we explore an area $\bm{A_{x}}$ of $\sqrt{n}$ nearest cities around $x$. We do this in an underlying graph with no orientation and no weights. Next we get the front and back neighbourhoods of $x$ within $A_{x}$ ($\bm{fn(x)} = neigh(x) \cap A_{x}$, $\bm{bn(x)} = bneigh(x) \cap A_{x}$).
+		\noindent In each iteration, we first compute the neighbourhoods and back neighbourhoods (given the current access node set $\mathcal{A}$) for each city. We need this to evaluate the stopping criteria, but the information will be used also in the computation of the \textbf{potential} (a score) of the cities, which is the second phase of the algorithm. \\
 		
-		For a set of access nodes $\mathcal{A}$, let us call a path $p$ in $ug_{T}$ \textbf{access-free} if it does not contain a node from $\mathcal{A}$. Now as long as $x$ is not in $\mathcal{A}$, there is a guarantee that for every pair $u \in bn(x)$ and $v \in fn(x)$ there is an access-free path from $u$ to $v$ within $A_{x}$. Our interest is how this will change after the selection of $x$. Let us call $\bm{af(x)}$ the number of pairs $u \in bn(x)$ and $v \in fn(x)$ such that there is an access-free path within $A_{x}$ after the selection of $x$ to $\mathcal{A}$. We define the \textbf{potential} of $x$ as:
+		\noindent For a city $x$, we will compute its potential $\bm{p_{x}}$ in the following way: we explore an area $\bm{A_{x}}$ of $\sqrt{n}$ nearest cities around $x$, ignoring branches of the search that start with an access node ($x$ is an exception to this, since we start the search from it. However $x \not \in A_{x}$ holds). We do this exploration in an underlying graph with no orientation and no weights. Next we get the front and back neighbourhoods of $x$ within $A_{x}$ ($\bm{fn(x)} = neigh(x) \cap A_{x}$, $\bm{bn(x)} = bneigh(x) \cap A_{x}$).
 		
-		$$\bm{p_{x}} = \frac{af(x)}{|bn(x)||fn(x)|}$$
-		
-		\noindent Our algorithm will compute a lower bound on $p_{x}$.
-		
+		For a set of access nodes $\mathcal{A}$, let us call a path $p$ in $ug_{T}$ \textbf{access-free} if it does not contain a node from $\mathcal{A}$. Now as long as $x$ is not in $\mathcal{A}$, we have a guarantee that for every pair $u \in bn(x)$ and $v \in fn(x)$ there is an access-free path from $u$ to $v$ within $A_{x}$. Our interest is how this will change after the selection of $x$.
+				
+		Consider now a node $y \in bn(x)$. We will call $\bm{sur(y)} = \max\{0, |neigh(y)| - \sqrt{n}\}$ the \textbf{surplus} of $y$'s neighbourhood, i.e., how much we wish to reduce it so that it is $\leq \sqrt{n}$. If the surplus is zero, $y$ will not add anything to the $x$'s potential. Otherwise, we run a restricted (to $A_{x}$) search from $y$ during which we explore $j$ vertices in $fn(x)$. We increase the potential of $x$ by $\min\{sur(y), |fn(x) - j|\}$ - i.e. by how much we can decrease the surplus of $y$'s neighbourhood. We do the similar thing for $y \in fn(x)$ (we use $\overleftarrow{ug_{T}}$ instead of $ug_{T}$, $bneigh(y)$ instead of $neigh(y)$ etc...). For an illustration of potential computing, see picture~\ref{fig:locsep}. \\
 		
 		\begin{figure}[h!]
 			\begin{center}
 				\inputTikZ{./tikzpics/locsep}
 			\end{center}
-			\caption{\label{fig:locsep} The principle of computing potentials in Locsep algorithm. We explored an area of $\sqrt{n}$ nearest cities (in terms of hops) around $x$. Little \textcolor{purple}{squares} are nodes from $neigh(x)$ and \textcolor{cyan}{diamonds} are part of $bneigh(x)$. The highlighted area represents the back neighbourhood for node $b_{2}$. From its nodes we run a forward search (the \textbf{thick} arcs). Nodes from the $neigh(x)$ that were not explored in this search can only be reached via $x$ itself and contribute to $x$'s potential.}
+			\caption{\label{fig:locsep} The principle of computing potentials in Locsep algorithm. We explored an area of $\sqrt{n}$ nearest cities (in terms of hops) around $x$. Access nodes (like $z$) and cities behind them are ignored. Little \textcolor{purple}{squares} are nodes from $fn(x)$ and \textcolor{cyan}{diamonds} are part of $bn(x)$. From $y$ we run a forward search (the \textbf{thick} arcs). Nodes from the $fn(x)$ that were not explored in this search can only be reached via $x$ itself. Such nodes contribute to $x$'s potential assuming $y$ has large neighbourhood size.}
 		\end{figure}
-	
-\subsection{Performance of \textit{USP-OR-A} and comparisons}
 
-	\noindent In this subsection we give the results of \textit{USP-OR-A} performance on our datasets.
+		\noindent Finally, we simply get the city $x \not \in \mathcal{A}$ with the highest potential and select it as an access node. We check the stopping criterion and in case it is not satisfied yet, we move on to next iteration. However, note that when a new node $x'$ is selected to $\mathcal{A}$, we do not have to re-compute neighbourhoods and potentials of all cities - it is only necessary for those cities that could reach/be reached access-free from $x'$ (i.e. nodes from $neigh_{\mathcal{A}}(x') \cup bneigh_{\mathcal{A}}(x')$). Algorithm~\ref{alg:locsep} provides a high-level overview of the Locsep method. \\
+		
+		\color{algcolor}
+		\begin{algorithm}[H]
+			\color{inalgcolor}
+			\caption{\textit{Locsep}}
+			\label{alg:locsep}
+			\textbf{Input} 
+			\begin{itemize}
+				\item $ug_{T}$
+			\end{itemize}
+			\textbf{Algorithm}
+			\begin{algorithmic}
+				\STATE $\mathcal{A} = \emptyset$
+				\STATE $ct' = ct_{T}$
+				\WHILE{$r_{2} > 1$}
+					\STATE $\forall x \in ct'$: compute $neigh_{\mathcal{A}}(x)$, $bneigh_{\mathcal{A}}(x)$
+					\STATE $\forall x \in ct'$: compute $p_{x}$
+					\STATE $x' = argmin_{x} \{p_{x}\}$
+					\STATE $\mathcal{A} = \mathcal{A} \cup \{x'\}$
+					\STATE $ct' = neigh_{\mathcal{A}}(x') \cup bneigh_{\mathcal{A}}(x')$
+				\ENDWHILE
+			\end{algorithmic}
+			\textbf{Output}
+			\begin{itemize}
+				\item AN set $\mathcal{A}$, such that $|\mathcal{A}| = k_{locsep}^{avg}$
+			\end{itemize}
+		\end{algorithm}
+		\color{black}
+		
+		\noindent Now we would like to estimate the \textbf{time complexity} of Locsep algorithm. As mentioned, one iteration consists of three parts:
+		\begin{enumerate}
+			\item Computing neighbourhoods. Unfortunately, at the beginning when $\mathcal{A} = \emptyset$, the neighbourhood sizes may be as large as $\mathcal{O}(n)$. Therefore, we may bound the complexity of this phase only as $\mathcal{O}(nm) = \mathcal{O}(\delta n^{2})$.
+			\item Computing potentials. For a city $x$ we explore area of the size $\sqrt{n}$ and from each node in that area we do a restricted search. Therefore the total complexity of this step is $\mathcal{O}(n \cdot \sqrt{n} \cdot \delta \sqrt{n}) = \mathcal{O}(\delta n^{2})$.
+			\item Selecting node with the highest potential. This can be done in $\mathcal{O}(n)$.
+		\end{enumerate}
+		\hspace*{\fill}
+		
+		\noindent Adding up the individual terms, we get the complexity of one iteration to be at most $\mathcal{O}(\delta n^{2})$. As we aim for the resulting access node set of size $\mathcal{O}(\sqrt{n})$, we would get the total running time of $\bm{\mathcal{O}(\delta n^{2.5})}$. However, we remind that the algorithm is only a heuristics with no guarantees on the resulting access node set size~\footnote{The algorithm basically selects access nodes on a greedy basis. However, even that is done only heuristically, using local scope only to reduce the time complexity.}.
+		
+		The resulting running time is still quite impractical for bigger timetables. For example, the computation on the dataset \textit{sncf} took more than an hour. This is due to the initial iterations, during which average neighbourhood is still very large (spanning almost the whole graph) and thus in the first two phases we have to do a lot of re-computations. We therefore embrace a simple trick: we do not start with $\mathcal{A} = \emptyset$ but with some access nodes already selected based on high degree. We chose to start with $\frac{\sqrt{n}}{2}$ nodes with the highest degree ($\mathcal{A}_{deg}(\frac{\sqrt{n}}{2})$) - enough to speed-up the computation but not influencing the resulting AN set too much.
+		
+		The access node sets chosen with the \textit{Locsep} algorithm were much smaller then those selected by the previous approaches and with the increasing number of stations, the $r_{locsep}^{avg}$ value was found to increaser only slightly, as could be seen from plots~\ref{plot:locsep-size}. The average number of local access nodes for each city was also found to be very small and increasing only very little with increasing $n$. \\
+		
+		\begin{figure}[h!]
+		\centering
+		\makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth}  
+		    \centering
+		    \inputTikZ{./tikzpics/plot_locsep_sncf_size}
+	    \end{minipage}
+		\hspace{1cm}
+	    \begin{minipage}{0.45\textwidth} 
+	    	\centering
+		    \inputTikZ{./tikzpics/plot_locsep_cpru_size}
+	    \end{minipage}
+	    }
+	    \caption{\label{plot:locsep-size} The necessary size of $\mathcal{A}$ when selecting ANs based on degree, BC or \textit{Locsep} potential. Datasets \textit{sncf} (left) and \textit{cpru} (right). An ideal situation would be a constant or non-increasing function, to which \textit{Locsep} comes closest.}
+		\end{figure}				
+		
+		\noindent To sum up, in \textit{all} of our datasets~\footnote{Except \textit{air01}, which is a special type of timetable}, each scaled to \textit{various} sizes, we were always able to find $(r_{1}, r_{2}, r_{3})$ access node set $\mathcal{A}$ with the \textit{Locsep} algorithm, such that:
+		\begin{itemize}
+			\item $r_{1} \leq 2$
+			\item $r_{2} \leq 1$
+			\item $r_{3} \leq 4$
+			\item $\mathcal{A}$ can be found in $\mathcal{O}(\delta n^{2.5})$
+		\end{itemize}
+		\hspace*{\fill}
+		
+		\noindent Therefore, when we use \textit{USP-OR-A} together with \textit{Locsep} on our timetables, we achieve parameters as described in table~\ref{tab:usporalocsep}.
+		
+		\begin{table}[h!]
+			\centering
+			\begin{tabular}{l|c|c|c|c}
+			%legend
+				\cellcolor{oracle-clr} \textit{\textbf{USP-OR-A + Locsep}} & \cellcolor{oracle-clr} $\bm{prep}$ & \cellcolor{oracle-clr} $\bm{size}$ & \cellcolor{oracle-clr} $\bm{qtime}$ & \cellcolor{oracle-clr} $\bm{stretch}$ \\
+			%data
+				\hline
+				\cellcolor{oracle-clr} \textbf{Our timetables} & $\mathcal{O}(\delta n^{2.5})$ & $\mathcal{O}(n^{1.5})$ & avg. $\mathcal{O}(\sqrt{n} \log n)$ & $1$ \\
+			\end{tabular}
+			\caption{\label{tab:usporalocsep} Parameters for \textit{USP-OR-A} with \textit{Locsep}.}
+		\end{table}
+	
+\subsection{Performance and comparisons}
+
+	\noindent In this subsection we give the results of the performance of our algorithms on our datasets. We focus on query time and space complexity of the preprocessed oracles
+
+	\subsubsection{Performance of \textit{USP-OR}}
+	
+		\begin{figure}[H]
+		\centering
+		\makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth}  
+		    \centering
+		    \inputTikZ{./tikzpics/plot_uspor_cpru_size}
+		    \captionof{figure}{\textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{cpru} dataset.}
+		    \label{plot:uspor-cpru-size}  
+	    \end{minipage}
+		\hspace{1cm}
+	    \begin{minipage}{0.45\textwidth} 
+	    	\centering
+		    \inputTikZ{./tikzpics/plot_uspor_cpza_size}
+		    \captionof{figure}{\textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{cpza} dataset.}
+		    \label{plot:uspor-cpza-size}   
+	    \end{minipage}
+	    }
+		\end{figure}
+		
+		\begin{figure}[H]
+		\centering
+		\makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth}  
+		    \centering
+		    \inputTikZ{./tikzpics/plot_uspor_montr_size}
+		    \captionof{figure}{\textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{montr} dataset.}
+		    \label{plot:uspor-montr-size}  
+	    \end{minipage}
+		\hspace{1cm}
+	    \begin{minipage}{0.45\textwidth} 
+	    	\centering
+		    \inputTikZ{./tikzpics/plot_uspor_sncf_size}
+		    \captionof{figure}{\textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{sncf} dataset.}
+		    \label{plot:uspor-sncf-size}   
+	    \end{minipage}
+	    }
+		\end{figure}
+		
+		\begin{figure}[H]
+		\centering
+		\makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth}  
+		    \centering
+		    \inputTikZ{./tikzpics/plot_uspor_sncfinter_size}
+		    \captionof{figure}{\textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{sncf-inter} dataset.}
+		    \label{plot:uspor-sncfinter-size}  
+	    \end{minipage}
+		\hspace{1cm}
+	    \begin{minipage}{0.45\textwidth} 
+	    	\centering
+		    \inputTikZ{./tikzpics/plot_uspor_sncfter_size}
+		    \captionof{figure}{\textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{sncf-ter} dataset.}
+		    {plot:uspor-sncfter-size}   
+	    \end{minipage}
+	    }
+		\end{figure}
+		
+		\begin{figure}[H]
+		\centering
+		\makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth}  
+		    \centering
+		    \inputTikZ{./tikzpics/plot_uspor_zsr_trange}
+		    \captionof{figure}{\textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{zsr} dataset. Here we measured how increased time range influence the query time of \textit{USP-OR}. You may see that for both algorithms the query time almost stops increasing at some point - this is because (informally) adding time range no longer brings along new optimal connections (or underlying shortest paths in case of \textit{USP-OR}).}
+		    \label{plot:uspor-zsr-trange}  
+	    \end{minipage}
+		\hspace{1cm}
+	    \begin{minipage}{0.45\textwidth} 
+	    	\centering
+			\begin{tabular}{c|c|c}
+			%legend
+	            \rowcolor{tablehead}
+	            \textbf{Name} & $\bm{n}$ & $\bm{spd}$ \\
+			%data
+				\hline
+				\textit{cpru}* & 700 & 14.5 \\
+				\textit{cpza}* & 700 & 14.3\\
+				\textit{montr} & 217 & 8.8 \\
+				\textit{sncf}* & 1000 & 64.8 \\
+				\textit{sncf-inter} & 366 & 27.0 \\
+				\textit{sncf-ter}* & 1000 & 78.3 \\
+				\textit{zsr} & 233 & 19.3 \\
+			\end{tabular}
+			\captionof{table}{Speed-up of the \textit{USP-OR} algorithm for the whole timetables (for those marked with asterisk we took only a subset of $n$ stations, as we were limited by the space).}
+			\label{tab:uspor-speedup}
+	    \end{minipage}
+	    }
+		\end{figure}
 
 	\subsubsection{\textit{USP-OR-A} with \textit{Locsep}}
 	

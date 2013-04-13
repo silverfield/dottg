@@ -1,0 +1,12 @@
+OC ALGS:
+dijkstra	blue			*	solid
+uspora		black!50!red	|	solid
+uspor		green!70!black	x	solid
+
+AN SET ALGS:
+locsep		black!60!brown	|	solid
+locsep max	orange			|	dashed
+deg			blue			*	solid
+deg max		blue			*	dashed
+bc			red				o	solid
+bc max		red				o	dashed

@@ -2,65 +2,53 @@ This is BibTeX, Version 0.99d (TeX Live 2012)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: svkpaper.aux
 The style file: apalike.bst
-Database file #1: ../bibl.bib
-I was expecting a `,' or a `}'---line 1591 of file ../bibl.bib
+Database file #1: bibl.bib
+I was expecting a `,' or a `}'---line 897 of file bibl.bib
  :     
  :     ee      =   {http://optlab-server.sce.carleton.ca/POAnimations2007/DijkstrasAlgo.html}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Warning--to sort, need editor or key in DBLP:conf/focs/2009
-Warning--to sort, need editor or key in DBLP:conf/icde/2009
-Warning--to sort, need author or key in PowerLawPict
-Warning--empty year in PowerLawPict
 Warning--empty year in transithh
-Warning--empty year in separators2
-Warning--empty year in ScaleFreePict
-Warning--empty year in MapImhd
 Warning--empty year in dijkstraexp
-Warning--empty year in SeparatorPict
-Warning--empty year in zuiprednaska
-Warning--empty year in cauchy
-Warning--empty year in Elektricka
-Warning--empty year in LondonUnd
-You've used 61 entries,
+You've used 31 entries,
             1935 wiz_defined-function locations,
-            779 strings with 12136 characters,
-and the built_in function-call counts, 21551 in all, are:
-= -- 2156
-> -- 810
-< -- 62
-+ -- 269
-- -- 257
-* -- 1680
-:= -- 3742
-add.period$ -- 168
-call.type$ -- 61
-change.case$ -- 415
-chr.to.int$ -- 59
-cite$ -- 78
-duplicate$ -- 904
-empty$ -- 1448
-format.name$ -- 341
-if$ -- 4295
-int.to.chr$ -- 3
+            632 strings with 8650 characters,
+and the built_in function-call counts, 11928 in all, are:
+= -- 1188
+> -- 477
+< -- 34
++ -- 160
+- -- 153
+* -- 947
+:= -- 2045
+add.period$ -- 93
+call.type$ -- 31
+change.case$ -- 219
+chr.to.int$ -- 30
+cite$ -- 33
+duplicate$ -- 504
+empty$ -- 789
+format.name$ -- 200
+if$ -- 2405
+int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 30
-newline$ -- 277
-num.names$ -- 189
-pop$ -- 402
+missing$ -- 20
+newline$ -- 147
+num.names$ -- 103
+pop$ -- 222
 preamble$ -- 1
-purify$ -- 430
+purify$ -- 230
 quote$ -- 0
-skip$ -- 711
+skip$ -- 400
 stack$ -- 0
-substring$ -- 1315
-swap$ -- 174
-text.length$ -- 24
+substring$ -- 707
+swap$ -- 116
+text.length$ -- 16
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 362
-warning$ -- 14
-while$ -- 162
+type$ -- 182
+warning$ -- 2
+while$ -- 88
 width$ -- 0
-write$ -- 712
+write$ -- 384
 (There was 1 error message)

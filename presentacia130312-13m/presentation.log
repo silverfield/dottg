@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  7 APR 2013 21:33
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  9 APR 2013 12:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1774,13 +1774,17 @@ Missing character: There is no ) in font nullfont!
 ) (./tikzpics/plot_locsep_sncf_size.tikz) [18
 
 ]
-(./tikzpics/plot_uspora_sncf_size.tikz) (./tikzpics/plot_uspora_zsr_trange.tikz
-) [19
+(./tikzpics/plot_usporall_sncf_size.tikz)
+(./tikzpics/plot_usporall_zsr_trange.tikz)
+Overfull \vbox (5.36377pt too high) detected at line 510
+ []
+
+[19
 
 ] [20
 
 ] (./tikzpics/neural.tikz)
-Overfull \vbox (11.77196pt too high) detected at line 600
+Overfull \vbox (11.77196pt too high) detected at line 607
  []
 
 [21
@@ -1791,7 +1795,7 @@ Overfull \vbox (11.77196pt too high) detected at line 600
 File: ./pics/ttblazer.png Graphic file (type png)
 
 <use ./pics/ttblazer.png>
-Package pdftex.def Info: ./pics/ttblazer.png used on input line 643.
+Package pdftex.def Info: ./pics/ttblazer.png used on input line 650.
 (pdftex.def)             Requested size: 122.59859pt x 43.36243pt.
  [23
 
@@ -1802,7 +1806,7 @@ Package pdftex.def Info: ./pics/ttblazer.png used on input line 643.
 File: ./pics/takeoff.jpg Graphic file (type jpg)
 
 <use ./pics/takeoff.jpg>
-Package pdftex.def Info: ./pics/takeoff.jpg used on input line 669.
+Package pdftex.def Info: ./pics/takeoff.jpg used on input line 676.
 (pdftex.def)             Requested size: 485.59229pt x 273.14662pt.
  [25
 
@@ -1816,23 +1820,23 @@ Package pdftex.def Info: ./pics/takeoff.jpg used on input line 669.
 \tf@snm=\write8
 \openout8 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 672.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 672.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 679.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 679.
  (./presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 672.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 672.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 679.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 679.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: CFC0371CBCFC7767DABB57E7472B479D;464.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 672.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 679.
  ) 
 Here is how much of TeX's memory you used:
  30312 strings out of 493488
- 677223 string characters out of 3141346
- 1014445 words of memory out of 3000000
+ 677235 string characters out of 3141346
+ 1014465 words of memory out of 3000000
  32727 multiletter control sequences out of 15000+200000
  133846 words of font info for 121 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,21n,85p,742b,2570s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,21n,85p,742b,2567s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/lo
 cal/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texliv
 e/2012/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2012/texmf-d
@@ -1867,7 +1871,7 @@ pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/l
 ocal/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texliv
 e/2012/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2012/texm
 f-dist/fonts/type1/public/lm/lmsy9.pfb>
-Output written on presentation.pdf (25 pages, 2257752 bytes).
+Output written on presentation.pdf (25 pages, 2257739 bytes).
 PDF statistics:
  1272 PDF objects out of 1440 (max. 8388607)
  1147 compressed objects within 12 object streams

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  7 APR 2013 22:41
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  8 APR 2013 22:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1337,27 +1337,27 @@ File: pgflibraryfadings.code.tex 2008/02/07 v2.10 (rcs-revision 1.3)
 ))) (./svkpaper.aux)
 \openout1 = `svkpaper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 104.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 93.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 \AtBeginShipoutBox=\box72
-Package hyperref Info: Link coloring OFF on input line 104.
+Package hyperref Info: Link coloring OFF on input line 93.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/07/31 v2.42 Cross-referencing by name of section
@@ -1367,9 +1367,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count193
 )
-LaTeX Info: Redefining \ref on input line 104.
-LaTeX Info: Redefining \pageref on input line 104.
-LaTeX Info: Redefining \nameref on input line 104.
+LaTeX Info: Redefining \ref on input line 93.
+LaTeX Info: Redefining \pageref on input line 93.
+LaTeX Info: Redefining \nameref on input line 93.
 
 (./svkpaper.out) (./svkpaper.out)
 \@outlinefile=\write4
@@ -1411,7 +1411,7 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 104.
+(lastpage)             ! on input line 93.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: floatflt package is loaded.
 Package caption Info: End \AtBeginDocument code.
@@ -1421,74 +1421,74 @@ ABD: EveryShipout initializing macros
  tick labels; missing features). Consider writing \pgfplotsset{compat=1.7} into
  your preamble.
 
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 125.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 114.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 125.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 114.
 
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 125
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 114
 .
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 125
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 114
 .
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 125.
+(Font)              <10.95> on input line 114.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 125.
+(Font)              <8> on input line 114.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 125.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 125.
+(Font)              <6> on input line 114.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 114.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 125.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 114.
 
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 125.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 114.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 125.
+(Font)              <9> on input line 114.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 125.
+(Font)              <5> on input line 114.
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <6> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 125.
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 125.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 114.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 114.
 
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 138.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 127.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 138.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 127.
  (./tikzpics/ug.tikz)
-Underfull \hbox (badness 2150) in paragraph at lines 164--164
-[]\T1/lmr/m/n/10.95 Figure 1.1: |[] An un-der-ly-ing graph of the
+Underfull \hbox (badness 3803) in paragraph at lines 153--153
+[]\T1/lmr/m/n/10.95 Figure 1: |[] An un-der-ly-ing graph of the
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 2894) in paragraph at lines 167--168
+Underfull \hbox (badness 2894) in paragraph at lines 156--157
 []\T1/lmr/m/n/10.95 Finally, we de-fine the \T1/lmr/bx/n/10.95 un-der-ly-ing sh
 ort-
  []
@@ -1496,16 +1496,16 @@ ort-
 (./tikzpics/pathfunc.tikz
 Missing character: There is no ) in font nullfont!
 )
-Overfull \hbox (10.04842pt too wide) in paragraph at lines 27--172
+Overfull \hbox (10.04842pt too wide) in paragraph at lines 27--161
  [] 
  []
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 185.
+put line 174.
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 189.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 178.
 
-Underfull \hbox (badness 1466) in paragraph at lines 194--195
+Underfull \hbox (badness 1466) in paragraph at lines 183--184
 []$\OMS/lmsy/m/n/10.95 8\OML/lmm/m/it/10.95 x; y \OT1/lmr/m/n/10.95 :$ \T1/lmr/
 m/n/10.95 set of USPs be-tween $\OML/lmm/m/it/10.95 x$ \T1/lmr/m/n/10.95 and $\
 OML/lmm/m/it/10.95 y$
@@ -1515,39 +1515,26 @@ OML/lmm/m/it/10.95 y$
 
 
 ]
-Underfull \hbox (badness 1603) in paragraph at lines 211--213
-\OML/lmm/m/it/10.95 depart\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 e[]\OT1/lmr/m
-/n/10.95 ) \OML/lmm/m/it/10.95 > depart\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 
-e[]\OT1/lmr/m/n/10.95 )$ \T1/lmr/m/n/10.95 and $\OML/lmm/m/it/10.95 arrive\OT1/
-lmr/m/n/10.95 (\OML/lmm/m/it/10.95 e[]\OT1/lmr/m/n/10.95 ) \OML/lmm/m/it/10.95 
-<
- []
-
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 222.
+(Font)              <10> on input line 211.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 222.
+(Font)              <7> on input line 211.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 224.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 213.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 224.
-LaTeX Font Info:    Try loading font information for U+eus on input line 224.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 213.
+LaTeX Font Info:    Try loading font information for U+eus on input line 213.
+
 (/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/ueus.fd
 File: ueus.fd 2009/06/22 v3.00 Euler Script
 )
 (./tikzpics/plot_usp_sncf_size.tikz)
-Underfull \hbox (badness 1226) in paragraph at lines 245--246
-\T1/lmr/m/n/10.95 we de-fine for a city $\OML/lmm/m/it/10.95 x$ \T1/lmr/m/n/10.
-95 its \T1/lmr/bx/n/10.95 neigh-bour-hood
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 245--246
+Underfull \hbox (badness 10000) in paragraph at lines 234--235
 
  []
 
 
-Underfull \hbox (badness 3601) in paragraph at lines 251--252
+Underfull \hbox (badness 3601) in paragraph at lines 240--241
 []$\OMS/lmsy/m/n/10.95 8$ \T1/lmr/m/n/10.95 cities $\OML/lmm/m/it/10.95 x \OMS/
 lmsy/m/n/10.95 62 \U/eus/m/n/10.95 A$ \T1/lmr/m/n/10.95 com-pute $\OML/lmm/m/it
 /10.95 neigh[]\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 x\OT1/lmr/m/n/10.95 )$\T1
@@ -1558,7 +1545,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.256 
+l.245 
        [2] (./tikzpics/uspora.tikz
 Missing character: There is no ) in font nullfont!
 )
@@ -1566,29 +1553,29 @@ Missing character: There is no ) in font nullfont!
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (8.145pt too wide) in paragraph at lines 326--337
+Overfull \hbox (8.145pt too wide) in paragraph at lines 315--326
  [][] 
  []
 
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <9> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 346.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 335.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.360 
+l.349 
        [3]
-Underfull \hbox (badness 10000) in paragraph at lines 365--366
+Underfull \hbox (badness 10000) in paragraph at lines 354--355
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 363--364
 
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 374--375
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 385--386
 
  []
 
@@ -1599,12 +1586,12 @@ Missing character: There is no ) in font nullfont!
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 394--395
+Underfull \hbox (badness 10000) in paragraph at lines 383--384
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 396--397
+Underfull \hbox (badness 10000) in paragraph at lines 385--386
 
  []
 
@@ -1612,36 +1599,36 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.406 		\end{itemize}
+l.395 		\end{itemize}
                       [4]
-Underfull \hbox (badness 1237) in paragraph at lines 409--410
+Underfull \hbox (badness 1237) in paragraph at lines 398--399
 []\T1/lmr/m/n/10.95 Our al-go-rithm, called \T1/lmr/m/it/10.95 Loc-sep\T1/lmr/m
 /n/10.95 , com-putes the
  []
 
 
-Underfull \hbox (badness 3108) in paragraph at lines 409--410
+Underfull \hbox (badness 3108) in paragraph at lines 398--399
 \T1/lmr/m/n/10.95 city's po-ten-tial in the fol-low-ing way: we
  []
 
 
-Underfull \hbox (badness 3525) in paragraph at lines 409--410
+Underfull \hbox (badness 3525) in paragraph at lines 398--399
 \T1/lmr/m/n/10.95 ex-plore an area $\OML/cmm/b/it/10.95 A[]$ \T1/lmr/m/n/10.95 
 of $[]$ near-est cities
  []
 
 
-Underfull \hbox (badness 1168) in paragraph at lines 409--410
+Underfull \hbox (badness 1168) in paragraph at lines 398--399
 \T1/lmr/m/n/10.95 with no ori-en-ta-tion and no weights. Next
  []
 
 
-Underfull \hbox (badness 1953) in paragraph at lines 409--410
+Underfull \hbox (badness 1953) in paragraph at lines 398--399
 \T1/lmr/m/n/10.95 we get the front and back neigh-bour-hoods
  []
 
 
-Underfull \hbox (badness 1210) in paragraph at lines 409--410
+Underfull \hbox (badness 1210) in paragraph at lines 398--399
 \T1/lmr/m/n/10.95 of $\OML/lmm/m/it/10.95 x$ \T1/lmr/m/n/10.95 within $\OML/lmm
 /m/it/10.95 A[]$ \T1/lmr/m/n/10.95 ($\OML/cmm/b/it/10.95 fn\OT1/cmr/bx/n/10.95 
 (\OML/cmm/b/it/10.95 x\OT1/cmr/bx/n/10.95 ) \OT1/lmr/m/n/10.95 = \OML/lmm/m/it/
@@ -1650,7 +1637,7 @@ msy/m/n/10.95 \ \OML/lmm/m/it/10.95 A[]$\T1/lmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 409--410
+Underfull \hbox (badness 10000) in paragraph at lines 398--399
 
  []
 
@@ -1660,180 +1647,252 @@ Missing character: There is no ) in font nullfont!
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+(./tikzpics/plot_locsep_sncf_size.tikz)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 417--417
+ |[]\T1/lmr/bx/n/14.4 Performance and com-par-
+ []
+
+
+Underfull \vbox (badness 7907) has occurred while \output is active []
+
+
+Overfull \vbox (35.32796pt too high) has occurred while \output is active []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.424 	\end{itemize}
+                     [5]
+Underfull \hbox (badness 1596) in paragraph at lines 427--428
+\T1/lmr/m/n/10.95 mea-sured how the query times evolve with
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 427--428
+
+ []
+
+
+Overfull \hbox (11.15234pt too wide) in paragraph at lines 432--446
+ [][] 
+ []
+
+(./tikzpics/plot_usporall_sncf_size.tikz)
+(./tikzpics/plot_usporall_zsr_trange.tikz)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+(./tikzpics/plot_usporalls_sncf_size.tikz)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+(./tikzpics/plot_usporalls_zsr_trange.tikz)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 1466) in paragraph at lines 523--524
+\T1/lmr/m/n/10.95 In [[]Delling et al., 2009a[]] the au-thors have
+ []
+
+
+Underfull \hbox (badness 1158) in paragraph at lines 523--524
+\T1/lmr/m/n/10.95 of up to 56 against Di-jk-stra's al-go-rithm in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 523--524
+
+ []
+
+
+Underfull \hbox (badness 2073) in paragraph at lines 525--526
+\T1/lmr/m/it/10.95 dependent \T1/lmr/m/n/10.95 model and have de-vel-oped ex-ac
+t
+ []
+
+
+Underfull \hbox (badness 3158) in paragraph at lines 525--526
+\T1/lmr/m/n/10.95 time for op-ti-mal con-nec-tions in timeta-bles
+ []
+
+
+Underfull \hbox (badness 4316) in paragraph at lines 525--526
+\T1/lmr/m/n/10.95 com-pared to the time-dependent Di-jk-stra's
+ []
+
+
+Underfull \hbox (badness 1688) in paragraph at lines 525--526
+\T1/lmr/m/n/10.95 al-go-rithm us-ing Fi-bonacci heaps as pri-or-ity
+ []
+
+
+Underfull \hbox (badness 1735) in paragraph at lines 525--526
+\T1/lmr/m/n/10.95 for real-world timeta-bles (that usu-ally have
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 525--526
+
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.526 
+       [6]
+Underfull \hbox (badness 10000) in paragraph at lines 527--528
+
+ []
+
 (./svkpaper.bblpdfTeX warning (ext4): destination with the same identifier (nam
 e{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.46 \bibitem[Blelloch, 2002]{separators02}
-                                            [5]
-Underfull \hbox (badness 10000) in paragraph at lines 62--66
+l.23 \bibitem[Batz et~al., 2009]{timedepch09}
+                                              [7]
+Underfull \hbox (badness 10000) in paragraph at lines 34--38
 []\T1/lmr/m/n/10 Brodal, G. S. and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--90
-[]\T1/lmr/m/n/10 Chowdhury,
+Underfull \hbox (badness 3657) in paragraph at lines 46--49
+[]\T1/lmr/m/n/10 Davison, B. D., Suel, T.,
  []
 
 
-Underfull \hbox (badness 3657) in paragraph at lines 101--104
-[]\T1/lmr/m/n/10 Davison, B. D., Suel, T.,
+Underfull \hbox (badness 10000) in paragraph at lines 63--67
+[]\T1/lmr/m/n/10 Delling, D., Sanders, P.,
+ []
+
+
+Underfull \hbox (badness 4108) in paragraph at lines 63--67
+\T1/lmr/m/it/10 OF LARGE AND COM-PLEX NET-WORKS.
+ []
+
+
+Underfull \hbox (badness 4378) in paragraph at lines 79--82
+[]\T1/lmr/m/n/10 Finocchi, I. and
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 118--122
-[]\T1/lmr/m/n/10 Delling, D., Sanders, P.,
- []
-
-
-Underfull \hbox (badness 4108) in paragraph at lines 118--122
-\T1/lmr/m/it/10 OF LARGE AND COM-PLEX NET-WORKS.
- []
-
-
-Underfull \hbox (badness 4378) in paragraph at lines 142--145
-[]\T1/lmr/m/n/10 Finocchi, I. and
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 152--155
-[]\T1/lmr/m/n/10 Gavoille, C., Pe-leg, D.,
- []
-
-
-Underfull \hbox (badness 1158) in paragraph at lines 152--155
-\T1/lmr/m/n/10 Pérennes, S., and Raz, R. (2004).  Dis-tance
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 177--181
+Underfull \hbox (badness 10000) in paragraph at lines 96--100
 []\T1/lmr/m/n/10 Halperin, D. and
  []
 
 
-Underfull \hbox (badness 2057) in paragraph at lines 177--181
+Underfull \hbox (badness 2057) in paragraph at lines 96--100
 \T1/lmr/m/n/10 Mehlhorn, K., ed-i-tors (2008).  \T1/lmr/m/it/10 Al-go-rithms -
  []
 
 
-Underfull \hbox (badness 3029) in paragraph at lines 177--181
+Underfull \hbox (badness 3029) in paragraph at lines 96--100
 \T1/lmr/m/it/10 Karl-sruhe, Ger-many, Septem-ber 15-17, 2008.
  []
 
 
-Underfull \hbox (badness 1303) in paragraph at lines 177--181
+Underfull \hbox (badness 1303) in paragraph at lines 96--100
 \T1/lmr/m/it/10 Pro-ceed-ings\T1/lmr/m/n/10 , vol-ume 5193 of \T1/lmr/m/it/10 L
 ec-ture Notes in
  []
 
 
-Underfull \hbox (badness 1014) in paragraph at lines 187--190
+Underfull \hbox (badness 1014) in paragraph at lines 102--105
 []\T1/lmr/m/n/10 Kannan, S., Naor, M., and
  []
 
 
-Underfull \hbox (badness 1057) in paragraph at lines 187--190
+Underfull \hbox (badness 1057) in paragraph at lines 102--105
 \T1/lmr/m/n/10 Rudich, S. (1988).  Im-plicit rep-re-sen-ta-tion of
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.191 \bibitem[Kerber, 0405]{hierplan204}
-                                          [6]
-Underfull \hbox (badness 10000) in paragraph at lines 219--224
+Underfull \hbox (badness 10000) in paragraph at lines 122--127
 []\T1/lmr/m/n/10 Müller-
  []
 
 
-Underfull \hbox (badness 1189) in paragraph at lines 219--224
+Underfull \hbox (badness 1189) in paragraph at lines 122--127
 \T1/lmr/m/it/10 Rail-way Op-ti-miza-tion\T1/lmr/m/n/10 , vol-ume 4359 of \T1/lm
 r/m/it/10 Lec-ture
  []
 
 
-Underfull \hbox (badness 2941) in paragraph at lines 226--229
-\T1/lmr/m/n/10 mean square-arithmetic mean-geometric mean-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--245
+Underfull \hbox (badness 10000) in paragraph at lines 140--143
 []\T1/lmr/m/n/10 Sanders, P. and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 247--250
-[]
- []
-
-
-Underfull \hbox (badness 2261) in paragraph at lines 247--250
-\T1/lmr/m/n/10 Sankaranarayanan, J. and Samet, H. (2009).
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 257--260
+Underfull \hbox (badness 10000) in paragraph at lines 150--153
 []\T1/lmr/m/n/10 Schultes, D. (2008).  \T1/lmr/m/it/10 Route
  []
 
 
-Underfull \hbox (badness 3128) in paragraph at lines 257--260
+Underfull \hbox (badness 3128) in paragraph at lines 150--153
 \T1/lmr/m/it/10 Plan-ning in Road Net-works\T1/lmr/m/n/10 .  VDM Ver-lag,
- []
-
-
-Underfull \hbox (badness 1377) in paragraph at lines 262--268
-[]\T1/lmr/m/n/10 Schulz, F., Wag-ner, D., and
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Underfull \hbox (badness 1308) in paragraph at lines 306--308
-[]\T1/lmr/m/n/10 Wikipedia.  Lon-don un-der-ground -
- []
-
-) 
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.158 
+       [8]) 
 AED: lastpage setting LastPage
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.441 \end{document}
-                     [7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 441.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 441.
+l.546 \end{document}
+                     [9
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 546.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 546.
  (./svkpaper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 441.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 441.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 546.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 546.
 Package rerunfilecheck Info: File `svkpaper.out' has not changed.
-(rerunfilecheck)             Checksum: C34D838A22F0C67265BAC5E6F9B3B943;362.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 441.
+(rerunfilecheck)             Checksum: 74126BC070634EA3F167EDE9B15C9966;382.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 546.
  ) 
 Here is how much of TeX's memory you used:
- 30490 strings out of 493488
- 646040 string characters out of 3141346
- 822079 words of memory out of 3000000
- 32947 multiletter control sequences out of 15000+200000
- 138508 words of font info for 129 fonts, out of 3000000 for 9000
+ 30629 strings out of 493488
+ 648995 string characters out of 3141346
+ 887776 words of memory out of 3000000
+ 33087 multiletter control sequences out of 15000+200000
+ 142779 words of font info for 130 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,19n,92p,805b,2134s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{algorithm.2.2} has been referenced but does not e
-xist, replaced by a fixed one
+ 63i,19n,92p,836b,2191s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
+st, replaced by a fixed one
 
-{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/te
-xlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2012
-/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2012/texmf-dis
-t/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2012/texmf-dist/fonts/en
-c/dvips/lm/lm-ec.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/ams
+pdfTeX warning (dest): name{algorithm.2} has been referenced but does not exist
+, replaced by a fixed one
+
+{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/te
+xlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2012/tex
+mf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2012/texmf-dist/fo
+nts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2012/texmf-dist/fonts/enc/dv
+ips/lm/lm-mathit.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmbsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/ams
 fonts/cmextra/cmbsy5.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public
 /amsfonts/cmextra/cmbsy9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pu
@@ -1865,14 +1924,15 @@ b></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/loca
 l/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/20
 12/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2012/texmf-dis
 t/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
-pe1/public/lm/lmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public
-/lm/lmsy6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy8.p
-fb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/lo
-cal/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtt9.pfb>
-Output written on svkpaper.pdf (7 pages, 548879 bytes).
+pe1/public/lm/lmri9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/
+lm/lmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy6.p
+fb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/lo
+cal/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texlive
+/2012/texmf-dist/fonts/type1/public/lm/lmtt9.pfb>
+Output written on svkpaper.pdf (9 pages, 599640 bytes).
 PDF statistics:
- 423 PDF objects out of 1000 (max. 8388607)
- 354 compressed objects within 4 object streams
- 115 named destinations out of 1000 (max. 500000)
+ 416 PDF objects out of 1000 (max. 8388607)
+ 344 compressed objects within 4 object streams
+ 94 named destinations out of 1000 (max. 500000)
  165 words of extra memory for PDF output out of 10000 (max. 10000000)
 

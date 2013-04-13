@@ -25,7 +25,9 @@
 \BOOKMARK [3][-]{subsubsection.5.3.2}{Choosing ANs based on node properties}{subsection.5.3}% 25
 \BOOKMARK [3][-]{subsubsection.5.3.3}{Choosing ANs heuristically}{subsection.5.3}% 26
 \BOOKMARK [2][-]{subsection.5.4}{Performance of USP-OR-A and comparisons}{section.5}% 27
-\BOOKMARK [1][-]{section.6}{Neural network approach}{}% 28
-\BOOKMARK [1][-]{section.7}{Application TTBlazer}{}% 29
-\BOOKMARK [1][-]{section.8}{Conclusion}{}% 30
-\BOOKMARK [1][-]{Appendix.a.A}{Appendix File formats}{}% 31
+\BOOKMARK [3][-]{subsubsection.5.4.1}{USP-OR-A with Locsep}{subsection.5.4}% 28
+\BOOKMARK [3][-]{subsubsection.5.4.2}{USP-OR-A with Locsep Max}{subsection.5.4}% 29
+\BOOKMARK [1][-]{section.6}{Neural network approach}{}% 30
+\BOOKMARK [1][-]{section.7}{Application TTBlazer}{}% 31
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 32
+\BOOKMARK [1][-]{Appendix.a.A}{Appendix File formats}{}% 33

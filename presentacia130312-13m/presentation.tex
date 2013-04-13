@@ -208,7 +208,7 @@
 				\item<2> Goals:
 				\begin{itemize}
 	                \item<2> Devise methods to tackle EA/OC problem
-		            \item<2> Analyse properties of timetables
+		            \item<2> Analyse properties of real-world timetables
 	            \end{itemize}			
 			\end{itemize}
 		\end{frame}
@@ -249,7 +249,7 @@
 	            \begin{itemize}
 	            	\small
 	            	\item $p$ is \textbf{USP} $\iff$ $\exists t: path(c_{(a, t, b)}^{*}) = p$
-	            	\item we have USP $\rightarrow$ reconstruct $c_{(a, t, b)}^{*}$
+	            	\item we have USP $p$: $expand(p)$ $\rightarrow$ $c_{(a, t, b)}^{*}$
 	            	\item<2-> \textbf{Overtaking}~\cite{timetablemodelsalgs07} causes problems, but can be easily removed
 	            \end{itemize}
 	        \column{2.3in}
@@ -384,7 +384,7 @@
 				\begin{itemize}
 					\footnotesize
 					\item Small size: $|\mathcal{A}| \leq r_{1} \cdot \sqrt{n}$
-					\item Small node neighbourhoods: $(avg \; |neigh(x)|)^{2} \leq r_{2} \cdot n$
+					\item Small node neighbourhoods: $avg \; (|neigh(x)|)^{2} \leq r_{2} \cdot n$
 					\item Few local access nodes: $|lan_{\mathcal{A}}(x)| \leq r_{3}$
 				\end{itemize}
 	        \end{itemize}
@@ -486,12 +486,15 @@
         \subsection{Results and comparison}
         \begin{frame}
             \frametitle{Results}
+            \begin{itemize}
+            	\item Time-dependent Dijkstra's algorithm with Fibonacci heap priority queue $\mathcal{O}(m + n \log n)$
+            \end{itemize}
 			\begin{columns}[c]
             \column{2.4in}
 				\begin{figure}[h]
 					\scriptsize
 	                \begin{center}
-	                    \inputTikZ{./tikzpics/plot_uspora_sncf_size}
+	                    \inputTikZ{./tikzpics/plot_usporall_sncf_size}
 	                \end{center}
 	                \caption{\footnotesize \textit{USP-OR-A} + \textit{Locsep} vs. \textit{USP-OR} vs. \textit{TD Dijkstra} on \textit{sncf} dataset. Changing $n$.}
 	            \end{figure}
@@ -499,7 +502,7 @@
 	        	\begin{figure}[h]
 					\scriptsize
 	                \begin{center}
-	                    \inputTikZ{./tikzpics/plot_uspora_zsr_trange}
+	                    \inputTikZ{./tikzpics/plot_usporall_zsr_trange}
 	                \end{center}
 	                \caption{\footnotesize \textit{USP-OR-A} + \textit{Locsep} vs. \textit{USP-OR} vs. \textit{TD Dijkstra} on \textit{zsr} dataset. Changing time range.}
 	            \end{figure}
@@ -520,10 +523,6 @@
 						\item Meant for time-dependent routing in road networks
 					\end{itemize}
 					\item \textbf{Time-expanded approach} \cite{engtimeexp09}
-					\begin{itemize}
-						\item Speed-ups of about 56
-						\item Remodelling unimportant stations
-					\end{itemize}
 				\end{itemize}	
 	        \column{2.4in}
 	        	\begin{table}{
@@ -532,7 +531,7 @@
 					\begin{tabular}{c|c|c}
 					%legend
 			            \rowcolor{tablehead}
-			            \textbf{Name} & \textit{USP-OR} & \textit{USP-OR-A} \\
+			            \textbf{Name} & \textit{\textbf{USP-OR}} & \textit{\textbf{USP-OR-A}} \\
 					%data
 						\hline
 						\textit{cpru} & 14.5 & 1.7 \\
@@ -546,7 +545,15 @@
 					\caption{\scriptsize Speed-up of \textit{USP-OR} and \textit{USP-OR-A} with \textit{Locsep}}
 				\end{table}
 	        \end{columns}
-	        \makebox[\linewidth]{\parbox{12.5cm}{
+	        \vspace{-0.3cm}
+	        \makebox[\linewidth]{\parbox{10.7cm}{
+	        \begin{itemize}
+	        	\small
+				\item Max speed-up of 56 (Railways with 30000 stations!)
+				\item Remodelling unimportant stations in TE graphs
+			\end{itemize}
+			}}
+	        \makebox[\linewidth]{\parbox{12.3cm}{
 			\begin{itemize}
 				\item Theory vs. practice difference: transfers, cost of travel...
 			\end{itemize}				       
