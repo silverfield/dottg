@@ -1,9 +1,24 @@
-World is getting smaller every day...
+\noindent World is getting smaller every day, as new technologies constantly make communication and travelling faster and more effective then yesterday. Road network, Internet and many other networks are becoming more evolved and denser which also brings along new problems. In order to fully take advantage of such huge networks, we must have efficient algorithms that operate on these networks and give us answers to many questions. Among many others, one that we take particular interest in is the question: ``What is the shortest path from place $x$ to place $y$''?
+
+In different networks, this question can make different sense. In the road network, we would like to obtain a sequence of intersections we have to go through in order to reach our destination, driving the shortest possible time (or the smallest possible distance). GPS devices and the likes of Google maps have to deal with this problem. In case of the Internet network, we might be interested in the shortest path to a destination computer in terms of router hops. In a network of social acquaintances, the smallest number of persons connecting us e.g. with guitarist Mark Knopfler or Liona Boyd could be expressed as a shortest path problem. Many problems in artificial intelligence (e.g. planning of actions) can be expressed, or include, looking for shortest paths.
+
+The tremendous amount of work done in this area signifies the importance of quick distance or shortest path retrieval in graphs. A simple Dijkstra's or A* algorithm no longer comply to the requirements of today's applications, in which a server often has to answer hundreds of shortest path queries per second in a large-scale networks. To speed up the mentioned algorithms we usually sacrifice generality and concentrate on a particular type of network, if not only on one concrete network.
+
+In this thesis, the type of network we deal with is the one representing timetable connections, where nodes are the stations and arcs represent a direct connection between the two stations. We will talk in more details about this in following sections. However, this network has one substantial difference that we would like to point out - it is time-dependent. That means that the shortest path from station $x$ to station $y$ may have different solutions depending on the time when we start at station $x$. Therefore, we will not talk about shortest paths and distances, but rather about optimal connections and earliest arrivals. 
+
+\noindent To informally develop the discussion about optimal connections in timetables, we will now clarify the motivation, approach and the goals of this thesis.
 
 \subsection{Motivation}
+
+	\noindent We have already sketched-out the motivation in the introductory text - if we consider that a server (hosting e.g. journey-planning application) has to answer many 
 	
 \subsection{Approach}
+
+	\noindent 
 	
 \subsection{Goals}
 	
 \subsection{Organization}
+We will provide the reader with the basic model 
+
+we will focus on a more specific problem - finding an optimal connection from place $x$ at the time $t$ to place $y$, given a timetable of connections between nodes in the graph. This problem can be transformed and reduced to the original shortest path problem, but we may take advantage of the specific structure of the graphs representing timetables and find shortest connections more efficiently

@@ -37,6 +37,7 @@
 \usepackage{pifont} %for ticks (check symbols)
 \usepackage{scalefnt}
 \usepackage{setspace}
+\usepackage[rightcaption]{sidecap}
 \usepackage{subcaption}
 \usepackage{tikz}
 \usepackage{titlesec} %section titles font size change
@@ -204,6 +205,9 @@
     \pagestyle{empty}
 %    \setcounter{page}{200} %TODO_FINAL - change in final
 % also references - square brackets
+% footnotes - all with capital
+% dots after captions
+% figure - picture
     \noindent
 
     %---------------------------------------------------------------------
@@ -266,7 +270,7 @@
 
     I hereby declare that I wrote this thesis by myself, only with the help of the referenced literature, under the careful supervision of my thesis advisor.
     \vskip 1cm
-    \hfill ............................
+    \hfill ................................
 
     \pagebreak
 
@@ -274,7 +278,13 @@
     %   acknowledgements
     %---------------------------------------------------------------------
     \section*{Acknowledgements}
-    I would like to thank ...
+    I would like to thank very much to my supervisor Rastislav Kr·loviË for valuable remarks, useful advices and consultations that helped me stay on the right path during my work on this thesis.
+    
+    \hspace{40pt} I am also grateful for the support of my family during my studies and the work on this thesis.
+
+	\vspace{1cm}    
+    
+    \hspace{\fill} \textit{Frantiöek HajnoviË}
 
     \pagebreak
 
@@ -282,15 +292,15 @@
     %   abstract
     %---------------------------------------------------------------------
     \begin{abstract}{Abstract}
-        This thesis... \\
+        In this thesis we deal with queries for optimal connections in timetables on which we have carried out some preprocessing. Based on the analysis of the properties of real-world timetables, we developed exact methods that answer the queries considerably faster then the time-dependent Dijkstra's algorithm implemented with Fibonacci heap priority queue. More specifically, our method \textit{USP-OR-A} with space complexity $\mathcal{O}(n^{1.5})$ achieves average query time $\mathcal{O}(\sqrt{n} \log n)$, outperforming the time-dependent Dijkstra's algorithm up to 7 times in our largest datasets. \\
 
-		Key words: \textbf{oracles}, \textbf{timetable}
+		Key words: \textbf{optimal connection}, \textbf{timetable}, \textbf{Dijkstra's algorithm}, \textbf{Distance oracles}, \textbf{underlying shortest paths}
 	\end{abstract}	
 
     \begin{abstract}{Abstrakt}
-        V tejto pr·ci...\\
+        V tejto pr·ci sa zaober·me hæadanÌm optim·lnych spojenÌ v cestovn˝ch poriadkoch, na ktor˝ch sme si predpoËÌtali urËitÈ inform·cie. Na z·klade anal˝zy re·lnych cestovn˝ch poriadkov sme vyvinuli exaktnÈ metÛdy, ktorÈ na dotaz na optim·lne spojenie odpovedaj˙ podstatne r˝chlejöie ako Ëasovo z·visl· implement·cia Dijkstrovho algoritmu vyuûÌvaj˙ca prioritn˙ frontu na z·klade Fibonacciho haldy. Presnejöie, n·ö algoritmus \textit{USP-OR-A} s priestorovou zloûitosùou $\mathcal{O}(n^{1.5})$ dosahuje Ëasov˙ zloûitosù odpovede na dotaz $\mathcal{O}(\sqrt{n} \log n)$, prekon·vaj˙c Ëasovo z·visl˝ Dijkstrov algoritmus takmer 7 kr·t v naöom najv‰Ëöom cestovnom poriadku. \\
 
-		Kl˙ËovÈ slov·: \textbf{oracles}, \textbf{timetable}
+		Kl˙ËovÈ slov·: \textbf{optim·lne spojenie}, \textbf{cestovn˝ poriadok}, \textbf{Dijkstrov algoritmus}, \textbf{DiötanËnÈ or·kul·}, \textbf{podkladovÈ najkratöie cesty}
 	\end{abstract}	
 	
     \pagebreak
@@ -316,7 +326,7 @@
     %---------------------------------------------------------------------
     \section{Introduction}
     \label{sec:intro}
-    \input parts/introduction.tex
+    %\input parts/introduction.tex
     \pagebreak
    
     %---------------------------------------------------------------------
@@ -324,7 +334,7 @@
     %---------------------------------------------------------------------
     \section{Preliminaries}
     \label{sec:prel}
-    \input parts/preliminaries.tex
+    %\input parts/preliminaries.tex
     \pagebreak
     
     %---------------------------------------------------------------------
@@ -332,7 +342,7 @@
     %---------------------------------------------------------------------
     \section{Related work}
     \label{sec:relwrk}
-    \input parts/relatedwrk.tex
+    %\input parts/relatedwrk.tex
     \pagebreak
     
     %---------------------------------------------------------------------
@@ -340,7 +350,7 @@
     %---------------------------------------------------------------------
     \section{Data \& analysis}
     \label{sec:data}
-    \input parts/data.tex
+    %\input parts/data.tex
     \pagebreak
     
     %---------------------------------------------------------------------
@@ -356,7 +366,7 @@
     %---------------------------------------------------------------------
     \section{Neural network approach}
     \label{sec:neural}
-    \input parts/neural.tex
+    %\input parts/neural.tex
     \pagebreak
     
     %---------------------------------------------------------------------
@@ -364,7 +374,7 @@
     %---------------------------------------------------------------------
     \section{Application TTBlazer}
     \label{sec:ttblazer}
-    \input parts/ttblazer.tex
+    %\input parts/ttblazer.tex
     \pagebreak
 
     %---------------------------------------------------------------------
@@ -372,7 +382,7 @@
     %---------------------------------------------------------------------
     \section{Conclusion}
     \label{sec:concl}
-    \input parts/conclusion.tex
+    %\input parts/conclusion.tex
     \pagebreak
     
     %---------------------------------------------------------------------
@@ -381,7 +391,7 @@
     \begin{appendices}
   		\section{File formats}
   		\label{app:formats}
-  		\input parts/formats.tex
+  		%\input parts/formats.tex
 	\end{appendices}
 	\pagebreak
 

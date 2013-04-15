@@ -149,3 +149,30 @@ In this section we would like to introduce the timetable datasets we were workin
     }
 	\end{figure}
 	
+	\noindent The density is related to the average degree $deg_{avg}$ in the graph, since in oriented graphs:
+	
+	$$deg_{avg} = \frac{\displaystyle m}{\displaystyle n}$$
+	
+	\noindent So the average degree is a lower bound on the graph's density. Table~\ref{table:ug_degs} lists the average and maximal degrees in the underlying graphs.
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{c|c|c}
+		%legend
+			\rowcolor{tablehead}
+			\textbf{Name} & \textbf{Avg. degree} & \textbf{Max. degree}\\
+		%data
+			\hline
+			\textit{air01} & 16.3 & 166 \\
+			\textit{cpru} & 2.8 & 17 \\
+			\textit{cpza} & 2.5 & 23 \\
+			\textit{montr} & 1.6 & 5 \\
+			\textit{sncf} & 3.0 & 27 \\
+			\textit{sncf-inter} & 2.5 & 12 \\
+			\textit{sncf-ter} & 2.9 & 27 \\
+			\textit{zsr} & 2.5 & 12 \\
+		\end{tabular}
+		\captionof{table}{Average and maximal degree in the underlying graphs.}
+		\label{table:ug_degs}
+	\end{table}
+	

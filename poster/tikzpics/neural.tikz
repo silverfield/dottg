@@ -1,0 +1,27 @@
+\tikzstyle{city}=[circle,draw=orange,fill=orange!20,thick,inner sep=1pt]
+\tikzstyle{event}=[circle,draw=blue,fill=blue!20,thick,inner sep=1pt]
+\tikzstyle{arc}=[circle,draw=black,fill=black!20,thick,inner sep=1pt]
+\tikzstyle{textstyle}=[font=\fontsize{6}{6}\selectfont]
+\begin{tikzpicture}[textstyle, >=stealth,shorten >=2pt,looseness=.5,auto, scale=1]
+    % draw nodes (pgf/TikZ v2.00 manual sections 3.4, 3.7, 3.9)
+    \node at (0,0) [textstyle, event, label=below:{[A, 10:00]}] {};
+    \node at (1,0) [textstyle, event, label=below:{[B, 10:45]}] {};
+    \node at (2,0) [textstyle, event, fill=red, label=below:{[B, 11:00]}] {};
+    \node at (3,0) {........................};
+    \node at (5,0) [textstyle, city, fill=red, label=below:{A}] {};
+    \node at (6,0) [textstyle, city, label=below:{B}] {};
+    \node at (7,0) [textstyle, city, label=below:{C}] {};
+    
+    \draw [decorate, decoration={brace, amplitude=5pt}] (4, -0.4) -- (0, -0.4) node [black,below, midway, yshift=-0.15cm] {\textcolor{blue}{events}};
+    \draw [decorate, decoration={brace, amplitude=5pt}] (7, -0.4) -- (5, -0.4) node [black,below, midway, yshift=-0.15cm] {\textcolor{orange}{cities}};
+    \draw [decorate, decoration={brace, amplitude=5pt}] (0.5, 1.9) -- (6.5, 1.9) node [black,above, midway, yshift=+0.15cm] {UG arcs};
+
+	\filldraw[draw=black,fill=lightgray] (0.5,0.2) rectangle (6.5,1.2);	
+	\node at (3.5, 0.4) {hidden layers};
+	\node [rotate=90] at (3.5, 1) {....};
+	
+    \node at (0.5,1.8) [textstyle, arc, label=below:{$(A, B)$}] {};
+    \node at (2.5,1.8) [textstyle, arc, label=below:{$(B, A)$}] {};
+    \node at (4.5,1.8) [textstyle, arc, fill=red, label=below:{$(B, C)$}] {};
+    \node at (6.5,1.8) [textstyle, arc, fill=red, label=below:{$(C, A)$}] {};
+\end{tikzpicture}

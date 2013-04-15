@@ -8,21 +8,21 @@
         
     \addplot[smooth,mark=*,color=blue] plot coordinates {
 		(40,3.4)
-		(80,5.6)
-		(120,11.)
+		(80,7.8)
+		(120,10.1)
 		(160,16.2)
-		(200,19.2)
-		(217,19.2)
+		(200,18.2)
+		(217,20.2)
     };
     \addlegendentry{\textit{TD Dijkstra}}
     
     \addplot[smooth,mark=x,color=black!50!red] plot coordinates {
-		(40,2.2)
-		(80,2.3)
-		(120,6.6)
-		(160,13.1)
-		(200,15.2)
-		(217,13.1)
+		(40,2.4)
+		(80,4.4)
+		(120,4.4)
+		(160,10.1)
+		(200,12.1)
+		(217,12.1)
     };
     \addlegendentry{\textit{USP-OR-A}}
     

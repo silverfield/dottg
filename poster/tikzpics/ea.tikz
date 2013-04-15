@@ -1,0 +1,28 @@
+		\tikzstyle{place}=[circle,draw=event-clr,fill=blue!20,thick,inner sep=1pt]
+		\begin{tikzpicture}[>=stealth,->,looseness=.5,auto,scale=0.7])
+			%NODES-------------------------------------------------------------
+			\node (A_600) at (0.0,0.0) [place, label=right:{[A, 10:00]}] {};
+			\node (B_645) at (3.523550724637681,3.0) [place, label=right:{[B, 10:45]}] {};
+			\node (B_660) at (3.523550724637681,4.0) [place, label=right:{[B, 11:00]}] {};
+			\node (C_690) at (10.0,6.0) [place, label=right:{[C, 11:30]}] {};
+			\node (B_680) at (3.523550724637681,5.333333333333333) [place, label=right:{[B, 11:20]}] {};
+			\node (B_690) at (3.523550724637681,6) [place, label=right:{[B, 11:30]}] {};
+			\node (A_750) at (0.0,10.0) [place, label=right:{[A, 12:30]}] {};
+			\node (C_705) at (10.0,7.0) [place, label=right:{[C, 11:45]}] {};
+			\node (C_730) at (10.0,8.66) [place, label=right:{[C, 12:10]}] {};
+			\node (A_735) at (0.0,9.0) [place, label=right:{[A, \textcolor{orange}{\textbf{12:15}}]}] {};
+			%CONNECTIONS-------------------------------------------------------
+			\draw [elcon-clr] (A_600) -- (B_645) node [midway, above] {0:45};
+			\draw [very thick, orange] (B_660) -- (C_690) node [midway, above] {0:30};
+			\draw [elcon-clr] (B_690) -- (C_730) node [midway, above] {0:40};
+			\draw [elcon-clr] (B_680) -- (A_750) node [midway, above] {1:10};
+			\draw [very thick, orange] (C_705) -- (A_735) node [midway, above] {0:30};
+			%WAITING-----------------------------------------------------------
+			\draw [waiting-clr, dashed] (A_600) -- (A_735) node [midway, above] {2:15};
+			\draw [waiting-clr, dashed] (A_735) -- (A_750) node [midway, above] {0:15};
+			\draw [orange, very thick, dashed] (B_645) -- (B_660) node [midway, above] {0:15};
+			\draw [waiting-clr, dashed] (B_660) -- (B_680) node [midway, above] {0:20};
+			\draw [waiting-clr, dashed] (B_680) -- (B_690) node [midway, above] {0:10};
+			\draw [orange, very thick, dashed] (C_690) -- (C_705) node [midway, above] {0:15};
+			\draw [waiting-clr, dashed] (C_705) -- (C_730) node [midway, above] {0:25};
+		\end{tikzpicture}

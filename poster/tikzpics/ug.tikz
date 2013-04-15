@@ -1,0 +1,13 @@
+\tikzstyle{place}=[circle,draw=city-clr,fill=city-clr!20,thick,inner sep=3pt]
+\begin{tikzpicture}[>=stealth,->,shorten >=4pt,looseness=.5,auto, scale=2]
+    % draw nodes (pgf/TikZ v2.00 manual sections 3.4, 3.7, 3.9)
+    \node (A) at (0,0) [place, label=below:A] {};
+    \node (B) at (2,2) [place, label=below:B] {};
+    \node (C) at (4,1) [place, label=below:C] {};
+	
+    % connect nodes (pgf/TikZ v2.00 manual section 3.11)
+    \draw (A) to [bend left] (B) node [midway] {};
+    \draw (B) to [bend left] (A) node [midway] {};
+    \draw (B) to [bend left] (C) node [midway] {};
+    \draw (C) to [bend left] (A) node [midway] {};
+\end{tikzpicture}

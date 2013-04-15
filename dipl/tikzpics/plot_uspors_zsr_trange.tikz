@@ -1,0 +1,58 @@
+\tikzstyle{textstyle}=[font=\fontsize{9}{9}\selectfont]
+\begin{tikzpicture}[textstyle, scale=0.8]
+    \begin{axis}[
+        xlabel={time range (days)},
+        ylabel={size (MB)},
+		legend pos=north west
+        ]
+        
+    \addplot[smooth,mark=*,color=blue, solid] plot coordinates {
+    	(1,0.2)
+		(2,0.3)
+		(3,0.4)
+		(4,0.6)
+		(5,0.7)
+		(6,0.8)
+		(7,0.9)
+		(8,1.0)
+		(9,1.2)
+		(10,1.3)
+		(11,1.4)
+		(12,1.5)
+		(13,1.7)
+		(14,1.7)
+		(15,1.8)
+		(16,1.9)
+		(17,2.0)
+		(18,2.2)
+		(19,2.3)
+		(20,2.3)
+    };
+    \addlegendentry{\textit{TD graph}}
+    
+    \addplot[smooth,mark=x,color=green!70!black, solid] plot coordinates {
+		(1,11)
+		(2,23)
+		(3,25)
+		(4,25)
+		(5,27)
+		(6,29)
+		(7,30)
+		(8,33)
+		(9,33)
+		(10,33)
+		(11,33)
+		(12,33)
+		(13,33)
+		(14,34)
+		(15,36)
+		(16,37)
+		(17,40)
+		(18,40)
+		(19,40)
+		(20,40)
+    };
+    \addlegendentry{\textit{USP-OR}}
+    
+    \end{axis}
+\end{tikzpicture}

@@ -1,0 +1,16 @@
+\begin{thebibliography}{}
+
+\bibitem[M{\"u}ller-Hannemann et~al., 2007]{timetablemodelsalgs07}
+M{\"u}ller-Hannemann, M., Schulz, F., Wagner, D., and Zaroliagis, C. (2007).
+\newblock {\em Algorithmic Methods for Railway Optimization}, volume 4359 of
+  {\em Lecture Notes in Computer Science}, chapter {Timetable Information:
+  Models and Algorithms}, pages 67 -- 90.
+\newblock Springer.
+
+\bibitem[Sommer, 2010]{sommerthesis10}
+Sommer, C. (2010).
+\newblock {\em Approximate Shortest Path and Distance Queries in Networks}.
+\newblock PhD thesis, Graduate School of Information Science and Technology,
+  The University of Tokyo.
+
+\end{thebibliography}

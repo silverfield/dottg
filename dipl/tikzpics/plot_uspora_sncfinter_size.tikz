@@ -7,11 +7,11 @@
         ]
         
     \addplot[smooth,mark=*,color=blue] plot coordinates {
-		(50,4.5)
+		(50,5.6)
 		(100,8.8)
 		(150,10.1)
 		(200,12.1)
-		(250,14.1)
+		(250,13.1)
 		(300,15.2)
 		(350,16.2)
 		(366,16.2)
@@ -19,14 +19,14 @@
     \addlegendentry{\textit{TD Dijkstra}}
     
     \addplot[smooth,mark=x,color=black!50!red] plot coordinates {
-		(50,3.4)
-		(100,4.5)
-		(150,5.5)
+		(50,4.5)
+		(100,5.5)
+		(150,4.5)
 		(200,4.5)
-		(250,5.5)
-		(300,4.5)
+		(250,4.4)
+		(300,4.4)
 		(350,4.5)
-		(366,4.5)
+		(366,4.4)
     };
     \addlegendentry{\textit{USP-OR-A}}
     

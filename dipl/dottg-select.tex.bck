@@ -37,6 +37,7 @@
 \usepackage{pifont} %for ticks (check symbols)
 \usepackage{scalefnt}
 \usepackage{setspace}
+\usepackage[rightcaption]{sidecap}
 \usepackage{subcaption}
 \usepackage{tikz}
 \usepackage{titlesec} %section titles font size change
@@ -204,6 +205,9 @@
     \pagestyle{empty}
 %    \setcounter{page}{200} %TODO_FINAL - change in final
 % also references - square brackets
+% footnotes - all with capital
+% dots after captions
+% figure - picture
     \noindent
 
     %---------------------------------------------------------------------
@@ -266,7 +270,7 @@
 
     I hereby declare that I wrote this thesis by myself, only with the help of the referenced literature, under the careful supervision of my thesis advisor.
     \vskip 1cm
-    \hfill ............................
+    \hfill ................................
 
     \pagebreak
 
@@ -274,7 +278,13 @@
     %   acknowledgements
     %---------------------------------------------------------------------
     \section*{Acknowledgements}
-    I would like to thank ...
+    I would like to thank very much to my supervisor Rastislav Královiè for valuable remarks, useful advices and consultations that helped me stay on the right path during my work on this thesis.
+    
+    \hspace{40pt} I am also grateful for the support of my family during my studies and the work on this thesis.
+
+	\vspace{1cm}    
+    
+    \hspace{\fill} \textit{František Hajnoviè}
 
     \pagebreak
 
@@ -282,15 +292,15 @@
     %   abstract
     %---------------------------------------------------------------------
     \begin{abstract}{Abstract}
-        This thesis... \\
+        In this thesis we deal with queries for optimal connections in timetables on which we have carried out some preprocessing. Based on the analysis of the properties of real-world timetables, we developed exact methods that answer the queries considerably faster then the time-dependent Dijkstra's algorithm implemented with Fibonacci heap priority queue. More specifically, our method \textit{USP-OR-A} with space complexity $\mathcal{O}(n^{1.5})$ achieves average query time $\mathcal{O}(\sqrt{n} \log n)$, outperforming the time-dependent Dijkstra's algorithm up to 7 times in our largest datasets. \\
 
-		Key words: \textbf{oracles}, \textbf{timetable}
+		Key words: \textbf{optimal connection}, \textbf{timetable}, \textbf{Dijkstra's algorithm}, \textbf{Distance oracles}, \textbf{underlying shortest paths}
 	\end{abstract}	
 
     \begin{abstract}{Abstrakt}
-        V tejto práci...\\
+        V tejto práci sa zaoberáme h¾adaním optimálnych spojení v cestovnıch poriadkoch, na ktorıch sme si predpoèítali urèité informácie. Na základe analızy reálnych cestovnıch poriadkov sme vyvinuli exaktné metódy, ktoré na dotaz na optimálne spojenie odpovedajú podstatne rıchlejšie ako èasovo závislá implementácia Dijkstrovho algoritmu vyuívajúca prioritnú frontu na základe Fibonacciho haldy. Presnejšie, náš algoritmus \textit{USP-OR-A} s priestorovou zloitosou $\mathcal{O}(n^{1.5})$ dosahuje èasovú zloitos odpovede na dotaz $\mathcal{O}(\sqrt{n} \log n)$, prekonávajúc èasovo závislı Dijkstrov algoritmus takmer 7 krát v našom najväèšom cestovnom poriadku. \\
 
-		Klúèové slová: \textbf{oracles}, \textbf{timetable}
+		Klúèové slová: \textbf{optimálne spojenie}, \textbf{cestovnı poriadok}, \textbf{Dijkstrov algoritmus}, \textbf{Dištanèné orákulá}, \textbf{podkladové najkratšie cesty}
 	\end{abstract}	
 	
     \pagebreak

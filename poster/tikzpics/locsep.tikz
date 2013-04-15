@@ -1,0 +1,86 @@
+\tikzstyle{bn}=[]
+\tikzstyle{fndiff}=[]
+
+\tikzstyle{fneigh}=[rectangle,draw=purple,fill=purple!20,thick,inner sep=1pt, font=\fontsize{2}{2}\selectfont]
+\tikzstyle{bneigh}=[diamond,draw=cyan,fill=cyan!20,thick,inner sep=1pt, font=\fontsize{2}{2}\selectfont]
+\tikzstyle{noneigh}=[circle,draw=black,fill=black!20,thick,inner sep=1pt, font=\fontsize{2}{2}\selectfont]
+
+\tikzstyle{important}=[circle,draw=green!70!black,fill=green!70!black!20,thick,inner sep=2pt]
+\tikzstyle{textstyle}=[font=\fontsize{6}{6}\selectfont]
+\begin{tikzpicture}[>=stealth,looseness=.1,auto,scale=1.3])
+	\draw [fill=black!5, very thin] (0, 0) ellipse (4 and 4);	
+	
+	\node (an) at (0,0) [important, label=below:{$x$}] {};
+	\node (an2) at (-4,1.7) [important, label=below:{$z$}] {};
+	
+	\node (b1) at (1,-1) [bneigh] {1};
+	\node (b2) at (2,-1.5) [bneigh] {2};
+	\node (b3) at (0.1,-1.3) [bneigh] {3};
+	\node (b4) at (0.8,-2.1) [bneigh] {4};
+	\node (b5) at (0.1, -2.2) [bneigh, label=below:{$y$}] {5};
+	\node (b6) at (-0.7,-1) [bneigh] {6};
+	\node (b7) at (-1.7,-2) [bneigh] {7};
+	\node (b8) at (-1.5,-3) [bneigh] {8};
+	\node (b9) at (-2,-1.2) [bneigh] {9};
+	\node (b10) at (-2.4,-2.5) [bneigh] {10};
+	
+	%\draw [draw=black, fill=yellow, opacity=0.25, smooth, bend left=70] (-0.2, -2.5) to (-0.2, -1.9) to (0.4, -1.9) to (0.4, -2.5) to (-0.2, -2.5);
+	
+	\draw [bn, very thick, ->] (b1) -- (an);
+	\draw [bn, very thick, ->] (b3) -- (b1);
+	\draw [->] (b2) -- (b1);
+	\draw [->] (b4) -- (b3);
+	\draw [bn, very thick, ->] (b5) -- (b3);
+	\draw [very thick, ->] (b3) -- (b6);
+	\draw [very thick, ->] (b6) -- (an);
+	\draw [->] (b10) -- (b9);
+	\draw [->] (b9) -- (b6);
+	\draw [->] (b7) -- (b6);
+	\draw [->] (b7) -- (b9);
+	\draw [->] (b8) -- (b7);
+	
+	\node (f1) at (1,1) [fneigh] {1};
+	\node (f2) at (0.8,2) [fneigh] {2};
+	\node (f3) at (2,2) [fneigh] {3};
+	\node (f4) at (3,2) [fneigh] {4};
+	\node (f5) at (1.7, 2.7) [fneigh] {5};
+	\node (f6) at (1.2,3.3) [fneigh] {6};
+	\node (f7) at (0.1,1.5) [fneigh] {7};
+	\node (f8) at (-0.5,1) [fneigh] {8};
+	\node (f9) at (-1.8, 1.6) [fneigh] {9};
+	\node (f10) at (-1.7,2.3) [fneigh] {10};
+	\node (f11) at (-2.3,2.4) [fneigh] {11};
+	\node (f12) at (-2.4,1.5) [fneigh] {12};
+	\node (f13) at (-2,0.3) [fneigh] {13};
+	
+	\draw [fndiff, very thick, ->] (f3) -- (f4);
+	\draw [fndiff, very thick, ->] (f3) -- (f5);
+	\draw [fndiff, very thick, ->] (f5) -- (f6);
+	\draw [->] (f1) -- (f3);
+	\draw [->] (f2) -- (f5);
+	\draw [->] (f1) -- (f2);
+	\draw [->] (an) -- (f1);
+	\draw [->] (an) -- (f8);
+	\draw [->] (f8) -- (f7);
+	\draw [->] (f7) -- (f2);
+	\draw [->] (f8) -- (f9);
+	\draw [->] (f9) -- (f10);
+	\draw [->] (f9) -- (f11);
+	\draw [->] (f9) -- (f12);
+	\draw [->] (f12) -- (f13);
+	\draw [->] (an) -- (f13);
+	\draw [->] (f13) -- (an2);
+	
+	\node (n1) at (2.2,-0.3) [noneigh] {1};
+	\node (n2) at (2.9,0.8) [noneigh] {2};
+	\node (n3) at (2.1,0.9) [noneigh] {3};
+	
+	\draw [very thick, dashed, ->] (b1) -- (n1);
+	\draw [very thick, dashed, ->] (n1) -- (n2);
+	\draw [very thick, dashed, ->] (n1) -- (n3);
+	\draw [very thick, dashed, ->] (n3) -- (f3);
+	
+	\node (n4) at (-3.8,2.6) [noneigh] {4};
+	\draw [->] (an2) -- (n4);
+	\draw [->] (an2) -- (f12);
+\end{tikzpicture}
