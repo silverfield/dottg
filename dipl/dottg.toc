@@ -1,34 +1,35 @@
 \select@language {english}
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}
 \contentsline {subsection}{\numberline {1.1}Motivation}{1}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Approach}{1}{subsection.1.2}
-\contentsline {subsection}{\numberline {1.3}Goals}{1}{subsection.1.3}
-\contentsline {subsection}{\numberline {1.4}Organization}{1}{subsection.1.4}
-\contentsline {section}{\numberline {2}Preliminaries}{2}{section.2}
-\contentsline {subsection}{\numberline {2.1}Objects}{2}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Earliest arrival and optimal connection}{5}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}(Distance) Oracles}{6}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Dijkstra's algorithm}{7}{subsection.2.4}
-\contentsline {section}{\numberline {3}Related work}{8}{section.3}
-\contentsline {section}{\numberline {4}Data \& analysis}{9}{section.4}
-\contentsline {subsection}{\numberline {4.1}Data}{9}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Basic properties}{10}{subsection.4.2}
-\contentsline {section}{\numberline {5}Underlying shortest paths}{12}{section.5}
-\contentsline {subsection}{\numberline {5.1}\textit {USP-OR}}{13}{subsection.5.1}
-\contentsline {subsubsection}{\numberline {5.1.1}Analysis of \textit {USP-OR}}{15}{subsubsection.5.1.1}
-\contentsline {subsubsection}{\numberline {5.1.2}Performance of \textit {USP-OR}}{17}{subsubsection.5.1.2}
-\contentsline {subsection}{\numberline {5.2}\textit {USP-OR-A}}{17}{subsection.5.2}
-\contentsline {subsubsection}{\numberline {5.2.1}Analysis of \textit {USP-OR-A}}{20}{subsubsection.5.2.1}
-\contentsline {subsubsection}{\numberline {5.2.2}Correctness of \textit {USP-OR-A}}{23}{subsubsection.5.2.2}
-\contentsline {subsubsection}{\numberline {5.2.3}Modifications of \textit {USP-OR-A}}{24}{subsubsection.5.2.3}
-\contentsline {subsection}{\numberline {5.3}Selection of access node set}{24}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}Choosing the optimal access node set}{25}{subsubsection.5.3.1}
-\contentsline {subsubsection}{\numberline {5.3.2}Choosing ANs based on node properties}{27}{subsubsection.5.3.2}
-\contentsline {subsubsection}{\numberline {5.3.3}Choosing ANs heuristically}{28}{subsubsection.5.3.3}
-\contentsline {subsection}{\numberline {5.4}Performance of \textit {USP-OR-A} and comparisons}{28}{subsection.5.4}
-\contentsline {subsubsection}{\numberline {5.4.1}\textit {USP-OR-A} with \textit {Locsep}}{28}{subsubsection.5.4.1}
-\contentsline {subsubsection}{\numberline {5.4.2}\textit {USP-OR-A} with \textit {Locsep Max}}{28}{subsubsection.5.4.2}
-\contentsline {section}{\numberline {6}Neural network approach}{29}{section.6}
-\contentsline {section}{\numberline {7}Application TTBlazer}{30}{section.7}
-\contentsline {section}{\numberline {8}Conclusion}{31}{section.8}
-\contentsline {section}{Appendix \numberline {A}File formats}{32}{Appendix.a.A}
+\contentsline {subsection}{\numberline {1.2}Approach}{2}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Goals}{2}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Organization}{2}{subsection.1.4}
+\contentsline {section}{\numberline {2}Preliminaries}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Objects}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Earliest arrival and optimal connection}{6}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}(Distance) Oracles}{7}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Dijkstra's algorithm}{8}{subsection.2.4}
+\contentsline {section}{\numberline {3}Related work}{10}{section.3}
+\contentsline {subsection}{\numberline {3.1}Distance oracles and route-planning}{10}{subsection.3.1}
+\contentsline {section}{\numberline {4}Data \& analysis}{12}{section.4}
+\contentsline {subsection}{\numberline {4.1}Data}{12}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Analysis of properties}{14}{subsection.4.2}
+\contentsline {section}{\numberline {5}Underlying shortest paths}{16}{section.5}
+\contentsline {subsection}{\numberline {5.1}\textit {USP-OR}}{17}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Analysis of \textit {USP-OR}}{19}{subsubsection.5.1.1}
+\contentsline {subsection}{\numberline {5.2}\textit {USP-OR-A}}{21}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Analysis of \textit {USP-OR-A}}{24}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Correctness of \textit {USP-OR-A}}{27}{subsubsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.3}Modifications of \textit {USP-OR-A}}{28}{subsubsection.5.2.3}
+\contentsline {subsection}{\numberline {5.3}Selection of access node set}{28}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Choosing the optimal access node set}{29}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}Choosing ANs based on node properties}{31}{subsubsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.3}Choosing ANs heuristically - the \textit {Locsep} algorithm}{32}{subsubsection.5.3.3}
+\contentsline {subsection}{\numberline {5.4}Performance and comparisons}{36}{subsection.5.4}
+\contentsline {subsubsection}{\numberline {5.4.1}Performance of \textit {USP-OR}}{36}{subsubsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.2}\textit {USP-OR-A} with \textit {Locsep}}{39}{subsubsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.4.3}\textit {USP-OR-A} with \textit {Locsep Max}}{42}{subsubsection.5.4.3}
+\contentsline {section}{\numberline {6}Neural network approach}{44}{section.6}
+\contentsline {section}{\numberline {7}Application TTBlazer}{45}{section.7}
+\contentsline {section}{\numberline {8}Conclusion}{46}{section.8}
+\contentsline {section}{Appendix \numberline {A}File formats}{47}{Appendix.a.A}

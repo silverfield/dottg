@@ -1,5 +1,5 @@
 \scalebox{0.7}{
-\begin{tikzpicture}[scale=0.8]
+\begin{tikzpicture}[scale=1]
     \draw[-] (0,0) -- (8,0) node[right] {};
 
     \foreach \x/\xtext in {1/preprocessing, 3/size, 5/query time, 7/stretch}

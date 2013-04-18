@@ -1,0 +1,36 @@
+In this section, we summarize the work related to the subject of this thesis. Apart from the papers discussing searching for optimal connections and earliest arrivals in time-dependent scenarios, we also briefly summarize the research done on route planning in road networks and on distance oracles in general. \\
+
+\subsection{Distance oracles and route-planning}
+
+	\noindent We have already mentioned in section~\ref{sec:prel} the paper of Thorup and Zwick~\cite{apxdo05} where the term ``distance oracle'' originated. The authors have shown, that given an undirected weighted graph of $n$ vertices and $m$ edges and a chosen integer $k \geq 1$, we can build a distance oracle such that:
+	\begin{itemize}
+    	\item preprocessing takes $O(kmn^{1/k})$ expected time
+        \item resulting distance oracle is of size $O(kn^{1 + 1/k})$
+        \item answering queries takes $O(k)$ time
+        \item stretch is at most $2k - 1$ 
+	\end{itemize}
+	\hspace{\fill}
+	
+	\noindent Moreover, the authors have reasoned that their construction is essentially optimal with respect to space - i.e., if we want to have exact and constant-time answers, we will in general be forced to pre-compute $\Omega(n^2)$ information. The parameter $k$ however provides a nice option to make trade-offs between the four parameters, as depicted on figure~\ref{fig:compr}.\\
+	
+	\begin{figure}[h!]
+        \begin{center}
+			\inputTikZ{./tikzpics/compromises}
+        \end{center}
+		\caption{\label{fig:compr} By moving $k$, we can achieve compromises between the four parameters of the distance oracle.}
+	\end{figure}
+	
+	\noindent Another work by Gavoille et al.~\cite{distlabel04} concerned distance labelling - a somewhat restricted version of a distance oracle where we assign each node in the graph its distance label. This is again only some pre-computed information and upon a query from $x$ to $y$, we should be able to figure out their distance only using the corresponding distance labels. In the paper it is shown that for all $n$, there exist infinitely many graphs of $n$ vertices for which we have an exact distance labelling scheme of a small overall size ($\mathcal{O}(n \log n)$), but for which the process of figuring out the distance from the labels takes too long from practical point of view. \\
+	
+	\noindent Even though these results imply that we cannot create a sufficiently small efficient distance oracle in general, it may still be possible for sub-classes of general graphs, or even better, for a single particular graph. In that respect, the road network is the point of interest and fortunately it has a few ``nice'' properties (it is sparse, almost planar, the maximum degree of the node is small...) which made it possible to design exact and efficient algorithms with extremely fast query times. To name a few of these:
+	\begin{itemize}
+		\item Highway hierarchies (2005, \cite{hwhierarchies05})
+		\item Transit node routing (2006, \cite{transit06})
+		\item Contraction hierarchies (2008, \cite{contracthier08})
+	\end{itemize}
+	\hspace{\fill}
+	
+	\noindent A very good summary of the techniques devised for road network route planning up to 2009 can be found in~\cite{engineeringroute09}. 
+	
+	
+	The work~\cite{sommerthesis10} gives an exhaustive and comprehensive discussion regarding shortest path queries in general, while suggesting efficient distance oracle for power-law graphs.

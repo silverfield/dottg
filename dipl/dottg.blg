@@ -3,52 +3,52 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: dottg.aux
 The style file: is-alpha.bst
 Database file #1: ../bibl.bib
-I was expecting a `,' or a `}'---line 1591 of file ../bibl.bib
+I was expecting a `,' or a `}'---line 811 of file ../bibl.bib
  :     
  :     ee      =   {http://optlab-server.sce.carleton.ca/POAnimations2007/DijkstrasAlgo.html}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 7 entries,
+You've used 16 entries,
             3036 wiz_defined-function locations,
-            675 strings with 6352 characters,
-and the built_in function-call counts, 3076 in all, are:
-= -- 283
-> -- 101
-< -- 7
-+ -- 34
-- -- 32
-* -- 190
-:= -- 478
-add.period$ -- 19
-call.type$ -- 7
-change.case$ -- 38
-chr.to.int$ -- 7
-cite$ -- 7
-duplicate$ -- 143
-empty$ -- 293
-format.name$ -- 42
-if$ -- 663
+            743 strings with 8452 characters,
+and the built_in function-call counts, 8687 in all, are:
+= -- 821
+> -- 348
+< -- 15
++ -- 121
+- -- 119
+* -- 558
+:= -- 1322
+add.period$ -- 55
+call.type$ -- 16
+change.case$ -- 101
+chr.to.int$ -- 16
+cite$ -- 16
+duplicate$ -- 402
+empty$ -- 789
+format.name$ -- 139
+if$ -- 1937
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 5
-newline$ -- 47
-num.names$ -- 21
-pop$ -- 76
+missing$ -- 12
+newline$ -- 95
+num.names$ -- 56
+pop$ -- 197
 preamble$ -- 1
-purify$ -- 47
+purify$ -- 119
 quote$ -- 0
-skip$ -- 106
+skip$ -- 315
 stack$ -- 0
-substring$ -- 203
-swap$ -- 27
-text.length$ -- 7
-text.prefix$ -- 3
+substring$ -- 538
+swap$ -- 115
+text.length$ -- 15
+text.prefix$ -- 4
 top$ -- 0
-type$ -- 52
+type$ -- 124
 warning$ -- 0
-while$ -- 29
-width$ -- 10
-write$ -- 97
+while$ -- 77
+width$ -- 19
+write$ -- 224
 (There was 1 error message)

@@ -6,13 +6,15 @@ In this section we would like to introduce the timetable datasets we were workin
 	
 	The dataset \textit{air01} contains schedules of \textbf{domestic flights in United States} for the January of 2008. It is not comprehensive in the sense that it contains entries only for flights of some of the major airports in US. However it is large enough for our purposes (almost 300 airports). This dataset is just a fraction of the data that are freely available at the pages of American Statistical Association~\footnote{\url{http://stat-computing.org/dataexpo/2009/the-data.html}} in CSV format.
 	
-	Timetables \textit{cpru} and \textit{cpza} represent the \textbf{regional bus} schedules from the areas of \textbf{Ružomberok and Žilina, Slovakia}. The data were provided by the company in charge of the \textit{cp.sk} portal - Inprop s.r.o. . Both of the timetables concern about 1000 bus stops and came in a JDF 1.9 format~\footnote{Jednotný dátový formát (JDF)}. Apart from the actual schedules, the data in JDF contain numerous other information, which were not relevant for our purposes. From both timetables, we have extracted subsets with a time range of one day.
+	Timetable \textit{cpsk} represent the \textbf{regional bus} schedules from the areas of \textbf{RuÅ¾omberok and Å½ilina, Slovakia}. The data were provided by the company in charge of the \textit{cp.sk} portal - Inprop s.r.o. . The timetable concern about 1900 bus stops and came in a JDF 1.9 format~\footnote{JednotnÃ½ dÃ¡tovÃ½ formÃ¡t (JDF).}. Apart from the actual schedules, the data in JDF contain numerous other information, which were not relevant for our purposes. From both timetables, we have extracted subsets with a time range of one day.
 	
-	The \textit{montr} dataset is part of a public feed for Greater \textbf{Montreal public transportation}, available at Google Transit Feeds~\footnote{\url{http://code.google.com/p/googletransitdatafeed/wiki/PublicFeeds}}. The data are in a GTFS format (defines relations between CSV files listing stations, routes, stop-times...) and were made available by Montreal's Agence métropolitaine de transport. Our timetable \textit{montr} corresponds to daily schedules of the Chambly-Richelieu-Carignan bus services (more than 200 bus stops).
+	The \textit{gb-coach} and \textit{gb-train} timetables are freely available from National Public Transport Data Repository (NPTDR) at \url{http://data.gov.uk} in an ATCO-CIF format. They are not actually timetables but rather weekly snapshots of national public transport journeys made by coach and train in Great Britain. The datasets contain about 4000 and 2500 stations, respectively.
+	
+	The \textit{montr} dataset is part of a public feed for Greater \textbf{Montreal public transportation}, available at Google Transit Feeds~\footnote{\url{http://code.google.com/p/googletransitdatafeed/wiki/PublicFeeds}}. The data are in a GTFS format (defines relations between CSV files listing stations, routes, stop-times...) and were made available by Montreal's Agence mÃ©tropolitaine de transport. Our timetable \textit{montr} corresponds to daily schedules of the Chambly-Richelieu-Carignan bus services (more than 200 bus stops).
 	
 	Also in GTFS format come the data of \textbf{French railways} operated by company SNCF, publicly available at their website~\footnote{\url{http://test.data-sncf.com/index.php/ter.html}}. The schedules are weekly, but we have extracted just a sub-range corresponding to Monday. Also, there were two types of schedules: one for intercity trains and one for TER trains (regional trains). Thus the three timetables \textit{sncf-inter} (366 stations), \textit{sncf-ter} (2637 stations) and their union \textit{sncf} (2646 stations).
 	
-	Finally, one more country-wide railway timetable was provided by ŽSR, the company in charge of the \textbf{Slovak national railways}. This timetable was exported in a MERITS format and its time range is for one year. The number of stations in \textit{zsr} dataset is 233. \\
+	Finally, one more country-wide railway timetable was provided by Å½SR, the company in charge of the \textbf{Slovak national railways}. This timetable was exported in a MERITS format and its time range is for one year. The number of stations in \textit{zsr} dataset is 233. \\
 	
 	\noindent With the help of Python and Bash scripts, we converted each of these datasets to our timetable format (described in appendix~\ref{app:formats}). This timetables were then loaded by our application TTBlazer and sub-timetables (with less stations, smaller time-range or smaller height) were generated. Also the UG, TE and TD were generated from each timetable.
 	
@@ -28,11 +30,12 @@ In this section we would like to introduce the timetable datasets we were workin
 		%data
 			\hline
 			\textit{air01} & domestic flights (US) & CSV & American Stat. Assoc. & \tick \\
-			\textit{cpru} & regional bus (Ružomberok, SVK) & JDF 1.9 & Inprop s.r.o. & \cross \\
-			\textit{cpza} & regional bus (SVK, Žilina) & JDF 1.9 & Inprop s.r.o. & \cross \\
+			\textit{cpsk} & regional bus (RuÅ¾omberok \& Å½ilina, SVK) & JDF 1.9 & Inprop s.r.o. & \cross \\
+			\textit{gb-coach} & country-wide buses (GB) & ATCO-CIF & NPTDR & \tick \\
+			\textit{gb-train} & country-wide rails (GB) & ATCO-CIF & NPTDR & \tick \\
 			\textit{montr} & public transport (Montreal, CA) & GTFS & Montreal AMT & \tick \\
-			\textit{sncf} & country-wide intercity rails (FRA) & GTFS & SNCF & \tick \\
-			\textit{zsr} & country-wide rails (SVK) & MERITS & ŽSR & \cross \\
+			\textit{sncf} & country-wide rails (FRA) & GTFS & SNCF & \tick \\
+			\textit{zsr} & country-wide rails (SVK) & MERITS & Å½SR & \cross \\
 		\end{tabular}
 		\caption{\label{table:tt_desc} Timetable descriptions.}
 		\normalsize
@@ -48,8 +51,9 @@ In this section we would like to introduce the timetable datasets we were workin
 		%data
 			\hline
 			\textit{air01} & 601489 & 287 & 4668 & 1 month & 24374 \\
-			\textit{cpru} & 37148 & 871 & 2415 & 1 day & 239 \\
-			\textit{cpza} & 60769 & 1108 & 2778 & 1 day & 370 \\
+			\textit{cpsk} &  & 1905 &  & 1 day &  \\
+			\textit{gb-coach} &  &  &  & 1 week &  \\
+			\textit{gb-train} &  &  &  & 1 week &  \\
 			\textit{montr} & 7153 & 217 & 349  & 1 day & 363 \\
 			\textit{sncf} & 90676 & 2646 & 7994 & 1 day & 488 \\
 			\textit{sncf-inter} & 4796 & 366 & 901 & 1 day & 209 \\
@@ -60,33 +64,59 @@ In this section we would like to introduce the timetable datasets we were workin
 		\normalsize
 	\end{table}	
 	
-	\noindent Some of the timetables have time range greater then 1 day. Furthermore, even for those marked as a 1 day timetable the exact time range is different (e.g., part of the Monday timetable might be some overnight trains with arrival on Tuesday morning). To see better the differences in the properties of different timetable types (train, flight, bus...), we made sub-timetables with 200 cities and with the upper bound on time range 1 day, 6 hours~\footnote{We took all elementary connections that were within our time range. From this timetable, we made an UG and its (random) sub-graph of 200 cities. Finally we selected only those elementary connections, that were on top of this sub-graph to form a timetable with 200 cities and the desired time range} ($thigh_{T} <$ 1 day, 6h $\forall T$) from each of our dataset. See table~\ref{table:tt_200mainpr} for details. \\
+	\noindent Some of the timetables have time range greater then 1 day. Furthermore, even for those marked as a 1 day timetable the exact time range is different (e.g., part of the Monday timetable might be some overnight trains with arrival on Tuesday morning). To see better the differences in the properties of different timetable types (train, flight, bus...), we made sub-timetables with 200 cities and with the upper bound on time range being 1 day~\footnote{We took all elementary connections that were within our time range. From this timetable, we made an UG and its (random) sub-graph of 200 cities. Finally we selected only those elementary connections, that were on top of this sub-graph to form a timetable with 200 cities and the desired (maximal) time range.} ($thigh_{T} <$ 1 day $\forall T$) from each of our dataset. We name these datasets by appending to the original name ``\textit{-200d}''~\footnote{Similarly, ``\textit{-d}'' would mean ``with daily time range''.}. See table~\ref{table:tt_200mainpr} for details. \\
 	
 	\begin{table}[h!]
 		\centering
 		\small
-		\begin{tabular}{c|c|c|c|c|c}
+		\begin{tabular}{c|c|c|c|c}
 		%legend
 			\rowcolor{tablehead}
-			\textbf{Name} & \textbf{El. conns.} & \textbf{Cities} & \textbf{UG arcs} & \textbf{Exact time range} & \textbf{Height} \\
+			\textbf{Name} & \textbf{El. conns.} & \textbf{Cities} & \textbf{UG arcs} & \textbf{Height} \\
 		%data
 			\hline
-			\textit{air01-200d} & 19546 & 200 & 3986 & 1 day, 05h:00m & 766 \\
-			\textit{cpru-200d} & 8721 & 200 & 647 & 0 days, 18h:45m & 239 \\
-			\textit{cpza-200d} & 13225 & 200 & 583 & 0 days, 19h:01m & 370 \\
-			\textit{montr-200d} & 6985 & 200 & 320 & 0 days, 20h:33m & 363 \\
-			\textit{sncf-200d} & 8599 & 200 & 601 & 1 day, 05h:29m & 456 \\		
-			\textit{sncf-inter-200d} & 2283 & 200 & 466 & 1 day, 01h:10m & 186 \\
-			\textit{sncf-ter-200d} & 7617 & 200 & 585 & 1 days, 00h:02m & 450 \\
-			\textit{zsr-200d} & 2289 & 200 & 464 & 1 day, 03h:26m & 142 \\
+			\textit{air01-200d} & 19546 & 200 & 3986 & 766 \\
+			\textit{cpsk-200d} &  &  &  &  \\
+			\textit{gb-coach-200d} &  &  &  &  \\
+			\textit{gb-train-200d} &  &  &  &  \\
+			\textit{montr-200d} & 6985 & 200 & 320 & 363 \\
+			\textit{sncf-200d} & 8599 & 200 & 601 & 456 \\		
+			\textit{sncf-inter-200d} & 2283 & 200 & 466 & 186 \\
+			\textit{sncf-ter-200d} & 7617 & 200 & 585 & 450 \\
+			\textit{zsr-200d} & 2289 & 200 & 464 & 142 \\
 		\end{tabular}
-		\caption{\label{table:tt_200mainpr} 200-station sub-timetables with the maximal time range of little more than one day.}
+		\caption{\label{table:tt_200mainpr} 200-station sub-timetables with the time range of one day.}
 		\normalsize
 	\end{table}
 	
-	\noindent Also, to provide idea as to how big the time-expanded graphs can get consult table~\ref{table:te_mainpr}. \\
+	\noindent Also, to further justify our choice of using TD graphs instead of TE graphs in this thesis, we provide their space consumption comparison in table~\ref{table:tdte}. \\
 	
-\subsection{Basic properties}
+	\begin{table}[h!]
+		\centering
+		\small
+		\begin{tabular}{c|c|c|c|c|c|c}
+		%legend
+			\rowcolor{tablehead}
+			 & \multicolumn{3}{>{\columncolor{tablehead}}c|}{\textbf{TD graph}} & \multicolumn{3}{>{\columncolor{tablehead}}c}{\textbf{TE graph}} \\ \hline
+			\rowcolor{tablehead}
+			\textbf{Name} & \textbf{Nodes} & \textbf{Arcs} & \textbf{Size (MB)} & \textbf{Nodes} & \textbf{Arcs} & \textbf{Size (MB)} \\
+		%data
+			\hline
+			\textit{air01} & 287 & 4668 &  &  &  &  \\
+			\textit{cpsk} & 1905 &  &  &  &  &  \\
+			\textit{gb-coach} &  &  &  &  &  &  \\
+			\textit{gb-train} &  &  &  &  &  &  \\
+			\textit{montr} & 217 & 349 &  &  &  &  \\
+			\textit{sncf} & 2646 & 7994 &  &  &  &  \\
+			\textit{sncf-inter} & 366 & 901 &  &  &  &  \\
+			\textit{sncf-ter} & 2637 & 7647 &  &  &  &  \\
+			\textit{zsr} & 233 & 588 &  &  &  &  \\
+		\end{tabular}
+		\caption{\label{table:tdte} Space consumption of time-dependent vs. time-expanded model. Note that the number of nodes and arcs for TD graph is the same as for the corresponding underlying graph.}
+		\normalsize
+	\end{table}	
+	
+\subsection{Analysis of properties}
 
 	\noindent First we will take a look at the optimal connection \textit{sizes} (size is the number of el. connections) in the timetables. For a given timetable $T$, we will denote the average optimal connection size as $\bm{\gamma_{T}}$ and will call it the \textbf{optimal connection radius} (OC radius). We computed an approximate OC radius for each of our datasets by measuring an average connection size of sufficiently many OCs. The results in  table~\ref{table:tt_ocradius} indicate that the average OC sizes move around value $\sqrt{n}$ (with exception of the \textit{air01} timetable).
 	
@@ -100,29 +130,30 @@ In this section we would like to introduce the timetable datasets we were workin
 		\end{itemize}
 	\end{definition}
 	
-	\noindent To find out at least approximate $\delta_{T}$ values for our timetables, we have randomly sampled their UGs for (connected) sub-graphs of various sizes (starting from $\sqrt[4]{n}$). In table~\ref{table:ug_density} you can see the maximal density found during the sampling. 
+	\noindent To find out at least approximate $\delta_{T}$ values for our timetables, we have randomly sampled their UGs for (connected) sub-graphs of various sizes (starting from $\sqrt[4]{n}$). In table~\ref{table:ug_density} you can see the maximal density found during the sampling. \\
 	
 	\begin{figure}[htb]
 	\centering
 	\makebox[0pt][c]{
     \begin{minipage}{0.45\textwidth} 
 		\centering
-		\begin{tabular}{c|c}
+		\begin{tabular}{c|c|c}
 		%legend
 			\rowcolor{tablehead}
-			\textbf{Name} & \textbf{$\bm{\gamma_{T}}$} \\
+			\textbf{Name} & \textbf{$\bm{\gamma_{T}}$}  & \textbf{$\bm{\sqrt{n}}$} \\
 		%data
 			\hline
-			\textit{air01} & 2.4 \\
-			\textit{cpru} & 32.3 \\
-			\textit{cpza} & 33.2 \\
-			\textit{montr} & 20.6 \\
-			\textit{sncf} & 25.8 \\
-			\textit{sncf-inter} & 8.3 \\
-			\textit{sncf-ter} & 27.5 \\
-			\textit{zsr} & 15.1 \\
+			\textit{air01} & 2.4 & \\
+			\textit{cpsk} &  &  \\
+			\textit{gb-coach} &  &  \\
+			\textit{gb-train} &  &  \\
+			\textit{montr} & 20.6 &  \\
+			\textit{sncf} & 25.8 & \\
+			\textit{sncf-inter} & 8.3 &  \\
+			\textit{sncf-ter} & 27.5 & \\
+			\textit{zsr} & 15.1 &  \\
 		\end{tabular}
-		\captionof{table}{OC radius.}
+		\captionof{table}{OC radius vary around $\sqrt{n}$. Note extremely low value for airline timetable - this is due to the fact that UGs of airline timetables have small-world characteristics~\cite{sommerthesis10}.}
 		\label{table:tt_ocradius}
 	\end{minipage}
 	\hspace{1cm}	
@@ -135,8 +166,9 @@ In this section we would like to introduce the timetable datasets we were workin
 		%data
 			\hline
 			\textit{air01} & 34.5 \\
-			\textit{cpru} & 4.0 \\
-			\textit{cpza} & 3.4 \\
+			\textit{cpsk} &  \\
+			\textit{gb-coach} &  \\
+			\textit{gb-train} &  \\
 			\textit{montr} & 1.9 \\
 			\textit{sncf} & 4.3 \\
 			\textit{sncf-inter} & 3.1 \\
@@ -164,8 +196,9 @@ In this section we would like to introduce the timetable datasets we were workin
 		%data
 			\hline
 			\textit{air01} & 16.3 & 166 \\
-			\textit{cpru} & 2.8 & 17 \\
-			\textit{cpza} & 2.5 & 23 \\
+			\textit{cpsk} & 2.8 & 17 \\
+			\textit{gb-coach} &  &  \\
+			\textit{gb-train} &  &  \\
 			\textit{montr} & 1.6 & 5 \\
 			\textit{sncf} & 3.0 & 27 \\
 			\textit{sncf-inter} & 2.5 & 12 \\
@@ -175,4 +208,23 @@ In this section we would like to introduce the timetable datasets we were workin
 		\captionof{table}{Average and maximal degree in the underlying graphs.}
 		\label{table:ug_degs}
 	\end{table}
+	
+	\begin{definition}
+                \textbf{Highway dimension for an undirected graph $G$} ~\cite{highwaydim10} \\
+                Highway dimension (HD) for an undirected, edge-weighted graph $G$ is the smallest integer $h$, such that
+                \vskip 10pt
+                \indent $\forall r \in R^{+}, \forall u \in V_{G}, \exists S \subseteq B_{u, 4r}, |S| \leq h,$ such that $\forall v, w \in B_{u, 4r}:$ \\
+                \indent \indent if $|P(v, w)| > r$ and $P(v, w) \subseteq B_{u, 4r}$ then $P(v, w) \cap S \neq \emptyset$
+                \vskip 10pt
+                \noindent where $B_{u, r} = \{v \in G | d(u, v) \leq r\}$ and is called \textbf{ball} of radius $r$ centered at $u$.
+            \end{definition}
+
+            \noindent Intuitively, a graph has a low HD, if for any $r$ we have a \emph{sparse} set of vertices $S_{r}$, such that every shortest path longer then $r$ includes a vertex from $S_{r}$. By the set being sparse, we mean that every ball of radius $\mathcal{O}(r)$ contains just a few elements of $S_{r}$.
+
+            \begin{figure}[h!]
+                \begin{center}
+                    \inputTikZ{./tikzpics/highwaydim}
+                \end{center}
+                \caption{\label{fig:highdemonstr} Demonstration of a definition of HD. We chose some $r$ ($r = 3$) and some vertex $v$ ($v = C$) to root the ball $B_{v, 4r}$. All the shortest paths \emph{longer} than $r$ \emph{inside} the ball have to contain a vertex from $S$ (orange vertices $C$ and $A$ in our case). The upper bound on $|S|$, considering any ball with any radius, is the required highway dimension. Note: in our case, we had to choose also $A$ to set $S$, since a shortest path from $B$ to $D$ does not include $C$.}
+            \end{figure}
 	

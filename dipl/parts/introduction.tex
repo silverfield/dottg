@@ -4,21 +4,30 @@ In different networks, this question can make different sense. In the road netwo
 
 The tremendous amount of work done in this area signifies the importance of quick distance or shortest path retrieval in graphs. A simple Dijkstra's or A* algorithm no longer comply to the requirements of today's applications, in which a server often has to answer hundreds of shortest path queries per second in a large-scale networks. To speed up the mentioned algorithms we usually sacrifice generality and concentrate on a particular type of network, if not only on one concrete network.
 
-In this thesis, the type of network we deal with is the one representing timetable connections, where nodes are the stations and arcs represent a direct connection between the two stations. We will talk in more details about this in following sections. However, this network has one substantial difference that we would like to point out - it is time-dependent. That means that the shortest path from station $x$ to station $y$ may have different solutions depending on the time when we start at station $x$. Therefore, we will not talk about shortest paths and distances, but rather about optimal connections and earliest arrivals. 
+In this thesis, the type of network we deal with is the one representing timetable connections, where nodes are the stations and arcs represent a direct connection between the two stations. We will talk in more details about this in following sections. However, this network has one substantial difference that we would like to point out - it is time-dependent. That means that the shortest path from station $x$ to station $y$ may have different solutions depending on the time when we start at station $x$. Therefore, we will not talk about shortest paths and distances, but rather about optimal connections and earliest arrivals and each query will now bear a third parameter - the departure time from $x$. \\
 
 \noindent To informally develop the discussion about optimal connections in timetables, we will now clarify the motivation, approach and the goals of this thesis.
 
 \subsection{Motivation}
 
-	\noindent We have already sketched-out the motivation in the introductory text - if we consider that a server (hosting e.g. journey-planning application) has to answer many 
+	\noindent We have already sketched-out the motivation in the introductory text. We consider that a server (hosting e.g. journey-planning application) has to answer many queries per given time unit. What does it mean many? British National Rails Enquiries website that hosts journey planner supports over 1 million queries per day~\cite{queriesnr}. Even if these queries were distributed evenly throughout the whole day, there would still be more than 11 queries per second. That is why the search engine run for each query has to be fast enough to provide an answer.
 	
+	11 queries per second is probably not a big issue. There is about 2500 railway stations in Great Britain and a current state of the art computer with basic implementation of a time-dependent Dijkstra's algorithm (to be talked about later) would be able handle the mentioned load without any problems. However, things get more difficult on a bigger scale, in rush hours and when additional requirements are posed on the search results (transfers, cost of travel or simply outputting more results the user can choose from).
+	
+	In shortest path routing on road networks very much has been done to speed-up the query times using pre-processing on the input graph (for a good review such methods, see~\cite{engineeringroute09}). Some developed methods answer distance queries $\approx$ 1000000 faster than the Dijkstra's algorithm. The timetable scenario has so far seen much smaller speed-ups, one reason for this being that the adaptation of the many techniques used for road networks to the time-dependent scenario was not so straightforward~\cite{engtimeexp09}.
+		
 \subsection{Approach}
 
-	\noindent 
+	\noindent We have mentioned that to get more effective algorithms with better query times, we need to focus on a special type of network and take advantage of its properties. Another thing we can do in this case is to pre-compute some information on the particular timetable and to use this information later to speed-up the answering of the queries. This is not a new technique and in the shortest path routing it is commonly referred to as creating distance oracle~\cite{apxdo05}. Our approach is analogical - we simply deal with graphs representing the timetables~\footnote{Hence the name of this thesis - Distance oracles for timetable graphs, the ``distance'' being part of the title because the term ``distance oracle'' is generally recognized.} and look for optimal connections. We will go more into the details in the preliminaries section~\ref{sec:prel}.
 	
 \subsection{Goals}
 	
+	\noindent We have set two main goals for this thesis:
+	\begin{itemize}
+		\item \textbf{Analyse real-world timetables} and their properties. More specifically, we were interested in the sparsity of the underlying graphs, their connectivity, average and maximal degrees, average optimal connection sizes, betweenness centrality distribution, highway dimension... We will talk about these mostly in the section~\ref{sec:data}. 
+		\item \textbf{Develop methods with fast query times} for optimal connections, based on the approach we have sketched in the previous subsection. For this purpose, we use also the outcomes of our analysis.
+	\end{itemize}
+	
 \subsection{Organization}
-We will provide the reader with the basic model 
 
-we will focus on a more specific problem - finding an optimal connection from place $x$ at the time $t$ to place $y$, given a timetable of connections between nodes in the graph. This problem can be transformed and reduced to the original shortest path problem, but we may take advantage of the specific structure of the graphs representing timetables and find shortest connections more efficiently
+	\noindent 

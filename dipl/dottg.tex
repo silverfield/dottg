@@ -8,7 +8,8 @@
 %---------------------------------------------------------------------
 
 \usepackage[english]{babel}
-\usepackage[enc=cp1250]{hrlatex}
+\usepackage[enc=utf8]{hrlatex}
+\usepackage[T1]{fontenc} %pekne makcene
 
 \usepackage{algorithmic}
 \usepackage{algorithm}
@@ -25,7 +26,6 @@
 \usepackage{enumitem}
 \usepackage{eucal} %for nice letters like \mathcal{A}
 \usepackage{floatflt} %to have tables and text beside
-\usepackage[T1]{fontenc} %pekne makcene
 \usepackage{hyperref} %odkazy
 \usepackage{listings}
 \usepackage{lmodern} %spolu s T1 smooth font!
@@ -78,7 +78,7 @@
   }
 \fi
 
-\setlist{nolistsep} %so that lists have normal spacing
+%\setlist{nolistsep} %so that lists have normal spacing
 
 \titleformat{\section}{\LARGE\bfseries}{\thesection}{1em}{} %section titles
 \titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{} %subsection titles
@@ -205,9 +205,10 @@
     \pagestyle{empty}
 %    \setcounter{page}{200} %TODO_FINAL - change in final
 % also references - square brackets
-% footnotes - all with capital
+% footnotes - all with capital, bodka na konci
 % dots after captions
 % figure - picture
+% search for [?]
     \noindent
 
     %---------------------------------------------------------------------
@@ -229,7 +230,7 @@
         {\LARGE\sc Distance oracles for timetable graphs } \\
         \large{(Master thesis)}
         \vskip 0.5cm
-        \textbf{\large bc. František Hajnoviè}
+        \textbf{\large bc. FrantiÅ¡ek HajnoviÄ}
         \begin{center} \line(1,0){350} \end{center}
 
         \vfill
@@ -237,7 +238,7 @@
 
 	\textbf{Study program}: Computer science \\
     \textbf{Branch of study}: 2508 Informatics \\
-    \textbf{Supervisor}: doc. RNDr. Rastislav Královiè, PhD.   \hfill Bratislava 2013
+    \textbf{Supervisor}: doc. RNDr. Rastislav KrÃ¡loviÄ, PhD.   \hfill Bratislava 2013
 
     \pagebreak
     
@@ -278,13 +279,13 @@
     %   acknowledgements
     %---------------------------------------------------------------------
     \section*{Acknowledgements}
-    I would like to thank very much to my supervisor Rastislav Královiè for valuable remarks, useful advices and consultations that helped me stay on the right path during my work on this thesis.
+    I would like to thank very much to my supervisor Rastislav KrÃ¡loviÄ for valuable remarks, useful advices and consultations that helped me stay on the right path during my work on this thesis.
     
     \hspace{40pt} I am also grateful for the support of my family during my studies and the work on this thesis.
 
 	\vspace{1cm}    
     
-    \hspace{\fill} \textit{František Hajnoviè}
+    \hspace{\fill} \textit{FrantiÅ¡ek HajnoviÄ}
 
     \pagebreak
 
@@ -298,9 +299,9 @@
 	\end{abstract}	
 
     \begin{abstract}{Abstrakt}
-        V tejto práci sa zaoberáme h¾adaním optimálnych spojení v cestovnıch poriadkoch, na ktorıch sme si predpoèítali urèité informácie. Na základe analızy reálnych cestovnıch poriadkov sme vyvinuli exaktné metódy, ktoré na dotaz na optimálne spojenie odpovedajú podstatne rıchlejšie ako èasovo závislá implementácia Dijkstrovho algoritmu vyuívajúca prioritnú frontu na základe Fibonacciho haldy. Presnejšie, náš algoritmus \textit{USP-OR-A} s priestorovou zloitosou $\mathcal{O}(n^{1.5})$ dosahuje èasovú zloitos odpovede na dotaz $\mathcal{O}(\sqrt{n} \log n)$, prekonávajúc èasovo závislı Dijkstrov algoritmus takmer 7 krát v našom najväèšom cestovnom poriadku. \\
+        V tejto prÃ¡ci sa zaoberÃ¡me hÄ¾adanÃ­m optimÃ¡lnych spojenÃ­ v cestovnÃ½ch poriadkoch, na ktorÃ½ch sme si predpoÄÃ­tali urÄitÃ© informÃ¡cie. Na zÃ¡klade analÃ½zy reÃ¡lnych cestovnÃ½ch poriadkov sme vyvinuli exaktnÃ© metÃ³dy, ktorÃ© na dotaz na optimÃ¡lne spojenie odpovedajÃº podstatne rÃ½chlejÅ¡ie ako Äasovo zÃ¡vislÃ¡ implementÃ¡cia Dijkstrovho algoritmu vyuÅ¾Ã­vajÃºca prioritnÃº frontu na zÃ¡klade Fibonacciho haldy. PresnejÅ¡ie, nÃ¡Å¡ algoritmus \textit{USP-OR-A} s priestorovou zloÅ¾itosÅ¥ou $\mathcal{O}(n^{1.5})$ dosahuje ÄasovÃº zloÅ¾itosÅ¥ odpovede na dotaz $\mathcal{O}(\sqrt{n} \log n)$, prekonÃ¡vajÃºc Äasovo zÃ¡vislÃ½ Dijkstrov algoritmus takmer 7 krÃ¡t v naÅ¡om najvÃ¤ÄÅ¡om cestovnom poriadku. \\
 
-		Klúèové slová: \textbf{optimálne spojenie}, \textbf{cestovnı poriadok}, \textbf{Dijkstrov algoritmus}, \textbf{Dištanèné orákulá}, \textbf{podkladové najkratšie cesty}
+		KÄ¾ÃºÄovÃ© slovÃ¡: \textbf{optimÃ¡lne spojenie}, \textbf{cestovnÃ½ poriadok}, \textbf{Dijkstrov algoritmus}, \textbf{DiÅ¡tanÄnÃ© orÃ¡kulÃ¡}, \textbf{podkladovÃ© najkratÅ¡ie cesty}
 	\end{abstract}	
 	
     \pagebreak

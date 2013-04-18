@@ -117,7 +117,7 @@ FMFI UK, Mlynská Dolina, 842~48~Bratislava}
 	We introduce methods to speed-up optimal connection queries in timetables based on pre-computing paths that are worth to follow. We present two methods:
 	\begin{itemize}
 		\item \textit{USP-OR} - very fast, but space consuming
-		\item \textit{USP-OR-A} - fast, less space consuming
+		\item \textit{USP-OR-A} - still quite fast, less space consuming
 	\end{itemize}
 	And we compare the methods to:
 	\begin{itemize}
@@ -127,7 +127,7 @@ FMFI UK, Mlynská Dolina, 842~48~Bratislava}
 	
 	We define the most common terms:
 	\begin{itemize}
-		\item \textbf{Timetable} - a set of \textbf{elementary connections}~\cite{timetablemodelsalgs07} (see figure~\ref{fig:ttug} for an example)
+		\item \textbf{Timetable} - a set of \textbf{elementary connections}~\cite{timetablemodelsalgs07} between cities (see figure~\ref{fig:ttug} for an example)
 		\item \textbf{Connection} - a valid sequence of elementary connections (may include also some waiting)
 		\item \textbf{Underlying graph} of the timetable - nodes are the cities and there is an arc between two cities if some el. connection connects them.
 	\end{itemize}
@@ -159,7 +159,7 @@ FMFI UK, Mlynská Dolina, 842~48~Bratislava}
 		\inputTikZ{./tikzpics/ug}
 	\end{minipage}
 	}
-	\caption{\label{fig:ttug} A timetable and its underlying graph}
+	\caption{\label{fig:ttug} A timetable and its underlying graph. Cities are in \textcolor{city-clr}{green}.}
 	\end{figure}
 	
 	\begin{itemize}
@@ -177,7 +177,7 @@ FMFI UK, Mlynská Dolina, 842~48~Bratislava}
 	\begin{itemize}
 		\item Their underlying graphs were sparse ($m \leq n \log n$, $n$ = number of cities)
 		\item Average optimal connection was generally up to $\sqrt{n}$ 
-		\item Average number of USPs between two cities was a small and constant (or slightly increasing with $n$)
+		\item Average number of USPs between two cities was small and constant (or slightly increasing with $n$)
 	\end{itemize}
 	\hspace{\fill}
 
@@ -194,7 +194,7 @@ FMFI UK, Mlynská Dolina, 842~48~Bratislava}
 			\hline
 			\cellcolor{oracle-clr} \textbf{Our timetables} & $\mathcal{O}(hn^{2} \log n)$ & $\mathcal{O}(n^{2.5})$ & avg. $\mathcal{O}(\sqrt{n})$ & $1$ \\
 		\end{tabular}
-		\caption{\label{tab:uspor} Preprocessing time/size, query time and stretch (1 = exact answers) for \textit{USP-OR}}
+		\caption{\label{tab:uspor} Preprocessing time/size, query time and stretch (1 = exact answers) for \textit{USP-OR}. By ``our timetable'', we mean timetables satisfying the mentioned properties.}
 	\end{table}	
 
 \mysection{\textit{USP-OR-A}}
@@ -253,23 +253,23 @@ FMFI UK, Mlynská Dolina, 842~48~Bratislava}
 	
 	\begin{table}[h!]
         \centering
-		\begin{tabular}{c|c|c|c|c|c}
+		\begin{tabular}{c|c|c|c|c}
 		%legend
 			\rowcolor{tablehead}
-			 & \textbf{Dataset} & \textit{cpsk} & \textit{sncf} & \textit{gb-coach} & \textit{gb-tr} \\
+			 & \textbf{Dataset} & \textit{cpsk} & \textit{sncf} & \textit{gb-coach} \\
 			\rowcolor{tablehead}
-			 & \textbf{Time range} & (1 day) & (1 day) & (1 week) & (1 week) \\			
+			 & \textbf{Time range} & (1 day) & (1 day) & (1 week) \\			
 		%data
 			\hline
-			\cellcolor{tablehead}  & \cellcolor{tablehead} $\bm{n}$ & 700 & 1000 & 1000 & 700 \\
-			\cellcolor{tablehead} & \cellcolor{tablehead} \textbf{Speed-up} & 1 & 1 & 1 & 1 \\
-			\multirow{-3}{*}{\textit{USP-OR}} \cellcolor{tablehead} & \cellcolor{tablehead} \textbf{Size-up} & 1 & 1 & 1 & 1 \\
+			\rowcolor{tablehead} & $\bm{n}$ & 700 & 1000 & 1000 \\ \cline{2-5}
+			\cellcolor{tablehead} & \cellcolor{tablehead} \textbf{Speed-up} & 13.96 & 36.9 & 43.46 \\
+			\multirow{-3}{*}{\textit{USP-OR}} \cellcolor{tablehead} & \cellcolor{tablehead} \textbf{Size-up} & 392.8 & 333.33 & 76 \\
 			\hline
-			\cellcolor{tablehead}  & \cellcolor{tablehead} $\bm{n}$ & 1905 & 2645 & 3915 & 2575 \\
-			\cellcolor{tablehead} & \cellcolor{tablehead} \textbf{Speed-up} & 1 & 1 & 1 & 1 \\
-			\multirow{-3}{*}{\textit{USP-OR-A}} \cellcolor{tablehead} & \cellcolor{tablehead} \textbf{Size-up} & 1 & 1 & 1 & 1 \\
+			\rowcolor{tablehead}  & $\bm{n}$ & 1905 & 2645 & 3915 \\ \cline{2-5}
+			\cellcolor{tablehead} & \cellcolor{tablehead} \textbf{Speed-up} & 2.79 & 7.44 & 6.93 \\
+			\multirow{-3}{*}{\textit{USP-OR-A}} \cellcolor{tablehead} & \cellcolor{tablehead} \textbf{Size-up} & 6 & 3.2 & 4.33 \\
 		\end{tabular}
-		\caption{\label{tab:speedup} Speed-ups and size-ups of \textit{USP-OR} and \textit{USP-OR-A} with \textit{Locsep}. Datasets from \textit{cp.sk}, SNCF (French railways) and Great Britain coaches and trains.}
+		\caption{\label{tab:speedup} Speed-ups and size-ups of \textit{USP-OR} and \textit{USP-OR-A} with \textit{Locsep}. Datasets from \textit{cp.sk}, SNCF (French railways) and Great Britain coaches.}
 	\end{table}
 		
 	\begin{figure}[H]
@@ -277,14 +277,14 @@ FMFI UK, Mlynská Dolina, 842~48~Bratislava}
 	    \inputTikZ{./tikzpics/plot_uspr_sncf_size}
 	    \caption{\textbf{Query time} of \textit{USP-OR-A} with \textit{Locsep} compared to TD Dijkstra on the \textit{\textbf{sncf}} dataset. \textbf{Changing $\bm{n}$}.}
 	    \label{plot:uspr-sncf-size}  
-    \end{figure}
-    
-    \begin{figure}[H]
-	    \centering
-	    \inputTikZ{./tikzpics/plot_uspr_gbcoach_size}
-	    \caption{\textbf{Query time} of \textit{USP-OR-A} with \textit{Locsep} compared to TD Dijkstra on the \textit{\textbf{gb-coach}} dataset. \textbf{Changing $\bm{n}$}.}
-	    \label{plot:uspr-sncf-size}  
     \end{figure}	
+    
+    \begin{figure}[h!]
+		\begin{center}
+        	\inputTikZ{./tikzpics/plot_usprs_sncf_size}
+		\end{center}
+		\caption{\label{plot:usprs-sncf-size}\textbf{Size} (in MB) of the oracle for \textit{USP-OR-A} with \textit{Locsep} vs. size of the timetable graph on \textit{\textbf{sncf}} dataset. \textbf{Changing $\bm{n}$}.}
+	\end{figure}
 
 \bigskip 
  

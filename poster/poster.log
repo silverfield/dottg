@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  15 APR 2013 14:25
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  16 APR 2013 07:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1119,11 +1119,7 @@ File: tikzlibraryfadings.code.tex 2009/11/15 v2.10 (rcs-revision 1.2)
 (/usr/local/texlive/2012/texmf-dist/tex/generic/pgf/libraries/pgflibraryfadings
 .code.tex
 File: pgflibraryfadings.code.tex 2008/02/07 v2.10 (rcs-revision 1.3)
-))) (./poster.aux
-
-LaTeX Warning: Label `plot:uspr-sncf-size' multiply defined.
-
-)
+))) (./poster.aux)
 \openout1 = `poster.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
@@ -1139,7 +1135,8 @@ LaTeX Font Info:    ... okay on input line 90.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 90.
 LaTeX Font Info:    ... okay on input line 90.
 LaTeX Font Info:    Try loading font information for T1+lmss on input line 90.
- (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/t1lmss.fd
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 (/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -1379,14 +1376,18 @@ Overfull \hbox (1.14507pt too wide) in paragraph at lines 246--246
 
 (./tikzpics/plot_uspr_sncf_size.tikz
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 53.
+(Font)              <9> on input line 39.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 53.
+(Font)              <6> on input line 39.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 53.
+(Font)              <5> on input line 39.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 53.
-) (./tikzpics/plot_uspr_gbcoach_size.tikz)
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 39.
+) (./tikzpics/plot_usprs_sncf_size.tikz)
+Underfull \hbox (badness 10000) in paragraph at lines 286--287
+
+ []
+
 (./poster.bbl
 
 Package xcolor Warning: Incompatible color definition on input line 1.
@@ -1412,18 +1413,15 @@ tgv.jpg> <./fmfilogo-farebne.png>] (./poster.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 23393 strings out of 493488
- 542175 string characters out of 3141346
- 797192 words of memory out of 3000000
- 26091 multiletter control sequences out of 15000+200000
- 134305 words of font info for 113 fonts, out of 3000000 for 9000
+ 23378 strings out of 493488
+ 541914 string characters out of 3141346
+ 786671 words of memory out of 3000000
+ 26076 multiletter control sequences out of 15000+200000
+ 131521 words of font info for 112 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,19n,74p,723b,2224s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 63i,19n,74p,723b,2262s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/20
 12/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2012/texmf-dist/
@@ -1443,7 +1441,7 @@ mssbo10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmssbx10.
 pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsso17.pfb></usr
 /local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsso9.pfb></usr/local/tex
 live/2012/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
-Output written on poster.pdf (1 page, 1773925 bytes).
+Output written on poster.pdf (1 page, 1769053 bytes).
 PDF statistics:
  103 PDF objects out of 1000 (max. 8388607)
  63 compressed objects within 1 object stream

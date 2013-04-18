@@ -2,7 +2,7 @@
 \begin{tikzpicture}[textstyle, scale=2]
     \begin{axis}[
         xlabel={$n$},
-        ylabel={$25000$ queries (sec)},
+        ylabel={$10000$ queries (sec)},
 		legend pos=north west
         ]
         
@@ -35,20 +35,6 @@
 		(3915,2)
     };
     \addlegendentry{\textit{USP-OR-A}}
-    
-    \addplot[smooth,mark=x,color=green!70!black, solid] plot coordinates {
-		(100,1)
-		(200,1)
-		(300,1)
-		(400,1)
-		(500,1)
-		(600,1)
-		(700,1)
-		(800,1)
-		(900,1)
-		(1000,1)
-    };
-    \addlegendentry{\textit{USP-OR}}
     
     \end{axis}
 \end{tikzpicture}

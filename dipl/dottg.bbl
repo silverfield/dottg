@@ -11,6 +11,20 @@
      \showURLtrue
 \fi
 
+\bibitem[1Te]{queriesnr}
+1Tech.
+\newblock National rail case study.
+
+\bibitem[AFGW10]{highwaydim10}
+Ittai Abraham, Amos Fiat, Andrew~V. Goldberg, and Renato Fonseca~F. Werneck.
+\newblock Highway dimension, shortest paths, and provably efficient algorithms.
+\newblock In Moses Charikar, editor, {\em SODA}, pages 782--793. SIAM, 2010.
+
+\bibitem[BFM06]{transit06}
+Holger Bast, Stefan Funke, and Domagoj Matijevic.
+\newblock Transit ultrafast shortest-path queries with linear-time
+  preprocessing, 2006.
+
 \bibitem[Bra01]{centrality01}
 Ulrik Brandes.
 \newblock A faster algorithm for betweenness centrality.
@@ -20,6 +34,44 @@ Ulrik Brandes.
 E.~W. Dijkstra.
 \newblock A note on two problems in connexion with graphs.
 \newblock {\em NUMERISCHE MATHEMATIK}, 1\penalty0 (1):\penalty0 269--271, 1959.
+
+\bibitem[DPW09]{engtimeexp09}
+Daniel Delling, Thomas Pajor, and Dorothea Wagner.
+\newblock Engineering time-expanded graphs for faster timetable information.
+\newblock In Ravindra Ahuja, Rolf Mohring, and Christos Zaroliagis, editors,
+  {\em Robust and Online Large-Scale Optimization}, volume 5868 of {\em Lecture
+  Notes in Computer Science}, pages 182--206. Springer Berlin / Heidelberg,
+  2009.
+\newblock \showISBN{978-3-642-05464-8}.
+
+\bibitem[DSSW09]{engineeringroute09}
+Daniel Delling, Peter Sanders, Dominik Schultes, and Dorothea Wagner.
+\newblock Engineering route planning algorithms.
+\newblock In {\em ALGORITHMICS OF LARGE AND COMPLEX NETWORKS. LECTURE NOTES IN
+  COMPUTER SCIENCE}. Springer, 2009.
+
+\bibitem[DW09]{tdroute09}
+Daniel Delling and Dorothea Wagner.
+\newblock Time-dependent route planning.
+\newblock In {\em Robust and Online Large-Scale Optimization, LNCS}. Springer,
+  2009.
+
+\bibitem[GPPR04]{distlabel04}
+Cyril Gavoille, David Peleg, Stephane Perennes, and Ran Raz.
+\newblock Distance labeling in graphs.
+\newblock {\em Journal of Algorithms}, 53\penalty0 (1):\penalty0 85 -- 112,
+  2004.
+\newblock \showISSN{0196-6774}.
+\newblock \ifshowURL {\showURL
+  \path|http://www.sciencedirect.com/science/article/pii/S0196677404000884|}\fi.
+
+\bibitem[GSSD08]{contracthier08}
+Robert Geisberger, Peter Sanders, Dominik Schultes, and Daniel Delling.
+\newblock Contraction hierarchies: Faster and simpler hierarchical routing in
+  road networks.
+\newblock In Catherine~C. McGeoch, editor, {\em WEA}, volume 5038 of {\em
+  Lecture Notes in Computer Science}, pages 319--333. Springer, 2008.
+\newblock \showISBN{978-3-540-68548-7}.
 
 \bibitem[KP]{dijkstraexp}
 Kelly Kinahan and Jennifer Pryor.
@@ -43,6 +95,14 @@ Christian Sommer.
 \newblock {\em Approximate Shortest Path and Distance Queries in Networks}.
 \newblock PhD thesis, Graduate School of Information Science and Technology,
   The University of Tokyo, 2010.
+
+\bibitem[SS05]{hwhierarchies05}
+Peter Sanders and Dominik Schultes.
+\newblock Highway hierarchies hasten exact shortest path queries.
+\newblock In Gerth~St{\o}lting Brodal and Stefano Leonardi, editors, {\em ESA},
+  volume 3669 of {\em Lecture Notes in Computer Science}, pages 568--579.
+  Springer, 2005.
+\newblock \showISBN{3-540-29118-0}.
 
 \bibitem[TZ05]{apxdo05}
 Mikkel Thorup and Uri Zwick.

@@ -20,190 +20,240 @@
 \@writefile{toc}{\select@language{english}}
 \@writefile{lof}{\select@language{english}}
 \@writefile{lot}{\select@language{english}}
+\citation{queriesnr}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}}
 \newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Motivation}{1}{subsection.1.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Approach}{1}{subsection.1.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Goals}{1}{subsection.1.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Organization}{1}{subsection.1.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Preliminaries}{2}{section.2}}
-\newlabel{sec:prel}{{2}{2}{Preliminaries}{section.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Objects}{2}{subsection.2.1}}
-\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces  An example of a timetable - the set of elementary connections (between pairs of \leavevmode {\color  {city-clr}cities}). An example of an event is a pair (A, 10:00), when some el. connection departs from $A$.\relax }}{2}{table.caption.1}}
-\newlabel{table:tt}{{2.1}{2}{An example of a timetable - the set of elementary connections (between pairs of \textcolor {city-clr}{cities}). An example of an event is a pair (A, 10:00), when some el. connection departs from $A$.\relax }{table.caption.1}{}}
-\citation{timetablemodelsalgs07}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces  A valid connection made out of \leavevmode {\color  {elcon-clr}elementary connections} (and \leavevmode {\color  {waiting-clr}waiting}, which is implicit).\relax }}{3}{figure.caption.2}}
-\newlabel{pic:conn}{{2.1}{3}{A valid connection made out of \textcolor {elcon-clr}{elementary connections} (and \textcolor {waiting-clr}{waiting}, which is implicit).\relax }{figure.caption.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces  An optimistic underlying graph of the timetable~\ref  {table:tt}. The nodes are the \leavevmode {\color  {city-clr}cities} of the timetable.\relax }}{3}{figure.caption.3}}
-\newlabel{fig:ug}{{2.2}{3}{An optimistic underlying graph of the timetable~\ref {table:tt}. The nodes are the \textcolor {city-clr}{cities} of the timetable.\relax }{figure.caption.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces  Time-expanded graph of the timetable~\ref  {table:tt}. Nodes represent the \leavevmode {\color  {event-clr}events}. There are \leavevmode {\color  {elcon-clr}connection} and \leavevmode {\color  {waiting-clr}waiting} edges (dashed). The time range is 2h:30m and the height is 4 (as there are 4 events in city B).\relax }}{4}{figure.caption.4}}
-\newlabel{pic:te}{{2.3}{4}{Time-expanded graph of the timetable~\ref {table:tt}. Nodes represent the \textcolor {event-clr}{events}. There are \textcolor {elcon-clr}{connection} and \textcolor {waiting-clr}{waiting} edges (dashed). The time range is 2h:30m and the height is 4 (as there are 4 events in city B).\relax }{figure.caption.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Time-dependent graph of the timetable~\ref  {table:tt}. The nodes are the \leavevmode {\color  {city-clr}cities}.\relax }}{5}{figure.caption.5}}
-\newlabel{pic:td}{{2.4}{5}{Time-dependent graph of the timetable~\ref {table:tt}. The nodes are the \textcolor {city-clr}{cities}.\relax }{figure.caption.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Piece-wise linear function - traversal times for the arc $(B, C)$. The \leavevmode {\color  {red}highlighted} points are the interpolation points.\relax }}{5}{figure.caption.5}}
-\newlabel{pic:piece}{{2.5}{5}{Piece-wise linear function - traversal times for the arc $(B, C)$. The \textcolor {red}{highlighted} points are the interpolation points.\relax }{figure.caption.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Earliest arrival and optimal connection}{5}{subsection.2.2}}
+\citation{engineeringroute09}
+\citation{engtimeexp09}
 \citation{apxdo05}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces  Optimal connection and earliest arrival time are marked in \leavevmode {\color  {orange}\textbf  {bold}}.\relax }}{6}{figure.caption.6}}
-\newlabel{pic:ea}{{2.6}{6}{Optimal connection and earliest arrival time are marked in \textcolor {orange}{\textbf {bold}}.\relax }{figure.caption.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}(Distance) Oracles}{6}{subsection.2.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Approach}{2}{subsection.1.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Goals}{2}{subsection.1.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Organization}{2}{subsection.1.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Preliminaries}{3}{section.2}}
+\newlabel{sec:prel}{{2}{3}{Preliminaries}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Objects}{3}{subsection.2.1}}
+\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces  An example of a timetable - the set of elementary connections (between pairs of \leavevmode {\color  {city-clr}cities}). An example of an event is a pair (A, 10:00), when some el. connection departs from $A$.\relax }}{3}{table.caption.1}}
+\newlabel{table:tt}{{2.1}{3}{An example of a timetable - the set of elementary connections (between pairs of \textcolor {city-clr}{cities}). An example of an event is a pair (A, 10:00), when some el. connection departs from $A$.\relax }{table.caption.1}{}}
+\citation{timetablemodelsalgs07}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces  A valid connection made out of \leavevmode {\color  {elcon-clr}elementary connections} (and \leavevmode {\color  {waiting-clr}waiting}, which is implicit).\relax }}{4}{figure.caption.2}}
+\newlabel{pic:conn}{{2.1}{4}{A valid connection made out of \textcolor {elcon-clr}{elementary connections} (and \textcolor {waiting-clr}{waiting}, which is implicit).\relax }{figure.caption.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces  An optimistic underlying graph of the timetable~\ref  {table:tt}. The nodes are the \leavevmode {\color  {city-clr}cities} of the timetable.\relax }}{5}{figure.caption.3}}
+\newlabel{fig:ug}{{2.2}{5}{An optimistic underlying graph of the timetable~\ref {table:tt}. The nodes are the \textcolor {city-clr}{cities} of the timetable.\relax }{figure.caption.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces  Time-expanded graph of the timetable~\ref  {table:tt}. Nodes represent the \leavevmode {\color  {event-clr}events}. There are \leavevmode {\color  {elcon-clr}connection} and \leavevmode {\color  {waiting-clr}waiting} edges (dashed). The time range is 2h:30m and the height is 4 (as there are 4 events in city B).\relax }}{5}{figure.caption.4}}
+\newlabel{pic:te}{{2.3}{5}{Time-expanded graph of the timetable~\ref {table:tt}. Nodes represent the \textcolor {event-clr}{events}. There are \textcolor {elcon-clr}{connection} and \textcolor {waiting-clr}{waiting} edges (dashed). The time range is 2h:30m and the height is 4 (as there are 4 events in city B).\relax }{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Time-dependent graph of the timetable~\ref  {table:tt}. The nodes are the \leavevmode {\color  {city-clr}cities}.\relax }}{6}{figure.caption.5}}
+\newlabel{pic:td}{{2.4}{6}{Time-dependent graph of the timetable~\ref {table:tt}. The nodes are the \textcolor {city-clr}{cities}.\relax }{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Piece-wise linear function - traversal times for the arc $(B, C)$. The \leavevmode {\color  {red}highlighted} points are the interpolation points.\relax }}{6}{figure.caption.5}}
+\newlabel{pic:piece}{{2.5}{6}{Piece-wise linear function - traversal times for the arc $(B, C)$. The \textcolor {red}{highlighted} points are the interpolation points.\relax }{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Earliest arrival and optimal connection}{6}{subsection.2.2}}
+\citation{apxdo05}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces  Optimal connection and earliest arrival time are marked in \leavevmode {\color  {orange}\textbf  {bold}}.\relax }}{7}{figure.caption.6}}
+\newlabel{pic:ea}{{2.6}{7}{Optimal connection and earliest arrival time are marked in \textcolor {orange}{\textbf {bold}}.\relax }{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}(Distance) Oracles}{7}{subsection.2.3}}
 \citation{dijkstra59}
 \citation{dijkstraexp}
 \citation{sommerthesis10}
 \citation{sommerthesis10}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Dijkstra's algorithm}{7}{subsection.2.4}}
-\newlabel{subsec:dijkstra}{{2.4}{7}{Dijkstra's algorithm}{subsection.2.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Related work}{8}{section.3}}
-\newlabel{sec:relwrk}{{3}{8}{Related work}{section.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Data \& analysis}{9}{section.4}}
-\newlabel{sec:data}{{4}{9}{Data \& analysis}{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Data}{9}{subsection.4.1}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces  Timetable descriptions.\relax }}{10}{table.caption.7}}
-\newlabel{table:tt_desc}{{4.1}{10}{Timetable descriptions.\relax }{table.caption.7}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces  Main properties of the timetables. The value of time range is approximate.\relax }}{10}{table.caption.8}}
-\newlabel{table:tt_mainpr}{{4.2}{10}{Main properties of the timetables. The value of time range is approximate.\relax }{table.caption.8}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces  200-station sub-timetables with the maximal time range of little more than one day.\relax }}{10}{table.caption.9}}
-\newlabel{table:tt_200mainpr}{{4.3}{10}{200-station sub-timetables with the maximal time range of little more than one day.\relax }{table.caption.9}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Basic properties}{10}{subsection.4.2}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces OC radius.\relax }}{11}{figure.caption.10}}
-\newlabel{table:tt_ocradius}{{4.4}{11}{OC radius.\relax }{figure.caption.10}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces Approximate density of the underlying graphs.\relax }}{11}{figure.caption.10}}
-\newlabel{table:ug_density}{{4.5}{11}{Approximate density of the underlying graphs.\relax }{figure.caption.10}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Underlying shortest paths}{12}{section.5}}
-\newlabel{sec:usp}{{5}{12}{Underlying shortest paths}{section.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces  The $path$ function applied on a connection to get the underlying path.\relax }}{12}{figure.caption.11}}
-\newlabel{fig:pathfunc}{{5.1}{12}{The $path$ function applied on a connection to get the underlying path.\relax }{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Dijkstra's algorithm}{8}{subsection.2.4}}
+\newlabel{subsec:dijkstra}{{2.4}{8}{Dijkstra's algorithm}{subsection.2.4}{}}
+\citation{apxdo05}
+\citation{distlabel04}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Related work}{10}{section.3}}
+\newlabel{sec:relwrk}{{3}{10}{Related work}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Distance oracles and route-planning}{10}{subsection.3.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces  By moving $k$, we can achieve compromises between the four parameters of the distance oracle.\relax }}{10}{figure.caption.7}}
+\newlabel{fig:compr}{{3.1}{10}{By moving $k$, we can achieve compromises between the four parameters of the distance oracle.\relax }{figure.caption.7}{}}
+\citation{hwhierarchies05}
+\citation{transit06}
+\citation{contracthier08}
+\citation{engineeringroute09}
+\citation{sommerthesis10}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Data \& analysis}{12}{section.4}}
+\newlabel{sec:data}{{4}{12}{Data \& analysis}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Data}{12}{subsection.4.1}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces  Timetable descriptions.\relax }}{13}{table.caption.8}}
+\newlabel{table:tt_desc}{{4.1}{13}{Timetable descriptions.\relax }{table.caption.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces  Main properties of the timetables. The value of time range is approximate.\relax }}{13}{table.caption.9}}
+\newlabel{table:tt_mainpr}{{4.2}{13}{Main properties of the timetables. The value of time range is approximate.\relax }{table.caption.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces  200-station sub-timetables with the time range of one day.\relax }}{13}{table.caption.10}}
+\newlabel{table:tt_200mainpr}{{4.3}{13}{200-station sub-timetables with the time range of one day.\relax }{table.caption.10}{}}
+\citation{sommerthesis10}
+\citation{sommerthesis10}
+\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces  Space consumption of time-dependent vs. time-expanded model. Note that the number of nodes and arcs for TD graph is the same as for the corresponding underlying graph.\relax }}{14}{table.caption.11}}
+\newlabel{table:tdte}{{4.4}{14}{Space consumption of time-dependent vs. time-expanded model. Note that the number of nodes and arcs for TD graph is the same as for the corresponding underlying graph.\relax }{table.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Analysis of properties}{14}{subsection.4.2}}
+\citation{highwaydim10}
+\@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces OC radius vary around $\sqrt  {n}$. Note extremely low value for airline timetable - this is due to the fact that UGs of airline timetables have small-world characteristics~\cite  {sommerthesis10}.\relax }}{15}{figure.caption.12}}
+\newlabel{table:tt_ocradius}{{4.5}{15}{OC radius vary around $\sqrt {n}$. Note extremely low value for airline timetable - this is due to the fact that UGs of airline timetables have small-world characteristics~\cite {sommerthesis10}.\relax }{figure.caption.12}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.6}{\ignorespaces Approximate density of the underlying graphs.\relax }}{15}{figure.caption.12}}
+\newlabel{table:ug_density}{{4.6}{15}{Approximate density of the underlying graphs.\relax }{figure.caption.12}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.7}{\ignorespaces Average and maximal degree in the underlying graphs.\relax }}{15}{table.caption.13}}
+\newlabel{table:ug_degs}{{4.7}{15}{Average and maximal degree in the underlying graphs.\relax }{table.caption.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces  Demonstration of a definition of HD. We chose some $r$ ($r = 3$) and some vertex $v$ ($v = C$) to root the ball $B_{v, 4r}$. All the shortest paths \emph  {longer} than $r$ \emph  {inside} the ball have to contain a vertex from $S$ (orange vertices $C$ and $A$ in our case). The upper bound on $|S|$, considering any ball with any radius, is the required highway dimension. Note: in our case, we had to choose also $A$ to set $S$, since a shortest path from $B$ to $D$ does not include $C$.\relax }}{16}{figure.caption.14}}
+\newlabel{fig:highdemonstr}{{4.1}{16}{Demonstration of a definition of HD. We chose some $r$ ($r = 3$) and some vertex $v$ ($v = C$) to root the ball $B_{v, 4r}$. All the shortest paths \emph {longer} than $r$ \emph {inside} the ball have to contain a vertex from $S$ (orange vertices $C$ and $A$ in our case). The upper bound on $|S|$, considering any ball with any radius, is the required highway dimension. Note: in our case, we had to choose also $A$ to set $S$, since a shortest path from $B$ to $D$ does not include $C$.\relax }{figure.caption.14}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Underlying shortest paths}{16}{section.5}}
+\newlabel{sec:usp}{{5}{16}{Underlying shortest paths}{section.5}{}}
 \citation{timetablemodelsalgs07}
 \citation{tdroute09}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}\textit  {USP-OR}}{13}{subsection.5.1}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {5.1}{\ignorespaces Expand\relax }}{13}{algorithm.5.1}}
-\newlabel{alg:expand}{{5.1}{13}{Expand\relax }{algorithm.5.1}{}}
-\newlabel{lemma:expandusp}{{5.1}{13}{}{lemma.5.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces  An example of \leavevmode {\color  {green!80!black}\textbf  {overtaking}} (in thick), depicted in a TE graph.\relax }}{14}{figure.caption.12}}
-\newlabel{fig:overtake}{{5.2}{14}{An example of \textcolor {green!80!black}{\textbf {overtaking}} (in thick), depicted in a TE graph.\relax }{figure.caption.12}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces  Presence of overtaking in the timetables.\relax }}{14}{table.caption.13}}
-\newlabel{tab:overtake}{{5.1}{14}{Presence of overtaking in the timetables.\relax }{table.caption.13}{}}
-\citation{sommerthesis10}
-\citation{sommerthesis10}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {5.2}{\ignorespaces \textit  {USP-OR} query\relax }}{15}{algorithm.5.2}}
-\newlabel{alg:uspor-query}{{5.2}{15}{\textit {USP-OR} query\relax }{algorithm.5.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}Analysis of \textit  {USP-OR}}{15}{subsubsection.5.1.1}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Average and maximal USP coefficients.\relax }}{16}{figure.caption.14}}
-\newlabel{tab:usp200}{{5.2}{16}{Average and maximal USP coefficients.\relax }{figure.caption.14}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Average USP sizes vary around $\sqrt  {n} \approx 14$. Note extremely low value for airline timetable - this is due to the fact that UGs of airline timetables have small-world characteristics~\cite  {sommerthesis10}.\relax }}{16}{figure.caption.14}}
-\newlabel{tab:uspsize}{{5.3}{16}{Average USP sizes vary around $\sqrt {n} \approx 14$. Note extremely low value for airline timetable - this is due to the fact that UGs of airline timetables have small-world characteristics~\cite {sommerthesis10}.\relax }{figure.caption.14}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Changing of $\tau $ with increased time range in \textit  {air01} dataset. 1 day = about 800 in height.\relax }}{16}{figure.caption.15}}
-\newlabel{plot:usp-air-timerange}{{5.3}{16}{Changing of $\tau $ with increased time range in \textit {air01} dataset. 1 day = about 800 in height.\relax }{figure.caption.15}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Changing of $\tau $ with increased number of stations in \textit  {sncf} dataset.\relax }}{16}{figure.caption.15}}
-\newlabel{plot:usp-sncf-size}{{5.4}{16}{Changing of $\tau $ with increased number of stations in \textit {sncf} dataset.\relax }{figure.caption.15}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces  The summary of the \textit  {USP-OR} algorithm parameters. The second row corresponds e.g. to the \textit  {sncf} dataset.\relax }}{16}{table.caption.16}}
-\newlabel{tab:uspor}{{5.4}{16}{The summary of the \textit {USP-OR} algorithm parameters. The second row corresponds e.g. to the \textit {sncf} dataset.\relax }{table.caption.16}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.2}Performance of \textit  {USP-OR}}{17}{subsubsection.5.1.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces \textit  {USP-OR} algorithm compared to TD Dijkstra on the \textit  {cpru} dataset.\relax }}{17}{figure.caption.17}}
-\newlabel{plot:uspor-cpru-size}{{5.5}{17}{\textit {USP-OR} algorithm compared to TD Dijkstra on the \textit {cpru} dataset.\relax }{figure.caption.17}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces \textit  {USP-OR} algorithm compared to TD Dijkstra on the \textit  {cpza} dataset.\relax }}{17}{figure.caption.17}}
-\newlabel{plot:uspor-cpza-size}{{5.6}{17}{\textit {USP-OR} algorithm compared to TD Dijkstra on the \textit {cpza} dataset.\relax }{figure.caption.17}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces \textit  {USP-OR} algorithm compared to TD Dijkstra on the \textit  {montr} dataset.\relax }}{17}{figure.caption.18}}
-\newlabel{plot:uspor-montr-size}{{5.7}{17}{\textit {USP-OR} algorithm compared to TD Dijkstra on the \textit {montr} dataset.\relax }{figure.caption.18}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces \textit  {USP-OR} algorithm compared to TD Dijkstra on the \textit  {sncf} dataset.\relax }}{17}{figure.caption.18}}
-\newlabel{plot:uspor-sncf-size}{{5.8}{17}{\textit {USP-OR} algorithm compared to TD Dijkstra on the \textit {sncf} dataset.\relax }{figure.caption.18}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}\textit  {USP-OR-A}}{17}{subsection.5.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces \textit  {USP-OR} algorithm compared to TD Dijkstra on the \textit  {sncf-inter} dataset.\relax }}{18}{figure.caption.19}}
-\newlabel{plot:uspor-sncfinter-size}{{5.9}{18}{\textit {USP-OR} algorithm compared to TD Dijkstra on the \textit {sncf-inter} dataset.\relax }{figure.caption.19}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces \textit  {USP-OR} algorithm compared to TD Dijkstra on the \textit  {sncf-ter} dataset.\relax }}{18}{figure.caption.19}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces For \relax }}{18}{figure.caption.19}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.12}{\ignorespaces \textit  {USP-OR} algorithm compared to TD Dijkstra on the \textit  {zsr} dataset. Here we measured how increased time range influence the query time of \textit  {USP-OR}. You may see that for both algorithms the query time almost stops increasing at some point - this is because (informally) adding time range no longer brings along new optimal connections (or underlying shortest paths in case of \textit  {USP-OR}).\relax }}{18}{figure.caption.20}}
-\newlabel{plot:uspor-zsr-trange}{{5.12}{18}{\textit {USP-OR} algorithm compared to TD Dijkstra on the \textit {zsr} dataset. Here we measured how increased time range influence the query time of \textit {USP-OR}. You may see that for both algorithms the query time almost stops increasing at some point - this is because (informally) adding time range no longer brings along new optimal connections (or underlying shortest paths in case of \textit {USP-OR}).\relax }{figure.caption.20}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces Speed-up of the \textit  {USP-OR} algorithm for the whole timetables (for those marked with asterisk we took only a subset of $n$ stations, as we were limited by the space).\relax }}{18}{figure.caption.20}}
-\newlabel{tab:uspor-speedup}{{5.5}{18}{Speed-up of the \textit {USP-OR} algorithm for the whole timetables (for those marked with asterisk we took only a subset of $n$ stations, as we were limited by the space).\relax }{figure.caption.20}{}}
-\newlabel{eq:r1}{{5.1}{19}{\textit {USP-OR-A}}{equation.5.1}{}}
-\newlabel{eq:r2}{{5.2}{19}{\textit {USP-OR-A}}{equation.5.2}{}}
-\newlabel{eq:r3}{{5.3}{19}{\textit {USP-OR-A}}{equation.5.3}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {5.3}{\ignorespaces \textit  {USP-OR-A} preprocessing\relax }}{19}{algorithm.5.3}}
-\newlabel{alg:uspora-prepro}{{5.3}{19}{\textit {USP-OR-A} preprocessing\relax }{algorithm.5.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces  The $path$ function applied on a connection to get the underlying path.\relax }}{17}{figure.caption.15}}
+\newlabel{fig:pathfunc}{{5.1}{17}{The $path$ function applied on a connection to get the underlying path.\relax }{figure.caption.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}\textit  {USP-OR}}{17}{subsection.5.1}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {5.1}{\ignorespaces Expand\relax }}{17}{algorithm.5.1}}
+\newlabel{alg:expand}{{5.1}{17}{Expand\relax }{algorithm.5.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces  An example of \leavevmode {\color  {green!80!black}\textbf  {overtaking}} (in thick), depicted in a TE graph.\relax }}{18}{figure.caption.16}}
+\newlabel{fig:overtake}{{5.2}{18}{An example of \textcolor {green!80!black}{\textbf {overtaking}} (in thick), depicted in a TE graph.\relax }{figure.caption.16}{}}
+\newlabel{lemma:expandusp}{{5.1}{18}{}{lemma.5.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces  Presence of overtaking in the timetables.\relax }}{19}{table.caption.17}}
+\newlabel{tab:overtake}{{5.1}{19}{Presence of overtaking in the timetables.\relax }{table.caption.17}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {5.2}{\ignorespaces \textit  {USP-OR} query\relax }}{19}{algorithm.5.2}}
+\newlabel{alg:uspor-query}{{5.2}{19}{\textit {USP-OR} query\relax }{algorithm.5.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}Analysis of \textit  {USP-OR}}{19}{subsubsection.5.1.1}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Average and maximal USP coefficients for daily timetables.\relax }}{20}{figure.caption.18}}
+\newlabel{tab:usp200}{{5.2}{20}{Average and maximal USP coefficients for daily timetables.\relax }{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Changing of $\tau $ with increased number of stations in \textit  {sncf} dataset.\relax }}{20}{figure.caption.18}}
+\newlabel{plot:usp-sncf-size}{{5.3}{20}{Changing of $\tau $ with increased number of stations in \textit {sncf} dataset.\relax }{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Changing of $\tau $ with increased number of stations in \textit  {cpsk} dataset.\relax }}{21}{figure.caption.19}}
+\newlabel{plot:usp-cpsk-size}{{5.4}{21}{Changing of $\tau $ with increased number of stations in \textit {cpsk} dataset.\relax }{figure.caption.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Changing of $\tau $ with increased number of stations in \textit  {gb-coach} dataset.\relax }}{21}{figure.caption.19}}
+\newlabel{plot:usp-gbcoach-size}{{5.5}{21}{Changing of $\tau $ with increased number of stations in \textit {gb-coach} dataset.\relax }{figure.caption.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Changing of $\tau $ with increased time range in \textit  {air01} dataset. 1 day = about 800 in height.\relax }}{21}{figure.caption.20}}
+\newlabel{plot:usp-air-timerange}{{5.6}{21}{Changing of $\tau $ with increased time range in \textit {air01} dataset. 1 day = about 800 in height.\relax }{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Changing of $\tau $ with increased time range in \textit  {zsr} dataset. 1 day = about in height.\relax }}{21}{figure.caption.20}}
+\newlabel{plot:usp-zsr-timerange}{{5.7}{21}{Changing of $\tau $ with increased time range in \textit {zsr} dataset. 1 day = about in height.\relax }{figure.caption.20}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}\textit  {USP-OR-A}}{21}{subsection.5.2}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces  The summary of the \textit  {USP-OR} algorithm parameters. The second row corresponds e.g. to the \textit  {sncf} dataset.\relax }}{22}{table.caption.21}}
+\newlabel{tab:uspor}{{5.3}{22}{The summary of the \textit {USP-OR} algorithm parameters. The second row corresponds e.g. to the \textit {sncf} dataset.\relax }{table.caption.21}{}}
+\newlabel{eq:r1}{{5.1}{22}{\textit {USP-OR-A}}{equation.5.1}{}}
+\newlabel{eq:r2}{{5.2}{22}{\textit {USP-OR-A}}{equation.5.2}{}}
+\newlabel{eq:r3}{{5.3}{22}{\textit {USP-OR-A}}{equation.5.3}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {5.3}{\ignorespaces \textit  {USP-OR-A} preprocessing\relax }}{23}{algorithm.5.3}}
+\newlabel{alg:uspora-prepro}{{5.3}{23}{\textit {USP-OR-A} preprocessing\relax }{algorithm.5.3}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {5.4}{\ignorespaces \textit  {USP-OR-A} query\relax }}{24}{algorithm.5.4}}
+\newlabel{alg:uspora-query}{{5.4}{24}{\textit {USP-OR-A} query\relax }{algorithm.5.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Analysis of \textit  {USP-OR-A}}{24}{subsubsection.5.2.1}}
 \citation{cauchy}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {5.4}{\ignorespaces \textit  {USP-OR-A} query\relax }}{20}{algorithm.5.4}}
-\newlabel{alg:uspora-query}{{5.4}{20}{\textit {USP-OR-A} query\relax }{algorithm.5.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Analysis of \textit  {USP-OR-A}}{20}{subsubsection.5.2.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.13}{\ignorespaces  Principle of \textit  {USP-OR-A} algorithm. The arcs in \textbf  {bold} mark areas that will be explored: all nodes in $neigh_{\EuScript  {A}}(x)$, USPs between LANs of $x$ and back LANs of $y$ and the back neighbourhood of $y$ (possibly only part of it will be explored, since the local back search goes against the direction in which the back neighbourhood was created).\relax }}{21}{figure.caption.21}}
-\newlabel{fig:uspora}{{5.13}{21}{Principle of \textit {USP-OR-A} algorithm. The arcs in \textbf {bold} mark areas that will be explored: all nodes in $neigh_{\mathcal {A}}(x)$, USPs between LANs of $x$ and back LANs of $y$ and the back neighbourhood of $y$ (possibly only part of it will be explored, since the local back search goes against the direction in which the back neighbourhood was created).\relax }{figure.caption.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.14}{\ignorespaces Changing of $\tau _{\EuScript  {A}}$ with increased number of stations in \textit  {cpza} dataset. $\EuScript  {A}$ was obtained using algorithm \textit  {locsep} we will talk about later\relax }}{22}{figure.caption.22}}
-\newlabel{plot:antau-cpza-size}{{5.14}{22}{Changing of $\tau _{\mathcal {A}}$ with increased number of stations in \textit {cpza} dataset. $\mathcal {A}$ was obtained using algorithm \textit {locsep} we will talk about later\relax }{figure.caption.22}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.15}{\ignorespaces Changing of $\gamma _{\EuScript  {A}}$ with increased number of stations in \textit  {cpza} dataset. $\EuScript  {A}$ was obtained using algorithm \textit  {locsep} we will talk about later\relax }}{22}{figure.caption.22}}
-\newlabel{plot:angamma-cpza-size}{{5.15}{22}{Changing of $\gamma _{\mathcal {A}}$ with increased number of stations in \textit {cpza} dataset. $\mathcal {A}$ was obtained using algorithm \textit {locsep} we will talk about later\relax }{figure.caption.22}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces  The summary of the \textit  {USP-OR-A} algorithm parameters.\relax }}{22}{table.caption.23}}
-\newlabel{tab:uspora}{{5.6}{22}{The summary of the \textit {USP-OR-A} algorithm parameters.\relax }{table.caption.23}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}Correctness of \textit  {USP-OR-A}}{23}{subsubsection.5.2.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.16}{\ignorespaces  On the picture $lan(x) = \{G, H\}$ and $blan(y) = \{G, H, I\}$. In \textbf  {thick} we have highlighted the optimal connection. The connection to $H$ is sub-optimal after the \textit  {local front search} phase, however the optimal connection to $y$ (and to $H$ and $I$ as well) leads through $lan^{*}(x)$ (some of $x$'s local access nodes to which we have an optimal connection after the \textit  {local front search}. Particularly, it goes through $G$).\relax }}{23}{figure.caption.24}}
-\newlabel{fig:usporaproof2}{{5.16}{23}{On the picture $lan(x) = \{G, H\}$ and $blan(y) = \{G, H, I\}$. In \textbf {thick} we have highlighted the optimal connection. The connection to $H$ is sub-optimal after the \textit {local front search} phase, however the optimal connection to $y$ (and to $H$ and $I$ as well) leads through $lan^{*}(x)$ (some of $x$'s local access nodes to which we have an optimal connection after the \textit {local front search}. Particularly, it goes through $G$).\relax }{figure.caption.24}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.3}Modifications of \textit  {USP-OR-A}}{24}{subsubsection.5.2.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.17}{\ignorespaces  Using USP trees (\textbf  {thick} non-dashed arcs in \leavevmode {\color  {purple}$\bm  {neigh_{\EuScript  {A}}(x)}$}) to decrease the explored area in \textit  {local front search}. A full neighbourhood search is done only when $y \in neigh(x)$.\relax }}{24}{figure.caption.25}}
-\newlabel{fig:uspora3}{{5.17}{24}{Using USP trees (\textbf {thick} non-dashed arcs in \textcolor {purple}{$\bm {neigh_{\mathcal {A}}(x)}$}) to decrease the explored area in \textit {local front search}. A full neighbourhood search is done only when $y \in neigh(x)$.\relax }{figure.caption.25}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Selection of access node set}{24}{subsection.5.3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}Choosing the optimal access node set}{25}{subsubsection.5.3.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.18}{\ignorespaces  The principle of the reduction. In $m_{i}$, there are actually complete graphs of $\beta _{i}$ vertices (as shown for $m_{1}$). \textbf  {Thick} arcs represent arcs from all the vertices of respective $m_{i}$. The $s_{i}$ vertices are connected to their $s_{i}'$ versions. If e.g. $s_{1}$ is selected as an access node, $s_{1}'$ is no longer part of any neighbourhood.\relax }}{26}{figure.caption.26}}
-\newlabel{fig:reduction}{{5.18}{26}{The principle of the reduction. In $m_{i}$, there are actually complete graphs of $\beta _{i}$ vertices (as shown for $m_{1}$). \textbf {Thick} arcs represent arcs from all the vertices of respective $m_{i}$. The $s_{i}$ vertices are connected to their $s_{i}'$ versions. If e.g. $s_{1}$ is selected as an access node, $s_{1}'$ is no longer part of any neighbourhood.\relax }{figure.caption.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces  Principle of \textit  {USP-OR-A} algorithm. The arcs in \textbf  {bold} mark areas that will be explored: all nodes in $neigh_{\EuScript  {A}}(x)$, USPs between LANs of $x$ and back LANs of $y$ and the back neighbourhood of $y$ (possibly only part of it will be explored, since the local back search goes against the direction in which the back neighbourhood was created).\relax }}{25}{figure.caption.22}}
+\newlabel{fig:uspora}{{5.8}{25}{Principle of \textit {USP-OR-A} algorithm. The arcs in \textbf {bold} mark areas that will be explored: all nodes in $neigh_{\mathcal {A}}(x)$, USPs between LANs of $x$ and back LANs of $y$ and the back neighbourhood of $y$ (possibly only part of it will be explored, since the local back search goes against the direction in which the back neighbourhood was created).\relax }{figure.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Changing of $\tau _{\EuScript  {A}}$ with increased number of stations in \textit  {cpsk} dataset. $\EuScript  {A}$ was obtained using algorithm \textit  {Locsep} we will talk about later.\relax }}{26}{figure.caption.23}}
+\newlabel{plot:antau-cpsk-size}{{5.9}{26}{Changing of $\tau _{\mathcal {A}}$ with increased number of stations in \textit {cpsk} dataset. $\mathcal {A}$ was obtained using algorithm \textit {Locsep} we will talk about later.\relax }{figure.caption.23}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces Changing of $\gamma _{\EuScript  {A}}$ with increased number of stations in \textit  {cpsk} dataset. $\EuScript  {A}$ was obtained using algorithm \textit  {Locsep} we will talk about later.\relax }}{26}{figure.caption.23}}
+\newlabel{plot:angamma-cpsk-size}{{5.10}{26}{Changing of $\gamma _{\mathcal {A}}$ with increased number of stations in \textit {cpsk} dataset. $\mathcal {A}$ was obtained using algorithm \textit {Locsep} we will talk about later.\relax }{figure.caption.23}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces Changing of $\tau _{\EuScript  {A}}$ with increased number of stations in \textit  {gb-train} dataset. $\EuScript  {A}$ was obtained using algorithm \textit  {Locsep} we will talk about later.\relax }}{26}{figure.caption.24}}
+\newlabel{plot:antau-gbtr-size}{{5.11}{26}{Changing of $\tau _{\mathcal {A}}$ with increased number of stations in \textit {gb-train} dataset. $\mathcal {A}$ was obtained using algorithm \textit {Locsep} we will talk about later.\relax }{figure.caption.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.12}{\ignorespaces Changing of $\gamma _{\EuScript  {A}}$ with increased number of stations in \textit  {gb-train} dataset. $\EuScript  {A}$ was obtained using algorithm \textit  {Locsep} we will talk about later.\relax }}{26}{figure.caption.24}}
+\newlabel{plot:angamma-gbtr-size}{{5.12}{26}{Changing of $\gamma _{\mathcal {A}}$ with increased number of stations in \textit {gb-train} dataset. $\mathcal {A}$ was obtained using algorithm \textit {Locsep} we will talk about later.\relax }{figure.caption.24}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces  The summary of the \textit  {USP-OR-A} algorithm parameters.\relax }}{27}{table.caption.25}}
+\newlabel{tab:uspora}{{5.4}{27}{The summary of the \textit {USP-OR-A} algorithm parameters.\relax }{table.caption.25}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}Correctness of \textit  {USP-OR-A}}{27}{subsubsection.5.2.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.13}{\ignorespaces  On the picture $lan(x) = \{G, H\}$ and $blan(y) = \{G, H, I\}$. In \textbf  {thick} we have highlighted the optimal connection. The connection to $H$ is sub-optimal after the \textit  {local front search} phase, however the optimal connection to $y$ (and to $H$ and $I$ as well) leads through $lan^{*}(x)$ (some of $x$'s local access nodes to which we have an optimal connection after the \textit  {local front search}. Particularly, it goes through $G$).\relax }}{28}{figure.caption.26}}
+\newlabel{fig:usporaproof2}{{5.13}{28}{On the picture $lan(x) = \{G, H\}$ and $blan(y) = \{G, H, I\}$. In \textbf {thick} we have highlighted the optimal connection. The connection to $H$ is sub-optimal after the \textit {local front search} phase, however the optimal connection to $y$ (and to $H$ and $I$ as well) leads through $lan^{*}(x)$ (some of $x$'s local access nodes to which we have an optimal connection after the \textit {local front search}. Particularly, it goes through $G$).\relax }{figure.caption.26}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.3}Modifications of \textit  {USP-OR-A}}{28}{subsubsection.5.2.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Selection of access node set}{28}{subsection.5.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.14}{\ignorespaces  Using USP trees (\textbf  {thick} non-dashed arcs in \leavevmode {\color  {purple}$\bm  {neigh_{\EuScript  {A}}(x)}$}) to decrease the explored area in \textit  {local front search}. A full neighbourhood search is done only when $y \in neigh(x)$.\relax }}{29}{figure.caption.27}}
+\newlabel{fig:uspora3}{{5.14}{29}{Using USP trees (\textbf {thick} non-dashed arcs in \textcolor {purple}{$\bm {neigh_{\mathcal {A}}(x)}$}) to decrease the explored area in \textit {local front search}. A full neighbourhood search is done only when $y \in neigh(x)$.\relax }{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}Choosing the optimal access node set}{29}{subsubsection.5.3.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.15}{\ignorespaces  The principle of the reduction. In $m_{i}$, there are actually complete graphs of $\beta _{i}$ vertices (as shown for $m_{1}$). \textbf  {Thick} arcs represent arcs from all the vertices of respective $m_{i}$. The $s_{i}$ vertices are connected to their $s_{i}'$ versions. If e.g. $s_{1}$ is selected as an access node, $s_{1}'$ is no longer part of any neighbourhood.\relax }}{30}{figure.caption.28}}
+\newlabel{fig:reduction}{{5.15}{30}{The principle of the reduction. In $m_{i}$, there are actually complete graphs of $\beta _{i}$ vertices (as shown for $m_{1}$). \textbf {Thick} arcs represent arcs from all the vertices of respective $m_{i}$. The $s_{i}$ vertices are connected to their $s_{i}'$ versions. If e.g. $s_{1}$ is selected as an access node, $s_{1}'$ is no longer part of any neighbourhood.\relax }{figure.caption.28}{}}
 \citation{centrality01}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}Choosing ANs based on node properties}{27}{subsubsection.5.3.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.19}{\ignorespaces  Necessary sizes of access node sets ($|\EuScript  {A}| = r_{1} \sqrt  {n}$) based on high-degree/high-BC cities. Datasets \textit  {sncf} (left) and \textit  {cpru} (right). Notice the occasional ``roller coaster'' bumps (especially on the left plot) - an explanation of this phenomena is that in the immediately smaller sub-timetable we have erased just the high-degree node that proved to be a good access node, and which now must be substituted by many other access nodes.\relax }}{27}{figure.caption.27}}
-\newlabel{plot:hbcdeg-size}{{5.19}{27}{Necessary sizes of access node sets ($|\mathcal {A}| = r_{1} \sqrt {n}$) based on high-degree/high-BC cities. Datasets \textit {sncf} (left) and \textit {cpru} (right). Notice the occasional ``roller coaster'' bumps (especially on the left plot) - an explanation of this phenomena is that in the immediately smaller sub-timetable we have erased just the high-degree node that proved to be a good access node, and which now must be substituted by many other access nodes.\relax }{figure.caption.27}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.3}Choosing ANs heuristically}{28}{subsubsection.5.3.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Performance of \textit  {USP-OR-A} and comparisons}{28}{subsection.5.4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1}\textit  {USP-OR-A} with \textit  {Locsep}}{28}{subsubsection.5.4.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.2}\textit  {USP-OR-A} with \textit  {Locsep Max}}{28}{subsubsection.5.4.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.20}{\ignorespaces  The principle of computing potentials in Locsep algorithm. We explored an area of $\sqrt  {n}$ nearest cities (in terms of hops) around $x$. Little \leavevmode {\color  {purple}squares} are nodes from $neigh(x)$ and \leavevmode {\color  {cyan}diamonds} are part of $bneigh(x)$. The highlighted area represents the back neighbourhood for node $b_{2}$. From its nodes we run a forward search (the \textbf  {thick} arcs). Nodes from the $neigh(x)$ that were not explored in this search can only be reached via $x$ itself and contribute to $x$'s potential.\relax }}{29}{figure.caption.28}}
-\newlabel{fig:locsep}{{5.20}{29}{The principle of computing potentials in Locsep algorithm. We explored an area of $\sqrt {n}$ nearest cities (in terms of hops) around $x$. Little \textcolor {purple}{squares} are nodes from $neigh(x)$ and \textcolor {cyan}{diamonds} are part of $bneigh(x)$. The highlighted area represents the back neighbourhood for node $b_{2}$. From its nodes we run a forward search (the \textbf {thick} arcs). Nodes from the $neigh(x)$ that were not explored in this search can only be reached via $x$ itself and contribute to $x$'s potential.\relax }{figure.caption.28}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.21}{\ignorespaces \textit  {USP-OR-A} algorithm with \textit  {Locsep} compared to TD Dijkstra on the \textit  {cpru} dataset.\relax }}{29}{figure.caption.29}}
-\newlabel{plot:uspora-cpru-size}{{5.21}{29}{\textit {USP-OR-A} algorithm with \textit {Locsep} compared to TD Dijkstra on the \textit {cpru} dataset.\relax }{figure.caption.29}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.22}{\ignorespaces \textit  {USP-OR-A} algorithm with \textit  {Locsep} compared to TD Dijkstra on the \textit  {cpza} dataset.\relax }}{29}{figure.caption.29}}
-\newlabel{plot:uspora-cpza-size}{{5.22}{29}{\textit {USP-OR-A} algorithm with \textit {Locsep} compared to TD Dijkstra on the \textit {cpza} dataset.\relax }{figure.caption.29}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Neural network approach}{29}{section.6}}
-\newlabel{sec:neural}{{6}{29}{Neural network approach}{section.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.23}{\ignorespaces \textit  {USP-OR-A} algorithm with \textit  {Locsep} compared to TD Dijkstra on the \textit  {montr} dataset.\relax }}{30}{figure.caption.30}}
-\newlabel{plot:uspora-montr-size}{{5.23}{30}{\textit {USP-OR-A} algorithm with \textit {Locsep} compared to TD Dijkstra on the \textit {montr} dataset.\relax }{figure.caption.30}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.24}{\ignorespaces \textit  {USP-OR-A} algorithm with \textit  {Locsep} compared to TD Dijkstra on the \textit  {sncf} dataset.\relax }}{30}{figure.caption.30}}
-\newlabel{plot:uspora-sncf-size}{{5.24}{30}{\textit {USP-OR-A} algorithm with \textit {Locsep} compared to TD Dijkstra on the \textit {sncf} dataset.\relax }{figure.caption.30}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.25}{\ignorespaces \textit  {USP-OR-A} algorithm with \textit  {Locsep} compared to TD Dijkstra on the \textit  {sncf-inter} dataset.\relax }}{30}{figure.caption.31}}
-\newlabel{plot:uspora-sncfinter-size}{{5.25}{30}{\textit {USP-OR-A} algorithm with \textit {Locsep} compared to TD Dijkstra on the \textit {sncf-inter} dataset.\relax }{figure.caption.31}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.26}{\ignorespaces \textit  {USP-OR-A} algorithm with \textit  {Locsep} compared to TD Dijkstra on the \textit  {sncf-ter} dataset.\relax }}{30}{figure.caption.31}}
-\newlabel{plot:uspora-sncfter-size}{{5.26}{30}{\textit {USP-OR-A} algorithm with \textit {Locsep} compared to TD Dijkstra on the \textit {sncf-ter} dataset.\relax }{figure.caption.31}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Application TTBlazer}{30}{section.7}}
-\newlabel{sec:ttblazer}{{7}{30}{Application TTBlazer}{section.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.27}{\ignorespaces \textit  {USP-OR-A} algorithm with \textit  {Locsep} compared to TD Dijkstra on the \textit  {zsr} dataset. Here we measured how increased time range influence the query time of \textit  {USP-OR-A}.\relax }}{31}{figure.caption.32}}
-\newlabel{plot:uspora-zsr-trange}{{5.27}{31}{\textit {USP-OR-A} algorithm with \textit {Locsep} compared to TD Dijkstra on the \textit {zsr} dataset. Here we measured how increased time range influence the query time of \textit {USP-OR-A}.\relax }{figure.caption.32}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.7}{\ignorespaces Speed-up of the \textit  {USP-OR-A} algorithm with \textit  {Locsep} for the whole timetables. In the last column is the $r_{1}$ parameter of $\EuScript  {A}$ ($|\EuScript  {A}| = r_{1} \sqrt  {n}$).\relax }}{31}{figure.caption.32}}
-\newlabel{tab:uspora-speedup}{{5.7}{31}{Speed-up of the \textit {USP-OR-A} algorithm with \textit {Locsep} for the whole timetables. In the last column is the $r_{1}$ parameter of $\mathcal {A}$ ($|\mathcal {A}| = r_{1} \sqrt {n}$).\relax }{figure.caption.32}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.28}{\ignorespaces \textit  {USP-OR-A} algorithm with \textit  {Locsep Max} compared to TD Dijkstra on the \textit  {cpru} dataset.\relax }}{31}{figure.caption.33}}
-\newlabel{plot:usporam-cpru-size}{{5.28}{31}{\textit {USP-OR-A} algorithm with \textit {Locsep Max} compared to TD Dijkstra on the \textit {cpru} dataset.\relax }{figure.caption.33}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.29}{\ignorespaces \textit  {USP-OR-A} algorithm with \textit  {Locsep Max} compared to TD Dijkstra on the \textit  {cpza} dataset.\relax }}{31}{figure.caption.33}}
-\newlabel{plot:usporam-cpza-size}{{5.29}{31}{\textit {USP-OR-A} algorithm with \textit {Locsep Max} compared to TD Dijkstra on the \textit {cpza} dataset.\relax }{figure.caption.33}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{31}{section.8}}
-\newlabel{sec:concl}{{8}{31}{Conclusion}{section.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.30}{\ignorespaces \textit  {USP-OR-A} algorithm with \textit  {Locsep Max} compared to TD Dijkstra on the \textit  {montr} dataset.\relax }}{32}{figure.caption.34}}
-\newlabel{plot:usporam-montr-size}{{5.30}{32}{\textit {USP-OR-A} algorithm with \textit {Locsep Max} compared to TD Dijkstra on the \textit {montr} dataset.\relax }{figure.caption.34}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.31}{\ignorespaces \textit  {USP-OR-A} algorithm with \textit  {Locsep Max} compared to TD Dijkstra on the \textit  {sncf} dataset.\relax }}{32}{figure.caption.34}}
-\newlabel{plot:usporam-sncf-size}{{5.31}{32}{\textit {USP-OR-A} algorithm with \textit {Locsep Max} compared to TD Dijkstra on the \textit {sncf} dataset.\relax }{figure.caption.34}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.32}{\ignorespaces \textit  {USP-OR-A} algorithm with \textit  {Locsep Max} compared to TD Dijkstra on the \textit  {sncf-inter} dataset.\relax }}{32}{figure.caption.35}}
-\newlabel{plot:usporam-sncfinter-size}{{5.32}{32}{\textit {USP-OR-A} algorithm with \textit {Locsep Max} compared to TD Dijkstra on the \textit {sncf-inter} dataset.\relax }{figure.caption.35}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.33}{\ignorespaces \textit  {USP-OR-A} algorithm with \textit  {Locsep Max} compared to TD Dijkstra on the \textit  {sncf-ter} dataset.\relax }}{32}{figure.caption.35}}
-\newlabel{plot:usporam-sncfter-size}{{5.33}{32}{\textit {USP-OR-A} algorithm with \textit {Locsep Max} compared to TD Dijkstra on the \textit {sncf-ter} dataset.\relax }{figure.caption.35}{}}
-\@writefile{toc}{\contentsline {section}{Appendix \numberline {A}File formats}{32}{Appendix.a.A}}
-\newlabel{app:formats}{{A}{32}{File formats}{Appendix.a.A}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}TT file format.}{32}{lstlisting.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.34}{\ignorespaces \textit  {USP-OR-A} algorithm with \textit  {Locsep Max} compared to TD Dijkstra on the \textit  {zsr} dataset. Here we measured how increased time range influence the query time of \textit  {USP-OR-A}.\relax }}{33}{figure.caption.36}}
-\newlabel{plot:usporam-zsr-trange}{{5.34}{33}{\textit {USP-OR-A} algorithm with \textit {Locsep Max} compared to TD Dijkstra on the \textit {zsr} dataset. Here we measured how increased time range influence the query time of \textit {USP-OR-A}.\relax }{figure.caption.36}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.8}{\ignorespaces Speed-up of the \textit  {USP-OR-A} algorithm with \textit  {Locsep Max} for the whole timetables. In the last column is the $r_{1}$ parameter of $\EuScript  {A}$ ($|\EuScript  {A}| = r_{1} \sqrt  {n}$).\relax }}{33}{figure.caption.36}}
-\newlabel{tab:usporam-speedup}{{5.8}{33}{Speed-up of the \textit {USP-OR-A} algorithm with \textit {Locsep Max} for the whole timetables. In the last column is the $r_{1}$ parameter of $\mathcal {A}$ ($|\mathcal {A}| = r_{1} \sqrt {n}$).\relax }{figure.caption.36}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}UG file format.}{33}{lstlisting.2}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {3}TE file format.}{34}{lstlisting.3}}
-\newlabel{lst:tdformat}{{4}{34}{TD file format}{lstlisting.4}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4}TD file format.}{34}{lstlisting.4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}Choosing ANs based on node properties}{31}{subsubsection.5.3.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.16}{\ignorespaces  Necessary sizes of access node sets ($|\EuScript  {A}| = r_{1} \sqrt  {n}$) based on high-degree/high-BC cities. Datasets \textit  {sncf} (left) and \textit  {cpsk} (right). Notice the occasional ``roller coaster'' bumps (especially on the left plot) - an explanation of this phenomena is that in the immediately smaller sub-timetable we have erased just the high-degree node that proved to be a good access node, and which now must be substituted by many other access nodes.\relax }}{32}{figure.caption.29}}
+\newlabel{plot:hbcdeg-size}{{5.16}{32}{Necessary sizes of access node sets ($|\mathcal {A}| = r_{1} \sqrt {n}$) based on high-degree/high-BC cities. Datasets \textit {sncf} (left) and \textit {cpsk} (right). Notice the occasional ``roller coaster'' bumps (especially on the left plot) - an explanation of this phenomena is that in the immediately smaller sub-timetable we have erased just the high-degree node that proved to be a good access node, and which now must be substituted by many other access nodes.\relax }{figure.caption.29}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.3}Choosing ANs heuristically - the \textit  {Locsep} algorithm}{32}{subsubsection.5.3.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.17}{\ignorespaces  The principle of computing potentials in \textit  {Locsep} algorithm. We explored an area of $\sqrt  {n}$ nearest cities (in terms of hops) around $x$. Access nodes (like $z$) and cities behind them are ignored. Little \leavevmode {\color  {purple}squares} are nodes from $fn(x)$ and \leavevmode {\color  {cyan}diamonds} are part of $bn(x)$. From $y$ we run a forward search (the \textbf  {thick} arcs). Nodes from the $fn(x)$ that were not explored in this search can only be reached via $x$ itself. Such nodes contribute to $x$'s potential assuming $y$ has large neighbourhood size.\relax }}{34}{figure.caption.30}}
+\newlabel{fig:locsep}{{5.17}{34}{The principle of computing potentials in \textit {Locsep} algorithm. We explored an area of $\sqrt {n}$ nearest cities (in terms of hops) around $x$. Access nodes (like $z$) and cities behind them are ignored. Little \textcolor {purple}{squares} are nodes from $fn(x)$ and \textcolor {cyan}{diamonds} are part of $bn(x)$. From $y$ we run a forward search (the \textbf {thick} arcs). Nodes from the $fn(x)$ that were not explored in this search can only be reached via $x$ itself. Such nodes contribute to $x$'s potential assuming $y$ has large neighbourhood size.\relax }{figure.caption.30}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {5.5}{\ignorespaces \textit  {Locsep}\relax }}{34}{algorithm.5.5}}
+\newlabel{alg:locsep}{{5.5}{34}{\textit {Locsep}\relax }{algorithm.5.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.18}{\ignorespaces  The necessary size of $\EuScript  {A}$ when selecting ANs based on degree, BC or with \textit  {Locsep} algorithm. Datasets \textit  {sncf} (left) and \textit  {cpsk} (right). An ideal situation would be a constant or non-increasing function, to which \textit  {Locsep} comes closest.\relax }}{35}{figure.caption.31}}
+\newlabel{plot:locsep-size}{{5.18}{35}{The necessary size of $\mathcal {A}$ when selecting ANs based on degree, BC or with \textit {Locsep} algorithm. Datasets \textit {sncf} (left) and \textit {cpsk} (right). An ideal situation would be a constant or non-increasing function, to which \textit {Locsep} comes closest.\relax }{figure.caption.31}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces  Parameters for \textit  {USP-OR-A} with \textit  {Locsep}.\relax }}{36}{table.caption.32}}
+\newlabel{tab:usporalocsep}{{5.5}{36}{Parameters for \textit {USP-OR-A} with \textit {Locsep}.\relax }{table.caption.32}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Performance and comparisons}{36}{subsection.5.4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1}Performance of \textit  {USP-OR}}{36}{subsubsection.5.4.1}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces Speed-ups and size-ups of the \textit  {USP-OR} algorithm for the whole timetables (for those marked with asterisk we took only a subset of $n$ stations, as we were limited by the space).\relax }}{36}{table.caption.33}}
+\newlabel{tab:uspor-speedup}{{5.6}{36}{Speed-ups and size-ups of the \textit {USP-OR} algorithm for the whole timetables (for those marked with asterisk we took only a subset of $n$ stations, as we were limited by the space).\relax }{table.caption.33}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.19}{\ignorespaces \textbf  {Query time} of \textit  {USP-OR} algorithm compared to TD Dijkstra on the \textit  {\textbf  {cpru}} dataset. \textbf  {Changing $\bm  {n}$}.\relax }}{37}{figure.caption.34}}
+\newlabel{plot:uspor-cpru-size}{{5.19}{37}{\textbf {Query time} of \textit {USP-OR} algorithm compared to TD Dijkstra on the \textit {\textbf {cpru}} dataset. \textbf {Changing $\bm {n}$}.\relax }{figure.caption.34}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.20}{\ignorespaces \textbf  {Query time} of \textit  {USP-OR} algorithm compared to TD Dijkstra on the \textit  {\textbf  {cpza}} dataset. \textbf  {Changing $\bm  {n}$}.\relax }}{37}{figure.caption.34}}
+\newlabel{plot:uspor-cpza-size}{{5.20}{37}{\textbf {Query time} of \textit {USP-OR} algorithm compared to TD Dijkstra on the \textit {\textbf {cpza}} dataset. \textbf {Changing $\bm {n}$}.\relax }{figure.caption.34}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.21}{\ignorespaces \textbf  {Query time} of \textit  {USP-OR} algorithm compared to TD Dijkstra on the \textit  {\textbf  {montr}} dataset. \textbf  {Changing $\bm  {n}$}.\relax }}{37}{figure.caption.35}}
+\newlabel{plot:uspor-montr-size}{{5.21}{37}{\textbf {Query time} of \textit {USP-OR} algorithm compared to TD Dijkstra on the \textit {\textbf {montr}} dataset. \textbf {Changing $\bm {n}$}.\relax }{figure.caption.35}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.22}{\ignorespaces \textbf  {Size} (in MB) of the oracle for \textit  {USP-OR} vs. size of TD graph on \textit  {\textbf  {cpza}} dataset. \textbf  {Changing $\bm  {n}$}.\relax }}{37}{figure.caption.35}}
+\newlabel{plot:uspors-cpza-size}{{5.22}{37}{\textbf {Size} (in MB) of the oracle for \textit {USP-OR} vs. size of TD graph on \textit {\textbf {cpza}} dataset. \textbf {Changing $\bm {n}$}.\relax }{figure.caption.35}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.23}{\ignorespaces \textbf  {Query time} of \textit  {USP-OR} algorithm compared to TD Dijkstra on the \textit  {\textbf  {sncf-inter}} dataset. \textbf  {Changing $\bm  {n}$}.\relax }}{38}{figure.caption.36}}
+\newlabel{plot:uspor-sncfinter-size}{{5.23}{38}{\textbf {Query time} of \textit {USP-OR} algorithm compared to TD Dijkstra on the \textit {\textbf {sncf-inter}} dataset. \textbf {Changing $\bm {n}$}.\relax }{figure.caption.36}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.24}{\ignorespaces \textbf  {Query time} of \textit  {USP-OR} algorithm compared to TD Dijkstra on the \textit  {\textbf  {sncf-ter}} dataset. \textbf  {Changing $\bm  {n}$}.\relax }}{38}{figure.caption.36}}
+\newlabel{plot:uspor-sncfter-size}{{5.24}{38}{\textbf {Query time} of \textit {USP-OR} algorithm compared to TD Dijkstra on the \textit {\textbf {sncf-ter}} dataset. \textbf {Changing $\bm {n}$}.\relax }{figure.caption.36}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.25}{\ignorespaces \textbf  {Query time} of \textit  {USP-OR} algorithm compared to TD Dijkstra on the \textit  {\textbf  {sncf}} dataset. \textbf  {Changing $\bm  {n}$}.\relax }}{38}{figure.caption.37}}
+\newlabel{plot:uspor-sncf-size}{{5.25}{38}{\textbf {Query time} of \textit {USP-OR} algorithm compared to TD Dijkstra on the \textit {\textbf {sncf}} dataset. \textbf {Changing $\bm {n}$}.\relax }{figure.caption.37}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.26}{\ignorespaces \textbf  {Size} (in MB) of the oracle for \textit  {USP-OR} vs. size of TD graph on \textit  {\textbf  {sncf}} dataset. \textbf  {Changing $\bm  {n}$}.\relax }}{38}{figure.caption.37}}
+\newlabel{plot:uspors-sncf-size}{{5.26}{38}{\textbf {Size} (in MB) of the oracle for \textit {USP-OR} vs. size of TD graph on \textit {\textbf {sncf}} dataset. \textbf {Changing $\bm {n}$}.\relax }{figure.caption.37}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.27}{\ignorespaces \textbf  {Query time} of \textit  {USP-OR} algorithm compared to TD Dijkstra on the \textit  {\textbf  {zsr}} dataset. \textbf  {Changing $\bm  {r}$}.\relax }}{39}{figure.caption.38}}
+\newlabel{plot:uspor-zsr-trange}{{5.27}{39}{\textbf {Query time} of \textit {USP-OR} algorithm compared to TD Dijkstra on the \textit {\textbf {zsr}} dataset. \textbf {Changing $\bm {r}$}.\relax }{figure.caption.38}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.28}{\ignorespaces \textbf  {Size} (in MB) of the oracle for \textit  {USP-OR} vs. size of TD graph on \textit  {\textbf  {zsr}} dataset. \textbf  {Changing $\bm  {r}$}.\relax }}{39}{figure.caption.38}}
+\newlabel{plot:uspors-zsr-trange}{{5.28}{39}{\textbf {Size} (in MB) of the oracle for \textit {USP-OR} vs. size of TD graph on \textit {\textbf {zsr}} dataset. \textbf {Changing $\bm {r}$}.\relax }{figure.caption.38}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.2}\textit  {USP-OR-A} with \textit  {Locsep}}{39}{subsubsection.5.4.2}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.7}{\ignorespaces Speed-ups and size-ups of the \textit  {USP-OR-A} with \textit  {Locsep} for the whole timetables (for those marked with asterisk we took only a subset of $n$ stations, as we were limited by the space).\relax }}{39}{table.caption.39}}
+\newlabel{tab:uspora-speedup}{{5.7}{39}{Speed-ups and size-ups of the \textit {USP-OR-A} with \textit {Locsep} for the whole timetables (for those marked with asterisk we took only a subset of $n$ stations, as we were limited by the space).\relax }{table.caption.39}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.29}{\ignorespaces \textbf  {Query time} of \textit  {USP-OR-A} with \textit  {Locsep} compared to TD Dijkstra on the \textit  {\textbf  {cpru}} dataset. \textbf  {Changing $\bm  {n}$}.\relax }}{40}{figure.caption.40}}
+\newlabel{plot:uspora-cpru-size}{{5.29}{40}{\textbf {Query time} of \textit {USP-OR-A} with \textit {Locsep} compared to TD Dijkstra on the \textit {\textbf {cpru}} dataset. \textbf {Changing $\bm {n}$}.\relax }{figure.caption.40}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.30}{\ignorespaces \textbf  {Query time} of \textit  {USP-OR-A} with \textit  {Locsep} compared to TD Dijkstra on the \textit  {\textbf  {cpza}} dataset. \textbf  {Changing $\bm  {n}$}.\relax }}{40}{figure.caption.40}}
+\newlabel{plot:uspora-cpza-size}{{5.30}{40}{\textbf {Query time} of \textit {USP-OR-A} with \textit {Locsep} compared to TD Dijkstra on the \textit {\textbf {cpza}} dataset. \textbf {Changing $\bm {n}$}.\relax }{figure.caption.40}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.31}{\ignorespaces \textbf  {Query time} of \textit  {USP-OR-A} with \textit  {Locsep} compared to TD Dijkstra on the \textit  {\textbf  {montr}} dataset. \textbf  {Changing $\bm  {n}$}.\relax }}{40}{figure.caption.41}}
+\newlabel{plot:uspora-montr-size}{{5.31}{40}{\textbf {Query time} of \textit {USP-OR-A} with \textit {Locsep} compared to TD Dijkstra on the \textit {\textbf {montr}} dataset. \textbf {Changing $\bm {n}$}.\relax }{figure.caption.41}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.32}{\ignorespaces \textbf  {Size} (in MB) of the oracle for \textit  {USP-OR-A} with \textit  {Locsep} vs. size of TD graph on \textit  {\textbf  {cpza}} dataset. \textbf  {Changing $\bm  {n}$}.\relax }}{40}{figure.caption.41}}
+\newlabel{plot:usporas-cpza-size}{{5.32}{40}{\textbf {Size} (in MB) of the oracle for \textit {USP-OR-A} with \textit {Locsep} vs. size of TD graph on \textit {\textbf {cpza}} dataset. \textbf {Changing $\bm {n}$}.\relax }{figure.caption.41}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.33}{\ignorespaces \textbf  {Query time} of \textit  {USP-OR-A} with \textit  {Locsep} compared to TD Dijkstra on the \textit  {\textbf  {sncf-inter}} dataset. \textbf  {Changing $\bm  {n}$}.\relax }}{41}{figure.caption.42}}
+\newlabel{plot:uspora-sncfinter-size}{{5.33}{41}{\textbf {Query time} of \textit {USP-OR-A} with \textit {Locsep} compared to TD Dijkstra on the \textit {\textbf {sncf-inter}} dataset. \textbf {Changing $\bm {n}$}.\relax }{figure.caption.42}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.34}{\ignorespaces \textbf  {Query time} of \textit  {USP-OR-A} with \textit  {Locsep} compared to TD Dijkstra on the \textit  {\textbf  {sncf-ter}} dataset. \textbf  {Changing $\bm  {n}$}.\relax }}{41}{figure.caption.42}}
+\newlabel{plot:uspora-sncfter-size}{{5.34}{41}{\textbf {Query time} of \textit {USP-OR-A} with \textit {Locsep} compared to TD Dijkstra on the \textit {\textbf {sncf-ter}} dataset. \textbf {Changing $\bm {n}$}.\relax }{figure.caption.42}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.35}{\ignorespaces \textbf  {Query time} of \textit  {USP-OR-A} with \textit  {Locsep} compared to TD Dijkstra on the \textit  {\textbf  {sncf}} dataset. \textbf  {Changing $\bm  {n}$}.\relax }}{41}{figure.caption.43}}
+\newlabel{plot:uspora-sncf-size}{{5.35}{41}{\textbf {Query time} of \textit {USP-OR-A} with \textit {Locsep} compared to TD Dijkstra on the \textit {\textbf {sncf}} dataset. \textbf {Changing $\bm {n}$}.\relax }{figure.caption.43}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.36}{\ignorespaces \textbf  {Size} (in MB) of the oracle for \textit  {USP-OR-A} with \textit  {Locsep} vs. size of TD graph on \textit  {\textbf  {sncf}} dataset. \textbf  {Changing $\bm  {n}$}.\relax }}{41}{figure.caption.43}}
+\newlabel{plot:usporas-sncf-size}{{5.36}{41}{\textbf {Size} (in MB) of the oracle for \textit {USP-OR-A} with \textit {Locsep} vs. size of TD graph on \textit {\textbf {sncf}} dataset. \textbf {Changing $\bm {n}$}.\relax }{figure.caption.43}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.37}{\ignorespaces \textbf  {Query time} of \textit  {USP-OR-A} with \textit  {Locsep} compared to TD Dijkstra on the \textit  {\textbf  {zsr}} dataset. \textbf  {Changing $\bm  {r}$}.\relax }}{42}{figure.caption.44}}
+\newlabel{plot:uspora-zsr-trange}{{5.37}{42}{\textbf {Query time} of \textit {USP-OR-A} with \textit {Locsep} compared to TD Dijkstra on the \textit {\textbf {zsr}} dataset. \textbf {Changing $\bm {r}$}.\relax }{figure.caption.44}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.38}{\ignorespaces \textbf  {Size} (in MB) of the oracle for \textit  {USP-OR-A} with \textit  {Locsep} vs. size of TD graph on \textit  {\textbf  {zsr}} dataset. \textbf  {Changing $\bm  {r}$}.\relax }}{42}{figure.caption.44}}
+\newlabel{plot:usporas-zsr-trange}{{5.38}{42}{\textbf {Size} (in MB) of the oracle for \textit {USP-OR-A} with \textit {Locsep} vs. size of TD graph on \textit {\textbf {zsr}} dataset. \textbf {Changing $\bm {r}$}.\relax }{figure.caption.44}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.3}\textit  {USP-OR-A} with \textit  {Locsep Max}}{42}{subsubsection.5.4.3}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.8}{\ignorespaces Speed-ups and size-ups of the \textit  {USP-OR-A} with \textit  {Locsep Max} for the whole timetables (for those marked with asterisk we took only a subset of $n$ stations, as we were limited by the space).\relax }}{42}{table.caption.45}}
+\newlabel{tab:usporam-speedup}{{5.8}{42}{Speed-ups and size-ups of the \textit {USP-OR-A} with \textit {Locsep Max} for the whole timetables (for those marked with asterisk we took only a subset of $n$ stations, as we were limited by the space).\relax }{table.caption.45}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.39}{\ignorespaces \textbf  {Query time} of \textit  {USP-OR-A} with \textit  {Locsep Max} compared to TD Dijkstra on the \textit  {\textbf  {cpza}} dataset. \textbf  {Changing $\bm  {n}$}.\relax }}{43}{figure.caption.46}}
+\newlabel{plot:usporam-cpza-size}{{5.39}{43}{\textbf {Query time} of \textit {USP-OR-A} with \textit {Locsep Max} compared to TD Dijkstra on the \textit {\textbf {cpza}} dataset. \textbf {Changing $\bm {n}$}.\relax }{figure.caption.46}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.40}{\ignorespaces \textbf  {Size} (in MB) of the oracle for \textit  {USP-OR-A} with \textit  {Locsep Max} vs. size of TD graph on \textit  {\textbf  {cpza}} dataset. \textbf  {Changing $\bm  {n}$}.\relax }}{43}{figure.caption.46}}
+\newlabel{plot:usporams-cpza-size}{{5.40}{43}{\textbf {Size} (in MB) of the oracle for \textit {USP-OR-A} with \textit {Locsep Max} vs. size of TD graph on \textit {\textbf {cpza}} dataset. \textbf {Changing $\bm {n}$}.\relax }{figure.caption.46}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.41}{\ignorespaces \textbf  {Query time} of \textit  {USP-OR-A} with \textit  {Locsep Max} compared to TD Dijkstra on the \textit  {\textbf  {sncf}} dataset. \textbf  {Changing $\bm  {n}$}.\relax }}{43}{figure.caption.47}}
+\newlabel{plot:usporam-sncf-size}{{5.41}{43}{\textbf {Query time} of \textit {USP-OR-A} with \textit {Locsep Max} compared to TD Dijkstra on the \textit {\textbf {sncf}} dataset. \textbf {Changing $\bm {n}$}.\relax }{figure.caption.47}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.42}{\ignorespaces \textbf  {Size} (in MB) of the oracle for \textit  {USP-OR-A} with \textit  {Locsep Max} vs. size of TD graph on \textit  {\textbf  {sncf}} dataset. \textbf  {Changing $\bm  {n}$}.\relax }}{43}{figure.caption.47}}
+\newlabel{plot:usporams-sncf-size}{{5.42}{43}{\textbf {Size} (in MB) of the oracle for \textit {USP-OR-A} with \textit {Locsep Max} vs. size of TD graph on \textit {\textbf {sncf}} dataset. \textbf {Changing $\bm {n}$}.\relax }{figure.caption.47}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Neural network approach}{44}{section.6}}
+\newlabel{sec:neural}{{6}{44}{Neural network approach}{section.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Application TTBlazer}{45}{section.7}}
+\newlabel{sec:ttblazer}{{7}{45}{Application TTBlazer}{section.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{46}{section.8}}
+\newlabel{sec:concl}{{8}{46}{Conclusion}{section.8}{}}
+\@writefile{toc}{\contentsline {section}{Appendix \numberline {A}File formats}{47}{Appendix.a.A}}
+\newlabel{app:formats}{{A}{47}{File formats}{Appendix.a.A}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}TT file format.}{47}{lstlisting.1}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}UG file format.}{47}{lstlisting.2}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3}TE file format.}{48}{lstlisting.3}}
+\newlabel{lst:tdformat}{{4}{48}{TD file format}{lstlisting.4}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4}TD file format.}{48}{lstlisting.4}}
 \bibstyle{is-alpha}
 \bibdata{../bibl}
+\bibcite{queriesnr}{1Te}
+\bibcite{highwaydim10}{AFGW10}
+\bibcite{transit06}{BFM06}
 \bibcite{centrality01}{Bra01}
 \bibcite{dijkstra59}{Dij59}
+\bibcite{engtimeexp09}{DPW09}
+\bibcite{engineeringroute09}{DSSW09}
+\bibcite{tdroute09}{DW09}
+\bibcite{distlabel04}{GPPR04}
+\bibcite{contracthier08}{GSSD08}
 \bibcite{dijkstraexp}{KP}
 \bibcite{timetablemodelsalgs07}{MHSWZ07}
 \bibcite{cauchy}{ops}
 \bibcite{sommerthesis10}{Som10}
+\bibcite{hwhierarchies05}{SS05}
 \bibcite{apxdo05}{TZ05}
