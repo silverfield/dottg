@@ -1,0 +1,182 @@
+- ea, connection daj novy obrazok
+- USP - novy obrazok
+- obrazok vyvijajuci sa
+	- USP-OR
+	- USP-OR-A
+		- 2 slides - jeden z nich ako hladat ANs
+	- USP-OR-3
+	- JUNCTIONS
+- NN na jeden slide
+
+
+
+- hustejsie slajdy, viac obrazkov
+doplnit citacie, kurzivu/bold, obrazky
+
+NEW LAYOUT
+- uvodny slajd
+- obsah
+
+***. cast - quick intro
+- hlavna tematika
+- motivacia
+- definicie UG, TE, TD, TT, city, time-graph, grah-like, connection, el. conn, event, height, time-range
+	- UG je graf ktory VZNIKNE z TT
+- definicia orakula
+- ciel
+- data a ich (prvotna) analyza
+- 2 step emergencia cestovnych poriadkov
+- express lines, prenasanie vlastnosti (analyza)
+	- scale free, HD, betw
+
+***. cast - pristup cez USP-OR
+- definicia USP - cesta v podkladovom grafe
+- overtaking (analyza dat) a jej odstranenie
+- USP-OR bez access nodes
+	- predspracovanie O(e * n^2)
+		- e je pocet eventov O(n * h) kde h je vyska TT
+		- n^2 TD dijkstra
+	- size O(n^2 * n * k)
+		- n^2 lebo tolko je dvojic
+		- n lebo tolko je max dlzka USP
+		- k nejaka azda konstanta - max pocet roznych USP medzi jednou dvojicou
+	- query time
+		- zalezi od k, ktore mozme limitovat
+	- stretch
+		- ak predratame vsetko je to 1. Inac mozme obmedzit k
+- USP-OR - pristup cez access nodes
+	- access nodes
+		- mala mnozina (O(log n)) nodov v UG, pre kazdy node formuje lokalnu boundary do zvysku UG
+		- potom predratavame USP node->AN(node), AN->AN, an_node->nodes(an_node)
+		- funguje to podobne ako v TRANSIT 
+- mala HD v cestnych sietach, access nodes v TRANSIT a ich vyuzitie v USP-ORe
+- vysledky
+
+***. cast - pristup cez neuronove siete
+- na vystupe complete-path
+- na vystupe EA
+- na vystupe routing - svieti hrana ktorou treba ist
+- iny typ siete - recurrent network?
+- vysledky
+
+***. porovnanie s ostatnymi
+
+***. cast program
+- umoznuje lahku implementaciu orakul, ich porovnavanie
+- analyzy
+- konverzie medzi objektami
+
+***. zaver a TODO
+
+
+vlastnosti
+- HD
+- separator
+- power-law
+
+algs
+- CH
+- HH
+- transit nodes
+- sketch based
+- DO for power-law graphs
+
+- gavoille
+open street maps
+experimenty s prenasanim
+time dep. vs time-exp
+
+
+pri contraction spoment P(f, g) <= P(f) + P(g)
+
+koniec HD clanku - vykricnik
+
+
+
+
+FARBA CERVENA
+- uvodny slajd
+- hlavna tematika/problem
+	- rychle hladanie najkratsich spojeni v cestovnych poriadkoch
+- obsah
+
+1. cast - objasnenie problematiky FARBA ZLTA
+
+- vyuzitie
+	- v systemoch ako cp.sk
+	- EAP
+- timetable graph
+	- definicie: underlying, timetable, time-exp
+	- podkladovy graf img
+	- slide pre cestovny poriadok
+	- slide pre graph (time-expanded)
+	- vyhladavanie cez najkr. cestu
+	- time-dependent graf
+	- img
+	- graf pair-wise linear function
+- motivacia
+	- co je zle na Dijkstrovi? London, 
+- distance oracles
+	- definicia: struktura na odpovedanie na queries o najkratsich ciest v grafe
+		- 4 parametre co chceme tlacit dole
+		- obrazok
+	- rychle, presne vyhladavanie najkratsich spojeni na grafoch velkosti kontinentu (20 000 000)
+		- "extremne" pristupy - Dikstra, APSP
+	- teoreticke hranice
+
+2. cast - teoreticka napln diplomovej prace FARBA MODRA
+
+- skumanie properties a ich prenos
+
+- power-law
+	- definicia
+	- obrazok
+		
+- HD
+	- skumanie properties - ak ma podkladovy graf nejaku vlastnost, prenesie sa na time-expanded graph?
+	- HD
+	- intuicia - mala HD
+	- definicia - obrazok
+	- mala HD garantuje nizku casovu narocnost niektorych DO metod
+	- priamociare prenesenie HD na expandovany graf - problem s cinnym cakanim
+		- ina definicia? -> Uprava algoritmov
+- r(n)-separator
+	- definicia, obrazok
+	- R(n)... podstatne o nom
+	- distance labeling - what it is?
+	- l(G_n) <= O(R(n)log(n) + log^2 (n)) teorema. To prve log(n) bude asi cosi ine
+		- v akom case pocitame?
+	- problemy pri prenose z podkladoveho (co su v podkladovom vahy??) na time-expanded
+		- orientovane hrany -> upravit alg. (obrazok)
+		- priamociare expandovanie separatora nefunguje (obrazok)
+		- ..?
+	- planarne grafy a bounded-tree-width grafy maju...
+
+- uprava algoritmov pre cestne siete
+	- CH, HH, Transit
+	- sketch based
+	- separator
+- ide o to zistit Time-dep vs time-exp
+
+3. cast - prakticka napln diplomovej prace FARBA ZELENA
+
+- statistiky prenosu vlastnosti
+	- zobrat rozne 
+	- includes zistovanie vlasnosti
+
+C++
+
+- programiky, java
+	- na expandovani timetable
+	- na vyhotovenie obrazku z timetable grafu
+	- na testovanie, statistiky DO metod
+- navrh a implmentacia nejakej DO metody
+
+FARBA CERVENA
+- plan B
+- bibliografia
+- elektrickove problemy
+- 
+- dakujem za pozornost
+
+napady - dalsie vyuzitie, v com robit prezentaciu

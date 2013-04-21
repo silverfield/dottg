@@ -26,7 +26,7 @@
 \LoadClass[a4paper,twocolumn,11pt,twoside]{article}
 %\RequirePackage[headings]{fullpage}
 \usepackage[english]{babel}
-\usepackage[enc=cp1250]{hrlatex}
+\usepackage[enc=utf8]{hrlatex}
 \RequirePackage[utf8]{inputenc}
 %\if@slovak
 %  \RequirePackage[slovak]{babel}
@@ -199,7 +199,7 @@
 \def\solutionname{Solution}
 
 %\if@slovak
-%  \def\supervisorname{� koliteľ}
+%  \def\supervisorname{}
 %  \def\keywordsname{Kľúčové slová}
 %  \def\abstractname{Abstrakt}
 %  \def\refname{Literatúra}

@@ -1,0 +1,24 @@
+\tikzstyle{place}=[circle,draw=blue!,fill=blue!20,thick,inner sep=1pt]
+\tikzstyle{textstyle}=[font=\fontsize{8}{6}\selectfont]
+\begin{tikzpicture}[textstyle, >=stealth,looseness=.1,auto,scale=0.8])
+	\draw [fill=black!20, thick] (-1, -1) rectangle (1, 1);
+	\node at (0, 0) {$\bm{T}$};
+	
+	\draw [fill=black!20, thick] (4, 0) circle (1cm); 
+	\node at (4, 0) {\textbf{Oracle}};
+	
+	\draw [->] (1,0) -> (3,0) node [midway, above] {\textcolor{red!50!black}{$\bm{prep}$}};
+
+	\draw [fill=black!20, thick] (8, -1) rectangle (10, 1);
+    \node (user) at (9,0) {\textbf{User}};
+    
+    \draw [->] (8, 0.1) to [bend right] (5,0.1);
+	\node at (6.5, 0.32) {$(a, t, b)$};
+    
+    \draw [->] (5, -0.1) to [bend right] (8,-0.1);
+    \node at (6.5, -0.4) {\textcolor{red!50!black}{$\bm{stretch}$}$\cdot c_{(a, t, b)}^{*}$};
+
+    \draw [decorate, decoration={brace, amplitude=5pt}] (5, -1.1) -- (3, -1.1) node [black,below, midway, yshift=-0.15cm] {\textcolor{red!50!black}{$\bm{size}$}};
+    \draw [decorate, decoration={brace, amplitude=5pt}] (5.1, 0.5) -- (7.9, 0.5) node [black,above, midway, yshift=0.15cm] {\textcolor{red!50!black}{$\bm{qtime}$}};
+   
+\end{tikzpicture}

@@ -1,0 +1,68 @@
+\tikzstyle{textstyle}=[font=\fontsize{9}{9}\selectfont]
+\begin{tikzpicture}[textstyle, scale=0.7]
+    \begin{axis}[
+        xlabel={$n$},
+        ylabel={$r_{i}$},
+		legend pos=north west
+        ]
+        
+    \addplot[smooth,mark=|,color=black!20!brown, solid] plot coordinates {
+		(250,0.7)
+		(500,1.07)
+		(750,1.02)
+		(1000,1.39)
+		(1250,1.41)
+		(1500,1.47)
+		(1750,1.67)
+		(2000,1.41)
+		(2250,1.88)
+		(2646,2.41)
+    };
+    \addlegendentry{\textit{Locsep} $(r_{1})$}
+    
+    \addplot[smooth,mark=|,color=black!20!brown!70, dashed] plot coordinates {
+		(250,5.13)
+		(500,5.61)
+		(750,6.63)
+		(1000,7.9)
+		(1250,7.7)
+		(1500,8.80)
+		(1750,8.97)
+		(2000,9.73)
+		(2250,9.54)
+		(2646,10.42)
+    };
+    \addlegendentry{\textit{Locsep} $(r_{3})$}
+    
+    \addplot[smooth,mark=*,color=blue, solid] plot coordinates {
+		(250,2.15)
+		(500,1.52)
+		(750,1.57)
+		(1000,1.52)
+		(1250,2.83)
+		(1500,2.66)
+		(1750,2.80)
+		(2000,3.40)
+		(2250,4.66)
+		(2500,4.66)
+		(2646,4.90)
+    };
+    \addlegendentry{$deg$ $(r_{1})$}
+
+    \addplot[smooth,mark=*, color=blue!70, dashed] plot coordinates {
+		(250,9.69)
+		(500,7.58)
+		(750,7.50)
+		(1000,7.39)
+		(1250,12.06)
+		(1500,13.65)
+		(1750,15.37)
+		(2000,15.90)
+		(2250,14.18)
+		(2500,13.23)
+		(2646,13.22)
+    };
+    \addlegendentry{$deg$ $(r_{3})$}
+    
+    \end{axis}
+\end{tikzpicture}

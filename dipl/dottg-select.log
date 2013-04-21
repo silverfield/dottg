@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  18 APR 2013 09:48
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  21 APR 2013 23:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -505,6 +505,13 @@ File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks18
 \ex@=\dimen104
 )))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
 (/usr/local/texlive/2012/texmf-dist/tex/latex/algorithms/algorithmic.sty
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 
@@ -721,13 +728,6 @@ Package: floatflt 1997/07/16 v. 1.31
 \fltitemwidth=\dimen142
 \outputpretest=\toks36
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
-
-(/usr/local/texlive/2012/texmf-dist/tex/latex/base/t1enc.def
-File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
-))
 (/usr/local/texlive/2012/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2012/10/15 v6.83k Hypertext links for LaTeX
 
@@ -1627,7 +1627,7 @@ LaTeX Info: Redefining \selectfont on input line 126.
 \RaggedRightParindent=\skip74
 \JustifyingParindent=\skip75
 )
-<./pics/logouk.png, id=63, 150.5625pt x 150.5625pt>
+<./pics/logouk.png, id=159, 150.5625pt x 150.5625pt>
 File: ./pics/logouk.png Graphic file (type png)
  <use ./pics/logouk.png>
 Package pdftex.def Info: ./pics/logouk.png used on input line 218.
@@ -1666,7 +1666,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 {/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./pics/
 logouk.png>]
-[2] <../assignment-eng.pdf, id=82, page=1, 597.23125pt x 845.1575pt>
+[2] <../assignment-eng.pdf, id=178, page=1, 597.23125pt x 845.1575pt>
 File: ../assignment-eng.pdf Graphic file (type pdf)
 
 <use ../assignment-eng.pdf, page 1>
@@ -1691,7 +1691,7 @@ File: ../assignment-eng.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../assignment-eng.pdf, page1 used on input line 256.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
  [3 <../assignment-eng.pdf>]
-<../assignment-sk.pdf, id=114, page=1, 597.23125pt x 845.1575pt>
+<../assignment-sk.pdf, id=210, page=1, 597.23125pt x 845.1575pt>
 File: ../assignment-sk.pdf Graphic file (type pdf)
 
 <use ../assignment-sk.pdf, page 1>
@@ -1806,12 +1806,6 @@ l.54 			\item W
 Missing character: There is no ) in font nullfont!
 ) (./tikzpics/ug.tikz)
 
-LaTeX Warning: Reference `table:tt' on page 4 undefined on input line 86.
-
-
-LaTeX Warning: Reference `table:tt' on page 4 undefined on input line 86.
-
-
 LaTeX Warning: Citation `timetablemodelsalgs07' on page 4 undefined on input li
 ne 89.
 
@@ -1820,35 +1814,14 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.92 		\textbf
-              {Time-expanded graph (TE graph)} \\ [4]
-
-LaTeX Warning: Reference `pic:te' on page 5 undefined on input line 101.
-
-(./tikzpics/te.tikz
+              {Time-expanded graph (TE graph)} \\ [4] (./tikzpics/te.tikz
 Missing character: There is no ) in font nullfont!
-)
-
-LaTeX Warning: Reference `table:tt' on page 5 undefined on input line 107.
-
-
-LaTeX Warning: Reference `table:tt' on page 5 undefined on input line 107.
-
-
-LaTeX Warning: Reference `pic:piece' on page 5 undefined on input line 119.
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has 
-been already used, duplicate ignored
+)pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has
+ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.122 
-       [5] (./tikzpics/td.tikz)
-
-LaTeX Warning: Reference `table:tt' on page 6 undefined on input line 139.
-
-
-LaTeX Warning: Reference `table:tt' on page 6 undefined on input line 139.
-
-(./tikzpics/tdpiece.tikz)
+       [5] (./tikzpics/td.tikz) (./tikzpics/tdpiece.tikz)
 Underfull \hbox (badness 1616) in paragraph at lines 139--139
 []\T1/lmr/m/n/10 Figure 2.5: Piece-wise lin-ear func-tion -
  []
@@ -1863,14 +1836,7 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.177 
-       [6]
-
-LaTeX Warning: Reference `table:tt' on page 7 undefined on input line 179.
-
-
-LaTeX Warning: Reference `pic:ea' on page 7 undefined on input line 179.
-
-(./tikzpics/ea.tikz
+       [6] (./tikzpics/ea.tikz
 Missing character: There is no ) in font nullfont!
 )
 
@@ -1956,21 +1922,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--18
 
  []
 
-[11]
-
-LaTeX Warning: Reference `table:tt_desc' on page 12 undefined on input line 21.
-
-
-
-LaTeX Warning: Reference `table:tt_mainpr' on page 12 undefined on input line 2
-1.
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
-
+[11]
 Overfull \hbox (18.05891pt too wide) in paragraph at lines 26--40
  [][] 
  []
@@ -1978,128 +1935,95 @@ Overfull \hbox (18.05891pt too wide) in paragraph at lines 26--40
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <9> on input line 47.
 
-LaTeX Warning: Reference `table:tt_200mainpr' on page 12 undefined on input lin
-e 67.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 67--68
 
  []
-
-
-LaTeX Warning: Reference `table:tdte' on page 12 undefined on input line 92.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 92--93
 
  []
 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 [12]
-
-LaTeX Warning: Reference `table:tt_ocradius' on page 13 undefined on input line
- 121.
-
-
-LaTeX Warning: Reference `table:tt_mainpr' on page 13 undefined on input line 1
-23.
-
-
-LaTeX Warning: Reference `table:ug_density' on page 13 undefined on input line 
-133.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 133--134
 
  []
 
 
-LaTeX Warning: Citation `sommerthesis10' on page 13 undefined on input line 181
+LaTeX Warning: Citation `sommerthesis10' on page 13 undefined on input line 201
 .
 
 
-LaTeX Warning: Citation `sommerthesis10' on page 13 undefined on input line 181
+LaTeX Warning: Citation `sommerthesis10' on page 13 undefined on input line 201
 .
 
 
-LaTeX Warning: Reference `table:ug_degs' on page 13 undefined on input line 188
-.
+Overfull \hbox (8.21066pt too wide) in paragraph at lines 201--201
+ [][] 
+ []
 
-[13]
 
-LaTeX Warning: Citation `highwaydim10' on page 14 undefined on input line 213.
-
-(./tikzpics/highwaydim.tikz)
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) [14] (./parts/usp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
+Underfull \hbox (badness 10000) in paragraph at lines 208--209
 
  []
 
 
-LaTeX Warning: Reference `fig:pathfunc' on page 15 undefined on input line 13.
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
 
-[15] (./tikzpics/pathfunc.tikz
+ []
+
+[13]
+
+LaTeX Warning: Citation `highwaydim10' on page 14 undefined on input line 236.
+
+[14] (./tikzpics/highwaydim.tikz)) [15] (./parts/usp.tex
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+(./tikzpics/pathfunc.tikz
 Missing character: There is no ) in font nullfont!
-)
-
-LaTeX Warning: Reference `alg:expand' on page 16 undefined on input line 31.
-
+) [16]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 36.
 
-LaTeX Warning: Citation `timetablemodelsalgs07' on page 16 undefined on input l
+
+LaTeX Warning: Citation `timetablemodelsalgs07' on page 17 undefined on input l
 ine 61.
 
 
-LaTeX Warning: Citation `tdroute09' on page 16 undefined on input line 61.
+LaTeX Warning: Citation `tdroute09' on page 17 undefined on input line 61.
 
 (./tikzpics/overtake.tikz
 Missing character: There is no ) in font nullfont!
-) [16]
+)
 
-LaTeX Warning: Reference `alg:expand' on page 17 undefined on input line 77.
-
-
-LaTeX Warning: Reference `tab:overtake' on page 17 undefined on input line 87.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 87--88
 
  []
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
+[17]
 Underfull \hbox (badness 10000) in paragraph at lines 110--111
 
  []
 
-[17]
-
-LaTeX Warning: Reference `tab:tt_ocradius' on page 18 undefined on input line 1
-52.
-
 [18]
 
-LaTeX Warning: Reference `tab:usp200' on page 19 undefined on input line 161.
-
-
-LaTeX Warning: Reference `plot:usp-air-timerange' on page 19 undefined on input
- line 161.
-
-
-LaTeX Warning: Reference `plot:usp-sncf-size' on page 19 undefined on input lin
-e 161.
+LaTeX Warning: Reference `tab:tt_ocradius' on page 19 undefined on input line 1
+52.
 
 (./tikzpics/plot_tau_sncf_size.tikz)
 Overfull \hbox (1.39896pt too wide) in paragraph at lines 34--196
  [][] 
  []
 
-(./tikzpics/plot_tau_cpsk_size.tikz)
+[19] (./tikzpics/plot_tau_cpsk_size.tikz)
 Overfull \hbox (1.39896pt too wide) in paragraph at lines 34--215
  [][] 
  []
@@ -2110,12 +2034,12 @@ Overfull \hbox (1.39896pt too wide) in paragraph at lines 34--215
  []
 
 (./tikzpics/plot_tau_air01_timerange.tikz)
-(./tikzpics/plot_tau_zsr_timerange.tikz) [19]
+(./tikzpics/plot_tau_zsr_timerange.tikz) [20]
 Underfull \hbox (badness 10000) in paragraph at lines 263--264
 
  []
 
-[20]
+
 Underfull \hbox (badness 10000) in paragraph at lines 267--268
 
  []
@@ -2126,34 +2050,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 271--272
  []
 
 
+Overfull \vbox (0.45428pt too high) has occurred while \output is active []
+
+
+[21]
 Underfull \hbox (badness 10000) in paragraph at lines 275--276
 
  []
 
-
-LaTeX Warning: Reference `alg:uspora-prepro' on page 21 undefined on input line
- 284.
-
-
-LaTeX Warning: Reference `alg:uspora-query' on page 21 undefined on input line 
-284.
-
-
-LaTeX Warning: Reference `fig:uspora' on page 21 undefined on input line 284.
-
-[21] (./tikzpics/uspora.tikz
+[22] (./tikzpics/uspora.tikz
 Missing character: There is no ) in font nullfont!
 )
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Reference `eq:r2' on page 22 undefined on input line 373.
+LaTeX Warning: Citation `cauchy' on page 23 undefined on input line 373.
 
-
-LaTeX Warning: Citation `cauchy' on page 22 undefined on input line 373.
-
-[22] [23] (./tikzpics/plot_antau_cpsk_size.tikz)
+[23] [24] (./tikzpics/plot_antau_cpsk_size.tikz)
 Overfull \hbox (5.11293pt too wide) in paragraph at lines 40--411
  [][] 
  []
@@ -2173,29 +2087,10 @@ Overfull \hbox (5.11293pt too wide) in paragraph at lines 40--430
  [][] 
  []
 
-
-LaTeX Warning: Reference `alg:uspora-query' on page 24 undefined on input line 
-433.
-
-[24]
+[25]
 Underfull \hbox (badness 10000) in paragraph at lines 437--438
 
  []
-
-
-LaTeX Warning: Reference `tab:uspora' on page 25 undefined on input line 439.
-
-
-LaTeX Warning: Reference `alg:uspora-prepro' on page 25 undefined on input line
- 464.
-
-
-LaTeX Warning: Reference `alg:uspora-query' on page 25 undefined on input line 
-464.
-
-
-LaTeX Warning: Reference `lemma:expandusp' on page 25 undefined on input line 4
-68.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 468--469
@@ -2206,10 +2101,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 468--469
 Underfull \hbox (badness 10000) in paragraph at lines 470--471
 
  []
-
-
-LaTeX Warning: Reference `fig:usporaproof2' on page 25 undefined on input line 
-472.
 
 (./tikzpics/usporaproof2.tikz
 Missing character: There is no ) in font nullfont!
@@ -2222,17 +2113,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 481--482
 
  []
 
-[25]
-
-LaTeX Warning: Reference `fig:uspora3' on page 26 undefined on input line 495.
-
-(./tikzpics/uspora3.tikz
+[26] (./tikzpics/uspora3.tikz
 Missing character: There is no ) in font nullfont!
 )
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[26]
+[27]
 Underfull \hbox (badness 10000) in paragraph at lines 523--524
 
  []
@@ -2242,28 +2129,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 534--535
 
  []
 
-[27]
-
-LaTeX Warning: Reference `fig:reduction' on page 28 undefined on input line 545
-.
-
-(./tikzpics/reduction.tikz
+[28] (./tikzpics/reduction.tikz
 Missing character: There is no ) in font nullfont!
 )
 Underfull \hbox (badness 10000) in paragraph at lines 558--559
 
  []
 
-[28]
+[29]
 
-LaTeX Warning: Citation `centrality01' on page 29 undefined on input line 582.
-
-
-LaTeX Warning: Reference `plot:hbcdeg-size' on page 29 undefined on input line 
-593.
+LaTeX Warning: Citation `centrality01' on page 30 undefined on input line 582.
 
 (./tikzpics/plot_hbcdeg_sncf_size.tikz) (./tikzpics/plot_hbcdeg_cpsk_size.tikz)
-[29]
+[30]
 Underfull \hbox (badness 10000) in paragraph at lines 617--618
 
  []
@@ -2273,11 +2151,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 619--620
 
  []
 
-[30]
-
-LaTeX Warning: Reference `fig:locsep' on page 31 undefined on input line 625.
-
-
+[31]
 Underfull \hbox (badness 10000) in paragraph at lines 625--626
 
  []
@@ -2285,20 +2159,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 625--626
 (./tikzpics/locsep.tikz
 Missing character: There is no ) in font nullfont!
 )
-
-LaTeX Warning: Reference `alg:locsep' on page 31 undefined on input line 634.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 634--635
 
  []
 
-[31]
-
-LaTeX Warning: Reference `plot:locsep-size' on page 32 undefined on input line 
-678.
-
-
+[32]
 Underfull \hbox (badness 10000) in paragraph at lines 678--679
 
  []
@@ -2307,28 +2172,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 678--679
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[32]
-
-LaTeX Warning: Reference `tab:usporalocsep' on page 33 undefined on input line 
-705.
-
-
-LaTeX Warning: Reference `tab:uspor-speedup' on page 33 undefined on input line
- 730.
-
-[33] (./tikzpics/plot_uspor_cpru_size.tikz)
+[33] [34] (./tikzpics/plot_uspor_cpru_size.tikz)
 (./tikzpics/plot_uspor_cpza_size.tikz) (./tikzpics/plot_uspor_montr_size.tikz)
-(./tikzpics/plot_uspors_cpza_size.tikz) [34]
+(./tikzpics/plot_uspors_cpza_size.tikz) [35]
 (./tikzpics/plot_uspor_sncfinter_size.tikz)
 (./tikzpics/plot_uspor_sncfter_size.tikz) (./tikzpics/plot_uspor_sncf_size.tikz
-) (./tikzpics/plot_uspors_sncf_size.tikz) [35]
+) (./tikzpics/plot_uspors_sncf_size.tikz) [36]
 (./tikzpics/plot_uspor_zsr_trange.tikz) (./tikzpics/plot_uspors_zsr_trange.tikz
-)
-
-LaTeX Warning: Reference `tab:uspora-speedup' on page 36 undefined on input lin
-e 862.
-
-[36] (./tikzpics/plot_uspora_cpru_size.tikz)
+) [37] (./tikzpics/plot_uspora_cpru_size.tikz)
 (./tikzpics/plot_uspora_cpza_size.tikz)
 Overfull \hbox (5.09831pt too wide) in paragraph at lines 42--902
  [][] 
@@ -2340,15 +2191,11 @@ Overfull \hbox (5.09831pt too wide) in paragraph at lines 42--921
  [][] 
  []
 
-[37] (./tikzpics/plot_uspora_sncfinter_size.tikz)
+[38] (./tikzpics/plot_uspora_sncfinter_size.tikz)
 (./tikzpics/plot_uspora_sncfter_size.tikz)
 (./tikzpics/plot_uspora_sncf_size.tikz) (./tikzpics/plot_usporas_sncf_size.tikz
 ) (./tikzpics/plot_uspora_zsr_trange.tikz)
-(./tikzpics/plot_usporas_zsr_trange.tikz) [38]
-
-LaTeX Warning: Reference `tab:usporam-speedup' on page 39 undefined on input li
-ne 991.
-
+(./tikzpics/plot_usporas_zsr_trange.tikz) [39]
 (./tikzpics/plot_usporam_cpza_size.tikz)
 Overfull \hbox (5.09831pt too wide) in paragraph at lines 42--1029
  [][] 
@@ -2359,50 +2206,43 @@ Overfull \hbox (5.09831pt too wide) in paragraph at lines 42--1029
  [][] 
  []
 
-[39] (./tikzpics/plot_usporam_sncf_size.tikz)
-(./tikzpics/plot_usporams_sncf_size.tikz)) [40] (./parts/neural.tex) [41]
-(./parts/ttblazer.tex) [42] (./parts/conclusion.tex) [43] (./parts/formats.tex
+[40] (./tikzpics/plot_usporam_sncf_size.tikz)
+(./tikzpics/plot_usporams_sncf_size.tikz)) [41] (./parts/neural.tex) [42]
+(./parts/ttblazer.tex) [43] (./parts/conclusion.tex) [44] (./parts/formats.tex
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 8.
 
-[44]
-
-LaTeX Warning: Reference `lst:tdformat' on page 45 undefined on input line 82.
-
-) [45]
+[45]) [46]
 No file dottg-select.bbl.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 411.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 411.
 (./dottg-select.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 411.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 411.
+Package rerunfilecheck Info: File `dottg-select.out' has not changed.
+(rerunfilecheck)             Checksum: 8804D10C3059D5C69BBE5EC2DBEED8C8;2363.
 
-
-Package rerunfilecheck Warning: File `dottg-select.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `dottg-select.out':
-(rerunfilecheck)             Before: F9B41F88554C16F3A1442A55592F82D7;557
-(rerunfilecheck)             After:  B29BFB4F2EFBDDC82124A5798F4650C5;2346.
 
 LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 411.
  ) 
 Here is how much of TeX's memory you used:
- 32578 strings out of 493488
- 678027 string characters out of 3141346
- 958035 words of memory out of 3000000
- 34684 multiletter control sequences out of 15000+200000
+ 32605 strings out of 493488
+ 678491 string characters out of 3141346
+ 970635 words of memory out of 3000000
+ 34709 multiletter control sequences out of 15000+200000
  135739 words of font info for 108 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,22n,92p,1143b,2231s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Hfootnote.23} has been referenced but does not ex
+ 63i,22n,92p,1112b,2231s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{Hfootnote.25} has been referenced but does not ex
 ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.24} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.23} has been referenced but does not exis
+t, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.22} has been referenced but does not exis
 t, replaced by a fixed one
@@ -2460,9 +2300,6 @@ pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist
 
 pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist
 , replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.1} has been referenced but does not 
-exist, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
 , replaced by a fixed one
@@ -2523,10 +2360,10 @@ local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texli
 ve/2012/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2012/te
 xmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/local/texlive/2012/texmf-dist/fo
 nts/type1/urw/zapfding/uzdr.pfb>
-Output written on dottg-select.pdf (53 pages, 1129219 bytes).
+Output written on dottg-select.pdf (54 pages, 1137376 bytes).
 PDF statistics:
- 919 PDF objects out of 1000 (max. 8388607)
- 766 compressed objects within 8 object streams
- 297 named destinations out of 1000 (max. 500000)
- 224 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1072 PDF objects out of 1200 (max. 8388607)
+ 913 compressed objects within 10 object streams
+ 299 named destinations out of 1000 (max. 500000)
+ 416 words of extra memory for PDF output out of 10000 (max. 10000000)
 

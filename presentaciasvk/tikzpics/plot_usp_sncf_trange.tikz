@@ -1,0 +1,32 @@
+\tikzstyle{textstyle}=[font=\fontsize{9}{9}\selectfont]
+\begin{tikzpicture}[textstyle, scale=0.6]
+    \begin{axis}[
+        xlabel={time range (days)},
+        ylabel={USP},
+		legend pos=north west
+        ]
+        
+    \addplot[smooth,mark=*,blue] plot coordinates {
+        (1,4.6)
+        (2,6.6)
+        (3,8.3)
+        (4,9.4)
+        (5,10.4)
+        (6,11.3)
+        (7,11.6)
+    };
+    \addlegendentry{$\tau$}
+
+    \addplot[smooth,color=red,mark=x] plot coordinates {
+		(1,30)
+        (2,40)
+        (3,52)
+        (4,58)
+        (5,68)
+        (6,75)
+        (7,76)
+    };
+    \addlegendentry{max $\tau(x, y)$}
+    
+    \end{axis}
+\end{tikzpicture}

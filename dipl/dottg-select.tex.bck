@@ -9,6 +9,7 @@
 
 \usepackage[english]{babel}
 \usepackage[enc=utf8]{hrlatex}
+\usepackage[T1]{fontenc} %pekne makcene
 
 \usepackage{algorithmic}
 \usepackage{algorithm}
@@ -25,7 +26,6 @@
 \usepackage{enumitem}
 \usepackage{eucal} %for nice letters like \mathcal{A}
 \usepackage{floatflt} %to have tables and text beside
-\usepackage[T1]{fontenc} %pekne makcene
 \usepackage{hyperref} %odkazy
 \usepackage{listings}
 \usepackage{lmodern} %spolu s T1 smooth font!
@@ -343,7 +343,7 @@
     %---------------------------------------------------------------------
     \section{Related work}
     \label{sec:relwrk}
-    \input parts/relatedwrk.tex
+    %\input parts/relatedwrk.tex
     \pagebreak
     
     %---------------------------------------------------------------------
@@ -351,7 +351,7 @@
     %---------------------------------------------------------------------
     \section{Data \& analysis}
     \label{sec:data}
-    %\input parts/data.tex
+    \input parts/data.tex
     \pagebreak
     
     %---------------------------------------------------------------------

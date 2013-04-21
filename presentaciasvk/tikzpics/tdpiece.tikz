@@ -1,0 +1,34 @@
+\tikzstyle{place}=[circle,draw=black,fill=red,inner sep=1.5pt]
+\tikzstyle{textstyle}=[font=\fontsize{7}{8}\selectfont]
+\scalebox{0.7}{
+\begin{tikzpicture}
+    %\draw[very thin, color=gray] (0,0) grid (5,6);
+    
+    \draw[->] (0,0) -- (4, 0) node [right] {$t$};
+    \draw[->] (0,0) -- (0, 5) node [above] {$f_{B, C}(t)$};
+    
+    \node (A) at (1,1.5) [place] {};
+    \node (B) at (1.5,2) [place] {};
+    
+    \node [textstyle] at (0, 1.5) [left] {$30m$};
+    \node [textstyle] at (0, 2) [left] {$40m$};
+    \draw [very thin, dashed] (0, 1.5) -- (4, 1.5);
+    \draw [very thin, dashed] (0, 2) -- (4, 2);
+    
+    \draw [very thin] (0, -0.1) -- (0, 0.1);
+    \draw [very thin] (1, -0.1) -- (1, 0.1);
+    \draw [very thin] (2, -0.1) -- (2, 0.1);
+    \draw [very thin] (3, -0.1) -- (3, 0.1);
+    \node [textstyle] at (0, 0) [below] {$10$:$00$};
+    \node [textstyle] at (1, 0) [below] {$11$:$00$};
+    \node [textstyle] at (2, 0) [below] {$12$:$00$};
+    \node [textstyle] at (3, 0) [below] {$13$:$00$};
+    
+    \path [olive, thick] (0, 4.5) edge (A);
+    \path [olive, thick] (1, 3.5) edge (B);
+    \draw [thin, dotted, red] (A) -- (1.5, 0);
+	\draw [thin, dotted, red] (B) -- (2.1666, 0);
+    
+    \draw [dotted, olive, thick] (1, 3.5) -- (A);
+\end{tikzpicture}
+}

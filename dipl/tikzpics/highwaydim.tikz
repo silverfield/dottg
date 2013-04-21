@@ -23,6 +23,6 @@
     \draw (F) -- (G) node [midway, above] {7};
 
     \draw (C) [red, thick] circle (3.7) node [above=3.7cm] {$B_{C, 12}$};
-    \draw (C) [red, thick] -- (5, 6.7) node [midway, right] {$4r = 12$};
+    \draw (C) [red, thick] -- (5, 6.7) node [midway, right] {$2r = 12$};
 \end{tikzpicture}
 }

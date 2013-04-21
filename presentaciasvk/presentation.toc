@@ -1,0 +1,9 @@
+\beamer@endinputifotherversion {3.22pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Contribution}{8}{0}{2}
+\beamer@subsectionintoc {2}{1}{Underlying shortest paths}{9}{0}{2}
+\beamer@subsectionintoc {2}{2}{USP-OR}{11}{0}{2}
+\beamer@subsectionintoc {2}{3}{USP-OR-A}{17}{0}{2}
+\beamer@subsectionintoc {2}{4}{Performance}{23}{0}{2}
+\beamer@sectionintoc {3}{Conclusion}{27}{0}{3}

@@ -1,0 +1,40 @@
+\tikzstyle{textstyle}=[font=\fontsize{9}{9}\selectfont]
+\begin{tikzpicture}[textstyle, scale=0.5]
+    \begin{axis}[
+        xlabel={$n$},
+        ylabel={$r_{i}$},
+		legend pos=north west
+        ]
+        
+    \addplot[smooth,mark=*,color=blue, solid] plot coordinates {
+		(250,2.15)
+		(500,1.52)
+		(750,1.57)
+		(1000,1.52)
+		(1250,2.83)
+		(1500,2.66)
+		(1750,2.80)
+		(2000,3.40)
+		(2250,4.66)
+		(2500,4.66)
+		(2646,4.90)
+    };
+    \addlegendentry{$deg (r_{1})$}
+
+    \addplot[smooth,mark=*, color=blue!70, dashed] plot coordinates {
+		(250,9.69)
+		(500,7.58)
+		(750,7.50)
+		(1000,7.39)
+		(1250,12.06)
+		(1500,13.65)
+		(1750,15.37)
+		(2000,15.90)
+		(2250,14.18)
+		(2500,13.23)
+		(2646,13.22)
+    };
+    \addlegendentry{$deg (r_{3})$}
+    
+    \end{axis}
+\end{tikzpicture}

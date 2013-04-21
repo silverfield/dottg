@@ -4,9 +4,9 @@ uspora		black!50!red	|	solid
 uspor		green!70!black	x	solid
 
 AN SET ALGS:
-locsep		black!60!brown	|	solid
-locsep max	orange			|	dashed
-deg			blue			*	solid
-deg max		blue			*	dashed
-bc			red				o	solid
-bc max		red				o	dashed
+locsep r1	black!20!brown	|	solid
+locsep r3	orange			|	dashed !30
+deg	r1		blue			*	solid
+deg r3		blue			*	dashed !30
+bc r1		red				o	solid
+bc r3		red				o	dashed !30
