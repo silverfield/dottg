@@ -120,10 +120,10 @@
 	%---------------------------------------------------------------------
 	%   Content
 	%---------------------------------------------------------------------
-    \begin{frame}
-        \frametitle{Content}
-        \tableofcontents
-    \end{frame}
+    %\begin{frame}
+    %    \frametitle{Content}
+    %    \tableofcontents
+    %\end{frame}
 
 	%---------------------------------------------------------------------
 	%   Introduction
@@ -209,7 +209,7 @@
 			\begin{itemize}
 				\item<2> Goals:
 				\begin{itemize}
-	                \item<2> Devise methods to tackle EA/OC problem
+	                \item<2> Devise methods to tackle optimal connection problem
 		            \item<2> Analyse properties of real-world timetables
 	            \end{itemize}			
 			\end{itemize}
@@ -359,7 +359,7 @@
 	                    \only<1>{\inputTikZ{./tikzpics/plot_usp_sncf_trange}}
 	                    \only<2->{\inputTikZ{./tikzpics/plot_uspseg_sncf_trange}}
 	                \end{center}
-	                \caption{\footnotesize Changing of $\tau$ with increased time range in \textit{gb-sncf-200} dataset. \only<2->{\textbf{Segmentation} of the timetable to days.}}
+	                \caption{\footnotesize Changing of $\tau$ with increased time range in \textit{sncf-200} dataset. \only<2->{\textbf{Segmentation} of the timetable to days.}}
 	            \end{figure}
 	        \column{2.4in}
 	        	\uncover<3->{\begin{figure}[h]
@@ -498,7 +498,7 @@
         \begin{frame}
             \frametitle{Performance}
             \begin{itemize}
-            	\item Time-dependent Dijkstra's algorithm with Fibonacci heap priority queue $\mathcal{O}(m + n \log n)$
+            	\item Time-dependent Dijkstra's algorithm with Fibonacci heap priority queue $\mathcal{O}(m + n \log n) \approx \mathcal{O}(n \log n)$ in our timetables
             \end{itemize}
 			\begin{columns}[c]
             \column{2.4in}
@@ -525,7 +525,7 @@
         %---------------------------------------------------------------------        
         
         \begin{frame}
-            \frametitle{Performance}
+            \frametitle{Performance and existing methods}
 			\begin{table}[h!]
 		        \centering
 		        \tiny
@@ -537,59 +537,35 @@
 					 & \textbf{Time range} & (1 day) & (1 week) & (1 day) & (1 week) & (1 day) & (1 week) \\			
 				%data
 					\hline
-					\rowcolor{tablehead} & $\bm{n}$ & 1000 & 700 & 1000 & 700 & 700 & 500 \\ cline{2-8}
-					\cellcolor{tablehead} & \cellcolor{tablehead} \textbf{Speed-up} & 0 & 0 & 0 & 0 & 0 & 0 \\
-					\multirow{-3}{*}{\textit{USP-OR}} \cellcolor{tablehead} & \cellcolor{tablehead} \textbf{Size-up} & 0 & 0 & 0 & 0 & 0 & 0 \\
+					\rowcolor{tablehead} & $\bm{n}$ & 700 & 500 & 1000 & 700 & 700 & 400 \\ \cline{2-8}
+					\cellcolor{tablehead} & \cellcolor{tablehead} \textbf{Speed-up} & 29.0 & 23.8 & \textbf{71.5} & 71.3 & 22.4 & 16.6 \\
+					\multirow{-3}{*}{\textit{USP-OR}} \cellcolor{tablehead} & \cellcolor{tablehead} \textbf{Size-up} & 271.4 & 228.6 & 169.1 & 116.1 & 138.9 & 80.1 \\
 					\hline
 					\rowcolor{tablehead}  & $\bm{n}$ & 2608 & 2646 & 2406 & 2448 & 2550 & 2555 \\ \cline{2-8}
-					\cellcolor{tablehead} & \cellcolor{tablehead} \textbf{Speed-up} & 0 & 6.3 & 0 & 8.8 & 0 & 2.8 \\
-					\multirow{-3}{*}{\textit{USP-OR-A}} \cellcolor{tablehead} & \cellcolor{tablehead} \textbf{Size-up} & 0 & 7.8 & 0 & 10.4 & 0 & 5.2 \\
+					\cellcolor{tablehead} & \cellcolor{tablehead} \textbf{Speed-up} & 5.2 & 6.3 & 8.0 & \textbf{8.8} & 2.8 & 2.8 \\
+					\multirow{-3}{*}{\textit{USP-OR-A}} \cellcolor{tablehead} & \cellcolor{tablehead} \textbf{Size-up} & 5.1 & 7.8 & 7.4 & 10.4 & 4.3 & 5.2 \\
 				\end{tabular}
 			\end{table}
-			\vspace{-0.5cm}
-			\begin{columns}[c]
-            \column{2.4in}
-				\begin{figure}[h]
-					\scriptsize
-	                \begin{center}
-	                    \inputTikZ{./tikzpics/plot_uspors_sncf_size}
-	                \end{center}
-	                \caption{\footnotesize \textit{USP-OR} oracle size, \textit{sncf}}
-	            \end{figure}
-	        \column{2.4in}
-				\begin{figure}[h]
-					\scriptsize
-	                \begin{center}
-	                    \inputTikZ{./tikzpics/plot_usporas_sncf_size}
-	                \end{center}
-	                \caption{\footnotesize \textit{USP-OR-A} oracle size, \textit{sncf}}
-	            \end{figure}
-	        \end{columns}
-        \end{frame}   
-        
-        %---------------------------------------------------------------------
-        %   Existing methods
-        %---------------------------------------------------------------------
-        \begin{frame}
-            \frametitle{Existing methods}
+			\vspace{-0.2cm}
 			\begin{itemize}
-				\item \textbf{Time-dependent SHARC} \cite{sharc08}, \textbf{Time-dependent CH} \cite{timedepch09}
+				\small
+				\item<2-> \textbf{Time-dependent SHARC} \cite{sharc08}, \textbf{Time-dependent CH} \cite{timedepch09}
 				\begin{itemize}
-					\item Speed-ups of about 26 / 1500, respectively (EA only)
+					\item Speed-ups of about 26 / 1500, respectively (earliest arrival only)
 					\item Meant for time-dependent routing in road networks
 				\end{itemize}
-				\item \textbf{Engineering time-expanded graphs...} \cite{engtimeexp09}
+				\item<2-> \textbf{Engineering time-expanded graphs...} \cite{engtimeexp09}
 		        \begin{itemize}
 					\item Max speed-up of 56 (Railways with 30000 stations!)
-					\item Remodelling unimportant stations in TE graphs
+					\item Remodelling unimportant stations in time expanded graphs
 				\end{itemize}
-				\item<2-> Theory vs. practice difference
+				\item<3-> Theory vs. practice difference
 				\begin{itemize}
 					\item More complicated (transfers, cost of travel...)
 					\item Focus on one given dataset
 				\end{itemize}
 			\end{itemize}
-        \end{frame}            
+        \end{frame}         
     
     %---------------------------------------------------------------------
 	%   Conclusion
@@ -617,8 +593,8 @@
 				\end{itemize}
 				\item<2-> Trying out \textbf{novel approaches} to find optimal connections in timetables
 				\begin{itemize}
-					\item \textit{USP-OR}: Exact and very quick answers (speed-up $\approx$ 60) but high space
-					\item \textit{USP-OR-A}: Exact and quick answers (speed-up $\approx$ 6) less space-consuming
+					\item \textit{USP-OR}: Exact and very quick answers (speed-up $\approx$ ) but high space
+					\item \textit{USP-OR-A}: Exact and quick answers (speed-up $\approx$ ) less space-consuming
 					\item \textit{NN}: Problem too challenging for NN/try different types of network
 				\end{itemize}
 			\end{itemize}

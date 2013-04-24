@@ -7,24 +7,20 @@
         ]
         
     \addplot[smooth,mark=*,color=blue, solid] plot coordinates {
-		(100,0.5)
-		(200,1.0)
-		(300,1.5)
-		(400,1.9)
-		(500,2.4)
-		(600,3.0)
-		(700,3.4)
+		(100,0.77)
+		(200,1.6)
+		(300,2.5)
+		(400,3.2)
+		(500,3.8)
     };
     \addlegendentry{\textit{TD graph}}
     
     \addplot[smooth,mark=|,color=black!50!red, solid] plot coordinates {
-		(100,0.5)
-		(200,1.0)
-		(300,1.5)
-		(400,1.9)
-		(500,2.4)
-		(600,3.0)
-		(700,3.4)
+		(100,12)
+		(200,83)
+		(300,300)
+		(400,550)
+		(500,868)
     };
     \addlegendentry{\textit{USP-OR-A}}
     

@@ -1,60 +1,56 @@
 \beamer@endinputifotherversion {3.22pt}
 \headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
 \headcommand {\beamer@framepages {1}{1}}
-\headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
+\headcommand {\sectionentry {1}{Introduction}{2}{Introduction}{0}}
+\headcommand {\beamer@sectionpages {1}{1}}
+\headcommand {\beamer@subsectionpages {1}{1}}
+\headcommand {\slideentry {1}{0}{2}{2/2}{}{0}}
 \headcommand {\beamer@framepages {2}{2}}
-\headcommand {\sectionentry {1}{Introduction}{3}{Introduction}{0}}
-\headcommand {\beamer@sectionpages {1}{2}}
-\headcommand {\beamer@subsectionpages {1}{2}}
-\headcommand {\slideentry {1}{0}{3}{3/3}{}{0}}
-\headcommand {\beamer@framepages {3}{3}}
-\headcommand {\slideentry {1}{0}{4}{4/5}{}{0}}
-\headcommand {\beamer@framepages {4}{5}}
-\headcommand {\slideentry {1}{0}{5}{6/7}{}{0}}
-\headcommand {\beamer@framepages {6}{7}}
-\headcommand {\sectionentry {2}{Contribution}{8}{Contribution}{0}}
-\headcommand {\beamer@sectionpages {3}{7}}
-\headcommand {\beamer@subsectionpages {3}{7}}
-\headcommand {\slideentry {2}{0}{6}{8/8}{}{0}}
-\headcommand {\beamer@framepages {8}{8}}
-\headcommand {\beamer@subsectionentry {0}{2}{1}{9}{Underlying shortest paths}}\headcommand {\beamer@subsectionpages {8}{8}}
-\headcommand {\slideentry {2}{1}{1}{9/10}{Underlying shortest paths}{0}}
-\headcommand {\beamer@framepages {9}{10}}
-\headcommand {\beamer@subsectionentry {0}{2}{2}{11}{USP-OR}}\headcommand {\beamer@subsectionpages {9}{10}}
-\headcommand {\slideentry {2}{2}{1}{11/12}{USP-OR}{0}}
-\headcommand {\beamer@framepages {11}{12}}
-\headcommand {\slideentry {2}{2}{2}{13/16}{USP-OR}{0}}
-\headcommand {\beamer@framepages {13}{16}}
-\headcommand {\beamer@subsectionentry {0}{2}{3}{17}{USP-OR-A}}\headcommand {\beamer@subsectionpages {11}{16}}
-\headcommand {\slideentry {2}{3}{1}{17/17}{USP-OR-A}{0}}
-\headcommand {\beamer@framepages {17}{17}}
-\headcommand {\slideentry {2}{3}{2}{18/21}{USP-OR-A}{0}}
-\headcommand {\beamer@framepages {18}{21}}
-\headcommand {\slideentry {2}{3}{3}{22/22}{USP-OR-A}{0}}
+\headcommand {\slideentry {1}{0}{3}{3/4}{}{0}}
+\headcommand {\beamer@framepages {3}{4}}
+\headcommand {\slideentry {1}{0}{4}{5/6}{}{0}}
+\headcommand {\beamer@framepages {5}{6}}
+\headcommand {\sectionentry {2}{Contribution}{7}{Contribution}{0}}
+\headcommand {\beamer@sectionpages {2}{6}}
+\headcommand {\beamer@subsectionpages {2}{6}}
+\headcommand {\slideentry {2}{0}{5}{7/7}{}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{8}{Underlying shortest paths}}\headcommand {\beamer@subsectionpages {7}{7}}
+\headcommand {\slideentry {2}{1}{1}{8/9}{Underlying shortest paths}{0}}
+\headcommand {\beamer@framepages {8}{9}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{10}{USP-OR}}\headcommand {\beamer@subsectionpages {8}{9}}
+\headcommand {\slideentry {2}{2}{1}{10/11}{USP-OR}{0}}
+\headcommand {\beamer@framepages {10}{11}}
+\headcommand {\slideentry {2}{2}{2}{12/15}{USP-OR}{0}}
+\headcommand {\beamer@framepages {12}{15}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{16}{USP-OR-A}}\headcommand {\beamer@subsectionpages {10}{15}}
+\headcommand {\slideentry {2}{3}{1}{16/16}{USP-OR-A}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\slideentry {2}{3}{2}{17/20}{USP-OR-A}{0}}
+\headcommand {\beamer@framepages {17}{20}}
+\headcommand {\slideentry {2}{3}{3}{21/21}{USP-OR-A}{0}}
+\headcommand {\beamer@framepages {21}{21}}
+\headcommand {\beamer@subsectionentry {0}{2}{4}{22}{Performance}}\headcommand {\beamer@subsectionpages {16}{21}}
+\headcommand {\slideentry {2}{4}{1}{22/22}{Performance}{0}}
 \headcommand {\beamer@framepages {22}{22}}
-\headcommand {\beamer@subsectionentry {0}{2}{4}{23}{Performance}}\headcommand {\beamer@subsectionpages {17}{22}}
-\headcommand {\slideentry {2}{4}{1}{23/23}{Performance}{0}}
-\headcommand {\beamer@framepages {23}{23}}
-\headcommand {\slideentry {2}{4}{2}{24/24}{Performance}{0}}
-\headcommand {\beamer@framepages {24}{24}}
-\headcommand {\slideentry {2}{4}{3}{25/26}{Performance}{0}}
-\headcommand {\beamer@framepages {25}{26}}
-\headcommand {\sectionentry {3}{Conclusion}{27}{Conclusion}{0}}
-\headcommand {\beamer@sectionpages {8}{26}}
-\headcommand {\beamer@subsectionpages {23}{26}}
-\headcommand {\slideentry {3}{0}{4}{27/27}{}{0}}
-\headcommand {\beamer@framepages {27}{27}}
-\headcommand {\slideentry {3}{0}{5}{28/29}{}{0}}
-\headcommand {\beamer@framepages {28}{29}}
-\headcommand {\sectionentry {4}{References}{30}{References}{0}}
-\headcommand {\beamer@sectionpages {27}{29}}
-\headcommand {\beamer@subsectionpages {27}{29}}
+\headcommand {\slideentry {2}{4}{2}{23/25}{Performance}{0}}
+\headcommand {\beamer@framepages {23}{25}}
+\headcommand {\sectionentry {3}{Conclusion}{26}{Conclusion}{0}}
+\headcommand {\beamer@sectionpages {7}{25}}
+\headcommand {\beamer@subsectionpages {22}{25}}
+\headcommand {\slideentry {3}{0}{3}{26/26}{}{0}}
+\headcommand {\beamer@framepages {26}{26}}
+\headcommand {\slideentry {3}{0}{4}{27/28}{}{0}}
+\headcommand {\beamer@framepages {27}{28}}
+\headcommand {\sectionentry {4}{References}{29}{References}{0}}
+\headcommand {\beamer@sectionpages {26}{28}}
+\headcommand {\beamer@subsectionpages {26}{28}}
+\headcommand {\slideentry {4}{0}{5}{29/29}{}{0}}
+\headcommand {\beamer@framepages {29}{29}}
 \headcommand {\slideentry {4}{0}{6}{30/30}{}{0}}
 \headcommand {\beamer@framepages {30}{30}}
-\headcommand {\slideentry {4}{0}{7}{31/31}{}{0}}
-\headcommand {\beamer@framepages {31}{31}}
-\headcommand {\beamer@partpages {1}{31}}
-\headcommand {\beamer@subsectionpages {27}{31}}
-\headcommand {\beamer@sectionpages {27}{31}}
-\headcommand {\beamer@documentpages {31}}
-\headcommand {\def \inserttotalframenumber {19}}
+\headcommand {\beamer@partpages {1}{30}}
+\headcommand {\beamer@subsectionpages {26}{30}}
+\headcommand {\beamer@sectionpages {26}{30}}
+\headcommand {\beamer@documentpages {30}}
+\headcommand {\def \inserttotalframenumber {17}}

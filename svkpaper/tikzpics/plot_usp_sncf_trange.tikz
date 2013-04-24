@@ -1,5 +1,5 @@
 \tikzstyle{textstyle}=[font=\fontsize{9}{9}\selectfont]
-\begin{tikzpicture}[textstyle, scale=0.6]
+\begin{tikzpicture}[textstyle, scale=0.8]
     \begin{axis}[
         xlabel={time range (days)},
         ylabel={USP},

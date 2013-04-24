@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  21 APR 2013 18:41
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  24 APR 2013 11:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1543,8 +1543,7 @@ File: tikzlibraryfadings.code.tex 2009/11/15 v2.10 (rcs-revision 1.2)
 (/usr/local/texlive/2012/texmf-dist/tex/generic/pgf/libraries/pgflibraryfadings
 .code.tex
 File: pgflibraryfadings.code.tex 2008/02/07 v2.10 (rcs-revision 1.3)
-)))
-No file svkpaper.aux.
+))) (./svkpaper.aux)
 \openout1 = `svkpaper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
@@ -1562,6 +1561,7 @@ LaTeX Font Info:    ... okay on input line 93.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
 LaTeX Font Info:    ... okay on input line 93.
 LaTeX Font Info:    Try loading font information for T1+lmr on input line 93.
+
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1579,6 +1579,8 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 93.
 LaTeX Info: Redefining \pageref on input line 93.
 LaTeX Info: Redefining \nameref on input line 93.
+
+(./svkpaper.out) (./svkpaper.out)
 \@outlinefile=\write4
 \openout4 = `svkpaper.out'.
 
@@ -1687,22 +1689,12 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 127.
  (./tikzpics/ug.tikz)
-
-LaTeX Warning: Reference `table:tt' on page  undefined on input line 153.
-
-
-LaTeX Warning: Reference `table:tt' on page  undefined on input line 153.
-
-
 Underfull \hbox (badness 3803) in paragraph at lines 153--153
 []\T1/lmr/m/n/10.95 Figure 1: |[] An un-der-ly-ing graph of the
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Reference `fig:pathfunc' on page  undefined on input line 156.
 
 
 Underfull \hbox (badness 2894) in paragraph at lines 156--157
@@ -1717,6 +1709,10 @@ Overfull \hbox (10.04842pt too wide) in paragraph at lines 27--161
  [] 
  []
 
+[1{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+
+]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 174.
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
@@ -1728,105 +1724,136 @@ m/n/10.95 set of USPs be-tween $\OML/lmm/m/it/10.95 x$ \T1/lmr/m/n/10.95 and $\
 OML/lmm/m/it/10.95 y$
  []
 
-[1{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
-
-]
 
 LaTeX Warning: Citation `tdroute09' on page  undefined on input line 200.
 
 
-LaTeX Warning: Reference `tab:uspor' on page  undefined on input line 200.
+Underfull \hbox (badness 2529) in paragraph at lines 200--201
+\T1/lmr/m/n/10.95 to \T1/lmr/bx/n/10.95 over-take $\OT1/lmr/m/n/10.95 (\OML/lmm
+/m/it/10.95 x; y; p[]; q[]\OT1/lmr/m/n/10.95 )$ \T1/lmr/m/n/10.95 if $\OML/lmm/
+m/it/10.95 p[] > p[]$ \T1/lmr/m/n/10.95 but
+ []
+
+
+Underfull \hbox (badness 1584) in paragraph at lines 200--201
+\T1/lmr/m/n/10.95 re-turns ex-act an-swers, which can be eas-ily
+ []
+
+
+Underfull \hbox (badness 1810) in paragraph at lines 200--201
+\T1/lmr/m/n/10.95 per-cent-age of over-tak-ing el-e-men-tary con-nec-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--201
+
+ []
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 211.
+(Font)              <10> on input line 214.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 211.
+(Font)              <7> on input line 214.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 213.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 216.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 213.
-LaTeX Font Info:    Try loading font information for U+eus on input line 213.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 216.
+LaTeX Font Info:    Try loading font information for U+eus on input line 216.
 (/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/ueus.fd
 File: ueus.fd 2009/06/22 v3.00 Euler Script
 )
-
-LaTeX Warning: Reference `plot:usp-sncf-size' on page  undefined on input line 
-224.
-
-
-LaTeX Warning: Reference `tab:uspor' on page  undefined on input line 224.
-
-(./tikzpics/plot_usp_sncf_size.tikz)
-Underfull \hbox (badness 10000) in paragraph at lines 234--235
-
+Underfull \hbox (badness 1424) in paragraph at lines 227--228
+\T1/lmr/m/n/10.95 wide coach/-train timeta-bles) the OC ra-dius
  []
 
 
-Underfull \hbox (badness 3601) in paragraph at lines 240--241
-[]$\OMS/lmsy/m/n/10.95 8$ \T1/lmr/m/n/10.95 cities $\OML/lmm/m/it/10.95 x \OMS/
-lmsy/m/n/10.95 62 \U/eus/m/n/10.95 A$ \T1/lmr/m/n/10.95 com-pute $\OML/lmm/m/it
-/10.95 neigh[]\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 x\OT1/lmr/m/n/10.95 )$\T1
-/lmr/m/n/10.95 ,
+Underfull \hbox (badness 1189) in paragraph at lines 227--228
+\T1/lmr/m/n/10.95 less than $[]$ and $[] \OML/lmm/m/it/10.95 n$\T1/lmr/m/n/10.9
+5 , re-spec-tively. The
  []
 
 
-LaTeX Warning: Reference `alg:uspora-query' on page  undefined on input line 24
-4.
+Underfull \hbox (badness 4441) in paragraph at lines 227--228
+\T1/lmr/m/n/10.95 hight of the timeta-bles varies with \T1/lmr/bx/n/10.95 time
+ []
 
 
-LaTeX Warning: Reference `fig:uspora' on page  undefined on input line 244.
+Underfull \hbox (badness 10000) in paragraph at lines 227--228
+
+ []
+
+(./tikzpics/plot_usp_gbcoach_size.tikz)
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.245 
-       [2] (./tikzpics/uspora.tikz
+l.259 
+       [2] (./tikzpics/plot_usp_sncf_trange.tikz)
+(./tikzpics/plot_uspseg_sncf_trange.tikz)
+Underfull \hbox (badness 1565) in paragraph at lines 274--275
+[]\T1/lmr/m/n/10.95 To al-le-vi-ate the prob-lem of in-creased $\OML/lmm/m/it/1
+0.95 ^^\$ \T1/lmr/m/n/10.95 in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--275
+
+ []
+
+
+Underfull \hbox (badness 1558) in paragraph at lines 280--281
+\OML/cmm/b/it/10.95 neigh[]\OT1/cmr/bx/n/10.95 (\OML/cmm/b/it/10.95 x\OT1/cmr/b
+x/n/10.95 )$ \T1/lmr/m/n/10.95 as all the cities that could be
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 280--281
+
+ []
+
+
+LaTeX Warning: Citation `tdroute09' on page  undefined on input line 290.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.291 
+       [3] (./tikzpics/uspora.tikz
 Missing character: There is no ) in font nullfont!
 )
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Reference `tab:uspora-guar' on page  undefined on input line 310
-.
-
-
-LaTeX Warning: Reference `tab:uspora-cond' on page  undefined on input line 310
-.
-
-
-Overfull \hbox (8.145pt too wide) in paragraph at lines 315--326
+Overfull \hbox (8.145pt too wide) in paragraph at lines 361--372
  [][] 
  []
 
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <9> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 335.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 381.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.349 
-       [3]
+l.395 
+       [4]
 
-LaTeX Warning: Citation `dottg13' on page  undefined on input line 354.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 354--355
-
- []
+LaTeX Warning: Citation `dottg13' on page  undefined on input line 400.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 363--364
+Underfull \hbox (badness 10000) in paragraph at lines 400--401
 
  []
 
 
-LaTeX Warning: Reference `fig:reduction' on page  undefined on input line 374.
+Underfull \hbox (badness 10000) in paragraph at lines 409--410
+
+ []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 374--375
+Underfull \hbox (badness 10000) in paragraph at lines 420--421
 
  []
 
@@ -1837,53 +1864,53 @@ Missing character: There is no ) in font nullfont!
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 383--384
+Underfull \hbox (badness 10000) in paragraph at lines 429--430
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 385--386
+Underfull \hbox (badness 10000) in paragraph at lines 431--432
 
  []
-
-
-LaTeX Warning: Citation `centrality01' on page  undefined on input line 393.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.398 		O
-         ur algorithm, called \textit{Locsep}, computes the city's potential...
-[4]
-Underfull \hbox (badness 1237) in paragraph at lines 398--399
+l.438 			\item D
+                egree of the node in $ug_{T}$ [5]
+
+LaTeX Warning: Citation `centrality01' on page  undefined on input line 439.
+
+
+Underfull \hbox (badness 1237) in paragraph at lines 444--445
 []\T1/lmr/m/n/10.95 Our al-go-rithm, called \T1/lmr/m/it/10.95 Loc-sep\T1/lmr/m
 /n/10.95 , com-putes the
  []
 
 
-Underfull \hbox (badness 3108) in paragraph at lines 398--399
+Underfull \hbox (badness 3108) in paragraph at lines 444--445
 \T1/lmr/m/n/10.95 city's po-ten-tial in the fol-low-ing way: we
  []
 
 
-Underfull \hbox (badness 3525) in paragraph at lines 398--399
+Underfull \hbox (badness 3525) in paragraph at lines 444--445
 \T1/lmr/m/n/10.95 ex-plore an area $\OML/cmm/b/it/10.95 A[]$ \T1/lmr/m/n/10.95 
 of $[]$ near-est cities
  []
 
 
-Underfull \hbox (badness 1168) in paragraph at lines 398--399
+Underfull \hbox (badness 1168) in paragraph at lines 444--445
 \T1/lmr/m/n/10.95 with no ori-en-ta-tion and no weights. Next
  []
 
 
-Underfull \hbox (badness 1953) in paragraph at lines 398--399
+Underfull \hbox (badness 1953) in paragraph at lines 444--445
 \T1/lmr/m/n/10.95 we get the front and back neigh-bour-hoods
  []
 
 
-Underfull \hbox (badness 1210) in paragraph at lines 398--399
+Underfull \hbox (badness 1210) in paragraph at lines 444--445
 \T1/lmr/m/n/10.95 of $\OML/lmm/m/it/10.95 x$ \T1/lmr/m/n/10.95 within $\OML/lmm
 /m/it/10.95 A[]$ \T1/lmr/m/n/10.95 ($\OML/cmm/b/it/10.95 fn\OT1/cmr/bx/n/10.95 
 (\OML/cmm/b/it/10.95 x\OT1/cmr/bx/n/10.95 ) \OT1/lmr/m/n/10.95 = \OML/lmm/m/it/
@@ -1892,19 +1919,12 @@ msy/m/n/10.95 \ \OML/lmm/m/it/10.95 A[]$\T1/lmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 398--399
+Underfull \hbox (badness 10000) in paragraph at lines 444--445
 
  []
 
 
-LaTeX Warning: Citation `dottg13' on page  undefined on input line 400.
-
-
-LaTeX Warning: Reference `fig:locsep' on page  undefined on input line 400.
-
-
-LaTeX Warning: Reference `plot:locsep-sncf-size' on page  undefined on input li
-ne 400.
+LaTeX Warning: Citation `dottg13' on page  undefined on input line 446.
 
 (./tikzpics/locsep.tikz
 Missing character: There is no ) in font nullfont!
@@ -1917,45 +1937,33 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--417
+Underfull \hbox (badness 10000) in paragraph at lines 463--463
  |[]\T1/lmr/bx/n/14.4 Performance and com-par-
  []
 
 
-LaTeX Warning: Reference `table:tt_mainpr' on page  undefined on input line 419
-.
+LaTeX Warning: Citation `sommerthesis10' on page  undefined on input line 469.
 
 
-LaTeX Warning: Citation `sommerthesis10' on page  undefined on input line 423.
-
-
-LaTeX Warning: Reference `plot:usporall-sncf-size' on page  undefined on input 
-line 427.
-
-
-LaTeX Warning: Reference `plot:usporall-zsr-trange' on page  undefined on input
- line 427.
-
-
-LaTeX Warning: Reference `tab:speedup' on page  undefined on input line 427.
-
-
-Underfull \hbox (badness 1596) in paragraph at lines 427--428
-\T1/lmr/m/n/10.95 mea-sured how the query times evolve with
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 427--428
-
- []
+Overfull \vbox (24.32796pt too high) has occurred while \output is active []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.428 
-       [5]
-Overfull \hbox (11.15234pt too wide) in paragraph at lines 432--446
+l.470 	\end{itemize}
+                     [6]
+Underfull \hbox (badness 1596) in paragraph at lines 473--474
+\T1/lmr/m/n/10.95 mea-sured how the query times evolve with
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--474
+
+ []
+
+
+Overfull \hbox (11.15234pt too wide) in paragraph at lines 478--492
  [][] 
  []
 
@@ -1968,18 +1976,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Reference `plot:usporalls-sncf-size' on page  undefined on input
- line 482.
-
-
-LaTeX Warning: Reference `plot:usporalls-zsr-trange' on page  undefined on inpu
-t line 482.
-
-
-LaTeX Warning: Citation `tdroute09' on page  undefined on input line 482.
-
-
-LaTeX Warning: Reference `tab:size' on page  undefined on input line 482.
+LaTeX Warning: Citation `tdroute09' on page  undefined on input line 528.
 
 (./tikzpics/plot_usporalls_sncf_size.tikz)
 
@@ -1989,148 +1986,146 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: Citation `engtimeexp09' on page  undefined on input line 523.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 523--524
-
- []
-
-
-Underfull \vbox (badness 4266) has occurred while \output is active []
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.524 
-       [6]
-Underfull \hbox (badness 2073) in paragraph at lines 525--526
+l.567 \section{Conclusion}
+                           [7]
+
+LaTeX Warning: Citation `engtimeexp09' on page  undefined on input line 569.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 569--570
+
+ []
+
+
+Underfull \hbox (badness 2073) in paragraph at lines 571--572
 \T1/lmr/m/it/10.95 dependent \T1/lmr/m/n/10.95 model and have de-vel-oped ex-ac
 t
  []
 
 
-Underfull \hbox (badness 3158) in paragraph at lines 525--526
+Underfull \hbox (badness 3158) in paragraph at lines 571--572
 \T1/lmr/m/n/10.95 time for op-ti-mal con-nec-tions in timeta-bles
  []
 
 
-Underfull \hbox (badness 4316) in paragraph at lines 525--526
+Underfull \hbox (badness 4316) in paragraph at lines 571--572
 \T1/lmr/m/n/10.95 com-pared to the time-dependent Di-jk-stra's
  []
 
 
-Underfull \hbox (badness 1688) in paragraph at lines 525--526
+Underfull \hbox (badness 1688) in paragraph at lines 571--572
 \T1/lmr/m/n/10.95 al-go-rithm us-ing Fi-bonacci heaps as pri-or-ity
  []
 
 
-Underfull \hbox (badness 1735) in paragraph at lines 525--526
+Underfull \hbox (badness 1735) in paragraph at lines 571--572
 \T1/lmr/m/n/10.95 for real-world timeta-bles (that usu-ally have
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 525--526
+Underfull \hbox (badness 10000) in paragraph at lines 571--572
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 527--528
+Underfull \hbox (badness 10000) in paragraph at lines 573--574
 
  []
 
 No file svkpaper.bbl.
-
-Package lastpage Warning: Rerun to get the references right on input line 546.
-
 
 AED: lastpage setting LastPage
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.546 \end{document}
-                     [7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 546.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 546.
+l.592 \end{document}
+                     [8]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 592.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 592.
  (./svkpaper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 546.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 546.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 592.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 592.
+Package rerunfilecheck Info: File `svkpaper.out' has not changed.
+(rerunfilecheck)             Checksum: 74126BC070634EA3F167EDE9B15C9966;382.
 
-
-Package rerunfilecheck Warning: File `svkpaper.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `svkpaper.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  74126BC070634EA3F167EDE9B15C9966;382.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 546.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 592.
  ) 
 Here is how much of TeX's memory you used:
- 30554 strings out of 493488
- 648028 string characters out of 3141346
- 879954 words of memory out of 3000000
- 33047 multiletter control sequences out of 15000+200000
+ 30618 strings out of 493488
+ 649190 string characters out of 3141346
+ 885993 words of memory out of 3000000
+ 33090 multiletter control sequences out of 15000+200000
  142779 words of font info for 130 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,19n,92p,836b,2191s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
+ 63i,19n,92p,1046b,2191s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exi
 st, replaced by a fixed one
 
-{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/te
-xlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2012/tex
-mf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2012/texmf-dist/fo
-nts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2012/texmf-dist/fonts/enc/dv
-ips/lm/lm-mathit.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/ams
+pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{algorithm.2} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
+, replaced by a fixed one
+
+{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/te
+xlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2012
+/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2012/texmf-dist/fo
+nts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2012/texmf-dist/fonts/enc/dv
+ips/lm/lm-mathsy.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmbsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/ams
 fonts/cmextra/cmbsy5.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public
 /amsfonts/cmextra/cmbsy9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pub
 lic/amsfonts/cmextra/cmmib6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1
-/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2012/texmf-dist/fonts/t
-ype1/public/amsfonts/cmextra/cmmib9.pfb></usr/local/texlive/2012/texmf-dist/fon
-ts/type1/public/amsfonts/euler/eusb10.pfb></usr/local/texlive/2012/texmf-dist/f
-onts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texlive/2012/texmf-dist
-/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texlive/2012/texmf-dis
-t/fonts/type1/public/lm/lmbsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/t
-ype1/public/lm/lmbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/publi
-c/lm/lmbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx5
-.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx6.pfb></usr/
-local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texli
-ve/2012/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2012/tex
-mf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2012/texmf-dist/f
-onts/type1/public/lm/lmex10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1
-/public/lm/lmmi10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm
-/lmmi6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmi7.pfb>
-</usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local
-/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/20
-12/texmf-dist/fonts/type1/public/lm/lmmib10.pfb></usr/local/texlive/2012/texmf-
-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2012/texmf-dist/fonts/
-type1/public/lm/lmr17.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/publi
-c/lm/lmr5.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr6.pf
-b></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/loca
-l/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/20
-12/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2012/texmf-dis
-t/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
-pe1/public/lm/lmri9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/
-lm/lmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy6.p
-fb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/lo
-cal/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texlive
-/2012/texmf-dist/fonts/type1/public/lm/lmtt9.pfb>
-Output written on svkpaper.pdf (7 pages, 583768 bytes).
+/public/amsfonts/cmextra/cmmib9.pfb></usr/local/texlive/2012/texmf-dist/fonts/t
+ype1/public/amsfonts/euler/eusb10.pfb></usr/local/texlive/2012/texmf-dist/fonts
+/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texlive/2012/texmf-dist/fon
+ts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texlive/2012/texmf-dist/fo
+nts/type1/public/lm/lmbsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1
+/public/lm/lmbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm
+/lmbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx5.pfb
+></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx6.pfb></usr/loca
+l/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2
+012/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2012/texmf-d
+ist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2012/texmf-dist/fonts
+/type1/public/lm/lmex10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pub
+lic/lm/lmmi10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmm
+i6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></us
+r/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/tex
+live/2012/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2012/t
+exmf-dist/fonts/type1/public/lm/lmmib10.pfb></usr/local/texlive/2012/texmf-dist
+/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type
+1/public/lm/lmr17.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm
+/lmr5.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr6.pfb></
+usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/te
+xlive/2012/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2012/t
+exmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2012/texmf-dist/fo
+nts/type1/public/lm/lmri10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/
+public/lm/lmri9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/l
+msy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy5.pfb><
+/usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/
+texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/201
+2/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texlive/2012/texmf-dis
+t/fonts/type1/public/lm/lmtt9.pfb>
+Output written on svkpaper.pdf (8 pages, 590549 bytes).
 PDF statistics:
- 309 PDF objects out of 1000 (max. 8388607)
- 241 compressed objects within 3 object streams
- 62 named destinations out of 1000 (max. 500000)
- 109 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 370 PDF objects out of 1000 (max. 8388607)
+ 300 compressed objects within 3 object streams
+ 69 named destinations out of 1000 (max. 500000)
+ 165 words of extra memory for PDF output out of 10000 (max. 10000000)
 
