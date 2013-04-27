@@ -199,6 +199,13 @@ In this section, we provide most of the definitions and terminology used through
 	\end{itemize}
 	\hspace*{\fill}
 	
+	\begin{figure}[h!]
+	    \begin{center}
+			\inputTikZ{./tikzpics/oracle}
+	    \end{center}
+    	\caption{\label{pic:oracle} Principle of oracle based methods - we preprocess the timetable, creating a structure that helps us speed-up the answers to queries for optimal connection.}
+	\end{figure}
+	
 	\noindent The preprocessing time is probably the least critical resource. A reasonable polynomial should bind its time complexity, depending on the computational power of the user and the scale of the timetable. The size of the preprocessed oracle is much more important - in the optimal case, it should be bound by the space complexity of the timetable itself. Optimality of the query time depends on which problem we are solving. If we query for the whole optimal connection, we have to count with a time complexity at least proportional to the diameter of the underlying graph (as connections could be that long, or even longer). If we require only the EA value as an output, much better speed-ups could be expected. The stretch should be of course as low as possible.
 	
 \subsection{Dijkstra's algorithm} 

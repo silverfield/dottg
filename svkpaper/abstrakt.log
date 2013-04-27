@@ -1,0 +1,22 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdfcsplain 2012.10.28)  25 APR 2013 19:18
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**abstrakt.tex
+(./abstrakt.tex The format: csplain <Sep. 2005>.
+The cs-fonts are preloaded and A4 size implicitly defined.)
+*
+(Please type a command or say `\end')
+*
+(Please type a command or say `\end')
+*\end
+[1{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]</usr/
+local/texlive/2012/texmf-dist/fonts/type1/public/cs/csr10.pfb></usr/local/texli
+ve/2012/texmf-dist/fonts/type1/public/cs/csti10.pfb>
+Output written on abstrakt.pdf (1 page, 14160 bytes).
+PDF statistics:
+ 16 PDF objects out of 1000 (max. 8388607)
+ 10 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -29,7 +29,7 @@
 \newlabel{fig:ug}{{1}{}{An underlying graph of the timetable~\ref {table:tt}.\relax }{figure.caption.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  The $path$ function applied on a connection to get the underlying path.\relax }}{}{figure.caption.3}}
 \newlabel{fig:pathfunc}{{2}{}{The $path$ function applied on a connection to get the underlying path.\relax }{figure.caption.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Approaches}{}{section.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Methods}{}{section.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}\textit  {USP-OR}}{}{subsection.2.1}}
 \citation{tdroute09}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces \textit  {USP-OR} query\relax }}{}{algorithm.1}}
@@ -48,44 +48,62 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}\textit  {USP-OR-A}}{}{subsection.2.2}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces \textit  {USP-OR-A} query\relax }}{}{algorithm.2}}
 \newlabel{alg:uspora-query}{{2}{}{\textit {USP-OR-A} query\relax }{algorithm.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  Principle of \textit  {USP-OR-A} algorithm. The arcs in \textbf  {bold} mark areas that will be explored: all nodes in $neigh_{\EuScript  {A}}(x)$, USPs between LANs of $x$ and back LANs of $y$ and the back neighbourhood of $y$ (possibly only part of it will be explored, since the local back search goes against the direction in which the back neighbourhood was created).\relax }}{}{figure.caption.9}}
-\newlabel{fig:uspora}{{6}{}{Principle of \textit {USP-OR-A} algorithm. The arcs in \textbf {bold} mark areas that will be explored: all nodes in $neigh_{\mathcal {A}}(x)$, USPs between LANs of $x$ and back LANs of $y$ and the back neighbourhood of $y$ (possibly only part of it will be explored, since the local back search goes against the direction in which the back neighbourhood was created).\relax }{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  Principle of \textit  {USP-OR-A} algorithm. The arcs in \textbf  {bold} mark areas that will be explored: all nodes in $neigh_{\EuScript  {A}}(x)$, USPs between LANs of $x$ and back LANs of $y$ and the back neighbourhood of $y$ (possibly only part of it).\relax }}{}{figure.caption.9}}
+\newlabel{fig:uspora}{{6}{}{Principle of \textit {USP-OR-A} algorithm. The arcs in \textbf {bold} mark areas that will be explored: all nodes in $neigh_{\mathcal {A}}(x)$, USPs between LANs of $x$ and back LANs of $y$ and the back neighbourhood of $y$ (possibly only part of it).\relax }{figure.caption.9}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces  Guaranteed parameters of the \textit  {USP-OR-A} algorithm. $\tau _{\EuScript  {A}}$ and $\gamma _{\EuScript  {A}}$ are defined just like $\tau $ and $\gamma $, but on the set of cities from $\EuScript  {A}$.\relax }}{}{table.caption.10}}
 \newlabel{tab:uspora-guar}{{4}{}{Guaranteed parameters of the \textit {USP-OR-A} algorithm. $\tau _{\mathcal {A}}$ and $\gamma _{\mathcal {A}}$ are defined just like $\tau $ and $\gamma $, but on the set of cities from $\mathcal {A}$.\relax }{table.caption.10}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces  Parameters of the \textit  {USP-OR-A} algorithm under certain conditions, generally fulfilled by our timetables.\relax }}{}{table.caption.11}}
-\newlabel{tab:uspora-cond}{{5}{}{Parameters of the \textit {USP-OR-A} algorithm under certain conditions, generally fulfilled by our timetables.\relax }{table.caption.11}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces  Parameters of the \textit  {USP-OR-A} algorithm under certain conditions.\relax }}{}{table.caption.11}}
+\newlabel{tab:uspora-cond}{{5}{}{Parameters of the \textit {USP-OR-A} algorithm under certain conditions.\relax }{table.caption.11}{}}
 \citation{dottg13}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Selecting access nodes}{}{subsection.2.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces  In $m_{i}$, there are actually complete graphs of $\beta _{i}$ vertices (as shown for $m_{1}$). \textbf  {Thick} arcs represent arcs from all the vertices of respective $m_{i}$. The $s_{i}$ vertices are connected to their $s_{i}'$ versions. If e.g. $s_{1}$ is selected as an access node, $s_{1}'$ is no longer part of any neighbourhood.\relax }}{}{figure.caption.12}}
-\newlabel{fig:reduction}{{7}{}{In $m_{i}$, there are actually complete graphs of $\beta _{i}$ vertices (as shown for $m_{1}$). \textbf {Thick} arcs represent arcs from all the vertices of respective $m_{i}$. The $s_{i}$ vertices are connected to their $s_{i}'$ versions. If e.g. $s_{1}$ is selected as an access node, $s_{1}'$ is no longer part of any neighbourhood.\relax }{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces  In $m_{i}$, there are actually complete graphs of $\beta _{i}$ vertices (as shown for $m_{1}$). \textbf  {Thick} arcs represent arcs from all the vertices of respective $m_{i}$. The $s_{i}$ vertices are connected to their $s_{i}'$ versions. If e.g. $s_{1}$ is selected as an access node, $s_{1}'$ is no longer part of any neighbourhood (except for its own).\relax }}{}{figure.caption.12}}
+\newlabel{fig:reduction}{{7}{}{In $m_{i}$, there are actually complete graphs of $\beta _{i}$ vertices (as shown for $m_{1}$). \textbf {Thick} arcs represent arcs from all the vertices of respective $m_{i}$. The $s_{i}$ vertices are connected to their $s_{i}'$ versions. If e.g. $s_{1}$ is selected as an access node, $s_{1}'$ is no longer part of any neighbourhood (except for its own).\relax }{figure.caption.12}{}}
 \citation{centrality01}
-\citation{dottg13}
+\citation{hajnresearch12}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces  The principle of computing potentials in \textit  {Locsep} algorithm. We explored an area of $\sqrt  {n}$ nearest cities (in terms of hops) around $x$. Access nodes (like $z$) and cities behind them are ignored. Little \leavevmode {\color  {purple}squares} are nodes from $fn(x)$ and \leavevmode {\color  {cyan}diamonds} are part of $bn(x)$. From $y$ we run a forward search (the \textbf  {thick} arcs). Nodes from the $fn(x)$ that were not explored in this search can only be reached via $x$ itself. Such nodes contribute to $x$'s potential assuming $y$ has large neighbourhood size.\relax }}{}{figure.caption.13}}
+\newlabel{fig:locsep}{{8}{}{The principle of computing potentials in \textit {Locsep} algorithm. We explored an area of $\sqrt {n}$ nearest cities (in terms of hops) around $x$. Access nodes (like $z$) and cities behind them are ignored. Little \textcolor {purple}{squares} are nodes from $fn(x)$ and \textcolor {cyan}{diamonds} are part of $bn(x)$. From $y$ we run a forward search (the \textbf {thick} arcs). Nodes from the $fn(x)$ that were not explored in this search can only be reached via $x$ itself. Such nodes contribute to $x$'s potential assuming $y$ has large neighbourhood size.\relax }{figure.caption.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces  The parameters of the access node set when choosing access nodes based on degree and \textit  {Locsep} potential in \textit  {sncf} dataset. Value $r_{1} \leq 1$. An ideal situation would be constant or non-increasing functions. \textit  {Locsep} does visibly better then choosing access nodes based on high degrees (or high betweenness centrality values). Dataset \textit  {sncf}.\relax }}{}{figure.caption.14}}
+\newlabel{plot:locsep-sncf-size}{{9}{}{The parameters of the access node set when choosing access nodes based on degree and \textit {Locsep} potential in \textit {sncf} dataset. Value $r_{1} \leq 1$. An ideal situation would be constant or non-increasing functions. \textit {Locsep} does visibly better then choosing access nodes based on high degrees (or high betweenness centrality values). Dataset \textit {sncf}.\relax }{figure.caption.14}{}}
 \citation{sommerthesis10}
+\citation{engineeringroute09}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Performance and comparisons}{}{section.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces  The principle of computing potentials in Locsep algorithm. We explored an area of $\sqrt  {n}$ nearest cities (in terms of hops) around $x$. Little \leavevmode {\color  {purple}squares} are nodes from $neigh(x)$ and \leavevmode {\color  {cyan}diamonds} are part of $bneigh(x)$. The highlighted area represents the back neighbourhood for node $b_{2}$. From its nodes we run a forward search (the \textbf  {thick} arcs). Nodes from the $neigh(x)$ that were not explored in this search can only be reached via $x$ itself and contribute to $x$'s potential.\relax }}{}{figure.caption.13}}
-\newlabel{fig:locsep}{{8}{}{The principle of computing potentials in Locsep algorithm. We explored an area of $\sqrt {n}$ nearest cities (in terms of hops) around $x$. Little \textcolor {purple}{squares} are nodes from $neigh(x)$ and \textcolor {cyan}{diamonds} are part of $bneigh(x)$. The highlighted area represents the back neighbourhood for node $b_{2}$. From its nodes we run a forward search (the \textbf {thick} arcs). Nodes from the $neigh(x)$ that were not explored in this search can only be reached via $x$ itself and contribute to $x$'s potential.\relax }{figure.caption.13}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces  The necessary size of $\EuScript  {A}$ when selecting ANs based on degree, BC or \textit  {Locsep} potential in \textit  {sncf} dataset ($|\EuScript  {A}| = r_{1} \sqrt  {n} \approx r_{1} 51$). Ideal situation would be a constant or non-increasing value, to which \textit  {Locsep} comes closest.\relax }}{}{figure.caption.14}}
-\newlabel{plot:locsep-sncf-size}{{9}{}{The necessary size of $\mathcal {A}$ when selecting ANs based on degree, BC or \textit {Locsep} potential in \textit {sncf} dataset ($|\mathcal {A}| = r_{1} \sqrt {n} \approx r_{1} 51$). Ideal situation would be a constant or non-increasing value, to which \textit {Locsep} comes closest.\relax }{figure.caption.14}{}}
-\citation{tdroute09}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces  Datasets used for testing.\relax }}{}{table.caption.15}}
-\newlabel{table:tt_mainpr}{{6}{}{Datasets used for testing.\relax }{table.caption.15}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces  Query times (in sec., 25000 queries). \textit  {USP-OR-A} + \textit  {Locsep} vs. \textit  {USP-OR} vs. \textit  {TD Dijkstra} on \textit  {sncf} dataset. Changing $n$.\relax }}{}{figure.caption.16}}
-\newlabel{plot:usporall-sncf-size}{{10}{}{Query times (in sec., 25000 queries). \textit {USP-OR-A} + \textit {Locsep} vs. \textit {USP-OR} vs. \textit {TD Dijkstra} on \textit {sncf} dataset. Changing $n$.\relax }{figure.caption.16}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces  Query times (in sec., 25000 queries). \textit  {USP-OR-A} + \textit  {Locsep} vs. \textit  {USP-OR} vs. \textit  {TD Dijkstra} on \textit  {zsr} dataset. Changing time range.\relax }}{}{figure.caption.17}}
-\newlabel{plot:usporall-zsr-trange}{{11}{}{Query times (in sec., 25000 queries). \textit {USP-OR-A} + \textit {Locsep} vs. \textit {USP-OR} vs. \textit {TD Dijkstra} on \textit {zsr} dataset. Changing time range.\relax }{figure.caption.17}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces  Speed-up of \textit  {USP-OR} and \textit  {USP-OR-A} with \textit  {Locsep}.\relax }}{}{table.caption.18}}
-\newlabel{tab:speedup}{{7}{}{Speed-up of \textit {USP-OR} and \textit {USP-OR-A} with \textit {Locsep}.\relax }{table.caption.18}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces  The ratio $\frac  {\text  {size of TD graph}}{\text  {preprocessed size}}$ for \textit  {USP-OR} and \textit  {USP-OR-A} with \textit  {Locsep}.\relax }}{}{table.caption.21}}
-\newlabel{tab:size}{{8}{}{The ratio $\frac {\text {size of TD graph}}{\text {preprocessed size}}$ for \textit {USP-OR} and \textit {USP-OR-A} with \textit {Locsep}.\relax }{table.caption.21}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces  Our biggest datasets used for testing: regional buses from \IeC {\v Z}ilina and Ru\IeC {\v z}omberok in Slovakia (\textit  {cpsk}), country wide coaches (\textit  {gb-coach}) and trains (\textit  {gb-train}) in Great Britain and French railways (\textit  {sncf)}).\relax }}{}{table.caption.15}}
+\newlabel{table:tt_mainpr}{{6}{}{Our biggest datasets used for testing: regional buses from Žilina and Ružomberok in Slovakia (\textit {cpsk}), country wide coaches (\textit {gb-coach}) and trains (\textit {gb-train}) in Great Britain and French railways (\textit {sncf)}).\relax }{table.caption.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces  Query time, Dataset \textit  {sncf}.\relax }}{}{figure.caption.16}}
+\newlabel{plot:usporall-sncf-size}{{10}{}{Query time, Dataset \textit {sncf}.\relax }{figure.caption.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces  Query time, Dataset \textit  {gb-coach}.\relax }}{}{figure.caption.17}}
+\newlabel{plot:usporall-gbcoach-size}{{11}{}{Query time, Dataset \textit {gb-coach}.\relax }{figure.caption.17}{}}
+\citation{engineeringroute09}
 \citation{engtimeexp09}
-\citation{*}
+\citation{timedepch09}
+\citation{sharc08}
+\citation{engtimeexp09}
+\citation{transit06}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces  Size of preprocessed data, Dataset \textit  {sncf}.\relax }}{}{figure.caption.18}}
+\newlabel{plot:usporas-sncf-size}{{12}{}{Size of preprocessed data, Dataset \textit {sncf}.\relax }{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces  Size of preprocessed data, Dataset \textit  {gb-coach}.\relax }}{}{figure.caption.19}}
+\newlabel{plot:usporas-gbcoach-size}{{13}{}{Size of preprocessed data, Dataset \textit {gb-coach}.\relax }{figure.caption.19}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Speed-ups and size-ups of the \textit  {USP-OR} algorithm. Due to memory limitations and high space complexity of \textit  {USP-OR}, we tried out only timetables with up to $700$ stations.\relax }}{}{table.caption.20}}
+\newlabel{tab:uspor-speedup}{{7}{}{Speed-ups and size-ups of the \textit {USP-OR} algorithm. Due to memory limitations and high space complexity of \textit {USP-OR}, we tried out only timetables with up to $700$ stations.\relax }{table.caption.20}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Speed-ups and size-ups of the \textit  {USP-OR-A} algorithm, using \textit  {Locsep} to find access nodes.\relax }}{}{table.caption.21}}
+\newlabel{tab:uspora-speedup}{{8}{}{Speed-ups and size-ups of the \textit {USP-OR-A} algorithm, using \textit {Locsep} to find access nodes.\relax }{table.caption.21}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Related work}{}{section.4}}
 \bibstyle{apalike}
 \bibdata{bibl}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces  Size (in MB) of preprocessed data. \textit  {USP-OR-A} + \textit  {Locsep} vs. \textit  {USP-OR} vs. \textit  {TD Dijkstra} on \textit  {sncf} dataset. Changing $n$.\relax }}{}{figure.caption.19}}
-\newlabel{plot:usporalls-sncf-size}{{12}{}{Size (in MB) of preprocessed data. \textit {USP-OR-A} + \textit {Locsep} vs. \textit {USP-OR} vs. \textit {TD Dijkstra} on \textit {sncf} dataset. Changing $n$.\relax }{figure.caption.19}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces  Size (in MB) of preprocessed data. \textit  {USP-OR-A} + \textit  {Locsep} vs. \textit  {USP-OR} vs. \textit  {TD Dijkstra} on \textit  {zsr} dataset. Changing time range.\relax }}{}{figure.caption.20}}
-\newlabel{plot:usporalls-zsr-trange}{{13}{}{Size (in MB) of preprocessed data. \textit {USP-OR-A} + \textit {Locsep} vs. \textit {USP-OR} vs. \textit {TD Dijkstra} on \textit {zsr} dataset. Changing time range.\relax }{figure.caption.20}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusion}{}{section.4}}
+\bibcite{transit06}{Bast et~al., 2006}
+\bibcite{timedepch09}{Batz et~al., 2009}
+\citation{DBLP:conf/alenex/2009}
+\bibcite{centrality01}{Brandes, 2001}
+\bibcite{sharc08}{Delling, 2008}
+\citation{DBLP:conf/esa/2008}
+\bibcite{engtimeexp09}{Delling et~al., 2009a}
+\bibcite{engineeringroute09}{Delling et~al., 2009b}
+\bibcite{tdroute09}{Delling and Wagner, 2009}
+\bibcite{DBLP:conf/alenex/2009}{Finocchi and Hershberger, 2009}
+\bibcite{dottg13}{Hajnovic, 2013}
+\bibcite{DBLP:conf/esa/2008}{Halperin and Mehlhorn, 2008}
+\bibcite{sommerthesis10}{Sommer, 2010}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{}{section.5}}
 \newlabel{LastPage}{{}{}{}{page.}{}}
 \xdef\lastpage@lastpage{}
 \xdef\lastpage@lastpageHy{}

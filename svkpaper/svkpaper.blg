@@ -3,52 +3,51 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: svkpaper.aux
 The style file: apalike.bst
 Database file #1: bibl.bib
-I was expecting a `,' or a `}'---line 897 of file bibl.bib
+I was expecting a `,' or a `}'---line 449 of file bibl.bib
  :     
  :     ee      =   {http://optlab-server.sce.carleton.ca/POAnimations2007/DijkstrasAlgo.html}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Warning--empty year in transithh
-Warning--empty year in dijkstraexp
-You've used 31 entries,
+Warning--I didn't find a database entry for "hajnresearch12"
+You've used 11 entries,
             1935 wiz_defined-function locations,
-            632 strings with 8650 characters,
-and the built_in function-call counts, 11928 in all, are:
-= -- 1188
-> -- 477
-< -- 34
-+ -- 160
-- -- 153
-* -- 947
-:= -- 2045
-add.period$ -- 93
-call.type$ -- 31
-change.case$ -- 219
-chr.to.int$ -- 30
-cite$ -- 33
-duplicate$ -- 504
-empty$ -- 789
-format.name$ -- 200
-if$ -- 2405
+            534 strings with 5516 characters,
+and the built_in function-call counts, 4171 in all, are:
+= -- 415
+> -- 162
+< -- 12
++ -- 54
+- -- 51
+* -- 325
+:= -- 726
+add.period$ -- 35
+call.type$ -- 11
+change.case$ -- 76
+chr.to.int$ -- 10
+cite$ -- 11
+duplicate$ -- 180
+empty$ -- 286
+format.name$ -- 68
+if$ -- 839
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 20
-newline$ -- 147
-num.names$ -- 103
-pop$ -- 222
+missing$ -- 6
+newline$ -- 55
+num.names$ -- 37
+pop$ -- 78
 preamble$ -- 1
-purify$ -- 230
+purify$ -- 79
 quote$ -- 0
-skip$ -- 400
+skip$ -- 135
 stack$ -- 0
-substring$ -- 707
-swap$ -- 116
-text.length$ -- 16
+substring$ -- 238
+swap$ -- 36
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 182
-warning$ -- 2
-while$ -- 88
+type$ -- 66
+warning$ -- 0
+while$ -- 31
 width$ -- 0
-write$ -- 384
+write$ -- 141
 (There was 1 error message)
