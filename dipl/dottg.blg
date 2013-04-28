@@ -3,52 +3,53 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: dottg.aux
 The style file: is-alpha.bst
 Database file #1: ../bibl.bib
-I was expecting a `,' or a `}'---line 811 of file ../bibl.bib
+I was expecting a `,' or a `}'---line 823 of file ../bibl.bib
  :     
  :     ee      =   {http://optlab-server.sce.carleton.ca/POAnimations2007/DijkstrasAlgo.html}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 16 entries,
+Warning--empty publisher in arcflags06
+You've used 19 entries,
             3036 wiz_defined-function locations,
-            743 strings with 8452 characters,
-and the built_in function-call counts, 8687 in all, are:
-= -- 821
-> -- 348
-< -- 15
-+ -- 121
-- -- 119
-* -- 558
-:= -- 1322
-add.period$ -- 55
-call.type$ -- 16
-change.case$ -- 101
-chr.to.int$ -- 16
-cite$ -- 16
-duplicate$ -- 402
-empty$ -- 789
-format.name$ -- 139
-if$ -- 1937
+            766 strings with 9210 characters,
+and the built_in function-call counts, 10689 in all, are:
+= -- 1010
+> -- 428
+< -- 19
++ -- 148
+- -- 146
+* -- 685
+:= -- 1616
+add.period$ -- 67
+call.type$ -- 19
+change.case$ -- 121
+chr.to.int$ -- 19
+cite$ -- 20
+duplicate$ -- 503
+empty$ -- 972
+format.name$ -- 170
+if$ -- 2401
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 12
-newline$ -- 95
-num.names$ -- 56
-pop$ -- 197
+missing$ -- 15
+newline$ -- 111
+num.names$ -- 69
+pop$ -- 239
 preamble$ -- 1
-purify$ -- 119
+purify$ -- 142
 quote$ -- 0
-skip$ -- 315
+skip$ -- 396
 stack$ -- 0
-substring$ -- 538
-swap$ -- 115
-text.length$ -- 15
-text.prefix$ -- 4
+substring$ -- 661
+swap$ -- 153
+text.length$ -- 19
+text.prefix$ -- 5
 top$ -- 0
-type$ -- 124
-warning$ -- 0
-while$ -- 77
-width$ -- 19
-write$ -- 224
+type$ -- 148
+warning$ -- 1
+while$ -- 95
+width$ -- 22
+write$ -- 267
 (There was 1 error message)

@@ -1,16 +1,16 @@
-1In section~\ref{sec:prel} we have defined a timetable as a set of elementary connections. While do not pose any other restrictions on this set or on the elementary connections themselves, the real world timetables usually have a specific nature. Quite often are the connections repetitive, that is, the same sequence of elementary connections is repeated in several different moments throughout the day.
+In section~\ref{sec:prel} we have defined a timetable as a set of elementary connections. While do not pose any other restrictions on this set or on the elementary connections themselves, the real world timetables usually have a specific nature. Quite often are the connections repetitive, that is, the same sequence of elementary connections is repeated in several different moments throughout the day.
 
 Another thing we may notice is that if we talk about \textit{optimal} connections between a pair of distant cities $u$ and $v$, we are often left with a few possibilities as to \textit{which way should we go}. This is not only because the underlying graph is usually quite sparse~\footnote{Maybe with exception of the airline timetables, which tend to be more dense.}, but also because for longer distances we generally need to make use of some express connection that stops only in (small number of) bigger cities.
 
-Thus the main idea which will repeat often throughout this section: \textit{when carrying out an optimal connection between a pair of cities, one often goes along the same path regardless of the starting time}. \\
+Thus the main idea common to the methods presented in this section: \textit{when carrying out an optimal connection between a pair of cities, one often goes along the same path regardless of the starting time}~\footnote{Or similarly, there are only few paths that are worth to follow.}. \\
 
-\noindent To formalize this idea, we will introduce the definition of an \textit{underlying shortest path} - a path in UG that corresponds to some optimal connection in the timetable. To do this, we will first define a function $path$ that extracts the \textbf{underlying path} (trajectory in the UG) from a given connection. Let $c$ be a connection $c = (e_{1}, e_{2}, ..., e_{k})$.
+\noindent To formalize this idea, we will introduce the definition of an \textit{underlying shortest path} - a path in the underlying graph that corresponds to some optimal connection in the timetable. To do this, we will first define a function $path$ that extracts the \textbf{underlying path} (trajectory in the UG) from a given connection. Let $c$ be a connection $c = (e_{1}, e_{2}, ..., e_{k})$.
 
 \begin{equation*}
 	\bm{path(c)} = shrink(from(e_{1}), from(e_{2}), ..., from(e_{k}), to(e_{k}))
 \end{equation*}
 
-\noindent Note, that if the connection involves waiting in a city (as e.g. in figure~\ref{fig:pathfunc}), $e_{x}^{i} = e_{x}^{i + 1}$ for some $i$. That is why we apply the $shrink$ function, which replaces any sub-sequences of the type $(z, z, ..., z)$ by $(z)$ in a sequence. This was rather technical way of expressing a simple intuition - for a given connection, the $path$ function simply outputs a sequence of visited cities. Now we can formalize the underlying shortest path.
+\noindent Note, that if the connection involves waiting in a city (as e.g. in figure~\ref{fig:pathfunc}), $e_{x}^{i} = e_{x}^{i + 1}$ for some $i$. That is why we apply the $shrink$ function, which replaces any sub-sequences of the type $(z, z, ..., z)$ by $(z)$ in a sequence. This is rather technical way of expressing a simple intuition - for a given connection, the $path$ function outputs a sequence of visited cities. Now we can formalize the notion of underlying shortest path.
 
 \begin{definition}
     \textbf{Underlying shortest path (USP)} \\
@@ -24,16 +24,16 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 	\caption{\label{fig:pathfunc} The $path$ function applied on a connection to get the underlying path.}
 \end{figure}
 
-\noindent Please note that the terminology might be a bit misleading - an USP is not necessarily a shortest path in the given UG. Connections on a shortest path may simple require too much waiting (the el. connections simply do not follow well enough one another) and thus it might be that travelling along the paths with greater distance proof to be faster options.
+\noindent Please note that the terminology might be a bit misleading - an USP is not necessarily a shortest path in the given UG. For example, the connections on a shortest path may require too much waiting and thus it might be that travelling along the paths with greater distance proofs to be faster.
 	    
 \subsection{\textit{USP-OR}}
 
-	We can easily extract the underlying path from a given connection. Now let us look at this from the other way - if, for a given EA query, we know the underlying shortest path, can we reconstruct the optimal connection? One thing we could do is to blindly follow the USP and at each stop take the first elementary connection to the next stop on the USP. This simple algorithm called \textit{Expand} is described in algorithm~\ref{alg:expand}. 
+	We can easily extract the underlying path from a given connection. Now let us look at this from the other way - if, for a given EA query, we know the underlying shortest path, can we reconstruct the optimal connection? One thing we could do is to blindly follow the USP and in each city take the first elementary connection to the next one on the USP. This simple method called \textit{expand} is described in algorithm~\ref{alg:expand}. 
 	
 	\color{algcolor}
 	\begin{algorithm}[H]
 		\color{inalgcolor}
-		\caption{Expand}
+		\caption{expand}
 		\label{alg:expand}
 		\textbf{Input} 
 		\begin{itemize}
@@ -58,7 +58,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 	\end{algorithm}
 	\color{black}	
 	
-	\noindent Will we get an optimal connection if we expanded all possible USPs between a pair of cities? We show that we will, provided the timetable has no \textit{overtaking}~\cite{timetablemodelsalgs07}~\cite{tdroute09} of elementary connections.
+	\noindent A question is - will we get an optimal connection if we expanded all possible USPs between a pair of cities? We show that we will, provided the timetable has no \textit{overtaking}~\cite{tdroute09} of elementary connections.
 	
 	\begin{definition}
         \textbf{Overtaking} \\
@@ -74,17 +74,17 @@ Thus the main idea which will repeat often throughout this section: \textit{when
     
     \begin{lemma}
     	\label{lemma:expandusp}
-    	Let $T$ be a timetable without overtaking, $(x, t, y)$ an EA query in this timetable and $\mathcal{P} = \{p_{1}, p_{2}, ..., p_{k}\}$ a set of all USPs from $x$ to $y$. Define $c_{i} = Expand(T, p_{i}, t)$ to be the connection returned by the algorithm Expand~\ref{alg:expand}. Then $\exists j:\; c_{j} = c_{x, t, y}^{*}$.
+    	Let $T$ be a timetable without overtaking, $(x, t, y)$ an EA query in this timetable and $\bm{usps(x, y)} = \{p_{1}, p_{2}, ..., p_{k}\}$ a set of all USPs from $x$ to $y$. Define $c_{i} = $\textit{expand}$(T, p_{i}, t)$ to be the connection returned by the algorithm \textit{expand}~\ref{alg:expand}. Then $\exists j:\; c_{j} = c_{x, t, y}^{*}$.
     \end{lemma}
     \begin{proof}
-    	The optimal connection $c_{x, t, y}^{*}$ has an USP $p$ which must be present in the set $\mathcal{P}$, as it is the set of all USPs from $x$ to $y$. So $p = p_{j} = (v_{1}, v_{2},..., v_{l})$ from some $j$. We want to show that $c_{j}$ is the optimal connection. This may be shown inductively:
+    	The optimal connection $c_{x, t, y}^{*}$ has an USP $p$ which must be present in the set $usps(x, y)$, as it is the set of all USPs from $x$ to $y$. So $p = p_{j} = (v_{1}, v_{2},..., v_{l})$ from some $j$. We want to show that $c_{j}$ is the optimal connection. This may be shown inductively:
     	\begin{enumerate}
-    		\item \textit{Base:} Expand reaches city $v_{1} = x$ as soon as possible (since the connection just starts there)
-    		\item \textit{Induction:} Expand reached city $v_{i}$ as soon as possible, it then takes the first available el. connection to the next city $v_{i + 1}$. Since the el. connections do not overtake, Expand reached the city $v_{i + 1}$ as soon as possible.
+    		\item \textit{Base:} \textit{expand} reaches city $v_{1} = x$ as soon as possible (since the connection just starts there)
+    		\item \textit{Induction:} \textit{expand} reached city $v_{i}$ as soon as possible, it then takes the first available el. connection to the next city $v_{i + 1}$. Since the el. connections do not overtake, \textit{expand} reached the city $v_{i + 1}$ as soon as possible.
     	\end{enumerate}
     \end{proof}
     
-    \noindent We would like to stress that overtaking is understood as a situation when one carrier overtakes another between \textit{two subsequent stations}. This situation is not that common, however it is still present in the real world timetables~\footnote{In Slovak rails, no overtaking has been detected. This is not surprising as (to my knowledge) there are no inter-station tracks with multiple rails going in one direction. French railways, on the other hand have designated high-speed tracks and thus overtaking is not impossible.}, as shown in table~\ref{tab:overtake}. All the same, we can simply remove the overtaken el. connections from the timetables, as they can be substituted by the quicker connection plus some waiting. \\
+    \noindent We would like to stress that overtaking is understood as a situation when e.g. one train overtakes another between \textit{two subsequent stations}. This situation is not that common, however it is still present in the real world timetables~\footnote{In Slovak rails, no overtaking has been detected. This is not surprising as (to my knowledge) there are no inter-station tracks with multiple rails going in one direction. French railways, on the other hand have designated high-speed tracks and thus overtaking is not impossible.}, as shown in table~\ref{tab:overtake}. All the same, we can simply remove the overtaken elementary connections from the timetables, as they can be substituted by the quicker connection plus some waiting, thus we will not change the earliest arrival time for any query. \\
     
     \begin{table}[h!]
     	\centering
@@ -107,7 +107,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 		\caption{\label{tab:overtake} Presence of overtaking in the timetables.}
 	\end{table}
 	
-	\noindent The basic idea of the algorithm \textit{USP-OR} (a short-cut for USP oracle) is therefore simply to pre-compute all the USPs for each pair of cities. Upon a query, the algorithm simply expands all the USPs for a given pair of cities, reconstructs respective connections and chooses the best one. \\
+	\noindent The basic idea of the algorithm \textit{USP-OR} (\textbf{USP} \textbf{or}acle) is therefore simply to pre-compute all the USPs for each pair of cities. Upon a query, the algorithm expands all the USPs for a given pair of cities, reconstructs respective connections and chooses the best one. \\
 	
 	\color{algcolor}
 	\begin{algorithm}[H]
@@ -117,17 +117,17 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 		\textbf{Input} 
 		\begin{itemize}
 			\item timetable $T$
-			\item OC query $(x, t, y)$
+			\item query $(x, t, y)$
 		\end{itemize}
 		\textbf{Pre-computed} 
 		\begin{itemize}
-			\item $\forall x, y:$ set of USPs between $x$ and $y$ ($usps(x, y)$)
+			\item $\forall x, y: \; usps(x, y)$
 		\end{itemize}
 		\textbf{Algorithm}
 		\begin{algorithmic}
 			\STATE $c^{*} = null$
-			\FORALL{$p \in usps_{x, y}$}
-				\STATE $c =$ \textit{Expand}$(T, p, t)$
+			\FORALL{$p \in usps(x, y)$}
+				\STATE $c =$ \textit{expand}$(T, p, t)$
 				\STATE $c^{*} =$ better out of $c^{*}$ and $c$
 			\ENDFOR
 		\end{algorithmic}
@@ -140,58 +140,75 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 	
 	\subsubsection{Analysis of \textit{USP-OR}}	
 	
-		\noindent We will now have a look at the four parameters of this oracle based method. As for the preprocessing time, we need to find optimal connections from each \textit{event} in the timetable to each \textit{city} (or in other words - solve all possible OC queries). On these connections we apply the $path$ function to obtain the USPs. The maximum number of events in one city is the height $h$ and there is $n$ cities, thus $hn$ is the upper bound on the number of events. One search from a single event to all cities can be done in time $\mathcal{O}(n \log n + m)$ with a TD Dijkstra's algorithm run on the time-dependent graph of our timetable ($TD_{T}$). In worst case, $m$ could be as much as $n^{2}$ but we may bound it as $m \leq \delta_{T} n$ (where $\delta_{T}$ is the sparsity of the timetable, defined in section \ref{sec:data}). We therefore get the \textbf{preprocessing time} $\bm{\mathcal{O}(hn^{2} (\log n + \delta))}$. 
+		\noindent We will now have a look at the four parameters of this oracle based method. As for the preprocessing time, we need to find the optimal connections from each \textit{event} in the timetable to each \textit{city} (or in other words - solve all possible OC queries). On these connections we apply the $path$ function to obtain the USPs. There is $hn$ events and one search from a single event to all cities can be done in time $\mathcal{O}(n \log n + m)$ with TD Dijkstra (in this section we use exclusively the time-dependent graphs). In worst case, $m$ could be as much as $n^{2}$ but we may bound it as $m \leq \delta_{T} n$ (where $\delta_{T}$ is the density of the timetable, defined in section \ref{sec:data}). We therefore get the \textbf{preprocessing time} $\bm{\mathcal{O}(hn^{2} (\log n + \delta))}$. 
 		
-		As for the preprocessed space, we need to store USPs for each pair of the cities ($n^{2}$ pairs) and each USP might be long at most $\mathcal{O}(n)$ hops. What is more, there might be many USPs for a single pair of cities. Therefore we have two questions with respect to the space complexity of the preprocessing:
+		As for the preprocessed space, we need to store USPs for each pair of the cities ($n^{2}$ pairs) and each USP might be long at most $\mathcal{O}(n)$ hops. What is more, there might be multiple USPs for a single pair of cities. Therefore we have two questions with respect to the space complexity of the preprocessing:
 		\begin{enumerate}
 			\item What is the average size of the USPs?
-			\item How many are there USPs between a single pair of cities?
+			\item How many are there USPs between pairs of cities on average?
 		\end{enumerate}
 		\hspace*{\fill}
 		
-		\noindent The answer for the first question is that the average USP size is equal to the OC radius of the timetable ($\gamma_{T}$) defined in section~\ref{sec:data}, which generally varies around $\sqrt{n}$ (see table~\ref{tab:tt_ocradius}). 
+		\noindent As for the first question, we will call the average size of USPs in a timetable $T$ the \textbf{USP diameter} and denote it $\bm{\omega_{T}}$. This value is generally higher then the OC diameter~\footnote{If, for example, we have 8 optimal connections with size 1 and 1 optimal connection with size 10, the OC diameter will be 2 but the average USP size will be 5.5.}, but can still be very well approximated by $\sqrt{n}$ (see table~\ref{tab:usp200} and plot~\ref{plot:uspdiam-cpsk}).
 		
-		\noindent To answer the second question, we will introduce the following definition:
+		To answer the second question, we will introduce the following definition:
 		
 		\begin{definition}
 	        \textbf{USP coefficient} \\
-			Given a timetable $T$ and a pair of cities $x$, $y$, the USP coefficient $\bm{\tau_{T}(x, y)} = |usps_{T}(x, y)|$, where $\bm{usps_{T}(x, y)}$ is the set of USPs between $x$ and $y$. By $\bm{\tau_{T}}$ we will denote the average USP coefficient in timetable $T$.
+			Given a timetable $T$ and a pair of cities $x$, $y$, we define the USP coefficient $\bm{\tau_{T}(x, y)} = |usps_{T}(x, y)|$. By $\bm{\tau_{T}}$ we will denote the average USP coefficient in timetable $T$.
 	    \end{definition}
 	    
-	    \noindent From the table~\ref{tab:usp200} we can see, that there are not many USPs on average, meaning that $\tau$ is usually some small number. Also, we see that it slightly increases with increasing time range (plot~\ref{plot:usp-air-timerange}), but not with increasing $n$, the size of the timetable (plot~\ref{plot:usp-sncf-size}). Thus we can consider $\tau$ to be bound by a small constant when it comes to daily timetables. 
+	    \noindent From the table~\ref{tab:usp200} we may see that $\tau$ is quite small ($\approx 10$). Important thing however is whether or not it is constant with respect to:
+		\begin{itemize}
+			\item $n$ - we found $\tau$ to be constant (or only very slightly increasing) in this case (see plot~\ref{plot:usp-gbcoach-size})
+			\item time range - again the value of $\tau$ was almost constant, or slightly increasing (plot~\ref{plot:usp-sncf-trange})
+		\end{itemize}
+		\hspace{\fill}
+	    
+	    
+	    
+	    
+	    we can see, that there are not many USPs on average, meaning that $\tau$ is usually some small number. Also, we see that it slightly increases with increasing time range (plot~\ref{plot:usp-air-timerange}), but not with increasing $n$, the size of the timetable (plot~\ref{plot:usp-sncf-size}). Thus we can consider $\tau$ to be bound by a small constant when it comes to daily timetables. 
 	    
 	    From the answers to our two questions we see that the \textbf{size of the preprocessed oracle} is $\bm{\mathcal{O}(\tau n^{2} \gamma)}$.
+	
+		\begin{table}[H]
+			\centering 
+			\begin{tabular}{c|c|c|c}
+			%legend
+				\rowcolor{tablehead}
+				\textbf{Name} & \textbf{$\bm{\tau}$} & \textbf{max $\bm{\tau(x, y)}$} & $\bm{\omega}$ \\
+			%data
+				\hline
+				\textit{air01-200d} & 7.5 & 35 & 3.8 \\
+				\textit{cpsk-200d} & 12.1 & 67 & 19.3 \\
+				\textit{gb-coach-200d} & 5.3 & 48 & 7.3 \\
+				\textit{gb-train-200d} & 10.3 & 72 & 10.7 \\
+				\textit{montr-200d} & 5.1 & 34 & 28.6 \\
+				\textit{sncf-200d} & 5.6 & 25 & 10.7 \\
+				\textit{sncf-ter-200d} & 5.6 & 22 & 15.5 \\
+				\textit{sncf-inter-200d} & 2.6 & 17 & 15.6 \\
+				\textit{zsr-200d} & 3.7 & 22 & 17.0 \\
+			\end{tabular}
+			\captionof{table}{Average and maximal USP coefficients for daily timetables with 200 stations ($\sqrt{200} \approx 14$).}
+			\label{tab:usp200}
+		\end{table}	
 	
 		\begin{figure}[H]
 		\centering
 		\makebox[0pt][c]{
 	    \begin{minipage}{0.45\textwidth} 
-	    	\centering 
-			\begin{tabular}{c|c|c}
-			%legend
-				\rowcolor{tablehead}
-				\textbf{Name} & \textbf{$\tau$} & \textbf{max $\tau(x, y)$} \\
-			%data
-				\hline
-				\textit{air01-d} &  \\
-				\textit{cpsk-d} &  \\
-				\textit{gb-coach-d} &  \\
-				\textit{gb-train-d} &  \\
-				\textit{montr-d} &  \\
-				\textit{sncf-d} &  \\
-				\textit{sncf-ter-d} &  \\
-				\textit{sncf-inter-d} &  \\
-				\textit{zsr-d} &  \\
-			\end{tabular}
-			\captionof{table}{Average and maximal USP coefficients for daily timetables.}
-			\label{tab:usp200}
+	    	\centering
+		    \inputTikZ{./tikzpics/plot_uspdiam_cpsk}
+		    \captionof{figure}{Changing of $\omega$ with increased number of stations in \textit{cpsk} dataset.}
+		    \label{plot:uspdiam-cpsk}
 		\end{minipage}
 		\hspace{1cm}
 		\begin{minipage}{0.45\textwidth}
 			\centering
-		    \inputTikZ{./tikzpics/plot_tau_sncf_size}
-		    \captionof{figure}{Changing of $\tau$ with increased number of stations in \textit{sncf} dataset.}
-		    \label{plot:usp-sncf-size} 
+		    \inputTikZ{./tikzpics/plot_tau_size}
+		    \captionof{figure}{Changing of $\tau$ with increased number of stations.}
+		    \label{plot:tau-size}
 		\end{minipage}
 	    }
 		\end{figure}
@@ -201,42 +218,23 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 		\makebox[0pt][c]{
 	    \begin{minipage}{0.45\textwidth}  
 		    \centering
-		    \inputTikZ{./tikzpics/plot_tau_cpsk_size}
-		    \captionof{figure}{Changing of $\tau$ with increased number of stations in \textit{cpsk} dataset.}
-		    \label{plot:usp-cpsk-size}
+		    \inputTikZ{./tikzpics/plot_tau_trange}
+		    \captionof{figure}{Changing of $\tau$ with increased time range.}
+		    \label{plot:tau-trange}   
 	    \end{minipage}
 		\hspace{1cm}
 	    \begin{minipage}{0.45\textwidth} 
 	    	\centering
-		    \inputTikZ{./tikzpics/plot_tau_gbcoach_size}
-		    \captionof{figure}{Changing of $\tau$ with increased number of stations in \textit{gb-coach} dataset.}
-		    \label{plot:usp-gbcoach-size}   
-	    \end{minipage}
-	    }
-		\end{figure}	
-	
-	    \begin{figure}[H]
-		\centering
-		\makebox[0pt][c]{
-	    \begin{minipage}{0.45\textwidth}  
-		    \centering
-		    \inputTikZ{./tikzpics/plot_tau_air01_timerange}
-		    \captionof{figure}{Changing of $\tau$ with increased time range in \textit{air01} dataset. 1 day = about 800 in height.}
-		    \label{plot:usp-air-timerange}  
-	    \end{minipage}
-		\hspace{1cm}
-	    \begin{minipage}{0.45\textwidth} 
-	    	\centering
-		    \inputTikZ{./tikzpics/plot_tau_zsr_timerange}
-		    \captionof{figure}{Changing of $\tau$ with increased time range in \textit{zsr} dataset. 1 day = about  in height.}
-		    \label{plot:usp-zsr-timerange}   
+		    \inputTikZ{./tikzpics/plot_tauseg_trange}
+		    \captionof{figure}{Changing of $\tau$ with increased time range.}
+		    \label{plot:tau-trange}   
 	    \end{minipage}
 	    }
 		\end{figure}
 		
-		The query time also depends on the USP coefficient of a given pair of cities $x$, $y$, as we have to try out all USPs in $usps(x, y)$. The expansion of a USP by \textit{Expand} function takes time linear in the size of the USP~\footnote{In time-dependent graphs, this requires a constant-time retrieval of the correct interpolation point of the cost function (the piece-wise linear function that tells us the traversal time of an arc at a given time) for some time $t$. More specifically, we need to obtain an interpolation point $argmin_{(t', l)} \{t'| \; t' > t\}$. If we assume uniform distribution of departures throughout the time range of the timetable, this can be implemented in constant time. Otherwise, binary search lookup is possible in time $\mathcal{O}(\log h)$.}, leading to \textbf{query time} $\bm{\mathcal{O}(\tau \gamma)}$ on average. Note, that this is pretty much optimal, as $\tau$ is basically constant and we need to output the connection itself, which takes linear time in its size.
+		\noindent Also the query time depends on the USP coefficient of a given pair of cities $x$, $y$, as we have to try out all USPs in $usps(x, y)$. The expansion of a USP by \textit{expand} function takes time linear in the size of the USP~\footnote{In time-dependent graphs, this requires a constant-time retrieval of the correct interpolation point of the cost function (the piece-wise linear function that tells us the traversal time of an arc at a given time) for some time $t$. More specifically, we need to obtain an interpolation point $argmin_{(t', l)} \{t'| \; t' > t\}$. If we assume uniform distribution of departures throughout the time range of the timetable, this can be implemented in constant time. Otherwise, binary search lookup is possible in time $\mathcal{O}(\log h)$.}, leading to \textbf{query time} $\bm{\mathcal{O}(\tau \gamma)}$ on average. Note, that this is pretty much optimal, as $\tau$ is basically constant and we need to output the connection itself, which takes linear time in its size.
 			
-		Finally, the \textbf{stretch} of \textit{USP-OR} is \textbf{1}, as it returns exact answers. 
+		Finally, the \textbf{stretch} of \textit{USP-OR} is \textbf{1}, since it returns exact answers. 
 		
 		\begin{table}[h!]
 			\centering
@@ -248,21 +246,21 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 				\cellcolor{oracle-clr} \textbf{guaranteed} & $\mathcal{O}(hn^{2} (\log n + \delta))$ & $\mathcal{O}(\tau n^{2} \gamma)$ & avg. $\mathcal{O}(\tau \gamma)$ & $1$ \\
 				\cellcolor{oracle-clr} \textbf{$\bm{\tau}$ const., $\bm{\gamma \leq \sqrt{n}}$, $\bm{\delta \leq \log n}$} & $\mathcal{O}(hn^{2} \log n)$ & $\mathcal{O}(n^{2.5})$ & avg. $\mathcal{O}(\sqrt{n})$ & $1$ \\
 			\end{tabular}
-			\caption{\label{tab:uspor} The summary of the \textit{USP-OR} algorithm parameters. The second row corresponds e.g. to the \textit{sncf} dataset.}
+			\caption{\label{tab:uspor} The summary of the \textit{USP-OR} algorithm parameters. The second row corresponds e.g. to the \textit{sncf} dataset TODO.}
 		\end{table}	
 	
 \subsection{\textit{USP-OR-A}}
 	    
-	With \textit{USP-OR} the main disadvantage is its space consumption. We may decrease this space complexity by pre-computing USPs only among \textit{some} cities. The nodes that we select for this purpose will be called \textbf{access nodes} (AN for short), as for each city they would be the crucial nodes we need to pass in order to access most of the cities of $T$. It would be suitable for this access node set to have several desirable properties. In order to formulate them, we need to define a few terms first.
+	With \textit{USP-OR} the main disadvantage is its space consumption. We may decrease this space complexity by pre-computing USPs only between \textit{some} cities. The nodes that we select for this purpose will be called \textbf{access nodes} (AN for short), as for each city they would be the crucial nodes we need to pass in order to access most of the cities of $T$. It would be suitable for this access node set to have several desirable properties. In order to formulate them, we need to define a few terms first.
 	
 	\begin{definition}
         \textbf{Front neighbourhood} \\
-		Given a timetable $T$ and access node set $\mathcal{A}$, a front neighbourhood of city $x$ are all cities (including $x$) that are reachable from $x$ \textit{not} via $\mathcal{A}$. Formally $\bm{neigh_{\mathcal{A}}(x)} = \{y| \; \exists$ path $p = (p_{1}, p_{2}, ..., p_{k})$ from $x$ to $y$ in $ug_{T}: p_{i} \neq a \; \forall a \in \mathcal{A}, \; i \in \{2, ..., k - 1\} \}$~\footnote{We leave out subscript identifying the timetable $T$. In situation with clear context, we may also leave out the $\mathcal{A}$ subscript.}
+		Given a timetable $T$ and access node set $\mathcal{A}$, a front neighbourhood of city $x$ is the set of all cities (including $x$) that are reachable from $x$ without the need to pass a city from $\mathcal{A}$. Formally $\bm{neigh_{\mathcal{A}}(x)} = \{y \in ct_{T}| \; \exists$ path $p = (p_{1}, p_{2}, ..., p_{k})$ from $x$ to $y$ in $ug_{T}: p_{i} \neq a \; \forall a \in \mathcal{A}, \; i \in \{2, ..., k - 1\} \}$~\footnote{In $neigh_{\mathcal{A}}(x)$ we leave out subscript identifying the timetable $T$. In situation with clear context, we may also leave out the $\mathcal{A}$ subscript.}
     \end{definition}
     
-    \noindent We define analogically \textbf{back neighbourhood} (denoted $\bm{bneigh_{\mathcal{A}}(x)}$), as nodes that could be reached in reversed UG ($\overleftarrow{ug_{T}}$). Note that the access nodes that are on the boundary of $x$'s neighbourhoods are also part of these neighbourhoods. These access nodes form some sort of separator between the $x$'s neighbourhood and the rest of the graph and we will call them \textbf{local access nodes (LAN)} ($\bm{lan_{\mathcal{A}}(x)} = \mathcal{A} \cap neigh_{\mathcal{A}}(x)$), or analogically \textbf{back local access nodes} ($\bm{blan_{\mathcal{A}}(x)}$). \\
+    \noindent We define analogically \textbf{back neighbourhood} (denoted $\bm{bneigh_{\mathcal{A}}(x)}$), as nodes that could be reached in UG with reversed orientation ($\overleftarrow{ug_{T}}$). Note that the access nodes that are on the boundary of $x$'s neighbourhoods are also part of these neighbourhoods. These access nodes form some sort of separator between the $x$'s neighbourhood and the rest of the graph and we will call them \textbf{local access nodes (LAN)} ($\bm{lan_{\mathcal{A}}(x)} = \mathcal{A} \cap neigh_{\mathcal{A}}(x)$), or analogically \textbf{back local access nodes} ($\bm{blan_{\mathcal{A}}(x)}$). \\
     
-    \noindent Now we may formulate the three desired properties of the access node set $\mathcal{A}$. Given a timetable $T$ and small constants $r_{1}$, $r_{2}$ and $r_{3}$, we would like to find access node set $\mathcal{A}$ such that:
+    \noindent Now we may formulate the three desirable properties of the access node set. Given a timetable $T$, we would like to find access node set $\mathcal{A}$ such that for some small constants $r_{1}$, $r_{2}$ and $r_{3}$:
     \begin{enumerate}
 		\item The access node set is sufficiently small \\
 		\begin{equation} \label{eq:r1}
@@ -279,9 +277,9 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 	\end{enumerate}
 	\hspace{\fill}
 	
-	\noindent An access node set $\mathcal{A}$ with the above mentioned properties will be called $\bm{(r_{1}, r_{2}, r_{3})}$ \textbf{access node set} (AN set). We will now explain how the \textit{USP-OR-A} (\textit{USP-OR} with access nodes) algorithm works and return to its analysis later. 
+	\noindent An access node set $\mathcal{A}$ with the above mentioned properties will be called $\bm{(r_{1}, r_{2}, r_{3})}$ \textbf{access node set} (AN set). We will now explain how the \textit{USP-OR-A} (\textbf{USP} \textbf{or}acle with \textbf{a}ccess nodes) algorithm works and return to its analysis later. 
 	
-	During preprocessing, we need to find a good AN set and compute the USPs between every pair of access nodes. For every city $x \not \in \mathcal{A}$, we also store its $neigh_{\mathcal{A}}(x)$, $bneigh_{\mathcal{A}}(x)$, $lan_{\mathcal{A}}(x)$ and $blan_{\mathcal{A}}(x)$. On a query from $x$ to $y$ at time $t$, we will first make a local search in the neighbourhood of $x$ up to $x$'s local access nodes. Subsequently, we want to find out the earliest arrival times to each of $y$'s \textit{back} local access nodes. To do this, we take advantage of the pre-computed USPs between access nodes - try out all the pairs $u \in lan(x)$ and $v \in blan(y)$ and expand the stored USPs. Finally, we make a local search from each of $y$'s back LANs to $y$, but we run the search \textit{restricted} to $y$'s back neighbourhood. For more details, see algorithms~\ref{alg:uspora-prepro} and~\ref{alg:uspora-query} and figure~\ref{fig:uspora}, where we have split the algorithms to 3 distinct phases.
+	During preprocessing, we need to find a good AN set and compute the USPs between every pair of access nodes. For every city $x \not \in \mathcal{A}$, we also store its $neigh_{\mathcal{A}}(x)$, $bneigh_{\mathcal{A}}(x)$, $lan_{\mathcal{A}}(x)$ and $blan_{\mathcal{A}}(x)$. On a query from $x$ to $y$ at time $t$, we will first make a local search in the neighbourhood of $x$ up to $x$'s local access nodes. Subsequently, we want to find out the earliest arrival times to each of $y$'s \textit{back} local access nodes. To do this, we take advantage of the pre-computed USPs between access nodes - try out all the pairs $u \in lan(x)$ and $v \in blan(y)$ and expand the stored USPs. Finally, we make a local search from each of $y$'s back LANs to $y$, but we run the search \textit{restricted} to $y$'s back neighbourhood. For more details, see algorithms~\ref{alg:uspora-prepro} and~\ref{alg:uspora-query} and figure~\ref{fig:uspora}, where we have split the algorithm to 3 distinct phases.
 	
 	\color{algcolor}
 	\begin{algorithm}[H]
@@ -298,10 +296,6 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 			\STATE $\forall x, y \in \mathcal{A}$ compute $usps(x, y)$
 			\STATE $\forall x \in ct_{T} \setminus \mathcal{A}$ compute $neigh_{\mathcal{A}}(x)$, $bneigh_{\mathcal{A}}(x)$, $lan_{\mathcal{A}}(x)$ and $blan_{\mathcal{A}}(x)$
 		\end{algorithmic}
-		\textbf{Output}
-		\begin{itemize}
-			\item output everything we have computed
-		\end{itemize}
 	\end{algorithm}
 	\color{black}
 	
@@ -313,7 +307,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 		\textbf{Input} 
 		\begin{itemize}
 			\item timetable $T$
-			\item OC query $(x, t, y)$
+			\item query $(x, t, y)$
 		\end{itemize}
 		\textbf{Algorithm}
 		\begin{algorithmic}
@@ -324,13 +318,13 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 			\IF {$y \in neigh(x)$}
 				\STATE let $c_{loc}^{*}$ be the connection to $y$ obtained by TD Dijkstra \cmt{the optimal connection may still go via ANs (though it is unlikely)}
 			\ENDIF
-			\STATE $\forall u \in lan(x)$ let $ea(u)$ be the arrival time and $oc(u)$ the conn. to $u$ obtained by TD Dijkstra
+			\STATE $\forall u \in lan(x)$ let $ea(u)$ be the arrival time and $oc(u)$ the connection to $u$ obtained by TD Dijkstra
 			\STATE \algsec{Inter-AN search}
 			\FORALL{$v \in blan(y)$}
 				\STATE $oc(v) = null$
 				\FORALL{$u \in lan(x)$}
 					\FORALL{$p \in usps(u, v)$}
-						\STATE $c =$ \textit{Expand}$(T, p, ea(u))$
+						\STATE $c =$ \textit{expand}$(T, p, ea(u))$
 						\STATE $oc(v) =$ better out of $oc(v)$ and $c$
 					\ENDFOR
 				\ENDFOR
@@ -357,12 +351,12 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 		\begin{center}
 			\inputTikZ{./tikzpics/uspora}
 		\end{center}
-		\caption{\label{fig:uspora} Principle of \textit{USP-OR-A} algorithm. The arcs in \textbf{bold} mark areas that will be explored: all nodes in $neigh_{\mathcal{A}}(x)$, USPs between LANs of $x$ and back LANs of $y$ and the back neighbourhood of $y$ (possibly only part of it will be explored, since the local back search goes against the direction in which the back neighbourhood was created).}
+		\caption{\label{fig:uspora} Principle of \textit{USP-OR-A} algorithm. The arcs in \textbf{bold} mark areas that will be explored: all nodes in $neigh_{\mathcal{A}}(x)$, USPs between LANs of $x$ and back LANs of $y$ and the back neighbourhood of $y$ (possibly only part of it will be explored, since the local back search goes against the direction of the back neighbourhood).}
 	\end{figure}
 	
 	\subsubsection{Analysis of \textit{USP-OR-A}}
 	
-		\noindent Let us now analyse the properties of this oracle-based method. Clearly, much depends on the way we look for the access node set. We will address this issue in next subsections but for now, we will assume we can find $(r_{1}, r_{2}, r_{3})$ AN set $\mathcal{A}$ in time $f(n)$. Then, in the preprocessing, we have to find USPs among the access nodes, which requires running Dijkstra's algorithm from each event in a city from $\mathcal{A}$. There is $\mathcal{O}(r_{1}h\sqrt{n})$ such events which leads to the time complexity $\mathcal{O}(r_{1}hn^{1.5} (\log n + \delta))$. We also have to find local access nodes and neighbourhoods for each city, which can be accomplished with e.g. depth first search exploring the neighbourhood. This search algorithm (run from non-access city) has complexity linear in the number of arcs and so we could bound the total complexity as:
+		\noindent Let us now analyse the properties of this oracle-based method. Clearly, much depends on the way we look for the access node set. We will address this issue in next subsections but for now, we will assume we can find $(r_{1}, r_{2}, r_{3})$ AN set $\mathcal{A}$ in time $f(n)$. Then, in the preprocessing, we have to find USPs among the access nodes, which requires running Dijkstra's algorithm from each event in an access node (city from $\mathcal{A}$). There is $\mathcal{O}(r_{1}h\sqrt{n})$ such events which leads to the time complexity $\mathcal{O}(r_{1}hn^{1.5} (\log n + \delta))$. We also have to find local access nodes and neighbourhoods for each city, which can be accomplished with e.g. depth first search exploring the neighbourhood. This search algorithm (run from non-access city) has complexity linear in the number of arcs and so we could bound the total complexity as:
 		
 		$$
 		\sum_{x \in ct_{T} \setminus \mathcal{A}} |E(neigh_{\mathcal{A}}(x))| 
@@ -370,13 +364,13 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 		\leq r_{2} n^{2}
 		$$
 		
-		\noindent where $E(V)$ is the set of arcs among vertices of $V$. However this is very loose upper bound, as our UGs are actually very sparse. Therefore we can improve it. We know from the equation~\ref{eq:r2} that the average square of neighbourhood size is $\leq r_{2} \cdot n$. As a consequence of the Cauchy-Schwarz Inequality~\cite{cauchy} the following holds for positive real numbers $x_{i}$:
+		\noindent where $E(V)$ is the set of arcs among vertices of $V$. However this is very loose upper bound, as our UGs are actually very sparse. Therefore we can improve it. We know from the equation~\ref{eq:r2} that the average square of neighbourhood size is at most $r_{2} \cdot n$. As a consequence of the Cauchy-Schwarz Inequality~\cite{cauchy} the following holds for positive real numbers $x_{i}$:
 		
 		$$ 
 		\sqrt{\frac{x_{1}^{2} + x_{2}^{2} + ... + x_{n}^{2}}{n}} 
 		\geq \frac{x_{1} + x_{2} + ... + x_{n}}{n} $$
 		
-		\noindent Applying this to our neighbourhood sizes, we get that the average size of the neighbourhood is at most $\sqrt{r_{2}n}$.  We now split the vertices of $ct_{T} \setminus \mathcal{A}$ to two categories: those with neighbourhoods of size $\leq \sqrt[4]{n}$ will be part of the set $S_{\leq}$ and those with neighbourhoods of size bigger then $\sqrt[4]{n}$ will be in $S_{>}$. A neighbourhood in the first category cannot possibly contain more than $\sqrt{n}$ arcs while those in the second category can have at most $\delta_{T}|neigh_{\mathcal{A}}(x)|$ arcs, depending on the timetable's density.
+		\noindent Applying this to our neighbourhood sizes, we get that the average size of the neighbourhood is at most $\sqrt{r_{2}n}$.  We now split the vertices of $ct_{T} \setminus \mathcal{A}$ to two categories: those with neighbourhoods of size at most $\sqrt[4]{n}$ will be part of the set $S_{\leq}$ and those with neighbourhoods of size bigger then $\sqrt[4]{n}$ will be in $S_{>}$. A neighbourhood in the first category cannot possibly contain more than $\sqrt{n}$ arcs while those in the second category can have at most $\delta_{T}|neigh_{\mathcal{A}}(x)|$ arcs (thus depending on the timetable's density).
 		
 		\begin{align*}
 		\sum_{x \in ct_{T} \setminus \mathcal{A}} |E(neigh_{\mathcal{A}}(x))| \leq \\
@@ -388,9 +382,47 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 		
 		\noindent Therefore, the total \textbf{time complexity of the preprocessing} is $\mathcal{O}(f(n) + r_{1}hn^{1.5} (\log n + \delta)) + \mathcal{O}(\delta r_{2} n^{1.5}) = \bm{\mathcal{O}(f(n) + (r_{1} + r_{2}) (\delta + \log n) h n^{1.5})}$.
 		
-		As for the size of the preprocessed data - we need to store all the neighbourhoods, LANs and USPs between access nodes. We already know that the average size of the neighbourhood is $\leq \sqrt{r_{2}n}$, thus the total size of the (front and back) neighbourhoods is $\mathcal{O}(r_{2} n^{1.5})$~\footnote{As $r_{2}$ will be a very small constant, we may disregard the square root.}. This term bounds also the size of the pre-computed local access nodes for each node.
+		As for the size of the preprocessed data - we need to store all the neighbourhoods, LANs and USPs between access nodes. We already know that the average size of the neighbourhood is at most $\sqrt{r_{2}n}$, thus the total size of the (front and back) neighbourhoods is $\mathcal{O}(r_{2} n^{1.5})$~\footnote{As $r_{2}$ should be a very small constant, we may disregard the square root.}. This term bounds also the size of the pre-computed local access nodes for each node.
 		
 		Finally we have the preprocessed USPs. There is at most $r_{1}^{2}n$ pairs of access nodes and for each of them we have possibly several USPs. We will denote by $\bm{\tau_{\mathcal{A}}}$ the average USP coefficient between pairs of cities from $\mathcal{A}$ and by $\bm{\gamma_{\mathcal{A}}}$ the average optimal connection size (or equivalently, USP size) between cities in $\mathcal{A}$. This amounts to $\mathcal{O}(r_{1}^{2} \tau_{\mathcal{A}} \gamma_{\mathcal{A}} n)$ for storage of USPs and to a total \textbf{preprocessing size} $\bm{\mathcal{O}(r_{2} n^{1.5} + r_{1}^{2} \tau_{\mathcal{A}} \gamma_{\mathcal{A}} n)}$.
+		
+		\begin{figure}[H]
+		\centering
+		\makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth} 
+	    	\centering
+		    \inputTikZ{./tikzpics/plot_anuspdiam_cpsk}
+		    \captionof{figure}{Changing of $\omega$ with increased number of stations in \textit{cpsk} dataset.}
+		    \label{plot:anuspdiam-cpsk}
+		\end{minipage}
+		\hspace{1cm}
+		\begin{minipage}{0.45\textwidth}
+			\centering
+		    \inputTikZ{./tikzpics/plot_tau_size}
+		    \captionof{figure}{Changing of $\tau$ with increased number of stations.}
+		    \label{plot:tau-size}
+		\end{minipage}
+	    }
+		\end{figure}
+	
+		\begin{figure}[H]
+		\centering
+		\makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth}  
+		    \centering
+		    \inputTikZ{./tikzpics/plot_tau_trange}
+		    \captionof{figure}{Changing of $\tau$ with increased time range.}
+		    \label{plot:tau-trange}   
+	    \end{minipage}
+		\hspace{1cm}
+	    \begin{minipage}{0.45\textwidth} 
+	    	\centering
+		    \inputTikZ{./tikzpics/plot_tauseg_trange}
+		    \captionof{figure}{Changing of $\tau$ with increased time range.}
+		    \label{plot:tau-trange}   
+	    \end{minipage}
+	    }
+		\end{figure}		
 		
 		\begin{figure}[htb]
 		\centering
@@ -461,7 +493,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 		\noindent Finally, we will proof the correctness of the algorithm, i.e. that it always returns the optimal connection.
 		
 		\begin{theorem}
-			The algorithm \textit{USP-OR-A}~\ref{alg:uspora-prepro}~\ref{alg:uspora-query} always returns the optimal connection.
+			The algorithm \textit{USP-OR-A} (\ref{alg:uspora-prepro}, \ref{alg:uspora-query}) always returns the optimal connection.
 		\end{theorem}
 		
 		\begin{proof}
@@ -469,13 +501,13 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 			
 			\noindent In the following we will assume that $\bm{y \not \in neigh(x)}$, which means that the optimal connection goes through some access node $u \in lan(x)$ and $v \in blan(y)$. Note that it may be that $u = v$. \\
 			
-			\noindent What we would like to prove as a next step is that we reach the back LANs of $y$ (or $y$ itself if it is an access node) at the earliest arrival time. After the \textit{local front search}, we have reached the $x$'s local ANs at times $ea(u) \; \forall u \in lan(x)$. For some local access node this value is the true earliest arrival. Let us denote the set of such local ANs as $lan^{*}(x)$. The crucial thing to realize is, that the optimal connection to any city out of the $x$'s neighbourhood will lead via some $u \in lan^{*}(x)$ (see figure~\ref{fig:usporaproof2}). And because the \textit{inter-AN search} phase finds \textit{optimal} connections between pairs $u \in lan(x)$ and $v \in blan(y)$, it follows that for each $v \in blan(y)$ the $ea(v)$ is the earliest arrival to this city after the \textit{inter-AN search} phase.
+			\noindent What we would like to prove as a next step is that we reach the back LANs of $y$ (or $y$ itself if it is an access node) at the earliest arrival time. After the \textit{local front search}, we have reached the $x$'s local ANs at times $ea(u) \; \forall u \in lan(x)$. For some local access node this value is the true earliest arrival. Let us denote the set of such local ANs as $lan^{*}(x)$. The crucial thing to realize is that the optimal connection to any city out of the $x$'s neighbourhood will lead via some $u \in lan^{*}(x)$ (see figure~\ref{fig:usporaproof2}). And because the \textit{inter-AN search} phase finds \textit{optimal} connections between pairs $u \in lan(x)$ and $v \in blan(y)$, it follows that for each $v \in blan(y)$ the $ea(v)$ is the earliest arrival to this city after the \textit{inter-AN search} phase.
 			
 			\begin{figure}[h!]
 				\begin{center}
 					\inputTikZ{./tikzpics/usporaproof2}
 				\end{center}
-				\caption{\label{fig:usporaproof2} On the picture $lan(x) = \{G, H\}$ and $blan(y) = \{G, H, I\}$. In \textbf{thick} we have highlighted the optimal connection. The connection to $H$ is sub-optimal after the \textit{local front search} phase, however the optimal connection to $y$ (and to $H$ and $I$ as well) leads through $lan^{*}(x)$ (some of $x$'s local access nodes to which we have an optimal connection after the \textit{local front search}. Particularly, it goes through $G$).}
+				\caption{\label{fig:usporaproof2} On the picture $lan(x) = \{G, H\}$ and $blan(y) = \{G, H, I\}$. In \textbf{thick} we have highlighted the optimal connection. The connection to $H$ is sub-optimal after the \textit{local front search} phase, however the optimal connection to $y$ (and to $H$ and $I$ as well) leads through $lan^{*}(x)$ (some of $x$'s local access nodes to which we have an optimal connection after the \textit{local front search}. Particularly, in this case it goes through $G$).}
 			\end{figure}
 			
 			In the \textit{local back search} we run a TD Dijkstra search from all back LANs of $y$. And since this algorithm is exact and starts from each back LAN as early as possible, we get the optimal connection to $y$. \\
@@ -485,16 +517,16 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 	
 	\subsubsection{Modifications of \textit{USP-OR-A}}
 	
-		\noindent Our implementation of the \textit{USP-OR-A} algorithm uses one slight improvement, which we did not mention in its description, since it is more of a optimization technique without any theoretical guarantees on actual improvement of the running time. However, we consider it an interesting idea so we mention it at this place.
+		\noindent Our implementation of the \textit{USP-OR-A} algorithm uses one slight improvement, which we did not mention in its description, since it is more of an optimization technique without any theoretical guarantees on actual improvement of the running time. However, we consider it an interesting idea so we mention it at this place.
 		
 		\begin{definition}
 	        \textbf{USP tree} \\
 			Given a pair of cities $x$ and $y$ in a timetable $T$, we will call a USP tree the graph made out of edges of all USPs in $usp_{T}(x, y)$: $\bm{usp^{3}_{T}(x, y)} = (V^{3}, E^{3})$ where $V^{3} = \{v| \; v$ lays on some $p \in usp_{T}(x, y)\}$ and $E^{3} = \{(a, b)| \; (a, b)$ is part of some $p \in usp_{T}(x, y)\}$.
 	    \end{definition}
 	    
-	    \noindent We could take advantage of these USP trees to speed up the \textit{local front search} phase of the algorithm, where we unnecessarily explore the whole neighbourhood when we could just go along the arcs of the USP trees. The picture~\ref{fig:uspora3} depicts this. 
-		
-		\begin{figure}[h!]
+	    \noindent We could take advantage of these USP trees to speed up the \textit{local front search} phase of the algorithm, where we unnecessarily explore the whole neighbourhood when we could just go along the arcs of the USP trees. The picture~\ref{fig:uspora3} depicts this. \\
+	    
+	    \begin{figure}[h!]
 			\begin{center}
 				\inputTikZ{./tikzpics/uspora3}
 			\end{center}
@@ -531,7 +563,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 			
 			\noindent Denote $\mathcal{S} = \{S_{i}| \; 1 \leq i \leq k\}$. The task is to choose the smallest subset $\mathcal{S}^{*}$ of $\mathcal{S}$ that still covers the universe ($\bigcup\limits_{S_{i} \in \mathcal{S}^{*}} S_{i} = U$). We will now do a simple conversion (in polynomial time) of the instance of min-set cover to the instance of the optimal AN set problem (which is represented by the underlying graph of $T$).
 			
-			 For each $j \in U$, we will make a complete graph of $\beta_{j}$ vertices (the value of $\beta_{j}$ will be discussed later) named $m_{j}$ and for each set $S_{i}$ we make a vertex $s_{i}$ and vertex $s_{i}'$. We now connect all vertices of $m_{j}$ to $s_{i} \iff j \in S_{i}$. Finally, for we connect $s_{i}$ to $s_{i}'$, $1 \leq i \leq k$. \\
+			 For each $j \in U$, we will make a complete graph of $\beta_{j}$ vertices (the value of $\beta_{j}$ will be discussed later) named $m_{j}$ and for each set $S_{i}$ we make a vertex $s_{i}$ and vertex $s_{i}'$. We now connect all vertices of $m_{j}$ to $s_{i}$ for each $j \in S_{i}$. Finally, for we connect $s_{i}$ to $s_{i}'$, $1 \leq i \leq k$. \\
 			 
 			\noindent \textbf{Example}. Let $m = 10$ (thus $U = \{1, 2, ..., 10\}$) and $k = 13$:
 			\begin{itemize}
@@ -542,20 +574,20 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 			\end{itemize}
 			\hspace*{\fill}
 			 
-			\noindent For this instance of min set-cover, we construct the graph depicted on picture~\ref{fig:reduction}.
+			\noindent For this instance of min set-cover, we construct the graph as depicted on picture~\ref{fig:reduction}.
 			 
 			\begin{figure}[h!]
 				\begin{center}
 					\inputTikZ{./tikzpics/reduction}
 				\end{center}
-				\caption{\label{fig:reduction} The principle of the reduction. In $m_{i}$, there are actually complete graphs of $\beta_{i}$ vertices (as shown for $m_{1}$). \textbf{Thick} arcs represent arcs from all the vertices of respective $m_{i}$. The $s_{i}$ vertices are connected to their $s_{i}'$ versions. If e.g. $s_{1}$ is selected as an access node, $s_{1}'$ is no longer part of any neighbourhood.}
+				\caption{\label{fig:reduction} The principle of the reduction. In $m_{i}$, there are actually complete graphs of $\beta_{i}$ vertices (as shown for $m_{1}$). \textbf{Thick} arcs represent arcs from all the vertices of respective $m_{i}$. The $s_{i}$ vertices are connected to their $s_{i}'$ versions. If e.g. $s_{1}$ is selected as an access node, $s_{1}'$ is no longer part of any neighbourhood (except for its own).}
 			\end{figure}
 			
-			\noindent Now we would like to clarify the sizes of $m_{i}$. Define $\alpha_{i}$ to be the number of sets $S_{j}$ that contain $i$: $\alpha_{i} = |\{S_{j} \in \mathcal{S}| \; i \in S_{j}\}|$ and assume the constructed graph has $n$ vertices. We want the $\beta_{i}$ to satisfy $\beta_{i} \geq 2$ and $\beta_{i} + 2\alpha_{i} - 1 \leq \sqrt{n}$ but $\beta_{i} + 2\alpha_{i} > \sqrt{n}$. The last two inequalities would mean that if at least one $s_{j}$ connected to $m_{i}$ is chosen as an access node, the neighbourhood for nodes in $m_{i}$ will be still $\leq$ $\sqrt{n}$, but if none of them is chosen, the neighbourhood will be just over $\sqrt{n}$. For now we will assume that we have constructed the graph in such a way that all $\beta_{i}$ satisfy the mentioned inequalities. We will return to construction of the graph at the end.
+			\noindent Now we would like to clarify the sizes of $m_{i}$. Define $\alpha_{i}$ to be the number of sets $S_{j}$ that contain $i$: $\alpha_{i} = |\{S_{j} \in \mathcal{S}| \; i \in S_{j}\}|$ and assume the constructed graph has $n$ vertices. We want the $\beta_{i}$ to satisfy $\beta_{i} \geq 2$ and $\beta_{i} + 2\alpha_{i} - 1 \leq \sqrt{n}$ but $\beta_{i} + 2\alpha_{i} > \sqrt{n}$. The last two inequalities would mean that if at least one $s_{j}$ connected to $m_{i}$ is chosen as an access node, the neighbourhood for nodes in $m_{i}$ will be still large at most $\sqrt{n}$, but if none of them is chosen, the neighbourhood size will be just over $\sqrt{n}$. We leave out the details of the construction at this place. 
 			
 			Now consider an optimal AN set which contains a vertex from within some $m_{i}$. If this is the case, \textbf{either} some $s_{j}$ to which $m_{i}$ is connected is selected as AN, \textbf{or} \textit{all} vertices from $m_{i}$ are access nodes \textbf{or} the neighbourhood is too large. Keep in mind that the local access nodes are also part of neighbourhoods, so unless we select for AN some of the $s_{j}$ that $m_{i}$ is connected to, the neighbourhood of any non-access node in $m_{i}$ will be too large. As there are at least two nodes in every $m_{i}$, it is more efficient to select some $s_{j}$ rather then select all nodes in $m_{i}$. Thus when it comes to selecting ANs \textit{it is worth to consider only vertices $s_{j}$}.
 			
-			From this point on, it is easy to see that it is optimal to select those $s_{j}$ that correspond to the optimal solution of min-set cover. The reason is that each of the $m_{i}$ will be connected to at least one access node $s_{j}$ and will thus have neighbourhood size $\leq \sqrt{n}$, while the number of selected access nodes will be optimal. \\
+			From this point on, it is easy to see that it is optimal to select those $s_{j}$ that correspond to the optimal solution of min-set cover. The reason is that each of the $m_{i}$ will be connected to at least one access node $s_{j}$ and will thus have neighbourhood size at most $\sqrt{n}$, while the number of selected access nodes will be optimal. \\
 			
 			\noindent It remains to show how to choose values $\beta_{i}$. Due to the condition $\beta_{i} \leq \sqrt{n} - 2\alpha_{i} + 1$ we need to have sufficiently big $n$ to fulfil $\beta_{i} \geq 1$. We will accomplish this by adding dummy isolated vertices to the graph. Define function \textit{nextSquare($x$)} to output the smallest $y^{2} > x$ where $y$ is a natural number. We then compute $w = (max\{2\alpha_{i}\} + 2)^{2}$ and select the starting value of $n$ to be $n' =$ \textit{nextSquare($max\{w - 1, \; \sqrt{2k + m}\}$)}. We create the $s_{j}$ and $s_{j}'$ vertices and complete graphs $m_{i}$ containing so far only one vertex each. We connect everything according to the rules stated earlier in this proof and we create dummy vertices up to the capacity defined by $n$. Now we repeat the following:
 			
@@ -752,7 +784,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 		\noindent In both timetables from \textit{cp.sk} we obtained quite similar results. The query time of \textit{USP-OR} mildly rises with increasing $n$. This is due to two (not surprising) facts: 
 		\begin{itemize}
 			\item The USP coefficient gets slightly bigger with increasing $n$
-			\item The OC radius increases too with increasing $n$
+			\item The OC diameter increases too with increasing $n$
 		\end{itemize}
 		\hspace{\fill}
 		
@@ -796,7 +828,7 @@ Thus the main idea which will repeat often throughout this section: \textit{when
 	    }
 		\end{figure}
 		
-		\noindent In the datasets from SNCF, an interesting thing was that the the query-time actually decreased with increased size. This was due to the average USP coefficient getting smaller in bigger datasets while OC radius not increasing too much. We measured here the speed-ups of up to 80 for \textit{sncf-ter}, with smaller size-ups then in case of \textit{cp.sk} timetables.
+		\noindent In the datasets from SNCF, an interesting thing was that the the query-time actually decreased with increased size. This was due to the average USP coefficient getting smaller in bigger datasets while OC diameter not increasing too much. We measured here the speed-ups of up to 80 for \textit{sncf-ter}, with smaller size-ups then in case of \textit{cp.sk} timetables.
 		
 		\begin{figure}[H]
 		\centering

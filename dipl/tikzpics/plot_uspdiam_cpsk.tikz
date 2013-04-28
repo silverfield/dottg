@@ -1,0 +1,42 @@
+\tikzstyle{textstyle}=[font=\fontsize{9}{9}\selectfont]
+\begin{tikzpicture}[textstyle, scale=0.8]
+    \begin{axis}[
+        xlabel={$n$},
+		legend pos=north west
+        ]
+        
+    \addplot[smooth,mark=|,color=red] plot coordinates {
+		(100,1)
+		(200,1)
+		(300,1)
+		(400,1)
+		(500,1)
+		(600,1)
+		(700,1)
+    };
+    \addlegendentry{$\omega$}
+    
+    \addplot[smooth,mark=o,color=green!50!black, dashed] plot coordinates {
+		(100,1)
+		(200,1)
+		(300,1)
+		(400,1)
+		(500,1)
+		(600,1)
+		(700,1)
+    };
+    \addlegendentry{$\gamma$}
+    
+    \addplot[smooth,mark=*,color=blue!50!black, dashed] plot coordinates {
+		(100,10)
+		(200,14.1)
+		(300,17.3)
+		(400,20)
+		(500,22.4)
+		(600,24.5)
+		(700,26.5)
+    };
+    \addlegendentry{$\sqrt{n}$}
+    
+    \end{axis}
+\end{tikzpicture}

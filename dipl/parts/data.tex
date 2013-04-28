@@ -118,7 +118,7 @@ In this section we would like to introduce the timetable datasets we were workin
 	
 \subsection{Analysis of properties}
 
-	\noindent First we will take a look at the optimal connection \textit{sizes} (size is the number of el. connections) in the timetables. For a given timetable $T$, we will denote the average optimal connection size as $\bm{\gamma_{T}}$ and will call it the \textbf{optimal connection radius} (OC radius). We computed an approximate OC radius for each of our datasets by measuring an average connection size of sufficiently many OCs. The results in  table~\ref{table:tt_ocradius} indicate that the average OC size generally falls under $\sqrt{n}$.
+	\noindent First we will take a look at the optimal connection \textit{sizes} (size is the number of elementary connections) in the timetables. For a given timetable $T$, we will denote the average optimal connection size as $\bm{\gamma_{T}}$ and will call it the \textbf{optimal connection diameter} (OC diameter). We computed an approximate OC diameter for each of our datasets by measuring an average connection size of sufficiently many OCs. The results in table~\ref{table:tt_ocdiam} indicate that the average OC size generally falls under $\sqrt{n}$.
 	
 	Next we would like to get an idea of the sparsity of the underlying graphs. We see from the table~\ref{table:tt_mainpr} that the graphs are pretty sparse (again, with exception of \textit{air01}), but we would like to make sure that the sparsity is uniform. More specifically, we will be interested in the $\delta$-density:
 	
@@ -153,8 +153,8 @@ In this section we would like to introduce the timetable datasets we were workin
 			\textit{sncf-ter} & 48.0 & 167 & 51.3\\
 			\textit{zsr} & 15.0 & 57 & 15.3 \\
 		\end{tabular}
-		\captionof{table}{With one exception, OC radius is less then $\sqrt{n}$ (this was expected, as \textit{montr} is the only timetable with ``geographically one dimension long'' - all other timetables span areas with more uniform shape). Note extremely low value for airline timetable - this is due to the fact that UGs of airline timetables have small-world characteristics~\cite{sommerthesis10}. Another thing we may notice is that regional timetables (\textit{cpsk}, \textit{sncf-ter}) have higher OC radius then country-wide and inter-city timetables. We also point out that the inter-city trains in French railways decrease the average optimal connection size by one about third.}
-		\label{table:tt_ocradius}
+		\captionof{table}{With one exception, OC diameter is less then $\sqrt{n}$ (this was expected, as \textit{montr} is the only timetable with ``geographically one dimension long'' - all other timetables span areas with more uniform shape). Note extremely low value for airline timetable - this is due to the fact that UGs of airline timetables have small-world characteristics~\cite{sommerthesis10}. Another thing we may notice is that regional timetables (\textit{cpsk}, \textit{sncf-ter}) have higher OC diameter then country-wide and inter-city timetables. We also point out that the inter-city trains in French railways decrease the average optimal connection size by one about third.}
+		\label{table:tt_ocdiam}
 	\end{minipage}
 	\hspace{1cm}	
 	\begin{minipage}{0.45\textwidth}

@@ -20,6 +20,12 @@ Ittai Abraham, Amos Fiat, Andrew~V. Goldberg, and Renato Fonseca~F. Werneck.
 \newblock Highway dimension, shortest paths, and provably efficient algorithms.
 \newblock In Moses Charikar, editor, {\em SODA}, pages 782--793. SIAM, 2010.
 
+\bibitem[BDSV09]{timedepch09}
+Gernot~Veit Batz, Daniel Delling, Peter Sanders, and Christian Vetter.
+\newblock Time-dependent contraction hierarchies.
+\newblock In Irene Finocchi and John Hershberger, editors, {\em ALENEX}, pages
+  97--105. SIAM, 2009.
+
 \bibitem[BFM06]{transit06}
 Holger Bast, Stefan Funke, and Domagoj Matijevic.
 \newblock Transit ultrafast shortest-path queries with linear-time
@@ -29,6 +35,13 @@ Holger Bast, Stefan Funke, and Domagoj Matijevic.
 Ulrik Brandes.
 \newblock A faster algorithm for betweenness centrality.
 \newblock {\em Journal of Mathematical Sociology}, 25:\penalty0 163--177, 2001.
+
+\bibitem[Del08]{sharc08}
+Daniel Delling.
+\newblock Time-dependent sharc-routing.
+\newblock In Dan Halperin and Kurt Mehlhorn, editors, {\em ESA}, volume 5193 of
+  {\em Lecture Notes in Computer Science}, pages 332--343. Springer, 2008.
+\newblock \showISBN{978-3-540-87743-1}.
 
 \bibitem[Dij59]{dijkstra59}
 E.~W. Dijkstra.
@@ -72,6 +85,11 @@ Robert Geisberger, Peter Sanders, Dominik Schultes, and Daniel Delling.
 \newblock In Catherine~C. McGeoch, editor, {\em WEA}, volume 5038 of {\em
   Lecture Notes in Computer Science}, pages 319--333. Springer, 2008.
 \newblock \showISBN{978-3-540-68548-7}.
+
+\bibitem[KMS06]{arcflags06}
+Ekkehard Köhler, Rolf~H. Möhring, and Heiko Schilling.
+\newblock Fast point-to-point shortest path computations with arc-flags.
+\newblock In {\em IN: 9TH DIMACS IMPLEMENTATION CHALLENGE [29}, 2006.
 
 \bibitem[KP]{dijkstraexp}
 Kelly Kinahan and Jennifer Pryor.

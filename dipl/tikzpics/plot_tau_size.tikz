@@ -1,0 +1,54 @@
+\tikzstyle{textstyle}=[font=\fontsize{9}{9}\selectfont]
+\begin{tikzpicture}[textstyle, scale=0.8]
+    \begin{axis}[
+        xlabel={$n$},
+        ylabel={$\tau$},
+		legend pos=north west
+        ]
+        
+	\addplot[smooth,mark=|,red] plot coordinates {
+		(100,1)
+		(200,1)
+		(300,1)
+		(400,1)
+		(500,1)
+		(600,1)
+		(700,1)
+    };
+    \addlegendentry{\textit{cpsk-d}}        
+       
+    \addplot[smooth,mark=*,blue] plot coordinates {
+		(100,2.11)
+		(200,2.89)
+		(300,3.51)
+		(400,3.23)
+		(500,3.52)
+		(600,3.61)
+		(700,3.42)
+    };
+    \addlegendentry{\textit{gb-coach-d}}
+
+	\addplot[smooth,mark=x,orange] plot coordinates {
+		(100,1)
+		(200,1)
+		(300,1)
+		(400,1)
+		(500,1)
+		(600,1)
+		(700,1)
+    };
+    \addlegendentry{\textit{gb-train-d}}
+
+    \addplot[smooth,mark=o,green!50!black] plot coordinates {
+		(100,1)
+		(200,1)
+		(300,1)
+		(400,1)
+		(500,1)
+		(600,1)
+		(700,1)
+    };
+    \addlegendentry{\textit{sncf-d}}
+    
+    \end{axis}
+\end{tikzpicture}

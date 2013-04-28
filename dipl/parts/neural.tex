@@ -1,0 +1,227 @@
+In this section we describe our experiment approaching the optimal connection problem in timetables with the help of an artificial neural network, which is the ``oracle'' in this case. More specifically, we consider multi-layer perceptron with back-propagation training algorithm. The training time corresponds to the preprocessing time and the size can be parametrized by the number of hidden layers (and the size of each layer). Our main interest was if the network was able to answer with reasonable connections for given queries.
+
+The input layer of the perceptron has one neuron for each event of the timetable and one neuron for each city of the timetable. Thus each instance of the earliest arrival query can be represented by exactly two neurons on the input layer. The output layer has one neuron for each arc of the underlying graph. The idea is that the network will activate those output neurons (arcs), that correspond to the underlying path of the connection. As we have pruned the overtaking elementary connections, we can easily reconstruct the actual connection by expanding the underlying path (algorithm~\ref{alg:expand}). See figure~\ref{fig:neural} for an illustration. \\
+	
+	\begin{figure}[h]
+		\begin{center}
+        	\inputTikZ{./tikzpics/neural}
+        \end{center}
+		\caption{\label{fig:neural} }
+	\end{figure}		
+	
+\noindent For example, consider the following query in the timetable~\ref{table:tt}: ``From \textit{A} at \textit{10:00} to \textit{C}''. The optimal connection is \textit{[A, 10:00]}, \textit{[B, 10:45]}, \textit{[B, 11:00]}, \textit{[C, 11:30]}. The query will activate two input neurons - the one corresponding to \textit{[A, 10:00]} and the one corresponding to destination \textit{C}. On the output we expect two activated neurons, since we really moved only two times - from \textit{A} to \textit{B} and from \textit{B} to \textit{C}. \\
+		
+\noindent After the training, we feed the network random inputs (queries for optimal connection). It might be that even though the network was trained, the desired neurons at the output will not be sufficiently activated and rounding them would yield all-zero output. That is why we employed the following method to recover the sequence of traversed cities:
+\begin{itemize}
+	\item Start at departing city
+	\item Consider all leaving arcs from this city
+	\item Choose the one with strongest activation (leading to yet unvisited city)
+	\item Terminate when the target city is reached or we cannot continue
+\end{itemize}
+\hspace{\fill}
+
+\noindent From the method mentioned above we can see that the network may fail to find the answer in some cases (sometimes there is simply no solution, e.g. when ``the last train already left''). In such situation, it outputs at least the partial answer, so to speak, ``how to begin the journey''.
+	
+The perceptron was trained with training data divided into two groups: \textbf{validation} and \textbf{estimation} data with $80\%$ being part of the latter group. To eliminate overfitting, early stopping was used as a stopping criterion in some cases (that is, we stopped once the validation error \footnote{Validation error was computed as $\sum_{v \in \mathcal{V}} \frac{\sum_{i}^{m} (d_{i}^{v} - y_{i}^{v})^{2}}{2}$ where $\mathcal{V}$ is the validation set, $m$ the number of output neurons, $d_{i}^{v}$ the i-th neuron's target value for training example $v$ and $y_{i}^{v}$ the actual value of i-th neuron for that training example.} started to increase). To disregard noise on the validation error curve (and thus too early halt of the training when validation error accidentally increased) we compare the validation error against its value from 10 iterations back. Sigmoid activation function is used in all layers.	\\
+	
+\noindent For the testing, we used several subsets of our datasets, described in table~\ref{tab:datasets}.
+	
+\begin{table}[h]
+	\centering
+	\begin{tabular}{c|c|c}
+    	%legend
+            \rowcolor{tablehead}
+            \textbf{Name} & \textbf{$\bm{n}$} & \textbf{$\bm{m}$} \\
+		%data
+            \hline
+        	tt & 4 & 5 \\
+			air30-10 & 30 & 187 \\
+			air50-20 & 50 & 185 \\
+			cpsk30-10 & 30 & 97 \\
+			cpsk50-20 & 50 & 120 \\
+			montr30 & 30 & 40 \\
+			montr50 & 50 & 71 \\
+			zsr30-10 & 30 & 71 \\
+			zsr50-20 & 50 & 137 \\
+        \end{tabular}
+        \caption{\label{tab:datasets} Datasets used for testing.}
+	\normalsize
+\end{table} 
+	
+\subsection{Results}
+	
+	For each dataset, we have trained 7 types of networks:
+	\begin{itemize}
+		\item 1 hidden layer with 30 neurons
+		\begin{itemize}
+			\item 1.) 100 training examples (t = 100), $\alpha$ \footnote{$\alpha$ is the parameter used in adjusting weights in the back-propagation algorithm} = 0.1, early stopping
+			\item 2.) 300 training examples (t = 300), $\alpha$ = 0.1, early stopping
+			\item 3.) 100 training examples (t = 100), $\alpha$ = 0.1, minimum of 300 iterations
+		\end{itemize}
+		\item 5 hidden layers, each with 30 neurons
+		\begin{itemize}
+			\item 4.) 100 training examples (t = 100), $\alpha$ = 1, early stopping
+			\item 5.) 300 training examples (t = 300), $\alpha$ = 1, early stopping
+			\item 6.) 100 training examples (t = 100), $\alpha$ = 1, minimum of 300 iterations
+		\end{itemize}
+		\item 1 hidden layer with 100 neurons
+		\begin{itemize}
+			\item 7.) 100 training examples (t = 100), $\alpha$ = 0.1, minimum of 500 iterations
+		\end{itemize}
+	\end{itemize}
+	\hspace{\fill}
+	
+	\noindent For the first six types of network, the \textit{maximum} number of iterations was set to 300, for the last one it was 500 (thus it was trained with exactly 500 iterations). Also, each network was trained on a different randomly generated training set. 
+	
+	Once the networks were trained, we have compared the first triple (table \ref{tab:results1}) on 1000 randomly generated earliest arrival queries (on a given dataset) and the second triple (table \ref{tab:results2}) on another 1000 generated queries. In each case, Dijkstra's algorithm was part of the comparison so that we obtained the optimal values and could evaluate the accuracy of the networks (the seventh network was compared simply against the Dijkstra's algorithm, table \ref{tab:results3}). Even though the generated queries were different in each case, the comparison among them all can still be made based on the percentage of the times when the network was able to answer with the optimum (table \ref{tab:resultsperc}).
+    
+    \begin{table}[h]
+    	\centering
+        \tiny
+        \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c|c}
+            %legend
+                \rowcolor{tablehead}
+                \textbf{Name} & \textbf{Conn $\exists$} & 
+                \multicolumn{4}{>{\columncolor{tablehead}}c|}{\textbf{1.) t = 100, $\alpha$ = 0.1, E.S.}} & 
+                \multicolumn{4}{>{\columncolor{tablehead}}c|}{\textbf{2.) t = 300, $\alpha$ = 0.1, E.S.}} &
+                \multicolumn{4}{>{\columncolor{tablehead}}c}{\textbf{3.) t = 100, $\alpha$ = 0.1, 300 it.}}\\
+                \hline
+                \rowcolor{tablehead}
+                 &  & E.E. & V.E. & Found & Opt & E.E. & V.E. & Found & Opt & E.E. & V.E. & Found & Opt \\
+            %data
+            \hline
+            		tt & 462 & 0.442 & 0.77 & 462 & 435 & 0.31 & 0.91 & 462 & 462 & 0.67 & 1.02 & 450 & 450 \\
+				air30-10 & 945 & 105.29 & 28.93 & 184 & 21 & 331.61 & 88.84 & 187 & 51 & 46.20 & 26.21 & 464 & 82 \\
+				air50-20 & 931 & 133.90 & 36.57 & 112 & 33 & 385.32 & 94.89 & 166 & 104 & 48.30 & 31.52 & 426 & 204 \\
+				cpsk30-10 & 504 & 63.83 & 12.42 & 146 & 57 & 124.55 & 32.96 & 287 & 160 & 16.74 & 13.96 & 270 & 147 \\
+				cpsk50-20 & 620 & 140.59 & 47.67 & 214 & 182 & 429.81 & 119.36 & 197 & 181 & 20.63 & 43.59 & 221 & 189 \\
+				montr30 & 545 & 69.28 & 35.02 & 268 & 234 & 52.24 & 60.05 & 418 & 376 & 4.89 & 18.51 & 366 & 310 \\
+				montr50 & 572 & 81.19 & 54.28 & 290 & 253 & 161.01 & 124.99 & 351 & 314 & 6.61 & 33.43 & 341 & 300 \\
+				zsr30-10 & 643 & 57.08 & 29.24 & 278 & 204 & 298.64 & 69.62 & 179 & 144 & 13.59 & 23.02 & 306 & 229 \\
+				zsr50-20 & 892 & 130.74 & 46.05 & 152 & 53 & 448.37 & 134.80 & 185 & 60 & 34.02 & 41.85 & 347 & 122 \\
+        \end{tabular}
+        \caption{\label{tab:results1} The first triple of trained neural network. \textit{Conn $\exists$} - number of test cases (out of 1000) when there existed a connection (found by Dijkstra's algorithm) for the query. \textit{E.S.} - early stopping. \textit{E.E. and V.E.} - estimation and validation error at the end of training. \textit{Found} - found a connection for the query. \textit{Opt} - found optimal connection}
+        \normalsize
+    \end{table} 
+    
+    \begin{table}[h]
+	    \centering
+        \tiny
+        \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c|c}
+            %legend
+                \rowcolor{tablehead}
+                \textbf{Name} & \textbf{Conn $\exists$} & 
+                \multicolumn{4}{>{\columncolor{tablehead}}c|}{\textbf{4.) t = 100, $\alpha$ = 1, E.S.}} & 
+                \multicolumn{4}{>{\columncolor{tablehead}}c|}{\textbf{5.) t = 300, $\alpha$ = 1, E.S.}} &
+                \multicolumn{4}{>{\columncolor{tablehead}}c}{\textbf{6.) t = 100, $\alpha$ = 1, 300 it.}}\\
+                \hline
+                \rowcolor{tablehead}
+                 &  & E.E. & V.E. & Found & Opt & E.E. & V.E. & Found & Opt & E.E. & V.E. & Found & Opt \\
+            %data
+            \hline
+            		tt & 449 & 12.16 & 3.13 & 292 & 292 & 2.79 & 1.02 & 403 & 403 & 0.00 & 1.35 & 449 & 449 \\
+				air30-10 & 939 & 119.56 & 30.77 & 178 & 21 & 339.35 & 79.04 & 121 & 26 & 34.21 & 37.8 & 505 & 94 \\
+				air50-20 & 922 & 132.05 & 28.36 & 30 & 16 & 371.12 & 106.18 & 50 & 36 & 33.86 & 54.17 & 387 & 171 \\
+				cpsk30-10 & 518 & 61.83 & 13.91 & 133 & 94 & 195.12 & 35.84 & 156 & 101 & 30.25 & 20.52 & 174 & 80 \\
+				cpsk50-20 & 601 & 133.25 & 46.01 & 164 & 119 & 363 & 115.19 & 179 & 159 & 64.85 & 53.07 & 162 & 143 \\
+				montr30 & 495 & 103.71 & 33.63 & 349 & 248 & 191.92 & 107.10 & 304 & 273 & 8.67 & 36.86 & 250 & 214 \\
+				montr50 & 565 & 124.11 & 44.92 & 240 & 226 & 411.93 & 111.62 & 249 & 243 & 68.37 & 50.77 & 238 & 229 \\
+				zsr30-10 & 658 & 115.50 & 26.28 & 140 & 117 & 331.12 & 82.83 & 147 & 124 & 16.42 & 37.08 & 211 & 165 \\
+				zsr50-20 & 900 & 156.06 & 32 & 110 & 57 & 475.49 & 104.63 & 135 & 45 & 43.78 & 50.12 & 321 & 134 \\
+        \end{tabular}
+        \caption{\label{tab:results2} The second triple of trained neural network. \textit{Conn $\exists$} - number of test cases (out of 1000) when there existed a connection (found by Dijkstra's algorithm) for the query. \textit{E.S.} - early stopping. \textit{E.E. and V.E.} - estimation and validation error at the end of training. \textit{Found} - found a connection for the query. \textit{Opt} - found optimal connection}
+        \normalsize
+    \end{table}
+    
+    \begin{table}[h]
+    	\centering
+        \small
+        \begin{tabular}{c|c|c|c|c|c}
+            %legend
+                \rowcolor{tablehead}
+                \textbf{Name} & \textbf{Conn $\exists$} & 
+                \multicolumn{4}{>{\columncolor{tablehead}}c}{\textbf{7.) t = 100, $\alpha$ = 0.1, E.S.}} \\
+                \hline
+                \rowcolor{tablehead}
+                 &  & E.E. & V.E. & Found & Opt \\
+            %data
+            \hline
+            		tt & 471 & 0.1 & 2.24 & 471 & 471 \\
+				air30-10 & 931 & 23.47 & 30.76 & 573 & 107 \\
+				air50-20 & 938 & 37.66 & 38.44 & 405 & 203 \\
+				cpsk30-10 & 481 & 11.67 & 17.22 & 281 & 135 \\
+				cpsk50-20 & 605 & 8.51 & 46.87 & 252 & 195 \\
+				montr30 & 527 & 2.85 & 43.44 & 346 & 300 \\
+				montr50 & 615 & 4.13 & 24.97 & 386 & 346 \\
+				zsr30-10 & 672 & 7.7 & 26.92 & 307 & 234 \\
+				zsr50-20 & 887 & 22.68 & 42.68 & 426 & 178 \\
+        \end{tabular}
+        \caption{\label{tab:results3} The 7th trained neural network. \textit{Conn $\exists$} - number of test cases (out of 1000) when there existed a connection (found by Dijkstra's algorithm) for the query. \textit{E.S.} - early stopping. \textit{E.E. and V.E.} - estimation and validation error at the end of training. \textit{Found} - found a connection for the query. \textit{Opt} - found optimal connection}
+        \normalsize
+    \end{table}
+    
+    \noindent There are several things to notice about these results:
+    \begin{itemize}
+    		\item Interestingly, validation error is smaller (in most cases) when we did not use the early stopping criterion than in the case when we used it for networks with one hidden layer (first triple). For the second triple, this is no longer the case. Upon closer look, we have found out that this phenomenon is simply due to different training sets used with each network (e.g. on the montr50 dataset, type \textit{3.)}, the network has already started with validation error being lower than validation error on a trained network of type \textit{1.)} on this dataset).
+    		\item Unfortunately, already we can see that the neural networks performed very poorly, especially on the datasets \textit{zsr} and \textit{air}, finding optimal connections in barely 5\% of the queries. Better summary will be visible in table \ref{tab:resultsperc}.
+    \end{itemize}
+    \hspace{\fill}
+    
+    \noindent We have taken a closer look at the evolution of validation errors in the training of type \textit{7.)} networks and have found that in general, the validation error went steeply down at the beginning, followed by an interval of fluctuations (which probably caused early stopping when this criterion was in use) and finally found a pretty stable value (see plot \ref{plot:neural-montrerr}). The estimation error was decreasing all this time, which is why the networks of type \textit{7.)} obtained most of the time the best results in the final comparison.
+    
+    \begin{figure}[h!]
+		\begin{center}
+        	\inputTikZ{./tikzpics/plot_neural_montrerr}
+		\end{center}
+		\caption{\label{plot:neural-montrerr} Evolution of validation and estimation error in training of the perceptron of type 7.) on the \textit{montr-30} dataset.}
+	\end{figure}
+    
+    \begin{table}[h]
+    	\centering
+        \tiny
+        \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}
+            %legend
+                \rowcolor{tablehead}
+                \textbf{Name} &
+                \multicolumn{2}{>{\columncolor{tablehead}}c|}{\textbf{1.)}} &
+                \multicolumn{2}{>{\columncolor{tablehead}}c|}{\textbf{2.)}} &
+                \multicolumn{2}{>{\columncolor{tablehead}}c|}{\textbf{3.)}} &
+                \multicolumn{2}{>{\columncolor{tablehead}}c|}{\textbf{4.)}} &
+                \multicolumn{2}{>{\columncolor{tablehead}}c|}{\textbf{5.)}} &
+                \multicolumn{2}{>{\columncolor{tablehead}}c|}{\textbf{6.)}} &
+                \multicolumn{2}{>{\columncolor{tablehead}}c}{\textbf{7.)}} \\
+                \hline
+                \rowcolor{tablehead}
+                 & O.f.F. & F.O. & O.f.F. & F.O. & O.f.F. & F.O. & O.f.F. & F.O. & O.f.F. & F.O. & O.f.F. & F.O. & O.f.F. & F.O. \\
+            %data
+            \hline
+				tt & 94.2 & 94.2 & 100.0 & 100.0 & 100.0 & 97.4 & 100.0 & 65.0 & 100.0 & 89.8 & 100.0 & 100.0 & \underline{100.0} & \textbf{100.0} \\
+				air30-10 & 11.4 & 2.2 & \underline{27.3} & 5.4 & 17.7 & 8.7 & 11.8 & 2.2 & 21.5 & 2.8 & 18.6 & 10.0 & 18.7 & \textbf{11.5} \\
+				air50-20 & 29.5 & 3.5 & 62.7 & 11.2 & 47.9 & \textbf{21.9} & 53.3 & 1.7 & \underline{72.0} & 3.9 & 44.2 & 18.5 & 50.1 & 21.6 \\
+				cpsk30-10 & 39.0 & 11.3 & 55.7 & \textbf{31.7} & 54.4 & 29.2 & \underline{70.7} & 18.1 & 64.7 & 19.5 & 46.0 & 15.4 & 48.0 & 28.1 \\
+				cpsk50-20 & 85.0 & 29.4 & \underline{91.9} & 29.2 & 85.5 & 30.5 & 72.6 & 19.8 & 88.8 & 26.5 & 88.3 & 23.8 & 77.4 & \textbf{32.2} \\
+				montr30 & 87.3 & 42.9 & \underline{90.0} & \textbf{69.0} & 84.7 & 56.9 & 71.1 & 50.1 & 89.8 & 55.2 & 85.6 & 43.2 & 86.7 & 56.9 \\
+				montr50 & 87.2 & 44.2 & 89.5 & 54.9 & 88.0 & 52.4 & 94.2 & 40.0 & \underline{97.6} & 43.0 & 96.2 & 40.5 & 89.6 & \textbf{56.3} \\
+				zsr30-10 & 73.4 & 31.7 & 80.4 & 22.4 & 74.8 & \textbf{35.6} & 83.6 & 17.8 & \underline{84.4} & 18.8 & 78.2 & 25.1 & 76.2 & 34.8 \\
+				zsr50-20 & 34.9 & 5.9 & 32.4 & 6.7 & 35.2 & 13.7 & \underline{51.8} & 6.3 & 33.3 & 5.0 & 41.7 & 14.9 & 41.8 & \textbf{20.1} \\
+        \end{tabular}
+        \caption{\label{tab:resultsperc} Table summarizes in how many cases (in percents) the network found the optimum value (\textit{F.O. - found optimum}) and in how many cases (percents) when the network found some connection sequence, it was the optimal sequence (\textit{O.f.F - optimum from found})}
+        \normalsize
+    \end{table}
+    
+    \noindent In table \ref{tab:resultsperc} we note down two measures of the network's quality:
+    \begin{itemize}
+    	\item \textbf{F.O.}: The network's capability to output the optimum connection (when it, in fact, exists)
+    	\item \textbf{O.f.F}: The network's reliability - that once the network has found a connection, it is really the best one.
+    \end{itemize}
+    \hspace{\fill}
+    
+    \noindent Network with one big hidden layer, trained without the early stopping criterion was the most successful one, when it comes to the F.O. measure, though the best value (69 \%) was achieved by a network of type \textit{2.)} trained on a bigger training set. Perceptrons trained on these bigger training sets (\textit{2.)} and \textit{5.)}) were also more reliable.
+	
+\subsection{Conclusion}
+	
+	First of all, we would like to point out some positive aspects. The networks were able to learn optimal answers to queries that were \textit{not} part of the training. Also, it looks like enhanced training of the network could produce much better results.
+	
+	On the other hand, there are other parameters that could possibly help more then just increasing the number of iterations: different activation functions, error functions, weights adjustments (using momentum, or weight decay) or even using different type of network (some publications have used Hopfield network to search for shortest paths in graphs). 
+	
+	However, we conclude that we failed to train neural network to answer optimal connection queries in timetables. We suppose the main reason for this is that the problem is simply too challenging for a neural network.

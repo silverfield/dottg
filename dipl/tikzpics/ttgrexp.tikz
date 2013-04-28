@@ -1,0 +1,44 @@
+		\tikzstyle{place}=[circle,draw=blue!50,fill=blue!20,thick,inner sep=1pt]
+		\begin{tikzpicture}[>=stealth,->,looseness=.5,auto])
+			%NODES-------------------------------------------------------------
+			\node (A_660) at (0.0,5.844155844155844) [place, label=right:{[A, 11:00]}] {};
+			\node (B_705) at (3.3333333333333335,9.025974025974024) [place, label=right:{[B, 11:45]}] {};
+			\node (A_570) at (0.0,0.0) [place, label=right:{[A, 9:30]}] {};
+			\node (C_600) at (6.666666666666667,2.0779220779220777) [place, label=right:{[C, 10:00]}] {};
+			\node (A_615) at (0.0,2.922077922077922) [place, label=right:{[A, 10:15]}] {};
+			\node (C_645) at (6.666666666666667,4.999999999999999) [place, label=right:{[C, 10:45]}] {};
+			\node (A_630) at (0.0,3.8961038961038956) [place, label=right:{[A, 10:30]}] {};
+			\node (C_660) at (6.666666666666667,5.974025974025974) [place, label=right:{[C, 11:00]}] {};
+			\node (A_640) at (0.0,4.545454545454545) [place, label=right:{[A, 10:40]}] {};
+			\node (C_665) at (6.666666666666667,6.298701298701298) [place, label=right:{[C, 11:05]}] {};
+			\node (D_700) at (10.0,8.44155844155844) [place, label=right:{[D, 11:40]}] {};
+			\node (D_685) at (10.0,7.467532467532467) [place, label=right:{[D, 11:25]}] {};
+			\node (C_680) at (6.666666666666667,7.272727272727272) [place, label=right:{[C, 11:20]}] {};
+			\node (B_720) at (3.3333333333333335,9.999999999999998) [place, label=right:{[B, 12:00]}] {};
+			\node (D_600) at (10.0,1.9480519480519478) [place, label=right:{[D, 10:00]}] {};
+			\node (D_660) at (10.0,5.844155844155844) [place, label=right:{[D, 11:00]}] {};
+			%CONNECTIONS-------------------------------------------------------
+			\draw [orange] (A_660) -- (B_705) node [midway, above] {0:45};
+			\draw [orange] (A_570) -- (C_600) node [midway, above] {0:30};
+			\draw [black] (A_615) -- (C_645) node [midway, above] {0:30};
+			\draw [green] (A_630) -- (C_660) node [midway, above] {0:30};
+			\draw [green] (C_660) -- (D_700) node [midway, above] {0:40};
+			\draw [green] (A_640) -- (C_665) node [midway, above] {0:25};
+			\draw [green] (C_665) -- (D_685) node [midway, above] {0:20};
+			\draw [orange] (C_680) -- (B_720) node [midway, above] {0:40};
+			\draw [black] (D_600) -- (A_660) node [midway, above] {1:00};
+			\draw [red] (A_570) -- (D_660) node [midway, above] {1:00};
+			%WAITING-----------------------------------------------------------
+			\draw [dashed] (D_600) -- (D_660) node [midway, above] {1:00};
+			\draw [dashed] (D_660) -- (D_685) node [midway, above] {0:25};
+			\draw [dashed] (D_685) -- (D_700) node [midway, above] {0:15};
+			\draw [dashed] (A_570) -- (A_615) node [midway, above] {0:45};
+			\draw [dashed] (A_615) -- (A_630) node [midway, above] {0:15};
+			\draw [dashed] (A_630) -- (A_640) node [midway, above] {0:10};
+			\draw [dashed] (A_640) -- (A_660) node [midway, above] {0:20};
+			\draw [dashed] (B_705) -- (B_720) node [midway, above] {0:15};
+			\draw [dashed, orange] (C_600) -- (C_645) node [midway, above] {0:45};
+			\draw [dashed, orange] (C_645) -- (C_660) node [midway, above] {0:15};
+			\draw [dashed, orange] (C_660) -- (C_665) node [midway, above] {0:05};
+			\draw [dashed, orange] (C_665) -- (C_680) node [midway, above] {0:15};
+		\end{tikzpicture}

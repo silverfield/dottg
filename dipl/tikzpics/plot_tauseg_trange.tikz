@@ -1,0 +1,48 @@
+\tikzstyle{textstyle}=[font=\fontsize{9}{9}\selectfont]
+\begin{tikzpicture}[textstyle, scale=0.8]
+    \begin{axis}[
+        xlabel={time range (days)},
+        ylabel={$\tau$},
+		legend pos=north west
+        ]
+        
+    \addplot[smooth,mark=square,brown] plot coordinates {
+        (2,5.74)
+        (3,5.93)
+        (4,5.94)
+        (5,5.92)
+        (6,5.93)
+        (7,5.95)
+        (8,5.96)
+        (9,5.93)
+        (10,5.89)
+    };
+    \addlegendentry{\textit{air01-200}}
+    
+    \addplot[smooth,mark=*,blue] plot coordinates {
+		(1,2.71)
+		(2,2.71)
+		(3,2.66)
+		(4,2.65)
+		(5,2.63)
+		(6,2.63)
+		(7,2.58)
+    };
+    \addlegendentry{\textit{gb-coach-200}}
+
+    \addplot[smooth,color=purple,mark=triangle] plot coordinates {
+		(1,2.40)
+        (2,2.59)
+        (3,2.60)
+        (4,2.59)
+        (5,2.59)
+        (6,2.60)
+        (7,2.47)
+        (8,2.48)
+        (9,2.51)
+        (10,2.51)
+    };
+    \addlegendentry{\textit{zsr-200}}
+    
+    \end{axis}
+\end{tikzpicture}

@@ -15,10 +15,11 @@ In this section, we provide most of the definitions and terminology used through
         		\item $\bm{dep(e)} = p$ is the \textbf{departure time}
         		\item $\bm{arr(e)} = q$ is the \textbf{arrival time}
         	\end{itemize}
-        	\item The set of all \textbf{cities} will be denoted as $\bm{ct_{T}} = \{x| \; (x, y, p, q) \in T \; or \; (y, x, p, q) \in T\}$ and the number of cities as $n_{T}$
+        	\item The set of all \textbf{cities} (stations) will be denoted as $\bm{ct_{T}} = \{x| \; (x, y, p, q) \in T \; or \; (y, x, p, q) \in T\}$ and the number of cities as $n_{T}$. 
         	\item Pairs $(x, p)$ or $(y, q)$ such that $(x, y, p, q) \in T$ form the set of \textbf{events} $\bm{ev_{T}}$. The set of events in a specific city $x$ is $\bm{ev_{T}(x)} = \{(x, t)| \; (x, y, t, q) \in T \; or \; (y, x, p, t) \in T\}$
         	\item Let $\bm{tlow_{T}} = \min_{e \in T} dep(e)$ and $\bm{thigh_{T}} = \max_{e \in T} arr(e)$. The value $\bm{r_{T}} = thigh_{T} - tlow_{T}$ is called the \textbf{time range} of the timetable.
-        	\item \textbf{Height} of the timetable is the maximum number of events in a city: $\bm{h_{T}} = \max_{x \in cities_{T}} \{|ev_{T}(x)|\}$
+        	\item \textbf{Height} of the timetable is the average number of events in a city: 
+        	$$\bm{h_{T}} = \frac{|ev_{T}|}{n_{T}}$$
         \end{itemize}
     \end{definition}
     
@@ -215,7 +216,7 @@ In this section, we provide most of the definitions and terminology used through
 	
 	Dijkstra's algorithm is originally an algorithm that looks for shortest paths in weighted oriented graphs. It was published by E. W. Dijkstra in 1959~\cite{dijkstra59} and we will not explain it at this place, as the algorithm is very well explained at many other places (e.g.~\cite{dijkstraexp}). For a good summary of Dijkstra's algorithm related implementations and publications see~\cite{sommerthesis10}.
 	
-	As our task is to compute earliest arrivals or optimal connections instead of distances and shortest paths, our ``reference point'' will be a slightly modified Dijkstra's algorithm called \textbf{time-dependent Dijkstra's algorithm}~\ref{tdroute09} (or TD Dijkstra for short). The algorithm is run on a time-dependent graph and works just like the ordinary Dijkstra's algorithm, except that the weight of each arc $(x, y)$ is determined for the time $t$ at which we had settled vertex $x$.
+	As our task is to compute earliest arrivals or optimal connections instead of distances and shortest paths, our ``reference point'' will be a slightly modified Dijkstra's algorithm called \textbf{time-dependent Dijkstra's algorithm}~\ref{tdroute09} (or \textbf{TD Dijkstra} for short). The algorithm is run on a time-dependent graph and works just like the ordinary Dijkstra's algorithm, except that the weight of each arc $(x, y)$ is determined for the time $t$ at which we had settled vertex $x$.
 	
 	If we assume that the evaluation of an arc by the cost function of the TD graph is implemented in constant time, the running time of the TD Dijkstra is $\mathcal{O}(n^{2})$, just like the normal Dijkstra's algorithm. On sparse graphs, this bound can be improved using a quick data structure to determine the next node we settle. A good option is a priority queue implemented as a \textit{Fibonacci heap}, which implements deletion in $\mathcal{O}(\log n)$ and all other operations in constant amortized time~\cite{sommerthesis10}. This yields the running time of TD Dijkstra $\mathcal{O}(n \log n + m)$.
 	
@@ -227,8 +228,3 @@ In this section, we provide most of the definitions and terminology used through
 	\end{definition}
 	
 	\noindent The definition is rather loose in the sense that we may refer to a concrete speed-up of the method on a concrete dataset or a general, theoretical speed-up expressed as a function of the size of input.
-	
-	
-	
-	
-	

@@ -293,6 +293,10 @@
     %   abstract
     %---------------------------------------------------------------------
     \begin{abstract}{Abstract}
+		Queries for optimal connection in timetables can be answered by running Dijkstra's algorithm on an appropriate graph. However, in certain scenarios this approach is not fast enough. In this thesis we introduce methods with much better query time than that of the efficiently implemented Dijkstra's algorithm. \\
+
+		\noindent Our first method called {\it USP-OR} is based on pre-computing paths, that are worth to follow. This method achieves speed-ups of up to 70, although at the cost of high amount of preprocessed data. Our second algorithm computes a small set of important stations and additional information for optimal travelling between these stations. Named {\it USP-OR-A}, this method is much less space consuming but still more than 8 times faster than the Dijkstra's algorithm on some of the real-world datasets.    
+    
         In this thesis we deal with queries for optimal connections in timetables on which we have carried out some preprocessing. Based on the analysis of the properties of real-world timetables, we developed exact methods that answer the queries considerably faster then the time-dependent Dijkstra's algorithm implemented with Fibonacci heap priority queue. More specifically, our method \textit{USP-OR-A} with space complexity $\mathcal{O}(n^{1.5})$ achieves average query time $\mathcal{O}(\sqrt{n} \log n)$, outperforming the time-dependent Dijkstra's algorithm up to 7 times in our largest datasets. \\
 
 		Key words: \textbf{optimal connection}, \textbf{timetable}, \textbf{Dijkstra's algorithm}, \textbf{Distance oracles}, \textbf{underlying shortest paths}

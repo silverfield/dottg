@@ -1,14 +1,23 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Motivation}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{Approach}{section.1}% 3
-\BOOKMARK [2][-]{subsection.1.3}{Goals}{section.1}% 4
-\BOOKMARK [2][-]{subsection.1.4}{Theory and practice}{section.1}% 5
-\BOOKMARK [2][-]{subsection.1.5}{Organization \046 conventions}{section.1}% 6
-\BOOKMARK [1][-]{section.2}{Preliminaries}{}% 7
-\BOOKMARK [1][-]{section.3}{Related work}{}% 8
-\BOOKMARK [1][-]{section.4}{Data \046 analysis}{}% 9
-\BOOKMARK [1][-]{section.5}{Underlying shortest paths}{}% 10
-\BOOKMARK [1][-]{section.6}{Neural network approach}{}% 11
-\BOOKMARK [1][-]{section.7}{Application TTBlazer}{}% 12
-\BOOKMARK [1][-]{section.8}{Conclusion}{}% 13
-\BOOKMARK [1][-]{Appendix.a.A}{Appendix File formats}{}% 14
+\BOOKMARK [1][-]{section.2}{Preliminaries}{}% 2
+\BOOKMARK [1][-]{section.3}{Related work}{}% 3
+\BOOKMARK [1][-]{section.4}{Data \046 analysis}{}% 4
+\BOOKMARK [1][-]{section.5}{Underlying shortest paths}{}% 5
+\BOOKMARK [2][-]{subsection.5.1}{USP-OR}{section.5}% 6
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Analysis of USP-OR}{subsection.5.1}% 7
+\BOOKMARK [2][-]{subsection.5.2}{USP-OR-A}{section.5}% 8
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Analysis of USP-OR-A}{subsection.5.2}% 9
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Correctness of USP-OR-A}{subsection.5.2}% 10
+\BOOKMARK [3][-]{subsubsection.5.2.3}{Modifications of USP-OR-A}{subsection.5.2}% 11
+\BOOKMARK [2][-]{subsection.5.3}{Selection of access node set}{section.5}% 12
+\BOOKMARK [3][-]{subsubsection.5.3.1}{Choosing the optimal access node set}{subsection.5.3}% 13
+\BOOKMARK [3][-]{subsubsection.5.3.2}{Choosing ANs based on node properties}{subsection.5.3}% 14
+\BOOKMARK [3][-]{subsubsection.5.3.3}{Choosing ANs heuristically - the Locsep algorithm}{subsection.5.3}% 15
+\BOOKMARK [2][-]{subsection.5.4}{Performance and comparisons}{section.5}% 16
+\BOOKMARK [3][-]{subsubsection.5.4.1}{Performance of USP-OR}{subsection.5.4}% 17
+\BOOKMARK [3][-]{subsubsection.5.4.2}{USP-OR-A with Locsep}{subsection.5.4}% 18
+\BOOKMARK [3][-]{subsubsection.5.4.3}{USP-OR-A with Locsep Max}{subsection.5.4}% 19
+\BOOKMARK [1][-]{section.6}{Neural network approach}{}% 20
+\BOOKMARK [1][-]{section.7}{Application TTBlazer}{}% 21
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 22
+\BOOKMARK [1][-]{Appendix.a.A}{Appendix File formats}{}% 23
