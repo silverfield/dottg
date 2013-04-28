@@ -1,6 +1,6 @@
 		\tikzstyle{fontsz}=[font=\fontsize{8}{8}\selectfont]
 		\tikzstyle{place}=[circle,draw=event-clr,fill=blue!20,thick,inner sep=1pt, fontsz]
-		\begin{tikzpicture}[>=stealth,->,looseness=.5,auto,scale=0.7])
+		\begin{tikzpicture}[>=stealth,->,looseness=.5,auto,scale=0.6])
 			%NODES-------------------------------------------------------------
 			\node (A_600) at (0.0,0.0) [place, label=right:{\footnotesize [A, 10:00]}] {};
 			\node (B_645) at (3.523550724637681,3.0) [place, label=right:{\footnotesize [B, 10:45]}] {};
