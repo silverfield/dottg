@@ -17,7 +17,7 @@ In this section, we provide most of the definitions and terminology used through
         	\end{itemize}
         	\item The set of all \textbf{cities} (stations) will be denoted as $\bm{ct_{T}} = \{x| \; (x, y, p, q) \in T \; or \; (y, x, p, q) \in T\}$ and the number of cities as $n_{T}$. 
         	\item Pairs $(x, p)$ or $(y, q)$ such that $(x, y, p, q) \in T$ form the set of \textbf{events} $\bm{ev_{T}}$. The set of events in a specific city $x$ is $\bm{ev_{T}(x)} = \{(x, t)| \; (x, y, t, q) \in T \; or \; (y, x, p, t) \in T\}$
-        	\item Let $\bm{tlow_{T}} = \min_{e \in T} dep(e)$ and $\bm{thigh_{T}} = \max_{e \in T} arr(e)$. The value $\bm{r_{T}} = thigh_{T} - tlow_{T}$ is called the \textbf{time range} of the timetable.
+        	\item Let $\bm{tlow_{T}} = \min_{e \in T} dep(e)$ and $\bm{thigh_{T}} = \max_{e \in T} arr(e)$. The value $\bm{tr_{T}} = thigh_{T} - tlow_{T}$ is called the \textbf{time range} of the timetable.
         	\item \textbf{Height} of the timetable is the average number of events in a city: 
         	$$\bm{h_{T}} = \frac{|ev_{T}|}{n_{T}}$$
         \end{itemize}
@@ -148,10 +148,7 @@ In this section, we provide most of the definitions and terminology used through
 		\item Time-dependent graph (TD)
 	\end{itemize}
 	\hspace*{\fill}
-	
-	
-	\noindent For further reference, we will call \textbf{timetable objects} those, that fully represent a timetable (TT, TE, TD) and \textbf{graph objects} those, that can be viewed as a graph (UG, TE, TD). \\
-	
+		
 	\noindent \textit{Note:} Throughout this paper, we will relax a bit the notation and leave out subscripts (e.g. $ug_{T}~\rightarrow~ug$, $n_{T}~\rightarrow~n$, etc.) in situations, where the context is clear enough. 
 
 \subsection{Earliest arrival and optimal connection}
@@ -160,7 +157,7 @@ In this section, we provide most of the definitions and terminology used through
 	
 	\begin{definition}
 		\textbf{Earliest arrival problem (EAP)}\\
-        Given a timetable $T$, departure city $x$, destination city $y$ and a departure time $t$, the task is to determine $\bm{t_{(x, t, y)}^{*}} = \min_{c \in C_{T}(x, y)} \{t + len(c)|start(c) \geq t\}$. 
+        Given a timetable $T$, departure city $x$, destination city $y$ and a departure time $t$, the task is to determine $\bm{t_{(x, t, y)}^{*}} = \min_{c \in C_{T}(x, y)} \{t + len(c)| \; start(c) \geq t\}$. 
         \begin{itemize}
         	\item We will refer to the tuple $\bm{(x, t, y)}$ as an \textbf{EAP instance}, or an \textbf{EAP query}
         	\item The time $\bm{t_{(x, t, y)}^{*}}$ is called the \textbf{earliest arrival (EA)} for the given EAP instance
@@ -171,10 +168,10 @@ In this section, we provide most of the definitions and terminology used through
 
 	\begin{definition}
 		\textbf{Optimal connection problem (OCP)}\\
-        Given a timetable $T$, departure city $x$, destination city $y$ and a departure time $t$, the task is to determine the \textbf{optimal connection (OC)} $\bm{c_{(a, t, b)}^{*}} = argmin_{c \in C_{T}(a, b)} \{t + len(c)|start(c) \geq t\}$. 
+        Given a timetable $T$, departure city $x$, destination city $y$ and a departure time $t$, the task is to find the \textbf{optimal connection (OC)} $\bm{c_{(a, t, b)}^{*}} = argmin_{c \in C_{T}(a, b)} \{t + len(c)| \; start(c) \geq t\}$. 
 	\end{definition}
 	
-	\noindent The instance/query in case of the optimal connection problem has the same form as EAP query. Also, note that the OCP is at least as hard to solve as EAP since having the optimal connection implies the optimal (earliest) arrival time.. In order to avoid technical issues in later parts of the thesis, we will assume the optimal connection is unique (i.e., there is not a different connection with the same end time) or that ties are won by a lexicographically first connection. 
+	\noindent The instance/query in case of the optimal connection problem has the same form as EAP query. Also, note that the OCP is at least as hard to solve as EAP since having the optimal connection implies the optimal (earliest) arrival time. In order to avoid technical issues (e.g. in the definition), we may assume that the optimal connection is unique (i.e., there is not a different connection with the same end time). However, we consider any connection which arrives at time $t_{(x, t, y)}^{*}$ to be optimal for the given query.
 	
 	\begin{example}
 		Consider our timetable from table~\ref{table:tt}. For the EAP instance (B, 10:45, A), the earliest arrival (EA) is 12:15 and the optimal connection (OC) is ((B, C, 11:00, 11:30), (C, A, 11:45, 12:15)), as could be easily seen from picture~\ref{pic:ea} of the TE graph.
@@ -216,7 +213,7 @@ In this section, we provide most of the definitions and terminology used through
 	
 	Dijkstra's algorithm is originally an algorithm that looks for shortest paths in weighted oriented graphs. It was published by E. W. Dijkstra in 1959~\cite{dijkstra59} and we will not explain it at this place, as the algorithm is very well explained at many other places (e.g.~\cite{dijkstraexp}). For a good summary of Dijkstra's algorithm related implementations and publications see~\cite{sommerthesis10}.
 	
-	As our task is to compute earliest arrivals or optimal connections instead of distances and shortest paths, our ``reference point'' will be a slightly modified Dijkstra's algorithm called \textbf{time-dependent Dijkstra's algorithm}~\ref{tdroute09} (or \textbf{TD Dijkstra} for short). The algorithm is run on a time-dependent graph and works just like the ordinary Dijkstra's algorithm, except that the weight of each arc $(x, y)$ is determined for the time $t$ at which we had settled vertex $x$.
+	As our task is to compute earliest arrivals or optimal connections instead of distances and shortest paths, our ``reference point'' will be a slightly modified Dijkstra's algorithm called \textbf{time-dependent Dijkstra's algorithm}~\cite{tdroute09} (or \textbf{TD Dijkstra} for short). The algorithm is run on a time-dependent graph and works just like the ordinary Dijkstra's algorithm, except that the weight of each arc $(x, y)$ is determined for the time $t$ at which we had settled vertex $x$.
 	
 	If we assume that the evaluation of an arc by the cost function of the TD graph is implemented in constant time, the running time of the TD Dijkstra is $\mathcal{O}(n^{2})$, just like the normal Dijkstra's algorithm. On sparse graphs, this bound can be improved using a quick data structure to determine the next node we settle. A good option is a priority queue implemented as a \textit{Fibonacci heap}, which implements deletion in $\mathcal{O}(\log n)$ and all other operations in constant amortized time~\cite{sommerthesis10}. This yields the running time of TD Dijkstra $\mathcal{O}(n \log n + m)$.
 	

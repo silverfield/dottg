@@ -17,7 +17,7 @@
         (9,12.06)
         (10,12.23)
     };
-    \addlegendentry{\textit{air01-200}}
+    \addlegendentry{\textit{air01}}
     
     \addplot[smooth,mark=*,blue] plot coordinates {
 		(1,2.71)
@@ -28,7 +28,7 @@
 		(6,3.41)
 		(7,3.57)
     };
-    \addlegendentry{\textit{gb-coach-200}}
+    \addlegendentry{\textit{gb-coach}}
 
     \addplot[smooth,color=purple,mark=triangle] plot coordinates {
 		(1,2.4)
@@ -42,7 +42,7 @@
         (9,3.89)
         (10,3.9)
     };
-    \addlegendentry{\textit{zsr-200}}
+    \addlegendentry{\textit{zsr}}
     
     \end{axis}
 \end{tikzpicture}

@@ -89,8 +89,8 @@ Thus the main idea common to the methods presented in this section: \textit{when
 			\textit{gb-train} & 0\% \\
 			\textit{montr} & 1\% \\
 			\textit{sncf} & 1\% \\
-			\textit{sncf-ter} & 1\% \\
 			\textit{sncf-inter} & 6\% \\
+			\textit{sncf-ter} & 1\% \\
 			\textit{zsr} & 0\% \\
 		\end{tabular}
 		\caption{\label{tab:overtake} Percentage of overtaken elementary connections in the timetables.}
@@ -186,8 +186,8 @@ Thus the main idea common to the methods presented in this section: \textit{when
 				\textit{gb-train-200d} & 6.8 & 40 & 10.3 \\
 				\textit{montr-200d} & 2.7 & 18 & 26.1 \\
 				\textit{sncf-200d} & 3.8 & 16 & 10.5 \\
-				\textit{sncf-ter-200d} & 4.1 & 14 & 15.1 \\
 				\textit{sncf-inter-200d} & 1.8 & 13 & 14.8 \\
+				\textit{sncf-ter-200d} & 4.1 & 14 & 15.1 \\
 				\textit{zsr-200d} & 2.3 & 13 & 16.2 \\
 			\end{tabular}
 			\captionof{table}{Average and maximal USP coefficients and USP diameter for daily timetables with 200 stations ($\sqrt{200} \approx 14$).}
@@ -246,7 +246,7 @@ Thus the main idea common to the methods presented in this section: \textit{when
 			%data
 				\hline
 				\cellcolor{oracle-clr} \textbf{guaranteed} & $\mathcal{O}(hn^{2} (\log n + \delta))$ & $\mathcal{O}(\tau n^{2} \omega)$ & avg. $\mathcal{O}(\tau \omega)$ & $1$ \\
-				\cellcolor{oracle-clr} \textbf{$\bm{\tau}$ const., $\bm{\omega \leq \sqrt{n}}$, $\bm{\delta \leq \log n}$} & $\mathcal{O}(hn^{2} \log n)$ & $\mathcal{O}(n^{2.5})$ & avg. $\mathcal{O}(\sqrt{n})$ & $1$ \\
+				\cellcolor{oracle-clr} $\bm{\omega \leq \sqrt{n}}$, $\bm{\delta \leq \log n}$ & $\mathcal{O}(hn^{2} \log n)$ & $\mathcal{O}(\tau n^{2.5})$ & avg. $\mathcal{O}(\tau \sqrt{n})$ & $1$ \\
 			\end{tabular}
 			\caption{\label{tab:uspor} The summary of the \textit{USP-OR} algorithm parameters.}
 		\end{table}	
@@ -399,15 +399,15 @@ Thus the main idea common to the methods presented in this section: \textit{when
 				\textbf{Name} & $\bm{n}$ & \textbf{$\bm{\tau_{\mathcal{A}}}$} & $\bm{\omega_{\mathcal{A}}}$ & $\bm{\sqrt{n}}$ \\
 			%data
 				\hline
-				\textit{air01-d} & 287 &  &  & 16.9 \\
+				\textit{air01-d} & 284 & 10.4 & 3.4 & 16.9 \\
 				\textit{cpsk-d} & 1905 & 15.9 & 42.6 & 43.6 \\
-				\textit{gb-coach-d} & 2448 &  &  & 49.5 \\
-				\textit{gb-train-d} & 2555 &  &  & 50.5 \\
-				\textit{montr-d} & 217 &  &  & 14.7 \\
-				\textit{sncf-d} & 2646 &  &  & 51.4 \\
-				\textit{sncf-ter-d} & 2637 &  &  & 51.4 \\
-				\textit{sncf-inter-d} & 366 &  &  & 19.1 \\
-				\textit{zsr-d} & 233 &  &  & 15.3 \\
+				\textit{gb-coach-d} & 2427 & 6.3 & 20.2 & 49.3 \\
+				\textit{gb-train-d} & 2550 & 21.8 & 23.0 & 50.5 \\
+				\textit{montr-d} & 217 & 4.0 & 24.3 & 14.7 \\
+				\textit{sncf-d} & 2608 & 9.8 & 34.0 & 51.1 \\
+				\textit{sncf-inter-d} & 344 & 2.8 & 12.2 & 18.5 \\
+				\textit{sncf-ter-d} & 2600 & 8.9 & 45.5 & 51.1 \\
+				\textit{zsr-d} & 225 & 4.7 & 16.5 & 15 \\
 			\end{tabular}
 			\captionof{table}{USP coefficient and diameter for access node sets, daily timetables.}
 			\label{tab:anusp-d}
@@ -441,9 +441,9 @@ Thus the main idea common to the methods presented in this section: \textit{when
 	    }
 		\end{figure}		
 		
-		On a query from $x$ at time $t$ to $y$, we first perform the \textit{local front search} (see algorithm~\ref{alg:uspora-query}). In this step we explore the neighbourhood of $x$ with a time-dependent Dijkstra's algorithm, which takes on average time $\mathcal{O}(\sqrt{r_{2}n} (\log (\sqrt{r_{2}n}) + \delta))$. We then expand all the USPs between $u$ and $v$ such that $u \in lan(x)$ and $v \in blan(y)$, which takes on average $\mathcal{O}(r_{3} \tau_{\mathcal{A}} \omega_{\mathcal{A}})$. Finally, from each $v \in blan(y)$ we do a TD Dijkstra, restricted to $bneigh(y)$, leading to time complexity $\mathcal{O}(r_{3}\sqrt{r_{2}n} (\log (\sqrt{r_{2}n}) + \delta))$.
+		On a query from $x$ at time $t$ to $y$, we first perform the \textit{local front search} (see algorithm~\ref{alg:uspora-query}). In this step we explore the neighbourhood of $x$ with a time-dependent Dijkstra's algorithm, which takes on average time $\mathcal{O}(\sqrt{r_{2}n} (\log (\sqrt{r_{2}n}) + \delta))$. We then expand all the USPs between $u$ and $v$ such that $u \in lan(x)$ and $v \in blan(y)$, which takes on average $\mathcal{O}(r_{3} \tau_{\mathcal{A}} \omega_{\mathcal{A}})$. Finally, from each $v \in blan(y)$ we do a TD Dijkstra, restricted to $bneigh(y)$, leading to time complexity $\mathcal{O}(\sqrt{r_{3} r_{2} n} (\log (\sqrt{r_{2}n}) + \delta))$.
 		
-		Summing up the three terms we obtain the \textbf{query time} of $\bm{\mathcal{O}(r_{2} r_{3} \sqrt{n} (\log (r_{2}n) + \delta) + r_{3} \tau_{\mathcal{A}} \omega_{\mathcal{A}})}$.
+		Summing up the three terms we obtain the \textbf{query time} of $\bm{\mathcal{O}(r_{2} \sqrt{r_{3}} \sqrt{n} (\log (r_{2}n) + \delta) + r_{3} \tau_{\mathcal{A}} \omega_{\mathcal{A}})}$.
 		
 		\textbf{Stretch} of the \textit{USP-OR-A} algorithm is \textbf{1}, as it is exact algorithm. \\
 		
@@ -456,15 +456,15 @@ Thus the main idea common to the methods presented in this section: \textit{when
 			%legend
 				\cellcolor{oracle-clr} \textit{\textbf{USP-OR-A}} & 
 				\cellcolor{oracle-clr} \textbf{guaranteed} & 
-				\cellcolor{oracle-clr} \textbf{$\bm{\tau, r_{1}, r_{2}, r_{3}}$ const., $\bm{\omega \leq \sqrt{n}}$, $\bm{\delta \leq \log n}$} \\
+				\cellcolor{oracle-clr} \textbf{$\bm{r_{1}, r_{2}, r_{3}} = \mathcal{O}(1)$, $\bm{\omega \leq \sqrt{n}}$, $\bm{\delta \leq \log n}$} \\
 			%data
 				\hline
 				\cellcolor{oracle-clr} $\bm{prep}$ & $\mathcal{O}(f(n) + (r_{1} + r_{2}) (\delta + \log n) h n^{1.5})$ & $\mathcal{O}(f(n) + h n^{1.5} \log n)$ \\
-				\cellcolor{oracle-clr} $\bm{size}$ & $\mathcal{O}(r_{2} n^{1.5} + r_{1}^{2} \tau_{\mathcal{A}} \omega_{\mathcal{A}} n)$ & $\mathcal{O}(n^{1.5})$ \\
-				\cellcolor{oracle-clr} $\bm{qtime}$ & avg. $\mathcal{O}(r_{2} r_{3} \sqrt{n} (\log (r_{2}n) + \delta) + r_{3} \tau_{\mathcal{A}} \omega_{\mathcal{A}})$ & avg. $\mathcal{O}(\sqrt{n} \log n)$ \\
+				\cellcolor{oracle-clr} $\bm{size}$ & $\mathcal{O}(r_{2} n^{1.5} + r_{1}^{2} \tau \omega n)$ & $\mathcal{O}(\tau n^{1.5})$ \\
+				\cellcolor{oracle-clr} $\bm{qtime}$ & avg. $\mathcal{O}(r_{2} \sqrt{r_{3}} \sqrt{n} (\log (r_{2}n) + \delta) + r_{3} \tau \omega)$ & avg. $\mathcal{O}(\tau \sqrt{n} \log n)$ \\
 				\cellcolor{oracle-clr} $\bm{stretch}$ & $1$ & $1$ \\
 			\end{tabular}
-			\caption{\label{tab:uspora} The summary of the \textit{USP-OR-A} algorithm parameters.}
+			\caption{\label{tab:uspora} The summary of the \textit{USP-OR-A} algorithm parameters. Here we left out subscripts identifying AN set for $\tau$ and $\omega$.}
 		\end{table}
 		
 	\subsubsection{Correctness of \textit{USP-OR-A}}
@@ -681,7 +681,7 @@ Thus the main idea common to the methods presented in this section: \textit{when
 		
 		The resulting running time is still quite impractical for bigger timetables. For example, the computation on the dataset \textit{sncf} took more than an hour. This is due to the initial iterations, during which average neighbourhood is still very large (spanning almost the whole graph) and thus we have to do a lot of re-computations (potentials, neighbourhoods). We therefore embrace a simple trick: we do not start with $\mathcal{A} = \emptyset$ but with some access nodes already selected based on high degree. We chose to start with $\frac{2 \sqrt{n}}{3}$ nodes with the highest degree ($\mathcal{A}_{deg}(\frac{2 \sqrt{n}}{3})$) - enough to speed-up the computation but not influencing the resulting AN set too much. 
 		
-		The access node sets chosen with the \textit{locsep} algorithm had much better properties compared to those selected by the previous approaches. The evolution of the properties with increasing $n$ could be seen at plots~\ref{plot:locsep-size}. \\
+		The access node sets chosen with the \textit{locsep} algorithm had much better properties compared to those selected by the previous approaches. The summary of their properties for each of our datasets can be seen in table~\ref{tab:locsep}, while plots~\ref{plot:locsep-size} illustrate the evolution $r_{1}$ and $r_{3}$ with increasing $n$. \\
 		
 		\begin{figure}[h!]
 		\centering
@@ -704,49 +704,72 @@ Thus the main idea common to the methods presented in this section: \textit{when
 			\begin{tabular}{c|c|c}
 			%legend
 				\rowcolor{tablehead}
-				\textbf{Name} & $\bm{r^{loc}_{1}}$ & $r^{loc}_{2}$ \\
+				\textbf{Name} & $\bm{r^{loc}_{1}}$ & $\bm{r^{loc}_{3}}$ \\
 			%data
 				\hline
-				\textit{air01-d} &  &  \\
-				\textit{cpsk-d} &  &  \\
-				\textit{gb-coach-d} &  &  \\
-				\textit{gb-train-d} &  &  \\
-				\textit{montr-d} &  &  \\
-				\textit{sncf-d} &  &  \\
-				\textit{sncf-ter-d} &  &  \\
-				\textit{sncf-inter-d} &  &  \\
-				\textit{zsr-d} &  &  \\
+				\textit{air01-d} & 3.9 & 57.4 \\
+				\textit{cpsk-d} & 2.3 & 10.8 \\
+				\textit{gb-coach-d} & 3.4 & 20.7 \\
+				\textit{gb-train-d} & 3.2 & 22.7 \\
+				\textit{montr-d} & 2.1 & 3.3 \\
+				\textit{sncf-d} & 2.0 & 12.0 \\
+				\textit{sncf-ter-d} & 1.8 & 9.7 \\
+				\textit{sncf-inter-d} & 1.3 & 3.9 \\
+				\textit{zsr-d} & 1.7 & 4.5 \\
 			\end{tabular}
-			\captionof{table}{Parameters of $\mathcal{A}^{loc}$ for all of our datasets in their maximum size.}
+			\captionof{table}{Parameters of $\mathcal{A}^{loc}$ for all of our datasets in their maximum size. $r_{2} \leq 1$. The timetable of airlines is the most challenging to find a good AN set on, since it forms a highly interconnected network and thus makes it difficult to separate the nodes' neighbourhoods with few local access nodes.}
 			\label{tab:locsep}
 		\end{table}					
 		
-		\noindent To sum up, in \textit{all} of our datasets~\footnote{Except \textit{air01}, which is a special type of timetable.}, each scaled to \textit{various} sizes, we were always able to find $(r_{1}, r_{2}, r_{3})$ access node set $\mathcal{A}$ with the \textit{locsep} algorithm, such that:
+		\noindent To sum up, in all of our datasets (except for \textit{air01}), we were always able to find $(r_{1}, r_{2}, r_{3})$ access node set with the \textit{locsep} algorithm, such that:
 		\begin{itemize}
-			\item $r_{1} \leq todo$
-			\item $r_{2} \leq todo$
-			\item $r_{3} \leq todo$
-			\item $\mathcal{A}$ can be found in $\mathcal{O}(\delta n^{2.5})$
+			\item $r_{1} \leq 3.5$
+			\item $r_{2} \leq 1$
+			\item $r_{3} \leq 25$ (i.e. up to 5 local access nodes on average)
 		\end{itemize}
-		\hspace*{\fill}
+		\hspace*{\fill}		
 		
-		\noindent Therefore, when we use \textit{USP-OR-A} together with \textit{locsep} on our timetables, we achieve parameters as described in table~\ref{tab:usporalocsep}.
+		\noindent In what follows we try to analyse the parameters of \textit{USP-OR-A} combined with \textit{locsep}. We however ask the reader to consider the following more like an informal discussion providing a better insight on performance of the mentioned combination, rather than a rigorous analysis. \\
 		
-		\begin{table}[h!]
+		\noindent Suppose the following conditions to be true:
+		\begin{enumerate}
+			\item We have a timetable with $\delta \leq \log n$ on which we found $\mathcal{A^{loc}}$ (thus $r_{2}^{loc} \leq 1$)
+			\item $\omega_{\mathcal{A^{loc}}} \leq \sqrt{n}$
+			\item $r_{1}^{loc}$ is bound by a constant
+			\item $r_{3}^{loc} \leq \log n$
+			\item $\sqrt{r_{3}^{loc}} \leq \tau_{\mathcal{A^{loc}}}$
+		\end{enumerate}
+		\hspace{\fill}
+		
+		\noindent The first two conditions were generally satisfied by our timetables (again, not including \textit{air01}). As for the third one, we found the value of $r_{1}^{loc}$ almost constant and only very slightly increasing with $n$~\footnote{Although this is nowhere near the \textit{proof} that $r_{1}^{loc}$ could be bound by a constant.}. Finally, if the last two conditions hold, we may estimate the average query time of \textit{USP-OR-A} with \textit{locsep} as:
+		
+		\begin{align*}
+			\mathcal{O}(r_{2} \sqrt{r_{3}} \sqrt{n} (\log (r_{2}n) + \delta) + r_{3} \tau \omega) = \\
+			\mathcal{O}(\sqrt{r_{3}} \sqrt{n} (\log n + \delta) + r_{3} \tau \omega) = \\
+			\mathcal{O}(\sqrt{r_{3}} \sqrt{n} \log n + r_{3} \tau \sqrt{n}) = \\
+			\mathcal{O}(\tau \sqrt{n} \log n + \log n \; \tau \sqrt{n}) = \\
+			\mathcal{O}(\tau \sqrt{n} \log n)
+		\end{align*}
+		
+		\noindent Most of our datasets came very close to satisfy the mentioned conditions, under which \textit{USP-OR-A} with \textit{locsep} reaches parameters as described in the following table.
+		
+		\begin{table}[H]
 			\centering
 			\begin{tabular}{l|c|c|c|c}
 			%legend
 				\cellcolor{oracle-clr} \textit{\textbf{USP-OR-A + locsep}} & \cellcolor{oracle-clr} $\bm{prep}$ & \cellcolor{oracle-clr} $\bm{size}$ & \cellcolor{oracle-clr} $\bm{qtime}$ & \cellcolor{oracle-clr} $\bm{stretch}$ \\
 			%data
 				\hline
-				\cellcolor{oracle-clr} \textbf{Our timetables} & $\mathcal{O}(\delta n^{2.5})$ & $\mathcal{O}(n^{1.5})$ & avg. $\mathcal{O}(\sqrt{n} \log n)$ & $1$ \\
+				\cellcolor{oracle-clr} \textbf{Under certain conditions} & $\mathcal{O}(n^{2.5} \log n)$ & $\mathcal{O}(\tau n^{1.5})$ & avg. $\mathcal{O}(\tau \sqrt{n} \log n)$ & $1$ \\
 			\end{tabular}
-			\caption{\label{tab:usporalocsep} Parameters for \textit{USP-OR-A} with \textit{locsep}.}
+			\caption{\label{tab:usporalocsep} Parameters for \textit{USP-OR-A} with \textit{locsep} under certain conditions listed above.}
 		\end{table}
+		
+		\noindent Using \textit{USP-OR-A} with \textit{locsep} therefore seems to be a solution which (theoretically) should work pretty well. To justify this statement we performed experiments, the results of which we provide in the next subsection.
 	
 \subsection{Performance and comparisons}
 
-	\noindent In this subsection we give the results of the performance of our algorithms on our datasets. We focus on query time and space complexity of the preprocessed oracles. We have already introduced the speed-up as the ratio of average query time for the TD Dijkstra and the average query time for the given algorithm. We will have a similar measure for the size of the preprocessed data, which we compare against the amount of data needed to represent the actual timetable itself.
+	\noindent In this subsection we show the performance of our algorithms on our datasets. We focus on query time and space complexity of the preprocessed oracles~\footnote{The methods are exact (i.e. $stretch = 1$) and we consider the preprocessing time as the least important parameter out of the four.}. We have already introduced the speed-up as the ratio of average query time for the TD Dijkstra and the average query time for the given algorithm. We will have a similar measure for the size of the preprocessed data, which we compare against the amount of memory needed to store the actual timetable.
 	
 	\begin{definition}
 		\textbf{Size-up ($\bm{szp(m)}$)}\\
@@ -765,7 +788,7 @@ Thus the main idea common to the methods presented in this section: \textit{when
 	            \textbf{Name} & $\bm{n}$ & $\bm{spd}$ & $\bm{szp}$ \\
 			%data
 				\hline
-				\textit{cpru}* & 700 & 14.5 & 396.7 \\
+				\textit{cpsk}* & 700 & 14.5 & 396.7 \\
 				\textit{cpza}* & 700 & 14.3 & 265.1 \\
 				\textit{montr} & 217 & 8.8 & 61.1\\
 				\textit{sncf}* & 1000 & 64.8 & 106.2 \\
@@ -885,29 +908,54 @@ Thus the main idea common to the methods presented in this section: \textit{when
 	    }
 		\end{figure}
 
-	\subsubsection{\textit{USP-OR-A} with \textit{locsep}}
+	\subsubsection{\textit{USP-OR-A}}
 	
-		\noindent With \textit{USP-OR-A}, the speed-ups were no longer so high as in case of \textit{USP-OR-A}, but neither were the size-ups, so we could fully try out all of our datasets. The maximum speed-up was achieved in \textit{sncf-ter}, where the \textit{USP-OR-A} outperformed \textit{TD Dijkstra} almost 7 times. In our datasets, the preprocessed oracle of \textit{USP-OR-A} did not need more than 3 times the size of the TD graph. Table~\ref{tab:uspora-speedup} provides an overview of achieved speed-ups and size-ups.
+		\noindent We tested \textit{USP-OR-A} exclusively paired with \textit{locsep}. The speed-ups were no longer so high as in case of \textit{USP-OR}, but neither were the size-ups, so we could fully try out all of our datasets. The maximum speed-up was achieved in \textit{gb-coach}, where the \textit{USP-OR-A} outperformed \textit{TD Dijkstra} about 8.5 times. In our datasets, the preprocessed oracle of \textit{USP-OR-A} did not need more than 3 times the size of the TD graph. Table~\ref{tab:uspora-speedup} provides an overview of achieved speed-ups and size-ups.
 	
-		\begin{table}[H]
-			\centering
+		\begin{figure}[H]
+		\centering
+		\makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth}  
+		    \centering
 			\begin{tabular}{c|c|c|c}
 			%legend
 	            \rowcolor{tablehead}
 	            \textbf{Name} & $\bm{n}$ & $\bm{spd}$ & $\bm{szp}$ \\
 			%data
 				\hline
-				\textit{cpru} & 871 & 1.8 & 2.97 \\
-				\textit{cpza} & 1108 & 1.9 & 2.52 \\
-				\textit{montr} & 217 & 1.6 & 1.14 \\
-				\textit{sncf} & 2646 & 6.3 & 3.0 \\
-				\textit{sncf-inter} & 366 & 3.9 & 1.59 \\
-				\textit{sncf-ter} & 2637 & 6.9 & 2.43 \\
-				\textit{zsr} (daily) & 233 & 2.5 & 1.99 \\	
+				\textit{air01-d} & 284 &  &  \\
+				\textit{cpsk-d} & 1905 &  &  \\
+				\textit{gb-coach-d} & 2427 &  &  \\
+				\textit{gb-train-d} & 2550 &  &  \\
+				\textit{montr-d} & 217 &  &  \\
+				\textit{sncf-d} & 2608 &  &  \\
+				\textit{sncf-inter-d} & 344 &  &  \\
+				\textit{sncf-ter-d} & 2600 &  &  \\
+				\textit{zsr-d} & 225 &  &  \\
 			\end{tabular}
-			\captionof{table}{Speed-ups and size-ups of the \textit{USP-OR-A} with \textit{locsep} for the whole timetables (for those marked with asterisk we took only a subset of $n$ stations, as we were limited by the space).}
-			\label{tab:uspora-speedup}
-		\end{table}
+	    \end{minipage}
+		\hspace{1cm}
+	    \begin{minipage}{0.45\textwidth} 
+	    	\centering
+			\begin{tabular}{c|c|c|c}
+			%legend
+	            \rowcolor{tablehead}
+	            \textbf{Name} & $\bm{n}$ & $\bm{spd}$ & $\bm{szp}$ \\
+			%data
+				\hline
+				\textit{air01-w} & 287 &  &  \\
+				\textit{gb-coach-w} & 2448 &  &  \\
+				\textit{gb-train-w} & 2555 &  &  \\
+				\textit{sncf-w} & 2646 &  &  \\
+				\textit{sncf-inter-w} & 366 &  &  \\
+				\textit{sncf-ter-w} & 2637 &  &  \\
+				\textit{zsr-d} & 233 &  &  \\
+			\end{tabular}
+	    \end{minipage}
+	    }
+	    \captionof{table}{Speed-ups and size-ups of the \textit{USP-OR-A} with \textit{locsep} for the whole timetables .}
+		\label{tab:uspora-speedup}
+		\end{figure}	
 	
 		\noindent The bus timetables proved to be a bigger challenge for \textit{USP-OR-A}, achieving milder speed-ups and requiring more memory then railways timetables. However, bigger timetables would be necessary to obtain more relevant results.
 		
@@ -1010,68 +1058,6 @@ Thus the main idea common to the methods presented in this section: \textit{when
 		    \inputTikZ{./tikzpics/plot_usporas_zsr_trange}
 		    \captionof{figure}{\textbf{Size} (in MB) of the oracle for \textit{USP-OR-A} with \textit{locsep} vs. size of TD graph on \textit{\textbf{zsr}} dataset. \textbf{Changing $\bm{r}$}.}
 		    \label{plot:usporas-zsr-trange}
-	    \end{minipage}
-	    }
-		\end{figure}
-	
-	\subsubsection{\textit{USP-OR-A} with \textit{locsep Max}}
-	
-		\noindent We also tried out \textit{USP-OR-A} with \textit{locsep Max} to see if the difference in the stopping criterion of \textit{locsep} would influence the query times. It did help, but the difference in the performance is minimal, therefore we list only the table summarizing the speed-ups and size-ups (\ref{tab:usporam-speedup}) and the details for datasets \textit{cpza} and \textit{sncf}.
-	
-		\begin{table}[H]
-			\centering
-			\begin{tabular}{c|c|c|c}
-			%legend
-	            \rowcolor{tablehead}
-	            \textbf{Name} & $\bm{n}$ & $\bm{spd}$ & $\bm{szp}$ \\
-			%data
-				\hline
-				\textit{cpru} & 871 & 2.1 & 4.5 \\
-				\textit{cpza} & 1108 & 2.1 & 3.1 \\
-				\textit{montr} & 217 & 2.1 & 1.9 \\
-				\textit{sncf} & 2646 & 6.6 & 3.0 \\
-				\textit{sncf-inter} & 366 & 4.3 & 1.6 \\
-				\textit{sncf-ter} & 2637 & 7.1 & 2.43 \\
-				\textit{zsr} (daily) & 233 & 2.3 & 1.94 \\	
-			\end{tabular}
-			\captionof{table}{Speed-ups and size-ups of the \textit{USP-OR-A} with \textit{locsep Max} for the whole timetables (for those marked with asterisk we took only a subset of $n$ stations, as we were limited by the space).}
-			\label{tab:usporam-speedup}
-		\end{table}
-		
-		\begin{figure}[H]
-		\centering
-		\makebox[0pt][c]{
-	    \begin{minipage}{0.45\textwidth}  
-		    \centering
-		    \inputTikZ{./tikzpics/plot_usporam_cpza_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} with \textit{locsep Max} compared to TD Dijkstra on the \textit{\textbf{cpza}} dataset. \textbf{Changing $\bm{n}$}.}
-		    \label{plot:usporam-cpza-size}
-	    \end{minipage}
-		\hspace{1cm}
-	    \begin{minipage}{0.45\textwidth} 
-	    	\centering
-		    \inputTikZ{./tikzpics/plot_usporams_cpza_size}
-		    \captionof{figure}{\textbf{Size} (in MB) of the oracle for \textit{USP-OR-A} with \textit{locsep Max} vs. size of TD graph on \textit{\textbf{cpza}} dataset. \textbf{Changing $\bm{n}$}.}
-		    \label{plot:usporams-cpza-size}   
-	    \end{minipage}
-	    }
-		\end{figure}
-	
-		\begin{figure}[H]
-		\centering
-		\makebox[0pt][c]{
-	    \begin{minipage}{0.45\textwidth} 
-	    	\centering
-		    \inputTikZ{./tikzpics/plot_usporam_sncf_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} with \textit{locsep Max} compared to TD Dijkstra on the \textit{\textbf{sncf}} dataset. \textbf{Changing $\bm{n}$}.}
-		    \label{plot:usporam-sncf-size}   
-	    \end{minipage}
-		\hspace{1cm}
-	    \begin{minipage}{0.45\textwidth} 
-	    	\centering
-		    \inputTikZ{./tikzpics/plot_usporams_sncf_size}
-		    \captionof{figure}{\textbf{Size} (in MB) of the oracle for \textit{USP-OR-A} with \textit{locsep Max} vs. size of TD graph on \textit{\textbf{sncf}} dataset. \textbf{Changing $\bm{n}$}.}   
-		    \label{plot:usporams-sncf-size}
 	    \end{minipage}
 	    }
 		\end{figure}

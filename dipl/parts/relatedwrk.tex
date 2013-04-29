@@ -75,7 +75,9 @@ In this section, we summarize the work related to the subject of this thesis. Ap
 	    \caption{\label{fig:contraction} Deleting vertex $E$ in Contraction hierarchies. Before (left) and after (right).}
 		\end{figure}
 	
-	\noindent A very good summary of the techniques devised for road network route planning up to the year 2009 can be found in~\cite{engineeringroute09}. Efficient distance oracles are also known for graphs with small recursive separators~\cite{distlabel04}. The work~\cite{sommerthesis10} suggests efficient distance oracle for power-law graphs and another distance oracle method for general graphs, offering trade-offs between stretch and query times. It also gives an exhaustive and comprehensive discussion regarding shortest path queries in general, which we point out to interested readers.
+	\noindent One thing these methods have in common is that their query time is very low in practice, but it is not guaranteed theoretically. This was the point of interest in the work~\cite{highwaydim10}, which introduces a parameter called \textit{highway dimension}. The authors show that a low highway dimension guarantees good query times of many route-planning algorithms, including the three we have mentioned. \\
+	
+	\noindent A very good summary of the techniques devised for road network route-planning up to the year 2009 can be found in~\cite{engineeringroute09}. Efficient distance oracles are also known for graphs with small recursive separators~\cite{distlabel04}. The work~\cite{sommerthesis10} suggests efficient distance oracle for power-law graphs and another distance oracle method for general graphs, offering trade-offs between stretch and query times. It also gives an exhaustive and comprehensive discussion regarding shortest path queries in general, which we point out to interested readers.
 	
 \subsection{Time-dependent scenario}
 	

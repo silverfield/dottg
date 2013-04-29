@@ -25,12 +25,14 @@
 \BOOKMARK [2][-]{subsection.5.3}{Selection of access node set}{section.5}% 25
 \BOOKMARK [3][-]{subsubsection.5.3.1}{Choosing the optimal access node set}{subsection.5.3}% 26
 \BOOKMARK [3][-]{subsubsection.5.3.2}{Choosing ANs based on node properties}{subsection.5.3}% 27
-\BOOKMARK [3][-]{subsubsection.5.3.3}{Choosing ANs heuristically - the Locsep algorithm}{subsection.5.3}% 28
+\BOOKMARK [3][-]{subsubsection.5.3.3}{Choosing ANs heuristically - the locsep algorithm}{subsection.5.3}% 28
 \BOOKMARK [2][-]{subsection.5.4}{Performance and comparisons}{section.5}% 29
 \BOOKMARK [3][-]{subsubsection.5.4.1}{Performance of USP-OR}{subsection.5.4}% 30
-\BOOKMARK [3][-]{subsubsection.5.4.2}{USP-OR-A with Locsep}{subsection.5.4}% 31
-\BOOKMARK [3][-]{subsubsection.5.4.3}{USP-OR-A with Locsep Max}{subsection.5.4}% 32
+\BOOKMARK [3][-]{subsubsection.5.4.2}{USP-OR-A with locsep}{subsection.5.4}% 31
+\BOOKMARK [3][-]{subsubsection.5.4.3}{USP-OR-A with locsep Max}{subsection.5.4}% 32
 \BOOKMARK [1][-]{section.6}{Neural network approach}{}% 33
-\BOOKMARK [1][-]{section.7}{Application TTBlazer}{}% 34
-\BOOKMARK [1][-]{section.8}{Conclusion}{}% 35
-\BOOKMARK [1][-]{Appendix.a.A}{Appendix File formats}{}% 36
+\BOOKMARK [2][-]{subsection.6.1}{Results}{section.6}% 34
+\BOOKMARK [2][-]{subsection.6.2}{Conclusion}{section.6}% 35
+\BOOKMARK [1][-]{section.7}{Application TTBlazer}{}% 36
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 37
+\BOOKMARK [1][-]{Appendix.a.A}{Appendix File formats}{}% 38

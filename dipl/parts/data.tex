@@ -1,16 +1,16 @@
-In this section we would like to introduce the timetable datasets we were working with and provide the results of the analysis which we carried out on the data. The main reason for this analysis is that it gives some insight into the properties of the timetables, and thus may contribute to the make an oracle based method with better qualities.
+In this section we would like to introduce the timetable datasets we were working with and provide the analysis of their properties. The main reason for this analysis is that it gives some insight into the characteristics of the timetables and so may contribute to develop an oracle based method with better qualities.
 
 \subsection{Data}
 
-	We have obtained timetable datasets from numerous sources, in varying formats and of different types. Some of them were freely available on the Internet while others were provided by companies upon demand. Let us briefly describe each of these timetables.
+	We have obtained timetable datasets from numerous sources, in varying formats and of different types. Some of them were freely available on the Internet while others were provided by companies upon demand. Let us provide their brief description.
 	
 	The dataset \textit{air01} contains schedules of \textbf{domestic flights in United States} for the January of 2008. It is not comprehensive in the sense that it contains entries only for flights of some of the major airports in US. However it is large enough for our purposes (almost 300 airports). This dataset is just a fraction of the data that are freely available at the pages of American Statistical Association~\footnote{\url{http://stat-computing.org/dataexpo/2009/the-data.html}} in CSV format.
 	
-	Timetable \textit{cpsk} represent the \textbf{regional bus} schedules from the areas of \textbf{Ružomberok and Žilina, Slovakia}. The data were provided by the company in charge of the \textit{cp.sk} portal - Inprop s.r.o. . The timetable concern about 1900 bus stops and came in a JDF 1.9 format~\footnote{Jednotný dátový formát (JDF).}. Apart from the actual schedules, the data in JDF contain numerous other information, which were not relevant for our purposes. From both timetables, we have extracted subsets with a time range of one day.
+	Timetable \textit{cpsk} represent the \textbf{regional bus} schedules from the areas of \textbf{Ružomberok and Žilina, Slovakia}. The data were provided by the company in charge of the \textit{cp.sk} portal - Inprop s.r.o. . The timetable contains about 1900 bus stops and came in a JDF 1.9 format~\footnote{Jednotný dátový formát (JDF).}. Apart from the actual schedules, the data in JDF contain numerous other information which were not relevant for our purposes. From both timetables we have extracted subsets with a time range of one day.
 	
-	The \textit{gb-coach} and \textit{gb-train} timetables are freely available from National Public Transport Data Repository (NPTDR) at \url{http://data.gov.uk} in an ATCO-CIF format. They are not actually timetables but rather weekly snapshots of national public transport journeys made by coach and train in Great Britain. The datasets contain about 2500 stations each.
+	The \textit{gb-coach} and \textit{gb-train} timetables are freely available from National Public Transport Data Repository (NPTDR)~\footnote{\url{http://data.gov.uk}} in an ATCO-CIF format. These are not actually timetables but rather weekly snapshots of national public transport journeys made by \textbf{coach and train in Great Britain} (during certain week in year 2011). The datasets contain about 2500 stations each.
 	
-	The \textit{montr} dataset is part of a public feed for Greater \textbf{Montreal public transportation}, available at Google Transit Feeds~\footnote{\url{http://code.google.com/p/googletransitdatafeed/wiki/PublicFeeds}}. The data are in a GTFS format (defines relations between CSV files listing stations, routes, stop-times...) and were made available by Montreal's Agence métropolitaine de transport. Our timetable \textit{montr} corresponds to daily schedules of the Chambly-Richelieu-Carignan bus services (more than 200 bus stops).
+	The \textit{montr} dataset is part of a public feed for \textbf{Greater Montreal public transportation}, available at Google Transit Feeds~\footnote{\url{http://code.google.com/p/googletransitdatafeed/wiki/PublicFeeds}}. The data are in a GTFS format (defines relations between CSV files listing stations, routes, stop-times...) and were made available by Montreal's Agence métropolitaine de transport. Our timetable \textit{montr} corresponds to daily schedules of the Chambly-Richelieu-Carignan bus services (more than 200 bus stops).
 	
 	Also in GTFS format come the data of \textbf{French railways} operated by company SNCF, publicly available at their website~\footnote{\url{http://test.data-sncf.com/index.php/ter.html}}. The schedules are weekly and there were two of them: one for intercity trains and one for TER trains (regional trains). Thus the three timetables \textit{sncf-inter} (366 stations), \textit{sncf-ter} (2637 stations) and their union \textit{sncf} (2646 stations).
 	
@@ -64,7 +64,7 @@ In this section we would like to introduce the timetable datasets we were workin
 		\normalsize
 	\end{table}	
 	
-	\noindent To see better the differences in the properties of different timetable types (train, flight, bus...), we made sub-timetables with 200 cities and with the upper bound on time range being 1 day~\footnote{We took all elementary connections that were within our time range. From this timetable, we made an UG and its (random) sub-graph of 200 cities. Finally we selected only those elementary connections, that were on top of this sub-graph to form a timetable with 200 cities and the desired (maximal) time range.} ($thigh_{T} <$ 1 day $\forall T$) from each of our dataset. We name these datasets by appending to the original name ``\textit{-200d}''~\footnote{Similarly, ``\textit{-d}'' would mean ``with daily time range''.}. See table~\ref{table:tt_200mainpr} for details. \\
+	\noindent To see better the differences in the properties of different timetable types (train, flight, bus...), we made sub-timetables with 200 cities and with the upper bound on time range being 1 day and 6 hours~\footnote{We took all elementary connections that were within our time range. From this timetable, we made an UG and its (random) sub-graph of 200 cities. Finally we selected only those elementary connections, that were on top of this sub-graph to form a timetable with 200 cities and the desired (maximal) time range.} ($thigh_{T} <$ 1 day and 6 hours) from each of our dataset. We name these datasets by appending to the original name ``\textit{-200d}''~\footnote{Similarly, throughout this thesis, suffix ``\textit{-d}'' would mean ``with daily time range'', ``\textit{-w}'' ``weekly time range'' and suffix ``\textit{-\#}'' would mean sub-timetable with \# stations.}. See table~\ref{table:tt_200mainpr} for details. \\
 	
 	\begin{table}[h!]
 		\centering
@@ -120,13 +120,13 @@ In this section we would like to introduce the timetable datasets we were workin
 
 	\noindent First we will take a look at the optimal connection \textit{sizes} (size is the number of elementary connections) in the timetables. For a given timetable $T$, we will denote the average optimal connection size as $\bm{\gamma_{T}}$ and will call it the \textbf{optimal connection diameter} (OC diameter). We computed an approximate OC diameter for each of our datasets by measuring an average connection size of sufficiently many OCs. The results in table~\ref{table:tt_ocdiam} indicate that the average OC size generally falls under $\sqrt{n}$.
 	
-	Next we would like to get an idea of the sparsity of the underlying graphs. We see from the table~\ref{table:tt_mainpr} that the graphs are pretty sparse (again, with exception of \textit{air01}), but we would like to make sure that the sparsity is uniform. More specifically, we will be interested in the $\delta$-density:
+	Next we would like to get an idea of the sparsity of the underlying graphs. We see from the table~\ref{table:tt_mainpr} that the graphs are pretty sparse (with the exception of \textit{air01}), but we would like to make sure that the sparsity is uniform. More specifically, we will be interested in the $\delta$-density:
 	
 	\begin{definition}
 		\textbf{$\bm{\delta}$-density} \\
 		A graph $G$ of $n$ vertices and $m$ arcs is $\delta$-dense $\iff$ $\forall G' \subseteq G, n' \geq \sqrt[4]{n}: \frac{\displaystyle m'}{\displaystyle n'} \leq \delta$
 		\begin{itemize}
-			\item For a timetable $T$, we will denote its \textbf{density} parameter~\footnote{Note that this has nothing to do with the frequency of elementary connections.} as $\bm{\delta_{T}} = min \{\delta|\; ug_{T}$ is $\delta$-dense$\}$
+			\item For a timetable $T$, we will denote its \textbf{density} parameter~\footnote{Note that this has nothing to do with the frequency of elementary connections, only with the density of the underlying graph.} as $\bm{\delta_{T}} = min \{\delta|\; ug_{T}$ is $\delta$-dense$\}$
 		\end{itemize}
 	\end{definition}
 	
@@ -201,7 +201,7 @@ In this section we would like to introduce the timetable datasets we were workin
     }
 	\end{figure}
 	
-	\noindent The density is related to the \textbf{average degree} $deg_{avg}$ in the graph, since in oriented graphs:
+	\noindent The density is related to the \textbf{average degree} $deg_{avg}$ in the UG, since in oriented graphs:
 	
 	$$deg_{avg} = \frac{\displaystyle m}{\displaystyle n}$$
 	
