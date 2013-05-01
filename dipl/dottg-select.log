@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  29 APR 2013 20:29
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.10.28)  1 MAY 2013 14:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1627,7 +1627,7 @@ LaTeX Info: Redefining \selectfont on input line 126.
 \RaggedRightParindent=\skip74
 \JustifyingParindent=\skip75
 )
-<./pics/logouk.png, id=115, 150.5625pt x 150.5625pt>
+<./pics/logouk.png, id=111, 150.5625pt x 150.5625pt>
 File: ./pics/logouk.png Graphic file (type png)
  <use ./pics/logouk.png>
 Package pdftex.def Info: ./pics/logouk.png used on input line 218.
@@ -1666,7 +1666,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 {/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./pics/
 logouk.png>]
-[2] <../assignment-eng.pdf, id=134, page=1, 597.23125pt x 845.1575pt>
+[2] <../assignment-eng.pdf, id=129, page=1, 597.23125pt x 845.1575pt>
 File: ../assignment-eng.pdf Graphic file (type pdf)
 
 <use ../assignment-eng.pdf, page 1>
@@ -1691,7 +1691,7 @@ File: ../assignment-eng.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../assignment-eng.pdf, page1 used on input line 256.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
  [3 <../assignment-eng.pdf>]
-<../assignment-sk.pdf, id=166, page=1, 597.23125pt x 845.1575pt>
+<../assignment-sk.pdf, id=161, page=1, 597.23125pt x 845.1575pt>
 File: ../assignment-sk.pdf Graphic file (type pdf)
 
 <use ../assignment-sk.pdf, page 1>
@@ -1725,13 +1725,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 298--299
   
  []
 
-LaTeX Font Info:    Try loading font information for U+eus on input line 306.
-(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/ueus.fd
-File: ueus.fd 2009/06/22 v3.00 Euler Script
-)
-Overfull \hbox (11.85461pt too wide) in paragraph at lines 306--307
- \T1/lmr/m/n/10 bonac-ciho haldy. Pres-ne-j²ie, ná² al-go-rit-mus \T1/lmr/m/it/
-10 USP-OR-A \T1/lmr/m/n/10 s priestorovou 
+
+Overfull \hbox (3.16977pt too wide) in paragraph at lines 304--305
+ \T1/lmr/m/n/10 uvádzame metódy, ktoré na dotaz na op-ti-málne spo-je-nie odpov
+edajú 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 304--305
+  
  []
 
 
@@ -1758,179 +1760,292 @@ e.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.352 
-       [3] (./parts/data.tex
+       [3]pdfTeX warning (ext4): destination with the same identifier (name{pag
+e.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.360 
+       [4] (./parts/usp.tex
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 7.
+(Font)              <8> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 7.
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 7.
+(Font)              <6> on input line 3.
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+LaTeX Font Info:    Try loading font information for U+eus on input line 17.
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/ueus.fd
+File: ueus.fd 2009/06/22 v3.00 Euler Script
 )
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
-
- []
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
-been already used, duplicate ignored
+(./tikzpics/pathfunc.tikz
+Missing character: There is no ) in font nullfont!
+)pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has
+ been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.21 	F
-       or a summary of the used timetables' descriptions, see table~\ref{tab...
-[4]
-
-LaTeX Warning: Reference `table:tt_desc' on page 5 undefined on input line 21.
-
-
-LaTeX Warning: Reference `table:tt_mainpr' on page 5 undefined on input line 21
-.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--22
-
- []
-
-
-Overfull \hbox (18.05891pt too wide) in paragraph at lines 26--40
- [][] 
- []
-
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 47.
-
-LaTeX Warning: Reference `table:tt_200mainpr' on page 5 undefined on input line
- 67.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
-
- []
-
-
-LaTeX Warning: Reference `table:tdte' on page 5 undefined on input line 92.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 92--93
-
- []
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.93 
-      [5]
-
-LaTeX Warning: Reference `table:tt_ocdiam' on page 6 undefined on input line 12
-1.
-
-
-LaTeX Warning: Reference `table:tt_mainpr' on page 6 undefined on input line 12
-3.
-
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 129.
+l.29 \subsection{\textit{USP-OR}}
+                                  [5]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 36.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 40.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Font shape `OMS/lmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 129.
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 40.
 
 
-LaTeX Warning: Reference `table:ug_density' on page 6 undefined on input line 1
-33.
+LaTeX Warning: Citation `tdroute09' on page 6 undefined on input line 61.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
-
- []
-
-
-LaTeX Warning: Citation `sommerthesis10' on page 6 undefined on input line 201.
-
-
-
-LaTeX Warning: Citation `sommerthesis10' on page 6 undefined on input line 201.
-
-
-
-Overfull \hbox (8.21066pt too wide) in paragraph at lines 201--201
- [][] 
- []
-
-
-LaTeX Warning: Reference `table:ug_degs' on page 6 undefined on input line 208.
-
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 208--209
-
- []
-
-
-LaTeX Warning: Reference `table:ug_conn' on page 6 undefined on input line 210.
-
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 210--211
-
+(./tikzpics/overtake.tikz
+Missing character: There is no ) in font nullfont!
+)
+Underfull \hbox (badness 1102) in paragraph at lines 98--98
+\T1/lmr/m/n/10 taken el-e-men-tary con-nec-tions in
  []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.234 	\end{table}
-                   [6]
+l.104     \end{lemma}
+                      [6]
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
 
-LaTeX Warning: Citation `highwaydim10' on page 7 undefined on input line 236.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
+
+ []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.244         \vskip
-                     10pt [7] (./tikzpics/highwaydim.tikz))pdfTeX warning (ext4
-): destination with the same identifier (name{page.8}) has been already used, d
-uplicate ignored
+l.150 		A
+         s for the preprocessed space, we need to store USPs for each pair o...
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
+
+ []
+
+(./tikzpics/plot_uspdiam_cpsk.tikz
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 41.
+) (./tikzpics/plot_tau_size.tikz)pdfTeX warning (ext4): destination with the sa
+me identifier (name{page.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.360 
-       [8] [9] [10] [11] [12] [13]
+l.215 
+       [8] (./tikzpics/plot_tau_trange.tikz)
+(./tikzpics/plot_tauseg_trange.tikz) [9]
+Underfull \hbox (badness 10000) in paragraph at lines 263--264
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 267--268
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 271--272
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 275--276
+
+ []
+
+[10] [11] (./tikzpics/uspora.tikz
+Missing character: There is no ) in font nullfont!
+)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: Citation `cauchy' on page 12 undefined on input line 369.
+
+[12] [13] (./tikzpics/plot_anuspdiam_cpsk.tikz)
+(./tikzpics/plot_antau_size.tikz) (./tikzpics/plot_antau_trange.tikz)
+Underfull \hbox (badness 10000) in paragraph at lines 448--449
+
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 479--480
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 481--482
+
+ []
+
+(./tikzpics/usporaproof2.tikz
+Missing character: There is no ) in font nullfont!
+)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 492--493
+
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 506--507
+
+ []
+
+(./tikzpics/uspora3.tikz
+Missing character: There is no ) in font nullfont!
+) [16]
+Underfull \hbox (badness 10000) in paragraph at lines 534--535
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 545--546
+
+ []
+
+[17] (./tikzpics/reduction.tikz
+Missing character: There is no ) in font nullfont!
+)
+Underfull \hbox (badness 10000) in paragraph at lines 569--570
+
+ []
+
+[18]
+
+LaTeX Warning: Citation `centrality01' on page 19 undefined on input line 593.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 597--598
+
+ []
+
+(./tikzpics/plot_hbcdeg_sncf_size.tikz) (./tikzpics/plot_hbcdeg_cpsk_size.tikz)
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 623--624
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 625--626
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 631--632
+
+ []
+
+[20] (./tikzpics/locsep.tikz
+Missing character: There is no ) in font nullfont!
+)
+Underfull \hbox (badness 10000) in paragraph at lines 640--641
+
+ []
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 684--685
+
+ []
+
+(./tikzpics/plot_locsep_sncf_size.tikz) (./tikzpics/plot_locsep_cpsk_size.tikz)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 732--733
+
+ []
+
+Missing character: There is no l in font eusm7!
+Missing character: There is no o in font eusm7!
+Missing character: There is no c in font eusm7!
+Missing character: There is no l in font eusm5!
+Missing character: There is no o in font eusm5!
+Missing character: There is no c in font eusm5!
+Missing character: There is no l in font eusm5!
+Missing character: There is no o in font eusm5!
+Missing character: There is no c in font eusm5!
+[23] [24] (./tikzpics/plot_uspor_sncf_size.tikz)
+(./tikzpics/plot_uspor_gbcoach_size.tikz)
+(./tikzpics/plot_uspor_cpsk-d_size.tikz)
+(./tikzpics/plot_uspor_gbtr-d_size.tikz) [25]
+(./tikzpics/plot_uspor_gbcoach-200_trange.tikz)
+Underfull \hbox (badness 2875) in paragraph at lines 886--886
+[] \T1/lmr/m/n/10 dataset. \T1/lmr/bx/n/10 Chang-ing $\OML/cmm/b/it/10 tr$
+ []
+
+(./tikzpics/plot_uspor_air01-200_trange.tikz)
+(./tikzpics/plot_uspors_sncf_size.tikz)
+(./tikzpics/plot_uspors_gbcoach_size.tikz) [26]
+(./tikzpics/plot_uspora_sncf_size.tikz)
+(./tikzpics/plot_uspora_gbcoach_size.tikz)
+(./tikzpics/plot_uspora_cpsk-d_size.tikz)
+Overfull \hbox (0.6942pt too wide) in paragraph at lines 34--992
+ [][] 
+ []
+
+(./tikzpics/plot_uspora_gbtr-d_size.tikz) [27]
+(./tikzpics/plot_uspora_gbcoach_trange.tikz)
+(./tikzpics/plot_uspora_zsr_trange.tikz)
+(./tikzpics/plot_usporas_sncf_size.tikz)
+(./tikzpics/plot_usporas_gbcoach_size.tikz)) [28] [29] [30] [31] [32]
 No file dottg-select.bbl.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 415.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 415.
 (./dottg-select.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 415.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 415.
+Package rerunfilecheck Info: File `dottg-select.out' has not changed.
+(rerunfilecheck)             Checksum: 08BF6D6198CC4097ED7C205A5E1C86D7;1518.
 
-
-Package rerunfilecheck Warning: File `dottg-select.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `dottg-select.out':
-(rerunfilecheck)             Before: 8937369E509403FFE9919AAB103A70B9;1614
-(rerunfilecheck)             After:  734D95E4E2D4D7F6B6A413308024F5D6;598.
 
 LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 415.
  ) 
 Here is how much of TeX's memory you used:
- 29287 strings out of 493488
- 622764 string characters out of 3141346
- 836378 words of memory out of 3000000
- 31817 multiletter control sequences out of 15000+200000
- 115714 words of font info for 93 fonts, out of 3000000 for 9000
+ 31265 strings out of 493488
+ 661733 string characters out of 3141346
+ 888441 words of memory out of 3000000
+ 33565 multiletter control sequences out of 15000+200000
+ 131744 words of font info for 104 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,19n,92p,1045b,987s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Hfootnote.9} has been referenced but does not exi
-st, replaced by a fixed one
+ 63i,22n,92p,1122b,2231s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{Hfootnote.16} has been referenced but does not ex
+ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.15} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.14} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.13} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.12} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.11} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.10} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.9} has been referenced but does not exist
+, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.8} has been referenced but does not exist
 , replaced by a fixed one
@@ -1956,84 +2071,56 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
 
-pdfTeX warning (dest): name{subsubsection.5.4.3} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.5.4.2} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.5.4.1} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.4} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.5.3.3} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.5.3.2} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.5.3.1} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.3} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.5.2.3} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.5.2.2} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.5.2.1} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.2} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.5.1.1} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.1} has been referenced but does not ex
-ist, replaced by a fixed one
-
-{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/te
-xlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2012
-/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2012/texmf-dis
-t/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/p
-ublic/amsfonts/euler/eusm10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1
-/public/lm/lmbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm
-/lmbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx8.pfb
-></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/loca
-l/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive
-/2012/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2012/tex
-mf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2012/texmf-dist/fo
-nts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/p
-ublic/lm/lmmi7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lm
-mi8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></u
-sr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmib10.pfb></usr/local/
-texlive/2012/texmf-dist/fonts/type1/public/lm/lmmib7.pfb></usr/local/texlive/20
-12/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2012/texmf-di
-st/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
-pe1/public/lm/lmr5.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/l
-m/lmr6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr7.pfb><
-/usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/t
-exlive/2012/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2012/
-texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2012/texmf-dist
-/fonts/type1/public/lm/lmri8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type
-1/public/lm/lmri9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm
-/lmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy7.pfb
-></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/loca
-l/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/local/texlive/2
-012/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on dottg-select.pdf (21 pages, 684668 bytes).
+{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/te
+xlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2012/tex
+mf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2012/texmf-dist/fo
+nts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2012/texmf-dist/fonts/enc/dv
+ips/lm/lm-mathit.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmbsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/ams
+fonts/cmextra/cmbsy5.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public
+/amsfonts/cmextra/cmbsy9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pub
+lic/amsfonts/cmextra/cmmib6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1
+/public/amsfonts/cmextra/cmmib9.pfb></usr/local/texlive/2012/texmf-dist/fonts/t
+ype1/public/amsfonts/euler/eusb10.pfb></usr/local/texlive/2012/texmf-dist/fonts
+/type1/public/amsfonts/euler/eusb7.pfb></usr/local/texlive/2012/texmf-dist/font
+s/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texlive/2012/texmf-dist/fo
+nts/type1/public/amsfonts/euler/eusm5.pfb></usr/local/texlive/2012/texmf-dist/f
+onts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texlive/2012/texmf-dist/
+fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type
+1/public/lm/lmbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/l
+m/lmbx5.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx6.pfb
+></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx7.pfb></usr/loca
+l/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2
+012/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2012/texmf
+-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2012/texmf-dist/fon
+ts/type1/public/lm/lmex10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/p
+ublic/lm/lmmi10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/l
+mmi5.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></
+usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/t
+exlive/2012/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2012
+/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2012/texmf-dist
+/fonts/type1/public/lm/lmmib10.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
+pe1/public/lm/lmmib7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public
+/lm/lmr10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr12.p
+fb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/loc
+al/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2
+012/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2012/texmf-di
+st/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2012/texmf-dist/fonts/typ
+e1/public/lm/lmr9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm
+/lmri10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmri8.pfb
+></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmri9.pfb></usr/loca
+l/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/
+2012/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2012/texmf-
+dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2012/texmf-dist/fonts/
+type1/public/lm/lmsy7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/publi
+c/lm/lmsy8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy9.
+pfb>
+Output written on dottg-select.pdf (40 pages, 930634 bytes).
 PDF statistics:
- 473 PDF objects out of 1000 (max. 8388607)
- 374 compressed objects within 4 object streams
- 57 named destinations out of 1000 (max. 500000)
- 328 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 787 PDF objects out of 1000 (max. 8388607)
+ 653 compressed objects within 7 object streams
+ 187 named destinations out of 1000 (max. 500000)
+ 320 words of extra memory for PDF output out of 10000 (max. 10000000)
 

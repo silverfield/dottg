@@ -218,8 +218,8 @@
         \begin{minipage}{0.25\textwidth} \includegraphics[width=28mm]{logouk.png} \end{minipage}
         \begin{minipage}{0.74\textwidth}
         \textbf{\large\sc
-            Department of Computer Science, \\
-            Faculty of Mathematics, Physics and Informatics, \\
+            Department of Computer Science \\
+            Faculty of Mathematics, Physics and Informatics \\
             Comenius University in Bratislava
         }
         \end{minipage}
@@ -230,7 +230,7 @@
         {\LARGE\sc Distance oracles for timetable graphs } \\
         \large{(Master thesis)}
         \vskip 0.5cm
-        \textbf{\large bc. František Hajnovič}
+        {\Large bc. František Hajnovič}
         \begin{center} \line(1,0){350} \end{center}
 
         \vfill
@@ -293,19 +293,19 @@
     %   abstract
     %---------------------------------------------------------------------
     \begin{abstract}{Abstract}
-		Queries for optimal connection in timetables can be answered by running Dijkstra's algorithm on an appropriate graph. However, in certain scenarios this approach is not fast enough. In this thesis we introduce methods with much better query time than that of the efficiently implemented Dijkstra's algorithm. \\
+		Queries for optimal connection in timetables can be answered by running Dijkstra's algorithm on an appropriate graph. However, in certain scenarios this approach is not fast enough. In this thesis we introduce methods with much better query time than that of the efficiently implemented Dijkstra's algorithm. We analyse these methods from both theoretical and practical point of view, performing experiments on various real-world timetables of country-wide scale. \\
 
-		Our first method called {\it USP-OR} is based on pre-computing paths, that are worth to follow. This method achieves speed-ups of up to 70, although at the cost of high amount of preprocessed data. Our second algorithm computes a small set of important stations and additional information for optimal travelling between these stations. Named {\it USP-OR-A}, this method is much less space consuming but still more than 8 times faster than the Dijkstra's algorithm on some of the real-world datasets. \\
-    
-        Other contributions of this thesis are 
+		Our first method called {\it USP-OR} is based on pre-computing paths, that are worth to follow (the so called underlying shortest paths). This method achieves speed-ups of up to 70 (against Dijkstra's algorithm), although at the cost of high amount of preprocessed data. Our second algorithm computes a small set of important stations and additional information for optimal travelling between these stations. Named {\it USP-OR-A}, this method is much less space consuming but still more than 8 times faster than the Dijkstra's algorithm on some of the real-world datasets. \\
 
-		Key words: \textbf{optimal connection}, \textbf{timetable}, \textbf{Dijkstra's algorithm}, \textbf{Distance oracles}, \textbf{underlying shortest paths}
+		Key words: \textbf{optimal connection}, \textbf{timetable}, \textbf{Dijkstra's algorithm}, \textbf{distance oracles}, \textbf{underlying shortest paths}
 	\end{abstract}	
 
     \begin{abstract}{Abstrakt}
-        V tejto práci sa zaoberáme hľadaním optimálnych spojení v cestovných poriadkoch, na ktorých sme si predpočítali určité informácie. Na základe analýzy reálnych cestovných poriadkov sme vyvinuli exaktné metódy, ktoré na dotaz na optimálne spojenie odpovedajú podstatne rýchlejšie ako časovo závislá implementácia Dijkstrovho algoritmu využívajúca prioritnú frontu na základe Fibonacciho haldy. Presnejšie, náš algoritmus \textit{USP-OR-A} s priestorovou zložitosťou $\mathcal{O}(n^{1.5})$ dosahuje časovú zložitosť odpovede na dotaz $\mathcal{O}(\sqrt{n} \log n)$, prekonávajúc časovo závislý Dijkstrov algoritmus takmer 7 krát v našom najväčšom cestovnom poriadku. \\
+		Optimálne spojenia v cestovnom poriadku vieme hľadať pomocou Dijkstrovho algoritmu na vhodnom grafe, avšak v niektorých situáciách tento prístup výkonnostne nepostačuje. V tejto práci uvádzame metódy, ktoré na dotaz na optimálne spojenie odpovedajú podstatne rýchlejšie ako efektívna implementácia Dijkstrovho algoritmu. Tieto metódy analyzujeme ako z teoretického, tak aj z praktického hľadiska pomocou experimentov na viacerých cestovných poriadkoch celonárodnej škály. \\
+		
+		Naša prvá metóda nazvaná {\it USP-OR} je založená na predpočítaní trás, ktoré sa oplatí následovať (tzv. podkladové najkratšie cesty). Táto metóda dosahuje faktor zrýchlenia až 70 (oproti Dijkstrovmu algoritmu), avšak za cenu veľkej pamäťovej náročnosti. Náš druhý algoritmus predrátava malú množinu dôležitých staníc a dodatočné informácie pre optimálne cestovanie medzi nimi. Táto metóda s názvom {\it USP-OR-A} je už oveľa menej pamäťovo náročná, stále vyše 8 krát rýchlejšia ako Dijkstrov algoritmus na niektorých reálnych cestovných poriadkoch. \\
 
-		Kľúčové slová: \textbf{optimálne spojenie}, \textbf{cestovný poriadok}, \textbf{Dijkstrov algoritmus}, \textbf{Dištančné orákulá}, \textbf{podkladové najkratšie cesty}
+		Kľúčové slová: \textbf{optimálne spojenie}, \textbf{cestovný poriadok}, \textbf{Dijkstrov algoritmus}, \textbf{dištančné orákulá}, \textbf{podkladové najkratšie cesty}
 	\end{abstract}	
 	
     \pagebreak
@@ -355,7 +355,7 @@
     %---------------------------------------------------------------------
     \section{Data \& analysis}
     \label{sec:data}
-    \input parts/data.tex
+    %\input parts/data.tex
     \pagebreak
     
     %---------------------------------------------------------------------
@@ -363,7 +363,7 @@
     %---------------------------------------------------------------------
     \section{Underlying shortest paths}
     \label{sec:usp}
-    %\input parts/usp.tex
+    \input parts/usp.tex
     \pagebreak
     
     %---------------------------------------------------------------------

@@ -167,14 +167,7 @@ The perceptron was trained with training data divided into two groups: \textbf{v
     \end{itemize}
     \hspace{\fill}
     
-    \noindent We have taken a closer look at the evolution of validation errors in the training of type \textit{7.)} networks and have found that in general, the validation error went steeply down at the beginning, followed by an interval of fluctuations (which probably caused early stopping when this criterion was in use) and finally found a pretty stable value (see plot \ref{plot:neural-montrerr}). The estimation error was decreasing all this time, which is why the networks of type \textit{7.)} obtained most of the time the best results in the final comparison.
-    
-    \begin{figure}[h!]
-		\begin{center}
-        	\inputTikZ{./tikzpics/plot_neural_montrerr}
-		\end{center}
-		\caption{\label{plot:neural-montrerr} Evolution of validation and estimation error in training of the perceptron of type 7.) on the \textit{montr-30} dataset.}
-	\end{figure}
+    \noindent We have taken a closer look at the evolution of validation errors in the training of type \textit{7.)} networks and have found that in general, the validation error went steeply down at the beginning, followed by an interval of fluctuations (which probably caused early stopping when this criterion was in use) and finally found a pretty stable value. The estimation error was decreasing all this time, which is why the networks of type \textit{7.)} obtained most of the time the best results in the final comparison.
     
     \begin{table}[h]
     	\centering
@@ -218,7 +211,7 @@ The perceptron was trained with training data divided into two groups: \textbf{v
     
     \noindent Network with one big hidden layer, trained without the early stopping criterion was the most successful one, when it comes to the F.O. measure, though the best value (69 \%) was achieved by a network of type \textit{2.)} trained on a bigger training set. Perceptrons trained on these bigger training sets (\textit{2.)} and \textit{5.)}) were also more reliable.
 	
-\subsection{Conclusion}
+\subsection{Conclusion of the experiment}
 	
 	First of all, we would like to point out some positive aspects. The networks were able to learn optimal answers to queries that were \textit{not} part of the training. Also, it looks like enhanced training of the network could produce much better results.
 	

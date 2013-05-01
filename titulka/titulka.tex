@@ -1,0 +1,237 @@
+%---------------------------------------------------------------------
+%   documentclass
+%---------------------------------------------------------------------
+\documentclass[a4paper]{article}
+
+%---------------------------------------------------------------------
+%   packages
+%---------------------------------------------------------------------
+
+\usepackage[english]{babel}
+\usepackage[enc=utf8]{hrlatex}
+\usepackage[T1]{fontenc} %pekne makcene
+
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[titletoc, page]{appendix}
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\usepackage{bm}
+\usepackage{caption}
+\usepackage{cite} %bibtex
+\usepackage{color} %for \definecolor
+\usepackage{colortbl} %for \rowcolor command
+\usepackage{courier}
+\usepackage{enumitem}
+\usepackage{eucal} %for nice letters like \mathcal{A}
+\usepackage{floatflt} %to have tables and text beside
+\usepackage{hyperref} %odkazy
+\usepackage{listings}
+\usepackage{lmodern} %spolu s T1 smooth font!
+\usepackage{lscape}
+\usepackage{mathtools}
+\usepackage{multirow}% http://ctan.org/pkg/multirow
+\usepackage{pdfpages}
+\usepackage{pgfplots}
+\usepackage{pifont} %for ticks (check symbols)
+\usepackage{scalefnt}
+\usepackage{setspace}
+\usepackage[rightcaption]{sidecap}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{titlesec} %section titles font size change
+\usepackage{xcolor} %for \colorlet
+
+\usetikzlibrary{shapes,fit,calc,shadows,plotmarks}
+\usetikzlibrary{decorations.pathreplacing}
+
+%---------------------------------------------------------------------
+%   margins
+%---------------------------------------------------------------------
+\oddsidemargin 0.3in
+\evensidemargin 0.3in
+\textwidth 6in
+\textheight 23.5cm
+\topmargin -0.35in
+
+\linespread{1.2}
+\renewcommand{\arraystretch}{1.1} %spacing of table rows
+
+%---------------------------------------------------------------------
+%   various settings
+%---------------------------------------------------------------------
+\newif\ifmine % introduce a switch for draft vs. final document
+\minetrue
+
+\newif\iffinal % introduce a switch for draft vs. final document
+\finaltrue % use this to compile the final document
+\iffinal
+  \newcommand{\inputTikZ}[1]{%
+    \input{#1.tikz}%
+  }
+\else
+  \newcommand{\inputTikZ}[1]{%
+    \beginpgfgraphicnamed{#1-external}%
+    \input{#1.tikz}%
+    \endpgfgraphicnamed%
+  }
+\fi
+
+\setlist{nolistsep} %so that lists have normal spacing
+
+\titleformat{\section}{\LARGE\bfseries}{\thesection}{1em}{} %section titles
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{} %subsection titles
+
+\definecolor{tablehead}{RGB}{238,233,233} %nice smooth grey
+\definecolor{algcolor}{RGB}{0,0,0}
+\definecolor{inalgcolor}{RGB}{0,0,0}
+\definecolor{lstcolor}{RGB}{238,233,233}
+
+\setlength{\parindent}{0pt} %we don't need no indentation
+
+\graphicspath{{./pics/}} %picture dir
+
+\lstset{ %
+    language=Octave,                % choose the language of the code
+    basicstyle=\footnotesize\ttfamily,       % the size of the fonts that are used for the code
+    numbers=left,                   % where to put the line-numbers
+    numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+    stepnumber=1,                   % the step between two line-numbers. If it's 1 each line will be numbered
+    numbersep=5pt,                  % how far the line-numbers are from the code
+    backgroundcolor=\color{lstcolor},   % choose the background color. You must add \usepackage{color}
+    showspaces=false,               % show spaces adding particular underscores
+    showstringspaces=false,         % underline spaces within strings
+    showtabs=false,                 % show tabs within strings adding particular underscores
+    frame=single,	                % adds a frame around the code
+    tabsize=2,	                    % sets default tabsize to 2 spaces
+    captionpos=b,                   % sets the caption-position to bottom
+    breaklines=true,                % sets automatic line breaking
+    breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+    title=\lstname,                 % show the filename of files included with \lstinputlisting; also try caption instead of title
+    escapeinside={\%*}{*)},          % if you want to add a comment within your code
+%    morekeywords={*,...}            % if you want to add more keywords to the set
+	deletekeywords={all, null, length, path, function}
+}
+
+\colorlet{city-clr}{green!70!black}
+\colorlet{elcon-clr}{red}
+\colorlet{event-clr}{blue}
+\colorlet{waiting-clr}{olive}
+\colorlet{cmt-clr}{gray}
+\colorlet{oracle-clr}{orange!30}
+\colorlet{algsec-clr}{black!50!red}
+
+%---------------------------------------------------------------------
+%   environments
+%---------------------------------------------------------------------
+\renewenvironment{abstract}[1]
+{
+	\Large
+	\begin{center}
+		\textbf{#1}
+	\end{center}
+	
+	\normalsize
+	
+	\addtolength{\leftskip}{1in}
+	\addtolength{\rightskip}{1in}
+	\setlength{\parindent}{0in}
+}
+{
+}
+
+\newenvironment{itemizesp}
+{
+    \begin{itemize}
+}
+{
+    \end{itemize}
+}
+
+\newcommand{\cmt}[1]{{\color{cmt-clr} \hspace*{1cm} \# \textit{#1}}}
+\newcommand{\algsec}[1]{\textcolor{algsec-clr}{\textbf{\underline{#1}}}} 
+\newcommand{\deftoken}{\boldmath{$\mathcal{DEFINITION}$}}
+\newcommand{\restoken}{\boldmath{$\mathcal{RESULT}$}}
+\newcommand{\dotoken}{\boldmath{$\mathcal{DO METHOD}$}}
+\newcommand{\textbff}[1]{{\large \textbf{#1}}}
+\newcommand{\tick}{\ding{52}}
+\newcommand{\cross}{\ding{55}}
+
+\numberwithin{algorithm}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\numberwithin{equation}{section}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{observation}{Observation}[section]
+
+\interfootnotelinepenalty=10000
+
+%---------------------------------------------------------------------
+%   magic code
+%---------------------------------------------------------------------
+% Here it is: the code that adjusts justification and spacing around caption.
+\makeatletter
+% http://www.texnik.de/floats/caption.phtml
+% This does spacing around caption.
+\setlength{\abovecaptionskip}{6pt}   % 0.5cm as an example
+\setlength{\belowcaptionskip}{6pt}   % 0.5cm as an example
+% This does justification (left) of caption.
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1: #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    #1: #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother
+
+%---------------------------------------------------------------------
+%   document
+%---------------------------------------------------------------------
+\begin{document}
+%---------------------------------------------------------------------
+%   FRONTMATTER ------------------------------------------------------
+%---------------------------------------------------------------------
+    %\frontmatter
+    \setlength{\parindent}{0pt}
+    \pagestyle{empty}
+%    \setcounter{page}{200} %TODO_FINAL - change in final
+% also references - square brackets
+% footnotes - all with capital, bodka na konci
+% dots after captions
+% figure - picture
+% search for [?]
+    \noindent
+
+    %---------------------------------------------------------------------
+    %   title page
+    %---------------------------------------------------------------------
+    \begin{center}
+        \textbf{\large\sc
+            Department of Computer Science \\
+            Faculty of Mathematics, Physics and Informatics \\
+            Comenius University in Bratislava
+        }
+
+        \vskip 8cm
+
+        {\LARGE\sc Distance oracles for timetable graphs } \\
+        \vskip 0.5cm
+        \large{(Master thesis)}
+        \vskip 1cm
+        {\Large bc. František Hajnovič}
+
+        \vfill
+        
+        {\Large 2013}
+    \end{center}
+
+\end{document} 

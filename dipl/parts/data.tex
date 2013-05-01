@@ -258,3 +258,28 @@ In this section we would like to introduce the timetable datasets we were workin
         \caption{\label{fig:highdemonstr} Demonstration of a definition of HD. We chose some $r$ ($r = 6$) and some vertex $v$ ($v = C$) to root the ball $B_{v, 2r}$. All the shortest paths \emph{longer} than $r$ \emph{inside} the ball have to contain a vertex from $S$ (orange vertices $C$ and $A$ in our case). The upper bound on $|S|$, considering any ball with any radius, is the required highway dimension. Note: in our case, we had to choose also $A$ to set $S$, since a shortest path from $B$ to $D$ does not include $C$.}
 	\end{figure}
 	
+	\noindent Highway dimension is difficult to measure due to the way it is defined. We compute at least approximate value for sub-graphs of 200 nodes of the underlying graphs. Results could be seen in table~\ref{table:ug_hd}.
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{c|c}
+		%legend
+			\rowcolor{tablehead}
+			\textbf{Name} & apx. $HD$ \\
+		%data
+			\hline
+			\textit{svk-200} & \textbf{32} \\
+			\textit{air01-200} & 82 \\
+			\textit{cpsk-200} & 127 \\
+			\textit{gb-coach-200} & 107 \\
+			\textit{gb-train-200} & 147 \\
+			\textit{montr-200} &  \\
+			\textit{sncf-200} &  \\
+			\textit{sncf-inter-200} &  \\
+			\textit{sncf-ter-200} &  \\
+			\textit{zsr-200} &  \\
+		\end{tabular}
+		\captionof{table}{Highway dimension of 200 vertex sub-graphs of the underlying graphs.}
+		\label{table:ug_hd}
+	\end{table}
+	

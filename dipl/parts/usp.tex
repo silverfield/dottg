@@ -741,7 +741,7 @@ Thus the main idea common to the methods presented in this section: \textit{when
 		\end{enumerate}
 		\hspace{\fill}
 		
-		\noindent The first two conditions were generally satisfied by our timetables (again, not including \textit{air01}). As for the third one, we found the value of $r_{1}^{loc}$ almost constant and only very slightly increasing with $n$~\footnote{Although this is nowhere near the \textit{proof} that $r_{1}^{loc}$ could be bound by a constant.}. Finally, if the last two conditions hold, we may estimate the average query time of \textit{USP-OR-A} with \textit{locsep} as:
+		\noindent The first two conditions were generally satisfied by our timetables (again, not including \textit{air01}). As for the third one, we found the value of $r_{1}^{loc}$, very small, almost constant and only very slightly increasing with $n$~\footnote{Although this is nowhere near the \textit{proof} that $r_{1}^{loc}$ could be bound by a constant.}. Finally, if the last two conditions hold, we may estimate the average query time of \textit{USP-OR-A} with \textit{locsep} as:
 		
 		\begin{align*}
 			\mathcal{O}(r_{2} \sqrt{r_{3}} \sqrt{n} (\log (r_{2}n) + \delta) + r_{3} \tau \omega) = \\
@@ -778,132 +778,131 @@ Thus the main idea common to the methods presented in this section: \textit{when
 
 	\subsubsection{Performance of \textit{USP-OR}}
 		
-		Query time-wise, \textit{USP-OR} outperforms time-dependent Dijkstra's algorithm almost 80 times (on the subset of \textit{sncf-ter} dataset). However, this was at the cost of high space consumption of the method, in some cases requiring almost 400 times more memory then necessary for storage of the time-dependent graph. Therefore, we were not even able to preprocess the method for some of our bigger datasets. Table~\ref{tab:uspor-speedup} gives a good overview of achieved speed-ups and size-ups.
-	
-		\begin{table}[H]
-			\centering
+		Query time-wise, \textit{USP-OR} clearly outperforms time-dependent Dijkstra's algorithm, however at the cost of high space consumption. The best results were achieved for the timetable of domestic US flights (with both daily and weekly time range), with speed-up of more than 110 against TD Dijkstra (see table~\ref{tab:uspor-speedup}). Interestingly, the size-up for this timetable was also the best one - the size of preprocessed data was about 10 times the size of the timetable itself. The reasons for such good values is that the USP diameter $\omega$ is very low in \textit{air01} dataset (much lower than $\sqrt{n}$), while the USP coefficient $\tau$ is also a reasonable value (see table~\ref{tab:usp200}).
+		
+		For similar reasons, the \textit{gb-coach} dataset also achieved fairly good results. However, with this dataset (and few others marked with asterisk) we may notice the main disadvantage of \textit{USP-OR-A} - we only could carry out the preprocessing for sub-timetable of up to 700 stations due to high space requirements and our limitations.
+			
+		\begin{figure}[H]
+		\centering
+		\makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth}  
+		    \centering
 			\begin{tabular}{c|c|c|c}
 			%legend
 	            \rowcolor{tablehead}
 	            \textbf{Name} & $\bm{n}$ & $\bm{spd}$ & $\bm{szp}$ \\
 			%data
 				\hline
-				\textit{cpsk}* & 700 & 14.5 & 396.7 \\
-				\textit{cpza}* & 700 & 14.3 & 265.1 \\
-				\textit{montr} & 217 & 8.8 & 61.1\\
-				\textit{sncf}* & 1000 & 64.8 & 106.2 \\
-				\textit{sncf-inter} & 366 & 27.0 & 30.3 \\
-				\textit{sncf-ter}* & 1000 & 78.3 & 87.4 \\
-				\textit{zsr} (daily) & 233 & 19.3 & 60.8 \\
+				\textit{air01-d} & 284 & \textbf{110.4} & 11.4 \\
+				\textit{cpsk-d}* & 700 & 14.4 & 301.8 \\
+				\textit{gb-coach-d}* & 700 & \textbf{64.7} & 79.1 \\
+				\textit{gb-train-d}* & 700 & 24.4 & 134.6 \\
+				\textit{montr-d} & 217 & 8.1 & 40.7 \\
+				\textit{sncf-d}* & 700 & 28.7 & 263.7 \\
+				\textit{sncf-inter-d} & 344 & 26.1 & 58.1 \\
+				\textit{sncf-ter-d}* & 700 & 22.2 & 390.6 \\
+				\textit{zsr-d} & 225 & 15.1 & 66.4 \\
 			\end{tabular}
-			\captionof{table}{Speed-ups and size-ups of the \textit{USP-OR} algorithm for the whole timetables (for those marked with asterisk we took only a subset of $n$ stations, as we were limited by the space).}
-			\label{tab:uspor-speedup}
-		\end{table}
-	
-		\noindent In both timetables from \textit{cp.sk} we obtained quite similar results. The query time of \textit{USP-OR} mildly rises with increasing $n$. This is due to two (not surprising) facts: 
-		\begin{itemize}
-			\item The USP coefficient gets slightly bigger with increasing $n$
-			\item The OC diameter increases too with increasing $n$
-		\end{itemize}
-		\hspace{\fill}
-		
-		\noindent The speed-up was up to 15, however, at the cost of very high space complexity, which made it possible to try out only timetables of the size up to 700. With the \textit{montr} dataset we got similar results, but on a smaller scale.
-		
-		\begin{figure}[H]
-		\centering
-		\makebox[0pt][c]{
-	    \begin{minipage}{0.45\textwidth}  
-		    \centering
-		    \inputTikZ{./tikzpics/plot_uspor_cpru_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{\textbf{cpru}} dataset. \textbf{Changing $\bm{n}$}.}
-		    \label{plot:uspor-cpru-size}
 	    \end{minipage}
 		\hspace{1cm}
 	    \begin{minipage}{0.45\textwidth} 
 	    	\centering
-		    \inputTikZ{./tikzpics/plot_uspor_cpza_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{\textbf{cpza}} dataset. \textbf{Changing $\bm{n}$}.}
-		    \label{plot:uspor-cpza-size}
+			\begin{tabular}{c|c|c|c}
+			%legend
+	            \rowcolor{tablehead}
+	            \textbf{Name} & $\bm{n}$ & $\bm{spd}$ & $\bm{szp}$ \\
+			%data
+				\hline
+				\textit{air01-w} & 287 & \textbf{113.0} & 9.6 \\
+				\textit{gb-coach-w}* & 700 & \textbf{69.5} & 50.6 \\
+				\textit{gb-train-w}* & 400 & 16.0 & 40.5 \\
+				\textit{sncf-w}* & 600 & 30.3 & 161.1 \\
+				\textit{sncf-inter-w} & 366 & 24.5 & 69.8 \\
+				\textit{sncf-ter-w}* & 500 & 23.5 & 168.2 \\
+				\textit{zsr-d} & 233 & 15.0 & 42.8 \\
+			\end{tabular}
 	    \end{minipage}
 	    }
+	    \captionof{table}{Speed-ups and size-ups of the \textit{USP-OR} algorithm for the whole timetables (for those marked with asterisk we took only a subset of $n$ stations, as we were limited by the space). Daily time range on the left, weekly on the right.}
+		\label{tab:uspor-speedup}
 		\end{figure}
 		
+		\noindent The query times were almost constant with increasing $n$, especially in \textit{sncf} and \textit{gb-coach} datasets, where $\tau$ is very low and only slightly increasing (see table~\ref{plot:tau-size}) and similarly for $\omega$. With \textit{cpsk} the $\omega$ increases as $\sqrt{n}$ (plot~\ref{plot:uspdiam-cpsk}), thus the increase in query time is more noticeable.
+
 		\begin{figure}[H]
 		\centering
 		\makebox[0pt][c]{
 	    \begin{minipage}{0.45\textwidth}  
-		    \centering
-		    \inputTikZ{./tikzpics/plot_uspor_montr_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{\textbf{montr}} dataset. \textbf{Changing $\bm{n}$}.}
-		    \label{plot:uspor-montr-size}  
-	    \end{minipage}
-		\hspace{1cm}
-	    \begin{minipage}{0.45\textwidth} 
-	    	\centering
-		    \inputTikZ{./tikzpics/plot_uspors_cpza_size}
-		    \captionof{figure}{\textbf{Size} (in MB) of the oracle for \textit{USP-OR} vs. size of TD graph on \textit{\textbf{cpza}} dataset. \textbf{Changing $\bm{n}$}.}
-		    \label{plot:uspors-cpza-size}   
-	    \end{minipage}
-	    }
-		\end{figure}
-		
-		\noindent In the datasets from SNCF, an interesting thing was that the the query-time actually decreased with increased size. This was due to the average USP coefficient getting smaller in bigger datasets while OC diameter not increasing too much. We measured here the speed-ups of up to 80 for \textit{sncf-ter}, with smaller size-ups then in case of \textit{cp.sk} timetables.
-		
-		\begin{figure}[H]
-		\centering
-		\makebox[0pt][c]{
-	    \begin{minipage}{0.45\textwidth}  
-		    \centering
-		    \inputTikZ{./tikzpics/plot_uspor_sncfinter_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{\textbf{sncf-inter}} dataset. \textbf{Changing $\bm{n}$}.}
-		    \label{plot:uspor-sncfinter-size}  
-	    \end{minipage}
-		\hspace{1cm}
-	    \begin{minipage}{0.45\textwidth} 
-	    	\centering
-		    \inputTikZ{./tikzpics/plot_uspor_sncfter_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{\textbf{sncf-ter}} dataset. \textbf{Changing $\bm{n}$}.}
-		    \label{plot:uspor-sncfter-size} 
-	    \end{minipage}
-	    }
-		\end{figure}
-		
-		\begin{figure}[H]
-		\centering
-		\makebox[0pt][c]{
-	    \begin{minipage}{0.45\textwidth} 
-	    	\centering
+			\centering
 		    \inputTikZ{./tikzpics/plot_uspor_sncf_size}
 		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{\textbf{sncf}} dataset. \textbf{Changing $\bm{n}$}.}
-		    \label{plot:uspor-sncf-size}   
+		    \label{plot:uspor-sncf-size}	    
 	    \end{minipage}
 		\hspace{1cm}
+	    \begin{minipage}{0.45\textwidth} 
+	    	\centering
+		    \inputTikZ{./tikzpics/plot_uspor_gbcoach_size}
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to TD Dijkstra on the \mbox{\textit{\textbf{gb-coach}}} dataset. \textbf{Changing $\bm{n}$}.}
+		    \label{plot:uspor-gbcoach-size}  
+	    \end{minipage}
+	    }
+		\end{figure}
+		
+		\begin{figure}[H]
+		\centering
+		\makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth}  
+	    	\centering
+		    \inputTikZ{./tikzpics/plot_uspor_cpsk-d_size}
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to TD Dijkstra on the \mbox{\textit{\textbf{cpsk-d}}} dataset. \textbf{Changing $\bm{n}$}.}
+		    \label{plot:uspor-cpsk-d-size}
+	    \end{minipage}
+		\hspace{1cm}
+	    \begin{minipage}{0.45\textwidth} 
+		    \centering
+		    \inputTikZ{./tikzpics/plot_uspor_gbtr-d_size}
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to TD Dijkstra on the \mbox{\textit{\textbf{gb-train-d}}} dataset. \textbf{Changing $\bm{n}$}.}
+		    \label{plot:uspor-gbtr-d-size}  
+	    \end{minipage}
+	    }
+		\end{figure}
+		
+		\noindent From plots~\ref{plot:uspors-gbcoach-200-trange} and~\ref{plot:uspors-air01-200-trange} we see that the time range does not play a role in the query time of neither TD Dijkstra, nor \textit{USP-OR-A}.
+		
+		\begin{figure}[H]
+		\centering
+		\makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth} 
+	    	\centering
+		    \inputTikZ{./tikzpics/plot_uspor_gbcoach-200_trange}
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to TD Dijkstra on the \mbox{\textit{\textbf{gb-coach-200}}} dataset. \textbf{Changing $\bm{tr}$} (days).}
+		    \label{plot:uspors-gbcoach-200-trange}   
+	    \end{minipage}
+		\hspace{1cm}
+	    \begin{minipage}{0.45\textwidth} 
+	    	\centering
+		    \inputTikZ{./tikzpics/plot_uspor_air01-200_trange}
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{\textbf{air01-200}} dataset. \textbf{Changing $\bm{tr}$} (days).}
+		    \label{plot:uspors-air01-200-trange}   
+	    \end{minipage}
+	    }
+		\end{figure}
+		
+		\begin{figure}[H]
+		\centering
+		\makebox[0pt][c]{
 	    \begin{minipage}{0.45\textwidth} 
 	    	\centering
 		    \inputTikZ{./tikzpics/plot_uspors_sncf_size}
 		    \captionof{figure}{\textbf{Size} (in MB) of the oracle for \textit{USP-OR} vs. size of TD graph on \textit{\textbf{sncf}} dataset. \textbf{Changing $\bm{n}$}.}
-		    \label{plot:uspors-sncf-size} 
-	    \end{minipage}
-	    }
-		\end{figure}
-		
-		\noindent On the \textit{zsr} dataset we measured how increased time range influences the query time. You may see that for both algorithms the query time almost stops increasing at some point - this is because (informally) adding time range no longer brings along new optimal connections (or underlying shortest paths in case of \textit{USP-OR}).
-		
-		\begin{figure}[H]
-		\centering
-		\makebox[0pt][c]{
-	    \begin{minipage}{0.45\textwidth}  
-		    \centering
-		    \inputTikZ{./tikzpics/plot_uspor_zsr_trange}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{\textbf{zsr}} dataset. \textbf{Changing $\bm{r}$}.}
-		    \label{plot:uspor-zsr-trange}  
+		    \label{plot:uspors-sncf-size}
 	    \end{minipage}
 		\hspace{1cm}
 	    \begin{minipage}{0.45\textwidth} 
 	    	\centering
-		    \inputTikZ{./tikzpics/plot_uspors_zsr_trange}
-		    \captionof{figure}{\textbf{Size} (in MB) of the oracle for \textit{USP-OR} vs. size of TD graph on \textit{\textbf{zsr}} dataset. \textbf{Changing $\bm{r}$}.}
-		    \label{plot:uspors-zsr-trange} 
+		    \inputTikZ{./tikzpics/plot_uspors_gbcoach_size}
+		    \captionof{figure}{\textbf{Size} (in MB) of the oracle for \textit{USP-OR} vs. size of TD graph on \textit{\textbf{gb-coach}} dataset. \textbf{Changing $\bm{n}$}.}
+		    \label{plot:uspors-gbcoach-size} 
 	    \end{minipage}
 	    }
 		\end{figure}
@@ -923,15 +922,15 @@ Thus the main idea common to the methods presented in this section: \textit{when
 	            \textbf{Name} & $\bm{n}$ & $\bm{spd}$ & $\bm{szp}$ \\
 			%data
 				\hline
-				\textit{air01-d} & 284 &  &  \\
-				\textit{cpsk-d} & 1905 &  &  \\
-				\textit{gb-coach-d} & 2427 &  &  \\
-				\textit{gb-train-d} & 2550 &  &  \\
-				\textit{montr-d} & 217 &  &  \\
-				\textit{sncf-d} & 2608 &  &  \\
-				\textit{sncf-inter-d} & 344 &  &  \\
-				\textit{sncf-ter-d} & 2600 &  &  \\
-				\textit{zsr-d} & 225 &  &  \\
+				\textit{air01-d} & 284 & 2.4 & 1.7 \\
+				\textit{cpsk-d} & 1905 & 2.9 & 6.6 \\
+				\textit{gb-coach-d} & 2427 & \textbf{8.2} & 7.4 \\
+				\textit{gb-train-d} & 2550 & 2.9 & 4.3 \\
+				\textit{montr-d} & 217 & 2.8 & 1.7 \\
+				\textit{sncf-d} & 2608 & \textbf{5.4} & 5.1 \\
+				\textit{sncf-inter-d} & 344 & \textbf{5.2} & 1.9 \\
+				\textit{sncf-ter-d} & 2600 & \textbf{5.5} & 5.2 \\
+				\textit{zsr-d} & 225 & 3.0 & 2.7 \\
 			\end{tabular}
 	    \end{minipage}
 		\hspace{1cm}
@@ -943,121 +942,93 @@ Thus the main idea common to the methods presented in this section: \textit{when
 	            \textbf{Name} & $\bm{n}$ & $\bm{spd}$ & $\bm{szp}$ \\
 			%data
 				\hline
-				\textit{air01-w} & 287 &  &  \\
-				\textit{gb-coach-w} & 2448 &  &  \\
-				\textit{gb-train-w} & 2555 &  &  \\
-				\textit{sncf-w} & 2646 &  &  \\
-				\textit{sncf-inter-w} & 366 &  &  \\
-				\textit{sncf-ter-w} & 2637 &  &  \\
-				\textit{zsr-d} & 233 &  &  \\
+				\textit{air01-w} & 287 & 2.4 & 1.1 \\
+				\textit{gb-coach-w} & 2448 & \textbf{8.5} & 3.8 \\
+				\textit{gb-train-w} & 2555 & 2.9 & 2.3 \\
+				\textit{sncf-w} & 2646 & \textbf{6.3} & 4.2 \\
+				\textit{sncf-inter-w} & 366 & \textbf{4.9} & 0.8 \\
+				\textit{sncf-ter-w} & 2637 & \textbf{5.6} & 3.0 \\
+				\textit{zsr-d} & 233 & 2.6 & 0.7 \\
 			\end{tabular}
 	    \end{minipage}
 	    }
-	    \captionof{table}{Speed-ups and size-ups of the \textit{USP-OR-A} with \textit{locsep} for the whole timetables .}
+	    \captionof{table}{Speed-ups and size-ups of the \textit{USP-OR-A} for the whole timetables. Daily time range on the left, weekly on the right.}
 		\label{tab:uspora-speedup}
 		\end{figure}	
 	
-		\noindent The bus timetables proved to be a bigger challenge for \textit{USP-OR-A}, achieving milder speed-ups and requiring more memory then railways timetables. However, bigger timetables would be necessary to obtain more relevant results.
-		
 		\begin{figure}[H]
 		\centering
 		\makebox[0pt][c]{
 	    \begin{minipage}{0.45\textwidth}  
-		    \centering
-		    \inputTikZ{./tikzpics/plot_uspora_cpru_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} with \textit{locsep} compared to TD Dijkstra on the \textit{\textbf{cpru}} dataset. \textbf{Changing $\bm{n}$}.}
-		    \label{plot:uspora-cpru-size}
-	    \end{minipage}
-		\hspace{1cm}
-	    \begin{minipage}{0.45\textwidth} 
-	    	\centering
-		    \inputTikZ{./tikzpics/plot_uspora_cpza_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} with \textit{locsep} compared to TD Dijkstra on the \textit{\textbf{cpza}} dataset. \textbf{Changing $\bm{n}$}.}
-		    \label{plot:uspora-cpza-size}
-	    \end{minipage}
-	    }
-		\end{figure}
-		
-		\begin{figure}[H]
-		\centering
-		\makebox[0pt][c]{
-	    \begin{minipage}{0.45\textwidth}  
-		    \centering
-		    \inputTikZ{./tikzpics/plot_uspora_montr_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} with \textit{locsep} compared to TD Dijkstra on the \textit{\textbf{montr}} dataset. \textbf{Changing $\bm{n}$}.}
-		    \label{plot:uspora-montr-size}  
-	    \end{minipage}
-		\hspace{1cm}
-	    \begin{minipage}{0.45\textwidth} 
-	    	\centering
-		    \inputTikZ{./tikzpics/plot_usporas_cpza_size}
-		    \captionof{figure}{\textbf{Size} (in MB) of the oracle for \textit{USP-OR-A} with \textit{locsep} vs. size of TD graph on \textit{\textbf{cpza}} dataset. \textbf{Changing $\bm{n}$}.}
-		    \label{plot:usporas-cpza-size}   
-	    \end{minipage}
-	    }
-		\end{figure}
-		
-		\noindent In our biggest datasets, we achieved the best speed-ups while the size-up still stayed relatively small (though here we better see its tendency to increase as $n^{1.5}$). It would be interesting to try out even bigger datasets as the speed-up was gradually increasing with increasing $n$.
-		
-		\begin{figure}[H]
-		\centering
-		\makebox[0pt][c]{
-	    \begin{minipage}{0.45\textwidth}  
-		    \centering
-		    \inputTikZ{./tikzpics/plot_uspora_sncfinter_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} with \textit{locsep} compared to TD Dijkstra on the \textit{\textbf{sncf-inter}} dataset. \textbf{Changing $\bm{n}$}.}
-		    \label{plot:uspora-sncfinter-size}  
-	    \end{minipage}
-		\hspace{1cm}
-	    \begin{minipage}{0.45\textwidth} 
-	    	\centering
-		    \inputTikZ{./tikzpics/plot_uspora_sncfter_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} with \textit{locsep} compared to TD Dijkstra on the \textit{\textbf{sncf-ter}} dataset. \textbf{Changing $\bm{n}$}.}
-		    \label{plot:uspora-sncfter-size} 
-	    \end{minipage}
-	    }
-		\end{figure}
-		
-		\begin{figure}[H]
-		\centering
-		\makebox[0pt][c]{
-	    \begin{minipage}{0.45\textwidth} 
-	    	\centering
+			\centering
 		    \inputTikZ{./tikzpics/plot_uspora_sncf_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} with \textit{locsep} compared to TD Dijkstra on the \textit{\textbf{sncf}} dataset. \textbf{Changing $\bm{n}$}.}
-		    \label{plot:uspora-sncf-size}   
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} algorithm compared to TD Dijkstra on the \textit{\textbf{sncf}} dataset. \textbf{Changing $\bm{n}$}.}
+		    \label{plot:uspora-sncf-size}	    
 	    \end{minipage}
 		\hspace{1cm}
+	    \begin{minipage}{0.45\textwidth} 
+	    	\centering
+		    \inputTikZ{./tikzpics/plot_uspora_gbcoach_size}
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} algorithm compared to TD Dijkstra on the \mbox{\textit{\textbf{gb-coach}}} dataset. \textbf{Changing $\bm{n}$}.}
+		    \label{plot:uspora-gbcoach-size}  
+	    \end{minipage}
+	    }
+		\end{figure}
+		
+		\begin{figure}[H]
+		\centering
+		\makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth}  
+	    	\centering
+		    \inputTikZ{./tikzpics/plot_uspora_cpsk-d_size}
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} algorithm compared to TD Dijkstra on the \textit{\textbf{cpsk-d}} dataset. \textbf{Changing $\bm{n}$}.}
+		    \label{plot:uspora-cpsk-d-size}
+	    \end{minipage}
+		\hspace{1cm}
+	    \begin{minipage}{0.45\textwidth} 
+		    \centering
+		    \inputTikZ{./tikzpics/plot_uspora_gbtr-d_size}
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} algorithm compared to TD Dijkstra on the \mbox{\textit{\textbf{gb-train-d}}} dataset. \textbf{Changing $\bm{n}$}.}
+		    \label{plot:uspora-gbtr-d-size}  
+	    \end{minipage}
+	    }
+		\end{figure}
+		
+		\begin{figure}[H]
+		\centering
+		\makebox[0pt][c]{
+	    \begin{minipage}{0.45\textwidth} 
+	    	\centering
+		    \inputTikZ{./tikzpics/plot_uspora_gbcoach_trange}
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} algorithm compared to TD Dijkstra on the \mbox{\textit{\textbf{gb-coach}}} dataset. \textbf{Changing $\bm{tr}$} (days).}
+		    \label{plot:usporas-gbcoach-trange}   
+	    \end{minipage}
+		\hspace{1cm}
+	    \begin{minipage}{0.45\textwidth} 
+	    	\centering
+		    \inputTikZ{./tikzpics/plot_uspora_zsr_trange}
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} algorithm compared to TD Dijkstra on the \textit{\textbf{zsr}} dataset. \textbf{Changing $\bm{tr}$} (days).}
+		    \label{plot:usporas-zsr-trange}   
+	    \end{minipage}
+	    }
+		\end{figure}
+		
+		\begin{figure}[H]
+		\centering
+		\makebox[0pt][c]{
 	    \begin{minipage}{0.45\textwidth} 
 	    	\centering
 		    \inputTikZ{./tikzpics/plot_usporas_sncf_size}
-		    \captionof{figure}{\textbf{Size} (in MB) of the oracle for \textit{USP-OR-A} with \textit{locsep} vs. size of TD graph on \textit{\textbf{sncf}} dataset. \textbf{Changing $\bm{n}$}.}   
+		    \captionof{figure}{\textbf{Size} (in MB) of the oracle for \textit{USP-OR-A} vs. size of TD graph on \textit{\textbf{sncf}} dataset. \textbf{Changing $\bm{n}$}.}
 		    \label{plot:usporas-sncf-size}
-	    \end{minipage}
-	    }
-		\end{figure}
-		
-		\noindent Finally, on the \textit{zsr} timetable, we see two things:
-		\begin{itemize}
-			\item The space-complexity of \textit{USP-OR-A} is left pretty much unaffected with increased time range.
-			\item The speed-up decreases (since with increased time range, there are generally more USPs between pairs of cities which we have to try out during the query)
-		\end{itemize}
-		
-		\begin{figure}[H]
-		\centering
-		\makebox[0pt][c]{
-	    \begin{minipage}{0.45\textwidth}  
-		    \centering
-		    \inputTikZ{./tikzpics/plot_uspora_zsr_trange}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} with \textit{locsep} compared to TD Dijkstra on the \textit{\textbf{zsr}} dataset. \textbf{Changing $\bm{r}$}.}
-		    \label{plot:uspora-zsr-trange}
 	    \end{minipage}
 		\hspace{1cm}
 	    \begin{minipage}{0.45\textwidth} 
 	    	\centering
-		    \inputTikZ{./tikzpics/plot_usporas_zsr_trange}
-		    \captionof{figure}{\textbf{Size} (in MB) of the oracle for \textit{USP-OR-A} with \textit{locsep} vs. size of TD graph on \textit{\textbf{zsr}} dataset. \textbf{Changing $\bm{r}$}.}
-		    \label{plot:usporas-zsr-trange}
+		    \inputTikZ{./tikzpics/plot_usporas_gbcoach_size}
+		    \captionof{figure}{\textbf{Size} (in MB) of the oracle for \textit{USP-OR-A} vs. size of TD graph on \textit{\textbf{gb-coach}} dataset. \textbf{Changing $\bm{n}$}.}
+		    \label{plot:usporas-gbcoach-size} 
 	    \end{minipage}
 	    }
 		\end{figure}
+

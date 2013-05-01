@@ -2,37 +2,35 @@
 \begin{tikzpicture}[textstyle, scale=0.8]
     \begin{axis}[
         xlabel={$n$},
-        ylabel={size (MB)},
+        ylabel={MB},
 		legend pos=north west
         ]
         
-    \addplot[smooth,mark=*,color=blue, solid] plot coordinates {
-		(250,0.5)
-		(500,1.0)
-		(750,1.5)
-		(1000,1.9)
-		(1250,2.4)
-		(1500,3.0)
-		(1750,3.4)
-		(2000,3.9)
-		(2250,4.4)
-		(2500,4.9)
-		(2646,5)
+    \addplot[smooth,mark=*,color=blue] plot coordinates {
+		(250,1.7)
+		(500,4.6)
+		(750,6.1)
+		(1000,8.5)
+		(1250,10.2)
+		(1500,12.3)
+		(1750,13.7)
+		(2000,15.3)
+		(2250,17.0)
+		(2646,19.9)
     };
-    \addlegendentry{\textit{TD graph}}
+    \addlegendentry{\textit{TD Dijkstra}}
     
-    \addplot[smooth,mark=|,color=black!50!red, solid] plot coordinates {
-		(250,0.5)
-		(500,0.9)
-		(750,1.7)
-		(1000,2.9)
-		(1250,3.8)
-		(1500,6)
-		(1750,7)
-		(2000,8)
-		(2250,10)
-		(2500,12)
-		(2646,15)
+    \addplot[smooth,mark=x,color=green!70!black] plot coordinates {
+		(250,0.8)
+		(500,2.4)
+		(750,5.0)
+		(1000,6.3)
+		(1250,10.9)
+		(1500,17.9)
+		(1750,16.2)
+		(2000,27.4)
+		(2250,33.4)
+		(2646,83.0)
     };
     \addlegendentry{\textit{USP-OR-A}}
     

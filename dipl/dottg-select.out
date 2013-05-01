@@ -2,10 +2,21 @@
 \BOOKMARK [1][-]{section.2}{Preliminaries}{}% 2
 \BOOKMARK [1][-]{section.3}{Related work}{}% 3
 \BOOKMARK [1][-]{section.4}{Data \046 analysis}{}% 4
-\BOOKMARK [2][-]{subsection.4.1}{Data}{section.4}% 5
-\BOOKMARK [2][-]{subsection.4.2}{Analysis of properties}{section.4}% 6
-\BOOKMARK [1][-]{section.5}{Underlying shortest paths}{}% 7
-\BOOKMARK [1][-]{section.6}{Neural network approach}{}% 8
-\BOOKMARK [1][-]{section.7}{Application TTBlazer}{}% 9
-\BOOKMARK [1][-]{section.8}{Conclusion}{}% 10
-\BOOKMARK [1][-]{Appendix.a.A}{Appendix File formats}{}% 11
+\BOOKMARK [1][-]{section.5}{Underlying shortest paths}{}% 5
+\BOOKMARK [2][-]{subsection.5.1}{USP-OR}{section.5}% 6
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Analysis of USP-OR}{subsection.5.1}% 7
+\BOOKMARK [2][-]{subsection.5.2}{USP-OR-A}{section.5}% 8
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Analysis of USP-OR-A}{subsection.5.2}% 9
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Correctness of USP-OR-A}{subsection.5.2}% 10
+\BOOKMARK [3][-]{subsubsection.5.2.3}{Modifications of USP-OR-A}{subsection.5.2}% 11
+\BOOKMARK [2][-]{subsection.5.3}{Selection of access node set}{section.5}% 12
+\BOOKMARK [3][-]{subsubsection.5.3.1}{Choosing the optimal access node set}{subsection.5.3}% 13
+\BOOKMARK [3][-]{subsubsection.5.3.2}{Choosing ANs based on node properties}{subsection.5.3}% 14
+\BOOKMARK [3][-]{subsubsection.5.3.3}{Choosing ANs heuristically - the locsep algorithm}{subsection.5.3}% 15
+\BOOKMARK [2][-]{subsection.5.4}{Performance and comparisons}{section.5}% 16
+\BOOKMARK [3][-]{subsubsection.5.4.1}{Performance of USP-OR}{subsection.5.4}% 17
+\BOOKMARK [3][-]{subsubsection.5.4.2}{USP-OR-A}{subsection.5.4}% 18
+\BOOKMARK [1][-]{section.6}{Neural network approach}{}% 19
+\BOOKMARK [1][-]{section.7}{Application TTBlazer}{}% 20
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 21
+\BOOKMARK [1][-]{Appendix.a.A}{Appendix File formats}{}% 22
