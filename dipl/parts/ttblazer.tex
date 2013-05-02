@@ -1,1 +1,178 @@
+\noindent For the purposes of analysing our timetables and testing our methods we developed a C++ command line application named \textit{TTBlazer}, which we will now shortly describe. The application is \textit{not} meant for common users but rather for those who would like to try out algorithms by themselves, review their code or continue with our work. \\
 
+\noindent The application works with 4 main types of \textbf{objects} that we have introduced in the section~\ref{sec:prel}:
+\begin{itemize}
+	\item Underlying graph
+	\item Time-expanded graph
+	\item Time-dependent graph
+	\item Timetable
+\end{itemize}
+\hspace*{\fill}
+
+\noindent A user can save/load each of this object from a file (in appendix~\ref{app:formats} we describe the file formats). Once loaded, there are four types of \textbf{actions} to be performed on the objects:
+\begin{itemize}
+	\item \textbf{Analysing} properties of the objects (e.g. analysis of degree distribution of the underlying graph)
+	\item \textbf{Generating} other objects from those that are loaded. This includes also conversions e.g. from a timetable to the time-expanded graph. Another example may be extracting the largest strongly connected component of a graph
+	\item \textbf{Modifying} the object, e.g. removing overtaken connections from a timetable
+	\item \textbf{Creating an oracle} on the object. We distinguish two types of oracles:
+	\begin{itemize}
+		\item \textbf{Distance oracle}. Answers queries for \textit{shortest-path} or a \textit{distance} between two nodes
+		\item \textbf{Timetable oracle}. Answers queries for \textit{optimal connection} or the \textit{earliest arrival} between two cities, given the departure time
+	\end{itemize}
+	Once the oracle is created (preprocessing is finished), the user can query it for the optimal shortest-paths/connections
+\end{itemize}
+\hspace{\fill}
+
+\noindent There is one more auxiliary type of \textit{action} that can be carried out - we call it \textbf{posting}. A postman (posting method) generates something (a mail) and stores it (in a postbox) to be later retrieved by another action. For example, we compute cities in the underlying graph with high betweenness centrality value, store the computed set and then use it to pre-compute \textit{USP-OR-A} using the set as an access node set.
+
+The main purpose of the application is therefore to serve as an environment for algorithms that manipulate timetables and other objects. The list of implemented actions can be found in the table~\ref{tab:actions}.
+
+\begin{table}[h]
+	\footnotesize
+	\centering
+    \begin{tabular}{l|c|c|l}
+        %legend
+            \rowcolor{tablehead}
+            \textbf{Action type} & \textbf{Action} & \textbf{Objects} & \textbf{Description} \\
+        %data
+		\hline
+			\cellcolor{tablehead} & usp & TE, TD & \parbox{8cm}{analyses the underlying shortest paths \textit{(created by posting action)}} \\ \cline{2-4}
+			\cellcolor{tablehead} & conns & TE, TD & analyses the optimal connections (avg. size, length...) \\ \cline{2-4}
+			\cellcolor{tablehead} & hd & UG, TE, TD & analyses the highway dimension \\ \cline{2-4}
+			\cellcolor{tablehead} & var & TE, TD, TT & analyses various properties of timetable objects (height \\ \cline{2-4}
+			\cellcolor{tablehead} & conn & UG, TE & analyses connectivity \\ \cline{2-4}
+			\cellcolor{tablehead} & strconn & UG & analyses strong connectivity of the underlying graph \\ \cline{2-4}
+			\cellcolor{tablehead} & degs & UG & analyses degrees of the underlying graph \\ \cline{2-4}
+			\cellcolor{tablehead} & paths & UG & analyses shortest paths (avg. size, length...) \\ \cline{2-4}
+			\cellcolor{tablehead} & betw & UG, TE & analyses betweenness centralities \\ \cline{2-4}
+			\cellcolor{tablehead} & accn & UG & analyses access node set \textit{(created by posting action)} \\ \cline{2-4}
+			\cellcolor{tablehead} & density & UG & analyses the density of the underlying graph \\ \cline{2-4}
+			\multirow{-12}{*}{\textbf{Analysing}} \cellcolor{tablehead} & overtake & TT & analyses overtaking in a timetable \\ 
+			\hline
+			\cellcolor{tablehead} & subcon & UG & generates connected subgraph of the given UG  \\ \cline{2-4}
+			\cellcolor{tablehead} & strcomp & UG & \parbox{8cm}{generates the UG with nodes from the largest strongly connected component} \\ \cline{2-4}
+			\cellcolor{tablehead} & 2ug & TE, TD, TT & generates the underlying graph from given timetable object \\ \cline{2-4}
+			\cellcolor{tablehead} & 2te & TT & generates the time-expanded graph from the given timetable \\ \cline{2-4}
+			\cellcolor{tablehead} & 2td & TT & generates the time-dependent graph from the given timetable \\ \cline{2-4}
+			\multirow{-6}{*}{\textbf{Generating}} \cellcolor{tablehead} & subtt & TT & generates a sub-timetable from the given timetable \\ 
+			\hline
+			\textbf{Modifying} \cellcolor{tablehead} & rmover & TT & removes overtaking from given timetable \\
+			\hline
+			\cellcolor{tablehead} & neural & TE, TD & creates the oracle based on a neural network \\ \cline{2-4}
+			\cellcolor{tablehead} & uspor & TD & creates the oracle based on \textit{USP-OR} \\ \cline{2-4}
+			\cellcolor{tablehead} & usporseg & TD & creates the oracle based on \textit{USP-OR}, uses segmentation \\ \cline{2-4}
+			\cellcolor{tablehead} & uspora & TD & \parbox{8cm}{creates the oracle based on \textit{USP-OR-A} \textit{(requires access node set computed by posting action)}} \\ \cline{2-4} 
+			\cellcolor{tablehead} & usporaseg & TD & \parbox{8cm}{creates the oracle based on \textit{USP-OR-A}, uses segmentation \textit{(requires access node set computed by posting action)}} \\ \cline{2-4}
+			\multirow{-6}{*}{\textbf{Timetable oracle}} \cellcolor{tablehead} & dijkstra & TE, TD & \parbox{8cm}{creates the oracle based on time-dependent Dijkstra's algorithm} \\
+			\hline
+			\textbf{Distance oracle} \cellcolor{tablehead} & dijkstra & UG & creates the oracle based on Dijkstra's algorithm \\
+			\hline
+			\cellcolor{tablehead} & anhbc & UG & creates the access node set $\mathcal{A}^{bc}$ \\ \cline{2-4}
+			\cellcolor{tablehead} & andeg & UG & creates the access node set $\mathcal{A}^{deg}$ \\ \cline{2-4}
+			\cellcolor{tablehead} & usp & TE, TD & \parbox{8cm}{computes the USPs (between all pairs or just on a given subset)} \\ \cline{2-4}
+			\multirow{-4}{*}{\textbf{Posting}} \cellcolor{tablehead} & locsep & UG & creates the access node set $\mathcal{A}^{loc}$ \\
+	\end{tabular}
+	\caption{\label{tab:actions} A list of actions implemented in \textit{TTBlazer}. In the actual implementation there may be more actions that we created for other experiments not included in this thesis.}
+    \normalsize
+\end{table}
+	
+\subsection{Requirements \& features}
+
+	\subsubsection{Communication with user}
+	
+		\begin{itemize}
+			\item The program may be fed commands either through standard command line input, or through UDP port on which it is listening. The user may switch between these two options to specify the so called \textit{command source}. 
+			\item The output is done through logging of the program. The logs could be output to screen, written to files or sent on ports. There are 3 types of logs:
+			\begin{itemize}
+				\item \textit{Info}: information for the user, thus always printed
+				\item \textit{Error}: also always printed
+				\item \textit{Debug message}: information for the developer, printed only if debugging is turned on. The debug message is further parametrized by a number (\textit{debug level}), usually a different one for each module of the program.
+			\end{itemize}
+			\item Help outputs the list of commands along with the explanation of their meaning. The application can also take several command-line \textit{arguments}, e.g. setting the logging to a specific file.
+			\item The application can run scripts with commands stored in a file
+		\end{itemize}
+		
+	\subsubsection{Others}
+		\begin{itemize}
+			\item All the actions performed on the objects could be \textit{timed} and the size of the created oracles can be estimated by the lower bound.
+			\item Objects and oracles can be referenced by their name or by their index.
+			\item Nodes of the graph can be referenced by their index or their ID.
+			\item The user has an option to switch between viewing all the time values in \textit{minutes} or in the time format \textit{DAYS HH:MM}.
+		\end{itemize}		
+		
+\section{Compilation and usage}
+
+	In the directory of the solution, five folders can be found:
+	\begin{itemize}
+		\item \textit{common/}
+		\item \textit{commander/}
+		\item \textit{data/}
+		\item \textit{printer/}
+		\item \textit{ttblazer/}
+	\end{itemize}
+	\hspace*{\fill}
+	
+	There are actually 3 programs - \textit{TTBlazer}, \textit{Printer} and \textit{Commander}, whereas \textit{common} are just common source files shared between them all. Printer and Commander are simple support applications - the first one (Printer) listens on a port and output everything to \textit{stdout} (used when logs are sent on a port). The second one (Commander) just sends a message provided as an argument to the specific port and terminates (used to control TTBlazer). \\
+	
+	Each of these folders has a file \textit{buildinfo.sh} specifying (relative) paths to source files folder, binary folder, name of the final binary, compilation flags and then individual modules (one per source file). This file is used by \textit{depmake.sh}, a bash script that creates a makefile from the information from \textit{buildinfo.sh}. \\
+	
+	In order to compile the programs, boost library must be installed in the parent folder ("solution" in this case) in a directory called "boostlib". It should look like this:
+
+\begin{lstlisting} [caption={Sending commands to the main application}]	
+solution/
+|-- boostlib
+|   |-- boost
+|       |-- accumulators
+|       |   |-- accumulators_fwd.hpp
+|       |   |-- accumulators.hpp
+|       |   |-- framework
+...
+\end{lstlisting}
+
+		Boost library is freely available at \url{http://sourceforge.net/projects/boost/files/boost/1.52.0/}. In case you have the library installed, you may also adjust the files \textit{buildinfo.sh} located in directories \textit{ttblazer}, \textit{commander} and \textit{printer} where you provide the path of your boost library distribution to the include flag for \textit{g++} compiler. \\
+	
+	Finally, for each of the 3 programs there are following 3 simple shell script:
+	\begin{itemize}
+		\item \textit{comp.sh} - rebuilds the makefile, compiles the sources and builds the binary. Its arguments are forwarded to \textit{make}
+		\item \textit{run.sh} - runs the binary. Arguments are forwarded to the started binary
+		\item \textit{both.sh} - combination of \textit{comp.sh} and \textit{run.sh}. Arguments are forwarded to the started binary
+	\end{itemize}
+	\hspace{\fill}	
+	
+	In the folder \textit{data}, there are 4 files - one for each type of object mentioned in section \ref{sec:about}. Following is a simple demonstration of one of the program's functionality (creating and using oracles). Open two terminal windows. In one of them, compile and run the main application as follows:
+	
+	\begin{lstlisting} [caption={Compiling and running main application}]
+./tboth.sh
+	\end{lstlisting}
+
+	In the other terminal window you will send commands to the main application with the Commander program.	
+
+	\begin{lstlisting} [caption={Sending commands to the main application}]
+./ccomp.sh                               //compile the Commander program
+./crun.sh load tt data/basic/tt.tt       //load the timetable from file
+./crun.sh gen tt 2te tt                  //generate the time-expanded graph from the loaded timetable
+./crun.sh or te dijkstra tt_2te          //create oracle (based on Dijkstra's algorithm) on the time-expanded graph
+./crun.sh conn te tt_2te 0 A 0 10:00 D   //use the oracle to find out earliest arrival for some query
+	\end{lstlisting}		
+	
+\subsection{Design}
+
+	As already mentioned, there are 3 applications that share some common parts:
+	\begin{itemize}
+		\item \textit{TTBlazer} - the main application, that carries all the logic and does all the computation.
+		\item \textit{Commander} - small program that sends commands to TTBlazer. The advantage of this is, that even when the main application is busy computing, it still listens on a port for commands to be executed later.
+		\item \textit{Printer} - small program that listens on a port and outputs everything that it receives. Used to capture some logging.
+		\item \textit{Common} - common files shared by all three applications (like logging, working with network connections etc...)
+	\end{itemize}
+	\hspace{\fill}
+	
+	\textit{TTBlazer} is further structured. It offers basically 4 types of functionality:
+	\begin{itemize}
+		\item \textit{Analysers} - does various analysis on the objects (e.g. analysis of connectivity)
+		\item \textit{Generators} - generates some object from another object (e.g. connected sub-graph)
+		\item \textit{Modifiers} - modifies existing loaded objects (e.g. sorts the timetable)
+		\item \textit{Oracles} - creates data structure that can answer shortest-path or earliest-arrival queries
+	\end{itemize}
+	\hspace{\fill}
+	
+	The application is easily extendible for new functionality of one of the types.

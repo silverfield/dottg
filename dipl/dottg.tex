@@ -11,8 +11,9 @@
 \usepackage[enc=utf8]{hrlatex}
 \usepackage[T1]{fontenc} %pekne makcene
 
-\usepackage{algorithmic}
+%\usepackage{algorithmic}
 \usepackage{algorithm}
+\usepackage{algcompatible}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage[titletoc, page]{appendix}
@@ -41,6 +42,7 @@
 \usepackage{subcaption}
 \usepackage{tikz}
 \usepackage{titlesec} %section titles font size change
+\usepackage{wrapfig}
 \usepackage{xcolor} %for \colorlet
 
 \usetikzlibrary{shapes,fit,calc,shadows,plotmarks}
@@ -214,8 +216,8 @@
     %---------------------------------------------------------------------
     %   title page
     %---------------------------------------------------------------------
-    \begin{center}
-        \begin{minipage}{0.25\textwidth} \includegraphics[width=28mm]{logouk.png} \end{minipage}
+	\begin{center}
+		\begin{minipage}{0.25\textwidth} \includegraphics[width=28mm]{logouk.png} \end{minipage}
         \begin{minipage}{0.74\textwidth}
         \textbf{\large\sc
             Department of Computer Science \\
@@ -224,7 +226,7 @@
         }
         \end{minipage}
 
-        \vskip 6cm
+        \vskip 7cm
 
         \begin{center} \line(1,0){350} \end{center}
         {\LARGE\sc Distance oracles for timetable graphs } \\
@@ -234,20 +236,12 @@
         \begin{center} \line(1,0){350} \end{center}
 
         \vfill
-    \end{center}
-
-	\textbf{Study program}: Computer science \\
-    \textbf{Branch of study}: 2508 Informatics \\
+    \end{center} 
+    
+    \textbf{Study program}: Informatics \\
+    \textbf{Branch of study}: 9.2.1 Informatics (2508) \\
     \textbf{Supervisor}: doc. RNDr. Rastislav Královič, PhD.   \hfill Bratislava 2013
-
-    \pagebreak
     
-    %---------------------------------------------------------------------
-    %   empty page
-    %---------------------------------------------------------------------
-    
-	\thispagestyle{empty}
-	\mbox{}
     \pagebreak
 
     %---------------------------------------------------------------------

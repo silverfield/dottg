@@ -18,21 +18,26 @@
 \contentsline {subsection}{\numberline {4.2}Analysis of properties}{17}{subsection.4.2}
 \contentsline {section}{\numberline {5}Underlying shortest paths}{20}{section.5}
 \contentsline {subsection}{\numberline {5.1}\textit {USP-OR}}{21}{subsection.5.1}
-\contentsline {subsubsection}{\numberline {5.1.1}Analysis of \textit {USP-OR}}{23}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Analysis of \textit {USP-OR}}{22}{subsubsection.5.1.1}
 \contentsline {subsection}{\numberline {5.2}\textit {USP-OR-A}}{25}{subsection.5.2}
 \contentsline {subsubsection}{\numberline {5.2.1}Analysis of \textit {USP-OR-A}}{27}{subsubsection.5.2.1}
-\contentsline {subsubsection}{\numberline {5.2.2}Correctness of \textit {USP-OR-A}}{30}{subsubsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.2}Correctness of \textit {USP-OR-A}}{29}{subsubsection.5.2.2}
 \contentsline {subsubsection}{\numberline {5.2.3}Modifications of \textit {USP-OR-A}}{30}{subsubsection.5.2.3}
-\contentsline {subsection}{\numberline {5.3}Selection of access node set}{32}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}Choosing the optimal access node set}{32}{subsubsection.5.3.1}
-\contentsline {subsubsection}{\numberline {5.3.2}Choosing ANs based on node properties}{34}{subsubsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3}Selection of access node set}{31}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Choosing the optimal access node set}{31}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}Choosing ANs based on node properties}{33}{subsubsection.5.3.2}
 \contentsline {subsubsection}{\numberline {5.3.3}Choosing ANs heuristically - the \textit {locsep} algorithm}{34}{subsubsection.5.3.3}
-\contentsline {subsection}{\numberline {5.4}Performance and comparisons}{39}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.4}Performance and comparisons}{38}{subsection.5.4}
 \contentsline {subsubsection}{\numberline {5.4.1}Performance of \textit {USP-OR}}{39}{subsubsection.5.4.1}
-\contentsline {subsubsection}{\numberline {5.4.2}\textit {USP-OR-A}}{42}{subsubsection.5.4.2}
-\contentsline {section}{\numberline {6}Neural network approach}{46}{section.6}
-\contentsline {subsection}{\numberline {6.1}Results}{47}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Conclusion of the experiment}{49}{subsection.6.2}
-\contentsline {section}{\numberline {7}Application TTBlazer}{50}{section.7}
-\contentsline {section}{\numberline {8}Conclusion}{51}{section.8}
-\contentsline {section}{Appendix \numberline {A}File formats}{52}{Appendix.a.A}
+\contentsline {subsubsection}{\numberline {5.4.2}\textit {USP-OR-A}}{41}{subsubsection.5.4.2}
+\contentsline {section}{\numberline {6}Neural network approach}{44}{section.6}
+\contentsline {subsection}{\numberline {6.1}Results}{45}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Conclusion of the experiment}{47}{subsection.6.2}
+\contentsline {section}{\numberline {7}Application TTBlazer}{48}{section.7}
+\contentsline {subsection}{\numberline {7.1}Requirements \& features}{49}{subsection.7.1}
+\contentsline {subsubsection}{\numberline {7.1.1}Communication with user}{49}{subsubsection.7.1.1}
+\contentsline {subsubsection}{\numberline {7.1.2}Others}{49}{subsubsection.7.1.2}
+\contentsline {section}{\numberline {8}Compilation and usage}{49}{section.8}
+\contentsline {subsection}{\numberline {8.1}Design}{50}{subsection.8.1}
+\contentsline {section}{\numberline {9}Conclusion}{52}{section.9}
+\contentsline {section}{Appendix \numberline {A}File formats}{53}{Appendix.a.A}

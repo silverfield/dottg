@@ -1,0 +1,49 @@
+\noindent In the previous section~\ref{sec:relwrk} we have mentioned the highway dimension~\cite{highwaydim10} as a parameter which, when being low, guarantees low query times for certain route-planning methods. Here we were interested in the highway dimension of our underlying graphs.
+	
+	\begin{definition}
+		\textbf{Highway dimension} \\
+		Highway dimension $\bm{HD(G)}$ for a directed, edge-weighted graph $G = (V, E)$ is the smallest integer $h$, such that:
+        \vskip 10pt
+        \indent $\forall r \in R^{+}, \; \forall u \in V, \; \exists S \subseteq B_{u, 2r}, \; |S| \leq h, \; \forall v, w \in B_{u, 2r}$: \\
+        \indent \indent if $r < |P(v, w)| \leq 2r$ and $P(v, w) \subseteq B_{u, 2r}$ then $P(v, w) \cap S \neq \emptyset$
+        \vskip 10pt
+		\noindent where:
+		\begin{itemize}
+			\item $\bm{P(v, w)}$ is the \textbf{shortest path} between $v$ and $w$
+			\item $\bm{B_{u, r}} = \{v \in V | \; |P(u, v)| \leq r$ or $|P(v, u)| \leq r\}$ and is called \textbf{ball} of radius $r$ centred at $u$.
+		\end{itemize}
+	\end{definition}
+
+	\noindent Intuitively, a graph has a low HD, if for any $r$ we have a \emph{sparse} set of vertices $S_{r}$, such that every shortest path longer then $r$ includes a vertex from $S_{r}$. By the set being sparse, we mean that every ball of radius $\mathcal{O}(r)$ contains just a few elements of $S_{r}$.
+
+	\begin{figure}[h!]
+    	\begin{center}
+        	\inputTikZ{./tikzpics/highwaydim}
+		\end{center}
+        \caption{\label{fig:highdemonstr} Demonstration of a definition of HD. We chose some $r$ ($r = 6$) and some vertex $v$ ($v = C$) to root the ball $B_{v, 2r}$. All the shortest paths \emph{longer} than $r$ \emph{inside} the ball have to contain a vertex from $S$ (orange vertices $C$ and $A$ in our case). The upper bound on $|S|$, considering any ball with any radius, is the required highway dimension. Note: in our case, we had to choose also $A$ to set $S$, since a shortest path from $B$ to $D$ does not include $C$.}
+	\end{figure}
+	
+	\noindent Highway dimension is difficult to measure due to the way it is defined. We compute at least approximate value for sub-graphs of 200 nodes of the underlying graphs. Results could be seen in table~\ref{table:ug_hd}.
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{c|c}
+		%legend
+			\rowcolor{tablehead}
+			\textbf{Name} & apx. $HD$ \\
+		%data
+			\hline
+			\textit{svk-200} & \textbf{32} \\
+			\textit{air01-200} & 82 \\
+			\textit{cpsk-200} & 127 \\
+			\textit{gb-coach-200} & 107 \\
+			\textit{gb-train-200} & 147 \\
+			\textit{montr-200} &  \\
+			\textit{sncf-200} &  \\
+			\textit{sncf-inter-200} &  \\
+			\textit{sncf-ter-200} &  \\
+			\textit{zsr-200} &  \\
+		\end{tabular}
+		\captionof{table}{Highway dimension of 200 vertex sub-graphs of the underlying graphs.}
+		\label{table:ug_hd}
+	\end{table}

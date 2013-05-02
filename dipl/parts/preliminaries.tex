@@ -15,9 +15,9 @@ In this section, we provide most of the definitions and terminology used through
         		\item $\bm{dep(e)} = p$ is the \textbf{departure time}
         		\item $\bm{arr(e)} = q$ is the \textbf{arrival time}
         	\end{itemize}
-        	\item The set of all \textbf{cities} (stations) will be denoted as $\bm{ct_{T}} = \{x| \; (x, y, p, q) \in T \; or \; (y, x, p, q) \in T\}$ and the number of cities as $n_{T}$. 
+        	\item The set of all \textbf{cities} (stations) will be denoted as $\bm{ct_{T}} = \{x| \; (x, y, p, q) \in T \; or \; (y, x, p, q) \in T\}$ and the number of cities as $n_{T}$
         	\item Pairs $(x, p)$ or $(y, q)$ such that $(x, y, p, q) \in T$ form the set of \textbf{events} $\bm{ev_{T}}$. The set of events in a specific city $x$ is $\bm{ev_{T}(x)} = \{(x, t)| \; (x, y, t, q) \in T \; or \; (y, x, p, t) \in T\}$
-        	\item Let $\bm{tlow_{T}} = \min_{e \in T} dep(e)$ and $\bm{thigh_{T}} = \max_{e \in T} arr(e)$. The value $\bm{tr_{T}} = thigh_{T} - tlow_{T}$ is called the \textbf{time range} of the timetable.
+        	\item Let $\bm{tlow_{T}} = \min_{e \in T} dep(e)$ and $\bm{thigh_{T}} = \max_{e \in T} arr(e)$. The value $\bm{tr_{T}} = thigh_{T} - tlow_{T}$ is called the \textbf{time range} of the timetable
         	\item \textbf{Height} of the timetable is the average number of events in a city: 
         	$$\bm{h_{T}} = \frac{|ev_{T}|}{n_{T}}$$
         \end{itemize}
@@ -51,7 +51,7 @@ In this section, we provide most of the definitions and terminology used through
         \textbf{Connection} \\
         A connection from $a$ to $b$ is a sequence of elementary connections $\bm{c} = (e_{1}, e_{2}, ..., e_{k}), k \geq 1$, such that $from(e_{1}) = a$, $to(e_{k}) = b$ and $\forall i \in \{2, ..., k\}: (to(e_{i}) = from(e_{i - 1}), \; arr(e_{i}) \geq dep(e_{i - 1})$.
         \begin{itemize}
-			\item Connection \textbf{starts} at the departure time $\bm{start(c)} = dep(e_{1})$ and \textbf{ends} at the arrival time $\bm{end(c)} = arr(e_{k})$.
+			\item Connection \textbf{starts} at the departure time $\bm{start(c)} = dep(e_{1})$ and \textbf{ends} at the arrival time $\bm{end(c)} = arr(e_{k})$
 			\item We also extend $\bm{from(c)} = from(e_{1})$ and $\bm{to(c)} = to(e_{k})$
 	        \item \textbf{Length} of the connection is $\bm{len(c)} = end(c) - start(c)$
 	        \item \textbf{Size} of the connection is $\bm{size(c)} = k$~\footnote{We will use similar terminology when talking about paths - the \textit{size} is the number of vertices (hops) in the path while the \textit{length} refers to the actual distance (sum of weights of the edges in the path).}
@@ -77,8 +77,8 @@ In this section, we provide most of the definitions and terminology used through
         	\item By $\bm{m_{T}}$ we will denote the number of arcs in the UG
         \end{itemize}
     \end{definition}
-    
-    \noindent Note, that we do not specify the weights of the edges in the underlying graph - they will be specified based on the current usage of the UG. Most of the time, however, if we work with a weighted UG, the weight of an arc will be the length of the shortest elementary connection on that arc. More specifically, $w(x, y) = \min_{(x, y, p, q) \in T} (q - p) \; \forall (x, y) \in E(ug_{T})$. Such weighted UG will be called \textbf{optimistic} (denoted $\bm{ug_{T}^{opt}}$).
+	    
+    \noindent Note, that we do not specify the weights of the edges in the underlying graph - they will be specified based on the current usage of the UG. Most of the time, however, if we work with a weighted UG, the weight of an arc will be the length of the shortest elementary connection on that arc. More specifically, $w(x, y) = \min_{(x, y, p, q) \in T} (q - p) \; \forall (x, y) \in E(ug_{T})$. Such weighted UG will be called \textbf{optimistic} (denoted $\bm{ug_{T}^{opt}}$). \\
     
     \begin{figure}[h!]
         \begin{center}
@@ -148,6 +148,8 @@ In this section, we provide most of the definitions and terminology used through
 		\item Time-dependent graph (TD)
 	\end{itemize}
 	\hspace*{\fill}
+	
+	\noindent For future reference, we will call TT, TE and TD as \textbf{timetable objects} and UG, TE and TD as \textbf{graph-like objects}. \\
 		
 	\noindent \textit{Note:} Throughout this paper, we will relax a bit the notation and leave out subscripts (e.g. $ug_{T}~\rightarrow~ug$, $n_{T}~\rightarrow~n$, etc.) in situations, where the context is clear enough. 
 
@@ -215,13 +217,13 @@ In this section, we provide most of the definitions and terminology used through
 	
 	As our task is to compute earliest arrivals or optimal connections instead of distances and shortest paths, our ``reference point'' will be a slightly modified Dijkstra's algorithm called \textbf{time-dependent Dijkstra's algorithm}~\cite{tdroute09} (or \textbf{TD Dijkstra} for short). The algorithm is run on a time-dependent graph and works just like the ordinary Dijkstra's algorithm, except that the weight of each arc $(x, y)$ is determined for the time $t$ at which we had settled vertex $x$.
 	
-	If we assume that the evaluation of an arc by the cost function of the TD graph is implemented in constant time, the running time of the TD Dijkstra is $\mathcal{O}(n^{2})$, just like the normal Dijkstra's algorithm. On sparse graphs, this bound can be improved using a quick data structure to determine the next node we settle. A good option is a priority queue implemented as a \textit{Fibonacci heap}, which implements deletion in $\mathcal{O}(\log n)$ and all other operations in constant amortized time~\cite{sommerthesis10}. This yields the running time of TD Dijkstra $\mathcal{O}(n \log n + m)$.
+	If we assume that the evaluation of an arc by the cost function of the TD graph is implemented in constant time, the running time of the \textit{TD Dijkstra} is $\mathcal{O}(n^{2})$, just like the normal Dijkstra's algorithm. On sparse graphs, this bound can be improved using a quick data structure to determine the next node we settle. A good option is a priority queue implemented as a \textit{Fibonacci heap}, which implements deletion in $\mathcal{O}(\log n)$ and all other operations in constant amortized time~\cite{sommerthesis10}. This yields the running time of \textit{TD Dijkstra} $\mathcal{O}(n \log n + m)$.
 	
 	We may therefore introduce a fifth parameter of our oracle based methods, the speed-up:
 	
 	\begin{definition}
 		\textbf{Speed-up ($\bm{spd(m)}$)}\\
-        A speed-up of an oracle based method $m$ is the ratio $\frac{\displaystyle qtime_{avg}(TD Dijkstra)}{\displaystyle qtime_{avg}(m)}$ where $qtime_{avg}(m')$ is the average query time of the respective oracle based method $m'$~\footnote{Note that we may also consider the TD Dijkstra algorithm to be an oracle based method - it just happens that it does not require any preprocessing.}.
+        A speed-up of an oracle based method $m$ is the ratio $\frac{\displaystyle qtime_{avg}(TD Dijkstra)}{\displaystyle qtime_{avg}(m)}$ where $qtime_{avg}(m')$ is the average query time of the respective oracle based method $m'$~\footnote{Note that we may also consider the \textit{TD Dijkstra} algorithm to be an oracle based method - it just happens that it does not require any preprocessing.}.
 	\end{definition}
 	
 	\noindent The definition is rather loose in the sense that we may refer to a concrete speed-up of the method on a concrete dataset or a general, theoretical speed-up expressed as a function of the size of input.

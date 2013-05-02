@@ -6,7 +6,7 @@ The input layer of the perceptron has one neuron for each event of the timetable
 		\begin{center}
         	\inputTikZ{./tikzpics/neural}
         \end{center}
-		\caption{\label{fig:neural} }
+		\caption{\label{fig:neural} The model of our neural network - on the input layer (down) we activate the neurons corresponding to the departure event and destination city. On the output, we expect the activation of neurons corresponding to the underlying path of the connection.}
 	\end{figure}		
 	
 \noindent For example, consider the following query in the timetable~\ref{table:tt}: ``From \textit{A} at \textit{10:00} to \textit{C}''. The optimal connection is \textit{[A, 10:00]}, \textit{[B, 10:45]}, \textit{[B, 11:00]}, \textit{[C, 11:30]}. The query will activate two input neurons - the one corresponding to \textit{[A, 10:00]} and the one corresponding to destination \textit{C}. On the output we expect two activated neurons, since we really moved only two times - from \textit{A} to \textit{B} and from \textit{B} to \textit{C}. \\
@@ -54,7 +54,7 @@ The perceptron was trained with training data divided into two groups: \textbf{v
 	\begin{itemize}
 		\item 1 hidden layer with 30 neurons
 		\begin{itemize}
-			\item 1.) 100 training examples (t = 100), $\alpha$ \footnote{$\alpha$ is the parameter used in adjusting weights in the back-propagation algorithm} = 0.1, early stopping
+			\item 1.) 100 training examples (t = 100), $\alpha$ \footnote{$\alpha$ is the parameter used in adjusting weights in the back-propagation algorithm.} = 0.1, early stopping
 			\item 2.) 300 training examples (t = 300), $\alpha$ = 0.1, early stopping
 			\item 3.) 100 training examples (t = 100), $\alpha$ = 0.1, minimum of 300 iterations
 		\end{itemize}
@@ -81,16 +81,16 @@ The perceptron was trained with training data divided into two groups: \textbf{v
         \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c|c}
             %legend
                 \rowcolor{tablehead}
-                \textbf{Name} & \textbf{Conn $\exists$} & 
+                 &  & 
                 \multicolumn{4}{>{\columncolor{tablehead}}c|}{\textbf{1.) t = 100, $\alpha$ = 0.1, E.S.}} & 
                 \multicolumn{4}{>{\columncolor{tablehead}}c|}{\textbf{2.) t = 300, $\alpha$ = 0.1, E.S.}} &
                 \multicolumn{4}{>{\columncolor{tablehead}}c}{\textbf{3.) t = 100, $\alpha$ = 0.1, 300 it.}}\\
                 \hline
                 \rowcolor{tablehead}
-                 &  & E.E. & V.E. & Found & Opt & E.E. & V.E. & Found & Opt & E.E. & V.E. & Found & Opt \\
+                \textbf{Name} & \textbf{Conn $\exists$} & E.E. & V.E. & Found & Opt & E.E. & V.E. & Found & Opt & E.E. & V.E. & Found & Opt \\
             %data
             \hline
-            		tt & 462 & 0.442 & 0.77 & 462 & 435 & 0.31 & 0.91 & 462 & 462 & 0.67 & 1.02 & 450 & 450 \\
+            	tt & 462 & 0.442 & 0.77 & 462 & 435 & 0.31 & 0.91 & 462 & 462 & 0.67 & 1.02 & 450 & 450 \\
 				air30-10 & 945 & 105.29 & 28.93 & 184 & 21 & 331.61 & 88.84 & 187 & 51 & 46.20 & 26.21 & 464 & 82 \\
 				air50-20 & 931 & 133.90 & 36.57 & 112 & 33 & 385.32 & 94.89 & 166 & 104 & 48.30 & 31.52 & 426 & 204 \\
 				cpsk30-10 & 504 & 63.83 & 12.42 & 146 & 57 & 124.55 & 32.96 & 287 & 160 & 16.74 & 13.96 & 270 & 147 \\
@@ -100,7 +100,7 @@ The perceptron was trained with training data divided into two groups: \textbf{v
 				zsr30-10 & 643 & 57.08 & 29.24 & 278 & 204 & 298.64 & 69.62 & 179 & 144 & 13.59 & 23.02 & 306 & 229 \\
 				zsr50-20 & 892 & 130.74 & 46.05 & 152 & 53 & 448.37 & 134.80 & 185 & 60 & 34.02 & 41.85 & 347 & 122 \\
         \end{tabular}
-        \caption{\label{tab:results1} The first triple of trained neural network. \textit{Conn $\exists$} - number of test cases (out of 1000) when there existed a connection (found by Dijkstra's algorithm) for the query. \textit{E.S.} - early stopping. \textit{E.E. and V.E.} - estimation and validation error at the end of training. \textit{Found} - found a connection for the query. \textit{Opt} - found optimal connection}
+        \caption{\label{tab:results1} The first triple of trained neural network. \textit{Conn $\exists$} - number of test cases (out of 1000) when there existed a connection (found by Dijkstra's algorithm) for the query. \textit{E.S.} - early stopping. \textit{E.E. and V.E.} - estimation and validation error at the end of training. \textit{Found} - found a connection for the query. \textit{Opt} - found optimal connection.}
         \normalsize
     \end{table} 
     
@@ -110,16 +110,16 @@ The perceptron was trained with training data divided into two groups: \textbf{v
         \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c|c}
             %legend
                 \rowcolor{tablehead}
-                \textbf{Name} & \textbf{Conn $\exists$} & 
+                 & & 
                 \multicolumn{4}{>{\columncolor{tablehead}}c|}{\textbf{4.) t = 100, $\alpha$ = 1, E.S.}} & 
                 \multicolumn{4}{>{\columncolor{tablehead}}c|}{\textbf{5.) t = 300, $\alpha$ = 1, E.S.}} &
                 \multicolumn{4}{>{\columncolor{tablehead}}c}{\textbf{6.) t = 100, $\alpha$ = 1, 300 it.}}\\
                 \hline
                 \rowcolor{tablehead}
-                 &  & E.E. & V.E. & Found & Opt & E.E. & V.E. & Found & Opt & E.E. & V.E. & Found & Opt \\
+                \textbf{Name} & \textbf{Conn $\exists$} & E.E. & V.E. & Found & Opt & E.E. & V.E. & Found & Opt & E.E. & V.E. & Found & Opt \\
             %data
             \hline
-            		tt & 449 & 12.16 & 3.13 & 292 & 292 & 2.79 & 1.02 & 403 & 403 & 0.00 & 1.35 & 449 & 449 \\
+            	tt & 449 & 12.16 & 3.13 & 292 & 292 & 2.79 & 1.02 & 403 & 403 & 0.00 & 1.35 & 449 & 449 \\
 				air30-10 & 939 & 119.56 & 30.77 & 178 & 21 & 339.35 & 79.04 & 121 & 26 & 34.21 & 37.8 & 505 & 94 \\
 				air50-20 & 922 & 132.05 & 28.36 & 30 & 16 & 371.12 & 106.18 & 50 & 36 & 33.86 & 54.17 & 387 & 171 \\
 				cpsk30-10 & 518 & 61.83 & 13.91 & 133 & 94 & 195.12 & 35.84 & 156 & 101 & 30.25 & 20.52 & 174 & 80 \\
@@ -129,7 +129,7 @@ The perceptron was trained with training data divided into two groups: \textbf{v
 				zsr30-10 & 658 & 115.50 & 26.28 & 140 & 117 & 331.12 & 82.83 & 147 & 124 & 16.42 & 37.08 & 211 & 165 \\
 				zsr50-20 & 900 & 156.06 & 32 & 110 & 57 & 475.49 & 104.63 & 135 & 45 & 43.78 & 50.12 & 321 & 134 \\
         \end{tabular}
-        \caption{\label{tab:results2} The second triple of trained neural network. \textit{Conn $\exists$} - number of test cases (out of 1000) when there existed a connection (found by Dijkstra's algorithm) for the query. \textit{E.S.} - early stopping. \textit{E.E. and V.E.} - estimation and validation error at the end of training. \textit{Found} - found a connection for the query. \textit{Opt} - found optimal connection}
+        \caption{\label{tab:results2} The second triple of trained neural network. \textit{Conn $\exists$} - number of test cases (out of 1000) when there existed a connection (found by Dijkstra's algorithm) for the query. \textit{E.S.} - early stopping. \textit{E.E. and V.E.} - estimation and validation error at the end of training. \textit{Found} - found a connection for the query. \textit{Opt} - found optimal connection.}
         \normalsize
     \end{table}
     
@@ -139,14 +139,14 @@ The perceptron was trained with training data divided into two groups: \textbf{v
         \begin{tabular}{c|c|c|c|c|c}
             %legend
                 \rowcolor{tablehead}
-                \textbf{Name} & \textbf{Conn $\exists$} & 
+                 & & 
                 \multicolumn{4}{>{\columncolor{tablehead}}c}{\textbf{7.) t = 100, $\alpha$ = 0.1, E.S.}} \\
                 \hline
                 \rowcolor{tablehead}
-                 &  & E.E. & V.E. & Found & Opt \\
+                \textbf{Name} & \textbf{Conn $\exists$} & E.E. & V.E. & Found & Opt \\
             %data
             \hline
-            		tt & 471 & 0.1 & 2.24 & 471 & 471 \\
+            	tt & 471 & 0.1 & 2.24 & 471 & 471 \\
 				air30-10 & 931 & 23.47 & 30.76 & 573 & 107 \\
 				air50-20 & 938 & 37.66 & 38.44 & 405 & 203 \\
 				cpsk30-10 & 481 & 11.67 & 17.22 & 281 & 135 \\
@@ -156,7 +156,7 @@ The perceptron was trained with training data divided into two groups: \textbf{v
 				zsr30-10 & 672 & 7.7 & 26.92 & 307 & 234 \\
 				zsr50-20 & 887 & 22.68 & 42.68 & 426 & 178 \\
         \end{tabular}
-        \caption{\label{tab:results3} The 7th trained neural network. \textit{Conn $\exists$} - number of test cases (out of 1000) when there existed a connection (found by Dijkstra's algorithm) for the query. \textit{E.S.} - early stopping. \textit{E.E. and V.E.} - estimation and validation error at the end of training. \textit{Found} - found a connection for the query. \textit{Opt} - found optimal connection}
+        \caption{\label{tab:results3} The 7th trained neural network. \textit{Conn $\exists$} - number of test cases (out of 1000) when there existed a connection (found by Dijkstra's algorithm) for the query. \textit{E.S.} - early stopping. \textit{E.E. and V.E.} - estimation and validation error at the end of training. \textit{Found} - found a connection for the query. \textit{Opt} - found optimal connection.}
         \normalsize
     \end{table}
     
@@ -175,7 +175,7 @@ The perceptron was trained with training data divided into two groups: \textbf{v
         \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}
             %legend
                 \rowcolor{tablehead}
-                \textbf{Name} &
+                 &
                 \multicolumn{2}{>{\columncolor{tablehead}}c|}{\textbf{1.)}} &
                 \multicolumn{2}{>{\columncolor{tablehead}}c|}{\textbf{2.)}} &
                 \multicolumn{2}{>{\columncolor{tablehead}}c|}{\textbf{3.)}} &
@@ -185,7 +185,7 @@ The perceptron was trained with training data divided into two groups: \textbf{v
                 \multicolumn{2}{>{\columncolor{tablehead}}c}{\textbf{7.)}} \\
                 \hline
                 \rowcolor{tablehead}
-                 & O.f.F. & F.O. & O.f.F. & F.O. & O.f.F. & F.O. & O.f.F. & F.O. & O.f.F. & F.O. & O.f.F. & F.O. & O.f.F. & F.O. \\
+                \textbf{Name} & O.f.F. & F.O. & O.f.F. & F.O. & O.f.F. & F.O. & O.f.F. & F.O. & O.f.F. & F.O. & O.f.F. & F.O. & O.f.F. & F.O. \\
             %data
             \hline
 				tt & 94.2 & 94.2 & 100.0 & 100.0 & 100.0 & 97.4 & 100.0 & 65.0 & 100.0 & 89.8 & 100.0 & 100.0 & \underline{100.0} & \textbf{100.0} \\
@@ -198,14 +198,14 @@ The perceptron was trained with training data divided into two groups: \textbf{v
 				zsr30-10 & 73.4 & 31.7 & 80.4 & 22.4 & 74.8 & \textbf{35.6} & 83.6 & 17.8 & \underline{84.4} & 18.8 & 78.2 & 25.1 & 76.2 & 34.8 \\
 				zsr50-20 & 34.9 & 5.9 & 32.4 & 6.7 & 35.2 & 13.7 & \underline{51.8} & 6.3 & 33.3 & 5.0 & 41.7 & 14.9 & 41.8 & \textbf{20.1} \\
         \end{tabular}
-        \caption{\label{tab:resultsperc} Table summarizes in how many cases (in percents) the network found the optimum value (\textit{F.O. - found optimum}) and in how many cases (percents) when the network found some connection sequence, it was the optimal sequence (\textit{O.f.F - optimum from found})}
+        \caption{\label{tab:resultsperc} Table summarizes in how many cases (in percents) the network found the optimum value (\textit{F.O. - found optimum}) and in how many cases (percents) when the network found some connection sequence, it was the optimal sequence (\textit{O.f.F - optimum from found}).}
         \normalsize
     \end{table}
     
     \noindent In table \ref{tab:resultsperc} we note down two measures of the network's quality:
     \begin{itemize}
     	\item \textbf{F.O.}: The network's capability to output the optimum connection (when it, in fact, exists)
-    	\item \textbf{O.f.F}: The network's reliability - that once the network has found a connection, it is really the best one.
+    	\item \textbf{O.f.F}: The network's reliability - that once the network has found a connection, it is really the best one
     \end{itemize}
     \hspace{\fill}
     

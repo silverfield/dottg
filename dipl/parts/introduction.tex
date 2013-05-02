@@ -2,6 +2,12 @@
 
 In different networks, this question can make different sense. In the road network, we would like to obtain a sequence of intersections we have to go through in order to reach our destination, driving the shortest possible time (or the smallest possible distance). GPS devices and the likes of Google maps have to deal with this problem. In case of the Internet network, we might be interested in the shortest path to a destination computer in terms of router hops. In a network of social acquaintances, the smallest number of persons connecting us e.g. with guitarist Mark Knopfler or Liona Boyd could be expressed as a shortest path problem. Many problems in artificial intelligence (e.g. planning of actions) can be expressed, or include, looking for shortest paths.
 
+\begin{wrapfigure}{r}{6cm}
+	\centering
+	\includegraphics[width=5.5cm]{degrees.jpg}
+	\caption{\label{fig:degrees} In a study carried out by Facebook it was claimed the average distance (in terms of friendship links) between the people on the site dropped from 5.28 in 2008 to 4.74 in 2011~\cite{degrees}.}
+\end{wrapfigure}
+
 The tremendous amount of work done in this area signifies the importance of quick distance or shortest path retrieval in graphs. A simple Dijkstra's or A* algorithm no longer comply to the requirements of today's applications, in which a server often has to answer hundreds of shortest path queries per second in a large-scale networks. To speed up the mentioned algorithms we usually sacrifice generality and concentrate on a particular type of network, or even on one concrete network.
 
 In this thesis, the type of network we deal with is the one representing timetable connections, where nodes are the stations and arcs represent a direct connection between the two stations. We will talk in more details about this in following sections. However, this network has one substantial difference that we would like to point out - it is time-dependent. That means that the shortest path from station $x$ to station $y$ may have different solutions depending on the time when we start at station $x$. Therefore, we will not talk about shortest paths and distances, but rather about optimal connections and earliest arrivals and each query will now bear a third parameter - the departure time from $x$. \\
@@ -40,19 +46,19 @@ In this thesis, the type of network we deal with is the one representing timetab
 
 	\noindent This thesis is organized as follows: 
 	\begin{itemize}
-		\item \textbf{Preliminaries}: We provide the necessary definitions (most notably timetable and its graph representations) and formally define the problem we deal with, as well as the approach we use.
-		\item \textbf{Related work}: This section summarizes the main related work in distance oracles, static route-planning and time-dependent scenarios.
-		\item \textbf{Data \& analysis}: We introduce real-world timetables we worked with and analyse many of their properties.
-		\item \textbf{Underlying shortest paths}: In the main part of the thesis, we present the two methods we developed to speed-up optimal connection queries in timetables. These methods are also analysed from both theoretical and practical point of view.
-		\item \textbf{Neural network approach}: We summarize a little experiment in which we tried to train neural network to answer optimal connection queries.
-		\item \textbf{Application TTBlazer}: This section shortly describes the application we used to analyse our datasets and test the methods.
-		\item \textbf{Conclusion}: Finally, we conclude pointing out main results and contribution, drawbacks and possibilities for future work.
+		\item \textbf{Preliminaries}: We provide the necessary definitions (most notably timetable and its graph representations) and formally define the problem we deal with, as well as the approach we use
+		\item \textbf{Related work}: This section summarizes the main related work in distance oracles, static route-planning and time-dependent scenarios
+		\item \textbf{Data \& analysis}: We introduce real-world timetables we worked with and analyse many of their properties
+		\item \textbf{Underlying shortest paths}: In the main part of the thesis, we present the two methods we developed to speed-up optimal connection queries in timetables. These methods are also analysed from both theoretical and practical point of view
+		\item \textbf{Neural network approach}: We summarize a little experiment in which we tried to train neural network to answer optimal connection queries
+		\item \textbf{Application TTBlazer}: This section shortly describes the application we used to analyse our datasets and test the methods
+		\item \textbf{Conclusion}: Finally, we conclude pointing out main results and contribution, drawbacks and possibilities for future work
 	\end{itemize}
 	\hspace{\fill}
 	
 	\noindent In this thesis, we also use some conventions:
 	\begin{itemize}
-		\item With a few exceptions, we will use \textbf{bold} font to mark currently defined term (or its notation).
-		\item Names of our algorithms are in \textit{italics}.
+		\item With a few exceptions, we will use \textbf{bold} font to mark currently defined term (or its notation)
+		\item Names of our algorithms are in \textit{italics}
 	\end{itemize}
 	

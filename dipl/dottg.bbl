@@ -20,6 +20,10 @@ Ittai Abraham, Amos Fiat, Andrew~V. Goldberg, and Renato Fonseca~F. Werneck.
 \newblock Highway dimension, shortest paths, and provably efficient algorithms.
 \newblock In Moses Charikar, editor, {\em SODA}, pages 782--793. SIAM, 2010.
 
+\bibitem[Bar]{degrees}
+Emma Barnett.
+\newblock Facebook cuts six degrees of separation to four.
+
 \bibitem[BDSV09]{timedepch09}
 Gernot~Veit Batz, Daniel Delling, Peter Sanders, and Christian Vetter.
 \newblock Time-dependent contraction hierarchies.

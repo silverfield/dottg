@@ -50,15 +50,15 @@ In this section we would like to introduce the timetable datasets we were workin
 			\textbf{Name} & \textbf{El. conns.} & \textbf{Cities} & \textbf{UG arcs} & \textbf{Time range} & \textbf{Height} \\
 		%data
 			\hline
-			\textit{air01} & 601489 & 287 & 4668 & 1 month & 24374 \\
-			\textit{cpsk} & 97916 & 1905 & 5093 & 1 day & 370 \\
-			\textit{gb-coach} & 260710 & 2448 & 5793 & 1 week & 3140 \\
-			\textit{gb-train} & 1714535 & 2555 & 8335 & 1 week & 7978 \\
-			\textit{montr} & 7153 & 217 & 349  & 1 day & 363 \\
-			\textit{sncf} & 416302 & 2646 & 7994 & 1 week & 2679 \\
-			\textit{sncf-inter} & 22750 & 366 & 901 & 1 week & 1052 \\
-			\textit{sncf-ter} & 393587 & 2637 & 7647 & 1 week & 2646 \\
-			\textit{zsr} & 932052 & 233 & 588 & 1 year & 60308 \\
+			\textit{air01} & 601489 & 287 & 4668 & 1 month & 2512.3 \\
+			\textit{cpsk} & 97916 & 1905 & 5093 & 1 day & 50.2 \\
+			\textit{gb-coach} & 260710 & 2448 & 5793 & 1 week & 106.3 \\
+			\textit{gb-train} & 1714535 & 2555 & 8335 & 1 week & 800.4 \\
+			\textit{montr} & 7153 & 217 & 349  & 1 day & 33.1 \\
+			\textit{sncf} & 416302 & 2646 & 7994 & 1 week & 288.1 \\
+			\textit{sncf-inter} & 22750 & 366 & 901 & 1 week & 111.7 \\
+			\textit{sncf-ter} & 393587 & 2637 & 7647 & 1 week & 274.2 \\
+			\textit{zsr} & 932052 & 233 & 588 & 1 year & 7322.2 \\
 		\end{tabular}
 		\caption{\label{table:tt_mainpr} Main properties of the timetables. The value of time range is approximate.}
 		\normalsize
@@ -75,15 +75,15 @@ In this section we would like to introduce the timetable datasets we were workin
 			\textbf{Name} & \textbf{El. conns.} & \textbf{Cities} & \textbf{UG arcs} & \textbf{Height} \\
 		%data
 			\hline
-			\textit{air01-200d} & 19010 & 200 & 3973 & 772 \\
-			\textit{cpsk-200d} & 14747 & 200 & 592 & 370 \\
-			\textit{gb-coach-200d} & 2760 & 200 & 564 & 498 \\
-			\textit{gb-train-200d} & 24323 & 200 & 792 & 957 \\
-			\textit{montr-200d} & 6841 & 200 & 320 & 355 \\
-			\textit{sncf-200d} & 4192 & 200 & 611 & 269 \\		
-			\textit{sncf-inter-200d} & 2172 & 200 & 493 & 128 \\
-			\textit{sncf-ter-200d} & 8469 & 200 & 600 & 419 \\
-			\textit{zsr-200d} & 2031 & 200 & 454 & 133 \\
+			\textit{air01-200d} & 19010 & 200 & 3973 & 112.7 \\
+			\textit{cpsk-200d} & 14747 & 200 & 592 & 50.7 \\
+			\textit{gb-coach-200d} & 2760 & 200 & 564 & 48.0 \\
+			\textit{gb-train-200d} & 24323 & 200 & 792 & 129.6 \\
+			\textit{montr-200d} & 6841 & 200 & 320 & 35.0 \\
+			\textit{sncf-200d} & 4192 & 200 & 611 & 42.4 \\		
+			\textit{sncf-inter-200d} & 2172 & 200 & 493 & 20.8 \\
+			\textit{sncf-ter-200d} & 8469 & 200 & 600 & 34.0 \\
+			\textit{zsr-200d} & 2031 & 200 & 454 & 21.6 \\
 		\end{tabular}
 		\caption{\label{table:tt_200mainpr} 200-station sub-timetables with the time range of one day.}
 		\normalsize
@@ -258,28 +258,41 @@ In this section we would like to introduce the timetable datasets we were workin
         \caption{\label{fig:highdemonstr} Demonstration of a definition of HD. We chose some $r$ ($r = 6$) and some vertex $v$ ($v = C$) to root the ball $B_{v, 2r}$. All the shortest paths \emph{longer} than $r$ \emph{inside} the ball have to contain a vertex from $S$ (orange vertices $C$ and $A$ in our case). The upper bound on $|S|$, considering any ball with any radius, is the required highway dimension. Note: in our case, we had to choose also $A$ to set $S$, since a shortest path from $B$ to $D$ does not include $C$.}
 	\end{figure}
 	
-	\noindent Highway dimension is difficult to measure due to the way it is defined. We compute at least approximate value for sub-graphs of 200 nodes of the underlying graphs. Results could be seen in table~\ref{table:ug_hd}.
+	\noindent Highway dimension is difficult to measure due to the way it is defined. We compute at least approximate value by randomly sampling balls of various radii and using greedy algorithm to compute shortest path covers. Results could be seen in table~\ref{table:ug_hd}, where we also show the approximate highway dimension for a sub-graph with 2500 nodes of the Slovakia's road network. The results indicate that the highway dimension of the underlying graphs is comparable to that of the road network.
 	
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{c|c}
+		\begin{tabular}{c|c|c|c}
 		%legend
 			\rowcolor{tablehead}
-			\textbf{Name} & apx. $HD$ \\
+			\textbf{Name} & $\bm{n}$ & \textbf{apx. $\bm{HD}$} & \textbf{normalized $\bm{HD}$} \\
 		%data
 			\hline
-			\textit{svk-200} & \textbf{32} \\
-			\textit{air01-200} & 82 \\
-			\textit{cpsk-200} & 127 \\
-			\textit{gb-coach-200} & 107 \\
-			\textit{gb-train-200} & 147 \\
-			\textit{montr-200} &  \\
-			\textit{sncf-200} &  \\
-			\textit{sncf-inter-200} &  \\
-			\textit{sncf-ter-200} &  \\
-			\textit{zsr-200} &  \\
+			\textit{svk} & 2500 & \textbf{53} & \textbf{0.021} \\
+			\textit{air01} & 287 & 49 & 0.171 \\
+			\textit{cpsk} & 1905 & 30 & 0.016 \\
+			\textit{gb-coach} & 2448 & 91 & 0.037 \\
+			\textit{gb-train} & 2555 & 56 & 0.022 \\
+			\textit{montr} & 217 & 18 & 0.083 \\
+			\textit{sncf} & 2646 & 31 & 0.010 \\
+			\textit{sncf-inter} & 366 & 13 & 0.036 \\
+			\textit{sncf-ter} & 2637 & 36 & 0.014 \\
+			\textit{zsr} & 233 & 9 & 0.039 \\
 		\end{tabular}
-		\captionof{table}{Highway dimension of 200 vertex sub-graphs of the underlying graphs.}
+		\captionof{table}{Highway dimension of 200 vertex sub-graphs of the underlying graphs. Normalized HD is the highway dimension divided by $n$.}
 		\label{table:ug_hd}
 	\end{table}
+	
+	\noindent We conclude this section with following observations about our timetables:
+	\begin{itemize}
+		\item The average daily number of events in a city (i.e. height) ranges from 20 to 130
+		\item Time-dependent graphs are much less (more than 4 times in some cases) space-consuming then time-expanded graphs
+		\item With exception of \textit{air01}, the underlying graphs of our timetables are uniformly spare ($\delta \leq \log n$) 
+		\item The average size of an optimal connection is in all timetables generally up to $\sqrt{n}$
+		\item The average degree of underlying graphs is very small (less than 4), with the exception of \textit{air01} which is much higher (more then 16)
+		\item All the underlying graphs contain one large strongly connected component spanning almost the whole graph
+	\end{itemize}
+	\hspace{\fill}
+	
+	\noindent We will continue studying other properties of the timetables throughout the remaining of this thesis, especially in the section~\ref{sec:usp}.
 	

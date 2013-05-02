@@ -12,7 +12,7 @@ arg2line["data"]='\input parts/data.tex'
 arg2line["usp"]='\input parts/usp.tex'
 arg2line["neur"]='\input parts/neural.tex'
 arg2line["conc"]='\input parts/conclusion.tex'
-arg2line["ttblazer"]='\input parts/ttblazer.tex'
+arg2line["ttbl"]='\input parts/ttblazer.tex'
 
 def runProcess(exe):
 	stream = os.popen(exe)
@@ -38,7 +38,7 @@ runProcess(cmd)
 
 if (len(sys.argv) == 2):
 	if (not sys.argv[1] in arg2line):
-		print "Unknown option. Use: intr, prel, wrk, data, usp, neur, conc"
+		print "Unknown option. Use: intr, prel, wrk, data, usp, neur, conc, formats, ttbl"
 		sys.exit(1)
 	for key in arg2line.keys():
 		if (key == sys.argv[1]):

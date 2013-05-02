@@ -42,7 +42,7 @@ Thus the main idea common to the methods presented in this section: \textit{when
 			\item departure time $t$
 		\end{itemize}
 		\textbf{Algorithm}
-		\begin{algorithmic}
+		\begin{algorithmic}[1]
 			\STATE $c$ = empty connection
 			\STATE $t' = t$
 			\FORALL{$i \in \{1, ..., k - 1\}$}
@@ -64,6 +64,8 @@ Thus the main idea common to the methods presented in this section: \textit{when
         \textbf{Overtaking} \\
 		An elementary connection $e_{1}$ \textbf{overtakes} $e_{2}$ if, and only if $dep(e_{1}) > dep(e_{2})$ and $arr(e_{1}) < arr(e_{2})$. 
     \end{definition}
+    
+    \vspace{-0.3cm}
 	    
     \begin{figure}[H]
 	\centering
@@ -105,7 +107,7 @@ Thus the main idea common to the methods presented in this section: \textit{when
     \begin{proof}
     	The optimal connection $c_{x, t, y}^{*}$ has an USP $p$ which must be present in the set $usps(x, y)$, as it is the set of all USPs from $x$ to $y$. So $p = p_{j} = (v_{1}, v_{2},..., v_{l})$ from some $j$. We want to show that $c_{j}$ is the optimal connection. This may be shown inductively:
     	\begin{enumerate}
-    		\item \textit{Base:} \textit{expand} reaches city $v_{1} = x$ as soon as possible (since the connection just starts there)
+    		\item \textit{Base:} \textit{expand} reaches city $v_{1} = x$ as soon as possible (since the connection just starts there).
     		\item \textit{Induction:} \textit{expand} reached city $v_{i}$ as soon as possible, it then takes the first available el. connection to the next city $v_{i + 1}$. Since the el. connections do not overtake, \textit{expand} reached the city $v_{i + 1}$ as soon as possible.
     	\end{enumerate}
     \end{proof}
@@ -129,7 +131,7 @@ Thus the main idea common to the methods presented in this section: \textit{when
 			\item $\forall x, y: \; usps(x, y)$
 		\end{itemize}
 		\textbf{Algorithm}
-		\begin{algorithmic}
+		\begin{algorithmic}[1]
 			\STATE $c^{*} = null$
 			\FORALL{$p \in usps(x, y)$}
 				\STATE $c =$ \textit{expand}$(T, p, t)$
@@ -145,7 +147,7 @@ Thus the main idea common to the methods presented in this section: \textit{when
 	
 	\subsubsection{Analysis of \textit{USP-OR}}	
 	
-		\noindent We will now have a look at the four parameters of this oracle based method. As for the preprocessing time, we need to find the optimal connections from each \textit{event} in the timetable to each \textit{city} (or in other words - solve all possible OC queries). On these connections we apply the $path$ function to obtain the USPs. There is $hn$ events and one search from a single event to all cities can be done in time $\mathcal{O}(n \log n + m)$ with TD Dijkstra (in this section we use exclusively the time-dependent graphs). In worst case, $m$ could be as much as $n^{2}$ but we may bound it as $m \leq \delta_{T} n$ (where $\delta_{T}$ is the density of the timetable, defined in section \ref{sec:data}). We therefore get the \textbf{preprocessing time} $\bm{\mathcal{O}(hn^{2} (\log n + \delta))}$. 
+		\noindent We will now have a look at the four parameters of this oracle based method. As for the preprocessing time, we need to find the optimal connections from each \textit{event} in the timetable to each \textit{city} (or in other words - solve all possible OC queries). On these connections we apply the $path$ function to obtain the USPs. There is $hn$ events and one search from a single event to all cities can be done in time $\mathcal{O}(n \log n + m)$ with \textit{TD Dijkstra} (in this section we use exclusively the time-dependent graphs). In worst case, $m$ could be as much as $n^{2}$ but we may bound it as $m \leq \delta_{T} n$ (where $\delta_{T}$ is the density of the timetable, defined in section \ref{sec:data}). We therefore get the \textbf{preprocessing time} $\bm{\mathcal{O}(hn^{2} (\log n + \delta))}$. 
 		
 		As for the preprocessed space, we need to store USPs for each pair of the cities ($n^{2}$ pairs) and each USP might be long at most $\mathcal{O}(n)$ hops. What is more, there might be multiple USPs for a single pair of cities. Therefore we have two questions with respect to the space complexity of the preprocessing:
 		\begin{enumerate}
@@ -283,6 +285,13 @@ Thus the main idea common to the methods presented in this section: \textit{when
 	
 	During preprocessing, we need to find a good AN set and compute the USPs between every pair of access nodes. For every city $x \not \in \mathcal{A}$, we also store its $neigh_{\mathcal{A}}(x)$, $bneigh_{\mathcal{A}}(x)$, $lan_{\mathcal{A}}(x)$ and $blan_{\mathcal{A}}(x)$. On a query from $x$ to $y$ at time $t$, we will first make a local search in the neighbourhood of $x$ up to $x$'s local access nodes. Subsequently, we want to find out the earliest arrival times to each of $y$'s \textit{back} local access nodes. To do this, we take advantage of the pre-computed USPs between access nodes - try out all the pairs $u \in lan(x)$ and $v \in blan(y)$ and expand the stored USPs. Finally, we make a local search from each of $y$'s back LANs to $y$, but we run the search \textit{restricted} to $y$'s back neighbourhood. For more details, see algorithms~\ref{alg:uspora-prepro} and~\ref{alg:uspora-query} and figure~\ref{fig:uspora}, where we have split the algorithm to 3 distinct phases.
 	
+	\begin{figure}[h!]
+		\begin{center}
+			\inputTikZ{./tikzpics/uspora}
+		\end{center}
+		\caption{\label{fig:uspora} Principle of \textit{USP-OR-A} algorithm. The arcs in \textbf{bold} mark areas that will be explored: all nodes in $neigh_{\mathcal{A}}(x)$, USPs between LANs of $x$ and back LANs of $y$ and the back neighbourhood of $y$ (possibly only part of it will be explored, since the local back search goes against the direction of the back neighbourhood).}
+	\end{figure}	
+	
 	\color{algcolor}
 	\begin{algorithm}[H]
 		\color{inalgcolor}
@@ -293,7 +302,7 @@ Thus the main idea common to the methods presented in this section: \textit{when
 			\item timetable $T$
 		\end{itemize}
 		\textbf{Algorithm}
-		\begin{algorithmic}
+		\begin{algorithmic}[1]
 			\STATE find a good AN set $\mathcal{A}$
 			\STATE $\forall x, y \in \mathcal{A}$ compute $usps(x, y)$
 			\STATE $\forall x \in ct_{T} \setminus \mathcal{A}$ compute $neigh_{\mathcal{A}}(x)$, $bneigh_{\mathcal{A}}(x)$, $lan_{\mathcal{A}}(x)$ and $blan_{\mathcal{A}}(x)$
@@ -312,15 +321,22 @@ Thus the main idea common to the methods presented in this section: \textit{when
 			\item query $(x, t, y)$
 		\end{itemize}
 		\textbf{Algorithm}
-		\begin{algorithmic}
+		\begin{algorithmic}[1]
 			\STATE let $lan(x) = x$ if $x \in \mathcal{A}$
 			\STATE let $blan(y) = y$ if $y \in \mathcal{A}$
+			\algstore{uspora}
+		\end{algorithmic}
+	\end{algorithm}
+	
+	\begin{algorithm}                     
+		\begin{algorithmic}[1]
+			\algrestore{uspora}
 			\STATE \algsec{Local front search}
-			\STATE perform TD Dijkstra from $x$ at time $t$ up to $lan(x)$
+			\STATE perform \textit{TD Dijkstra} from $x$ at time $t$ up to $lan(x)$
 			\IF {$y \in neigh(x)$}
-				\STATE let $c_{loc}^{*}$ be the connection to $y$ obtained by TD Dijkstra \cmt{the optimal connection may still go via ANs (though it is unlikely)}
+				\STATE let $c_{loc}^{*}$ be the connection to $y$ obtained by \textit{TD Dijkstra} \cmt{the optimal connection may still go via ANs (though it is unlikely)}
 			\ENDIF
-			\STATE $\forall u \in lan(x)$ let $ea(u)$ be the arrival time and $oc(u)$ the connection to $u$ obtained by TD Dijkstra
+			\STATE $\forall u \in lan(x)$ let $ea(u)$ be the arrival time and $oc(u)$ the connection to $u$ obtained by \textit{TD Dijkstra}
 			\STATE \algsec{Inter-AN search}
 			\FORALL{$v \in blan(y)$}
 				\STATE $oc(v) = null$
@@ -334,8 +350,8 @@ Thus the main idea common to the methods presented in this section: \textit{when
 			\STATE $\forall v \in blan(y)$ let $ea(v) = end(oc(v))$
 			\STATE \algsec{Local back search}
 			\FORALL{$v \in blan(y)$}
-				\STATE perform TD Dijkstra from $v$ at time $ea(v)$ to $y$ restricted to $bneigh(y)$
-				\STATE let $fin(v)$ be the connection returned by TD Dijkstra
+				\STATE perform \textit{TD Dijkstra} from $v$ at time $ea(v)$ to $y$ restricted to $bneigh(y)$
+				\STATE let $fin(v)$ be the connection returned by \textit{TD Dijkstra}
 			\ENDFOR
 			\STATE $v^{*} = argmin_{v \in blan(y)} \{end(fin(v))\}$
 			\STATE $u^{*} = from(oc(v^{*}))$
@@ -348,13 +364,6 @@ Thus the main idea common to the methods presented in this section: \textit{when
 		\end{itemize}
 	\end{algorithm}
 	\color{black}
-	
-	\begin{figure}[h!]
-		\begin{center}
-			\inputTikZ{./tikzpics/uspora}
-		\end{center}
-		\caption{\label{fig:uspora} Principle of \textit{USP-OR-A} algorithm. The arcs in \textbf{bold} mark areas that will be explored: all nodes in $neigh_{\mathcal{A}}(x)$, USPs between LANs of $x$ and back LANs of $y$ and the back neighbourhood of $y$ (possibly only part of it will be explored, since the local back search goes against the direction of the back neighbourhood).}
-	\end{figure}
 	
 	\subsubsection{Analysis of \textit{USP-OR-A}}
 	
@@ -441,7 +450,7 @@ Thus the main idea common to the methods presented in this section: \textit{when
 	    }
 		\end{figure}		
 		
-		On a query from $x$ at time $t$ to $y$, we first perform the \textit{local front search} (see algorithm~\ref{alg:uspora-query}). In this step we explore the neighbourhood of $x$ with a time-dependent Dijkstra's algorithm, which takes on average time $\mathcal{O}(\sqrt{r_{2}n} (\log (\sqrt{r_{2}n}) + \delta))$. We then expand all the USPs between $u$ and $v$ such that $u \in lan(x)$ and $v \in blan(y)$, which takes on average $\mathcal{O}(r_{3} \tau_{\mathcal{A}} \omega_{\mathcal{A}})$. Finally, from each $v \in blan(y)$ we do a TD Dijkstra, restricted to $bneigh(y)$, leading to time complexity $\mathcal{O}(\sqrt{r_{3} r_{2} n} (\log (\sqrt{r_{2}n}) + \delta))$.
+		\noindent On a query from $x$ at time $t$ to $y$, we first perform the \textit{local front search} (see algorithm~\ref{alg:uspora-query}). In this step we explore the neighbourhood of $x$ with a time-dependent Dijkstra's algorithm, which takes on average time $\mathcal{O}(\sqrt{r_{2}n} (\log (\sqrt{r_{2}n}) + \delta))$. We then expand all the USPs between $u$ and $v$ such that $u \in lan(x)$ and $v \in blan(y)$, which takes on average $\mathcal{O}(r_{3} \tau_{\mathcal{A}} \omega_{\mathcal{A}})$. Finally, from each $v \in blan(y)$ we do a \textit{TD Dijkstra}, restricted to $bneigh(y)$, leading to time complexity $\mathcal{O}(\sqrt{r_{3} r_{2} n} (\log (\sqrt{r_{2}n}) + \delta))$.
 		
 		Summing up the three terms we obtain the \textbf{query time} of $\bm{\mathcal{O}(r_{2} \sqrt{r_{3}} \sqrt{n} (\log (r_{2}n) + \delta) + r_{3} \tau_{\mathcal{A}} \omega_{\mathcal{A}})}$.
 		
@@ -489,7 +498,7 @@ Thus the main idea common to the methods presented in this section: \textit{when
 				\caption{\label{fig:usporaproof2} On the picture $lan(x) = \{G, H\}$ and $blan(y) = \{G, H, I\}$. In \textbf{thick} we have highlighted the optimal connection. The connection to $H$ is sub-optimal after the \textit{local front search} phase, however the optimal connection to $y$ (and to $H$ and $I$ as well) leads through $lan^{*}(x)$ (some of $x$'s local access nodes to which we have an optimal connection after the \textit{local front search}. Particularly, in this case it goes through $G$).}
 			\end{figure}
 			
-			In the \textit{local back search} we run a TD Dijkstra search from all back LANs of $y$. And since this algorithm is exact and starts from each back LAN as early as possible, we get the optimal connection to $y$. \\
+			\noindent In the \textit{local back search} we run a \textit{TD Dijkstra} search from all back LANs of $y$. And since this algorithm is exact and starts from each back LAN as early as possible, we get the optimal connection to $y$. \\
 			
 			\noindent It remains to show that if $\bm{y \in neigh(x)}$, we also get the optimal connection. In such case, we simply compare the connection that goes via access nodes and the one that was obtained solely within the neighbourhood and output the shorter one. As there are no other options, the proof is complete.
 		\end{proof}
@@ -572,7 +581,7 @@ Thus the main idea common to the methods presented in this section: \textit{when
 			
 			\begin{itemize}
 				\item We compute $\sqrt{n}$ which is a natural number
-				\item For $i$ from $1$ to $m$ we add vertices to $m_{i}$ till it does not contain $\sqrt{n} - 2\alpha_{i} + 1$ vertices. For each added vertex we delete one dummy vertex.
+				\item For $i$ from $1$ to $m$ we add vertices to $m_{i}$ till it does not contain $\sqrt{n} - 2\alpha_{i} + 1$ vertices. For each added vertex we delete one dummy vertex
 				\item If we run out of dummy vertices, $n =$ \textit{nextSquare($n$)}
 				\item Break out of the loop if $|m_{i}| = \sqrt{n} - 2\alpha_{i} + 1 \; \forall i$
 			\end{itemize}
@@ -628,14 +637,14 @@ Thus the main idea common to the methods presented in this section: \textit{when
 		
 		For a set of access nodes $\mathcal{A}$, let us call a path $p$ in $ug_{T}$ \textbf{access-free} if it does not contain a node from $\mathcal{A}$. Now as long as $x$ is not in $\mathcal{A}$, we have a guarantee that for every pair $u \in bn(x)$ and $v \in fn(x)$ there is an access-free path from $u$ to $v$ within $A_{x}$. Our interest is how this will change after the selection of $x$.
 				
-		Consider now a node $y \in bn(x)$. We will call $\bm{sur(y)} = \max\{0, |neigh(y)| - \sqrt{n}\}$ the \textbf{surplus} of $y$'s neighbourhood, i.e., by how much we wish to reduce it so that it is at most $\sqrt{n}$. If the surplus is zero, $y$ will not add anything to the $x$'s potential. Otherwise, we run a restricted (to $A_{x}$) search from $y$ during which we explore $j$ vertices in $fn(x)$. We increase the potential of $x$ by $\min\{sur(y), |fn(x) - j|\}$ - i.e. by how much we can decrease the surplus of $y$'s neighbourhood. We do the same for all $y \in bn(x)$ and a similar thing for all $y \in fn(x)$ (we use $\overleftarrow{ug_{T}}$ instead of $ug_{T}$, $bneigh(y)$ instead of $neigh(y)$ etc...). For an illustration of potential computing, see figure~\ref{fig:locsep}. \\
-		
 		\begin{figure}[h!]
 			\begin{center}
 				\inputTikZ{./tikzpics/locsep}
 			\end{center}
 			\caption{\label{fig:locsep} The principle of computing potentials in \textit{locsep} algorithm. We explored an area of $\sqrt{n}$ nearest cities (in terms of hops) around $x$. Access nodes (like $z$) and cities behind them are ignored. Little \textcolor{purple}{squares} are nodes from $fn(x)$ and \textcolor{cyan}{diamonds} are part of $bn(x)$. From $y$ we run a forward search (the \textbf{thick} arcs). Nodes from the $fn(x)$ that were not explored in this search can only be reached via $x$ itself. Such nodes contribute to $x$'s potential assuming $y$ has large neighbourhood size.}
-		\end{figure}
+		\end{figure}				
+				
+		\noindent Consider now a node $y \in bn(x)$. We will call $\bm{sur(y)} = \max\{0, |neigh(y)| - \sqrt{n}\}$ the \textbf{surplus} of $y$'s neighbourhood, i.e., by how much we wish to reduce it so that it is at most $\sqrt{n}$. If the surplus is zero, $y$ will not add anything to the $x$'s potential. Otherwise, we run a restricted (to $A_{x}$) search from $y$ during which we explore $j$ vertices in $fn(x)$. We increase the potential of $x$ by $\min\{sur(y), |fn(x) - j|\}$ - i.e. by how much we can decrease the surplus of $y$'s neighbourhood. We do the same for all $y \in bn(x)$ and a similar thing for all $y \in fn(x)$ (we use $\overleftarrow{ug_{T}}$ instead of $ug_{T}$, $bneigh(y)$ instead of $neigh(y)$ etc...). For an illustration of potential computing, see figure~\ref{fig:locsep}. \\
 
 		\noindent Finally, we simply get the city $x \not \in \mathcal{A}$ with the highest potential and select it as an access node. We check the stopping criterion and in case it is not satisfied yet, we move on to next iteration. However, note that when a new node $x'$ is selected to $\mathcal{A}$, we do not have to re-compute neighbourhoods and potentials of all cities - it is only necessary for those cities that could reach/be reached access-free from $x'$ (i.e. nodes from $neigh_{\mathcal{A}}(x') \cup bneigh_{\mathcal{A}}(x')$). Algorithm~\ref{alg:locsep} provides a high-level overview of the locsep method. \\
 		
@@ -649,7 +658,7 @@ Thus the main idea common to the methods presented in this section: \textit{when
 				\item $ug_{T}$
 			\end{itemize}
 			\textbf{Algorithm}
-			\begin{algorithmic}
+			\begin{algorithmic}[1]
 				\STATE $\mathcal{A} = \emptyset$
 				\STATE $ct' = ct_{T}$
 				\WHILE{$r_{2} > 1$}
@@ -669,7 +678,7 @@ Thus the main idea common to the methods presented in this section: \textit{when
 		\end{algorithm}
 		\color{black}
 		
-		\noindent Now we would like to estimate the \textbf{time complexity} of locsep algorithm. As mentioned, one iteration consists of three parts:
+		\noindent Now we would like to estimate the \textbf{time complexity} of \textit{locsep} algorithm. As mentioned, one iteration consists of three parts:
 		\begin{enumerate}
 			\item Computing neighbourhoods. Unfortunately, at the beginning when $\mathcal{A} = \emptyset$, the neighbourhood sizes may be as large as $\mathcal{O}(n)$. Therefore, we may bound the complexity of this phase only as $\mathcal{O}(nm) = \mathcal{O}(\delta n^{2})$.
 			\item Computing potentials. For a city $x$ we explore area of the size $\sqrt{n}$ and from each node in that area we do a restricted search. Therefore the total complexity of this step is $\mathcal{O}(n \cdot \sqrt{n} \cdot \delta \sqrt{n}) = \mathcal{O}(\delta n^{2})$.
@@ -699,7 +708,7 @@ Thus the main idea common to the methods presented in this section: \textit{when
 	    \caption{\label{plot:locsep-size} Parameters of the access node set $\mathcal{A}^{loc}$ with increasing $n$. Datasets \textit{sncf} (left) and \textit{cpsk} (right). $r_{2} \leq 1$. An ideal situation would be constant (or non-increasing) functions.}
 		\end{figure}	
 		
-		\begin{table}[H]
+		\begin{table}[h]
 			\centering 
 			\begin{tabular}{c|c|c}
 			%legend
@@ -769,16 +778,30 @@ Thus the main idea common to the methods presented in this section: \textit{when
 	
 \subsection{Performance and comparisons}
 
-	\noindent In this subsection we show the performance of our algorithms on our datasets. We focus on query time and space complexity of the preprocessed oracles~\footnote{The methods are exact (i.e. $stretch = 1$) and we consider the preprocessing time as the least important parameter out of the four.}. We have already introduced the speed-up as the ratio of average query time for the TD Dijkstra and the average query time for the given algorithm. We will have a similar measure for the size of the preprocessed data, which we compare against the amount of memory needed to store the actual timetable.
+	\noindent In this subsection we show the performance of our algorithms on our datasets. We focus on query time and space complexity of the preprocessed oracles~\footnote{The methods are exact (i.e. $stretch = 1$) and we consider the preprocessing time as the least important parameter out of the four.}. We have already introduced the speed-up as the ratio of average query time for the \textit{TD Dijkstra} and the average query time for the given algorithm. We will have a similar measure for the size of the preprocessed data, which we compare against the amount of memory needed to store the actual timetable.
 	
 	\begin{definition}
 		\textbf{Size-up ($\bm{szp(m)}$)}\\
 		A size-up of an oracle based method $m$ is the ratio $\frac{\displaystyle size(TD)}{\displaystyle size(m)}$ where $size(TD)$ is the size of the memory necessary to store the time-dependent graph.
 	\end{definition}
+	
+	\noindent Furthermore, all of our timetables have very sparse underlying graphs~\footnote{Maybe with exception of \textit{air01}.}(i.e. $m \leq n \log n$). Therefore we can bound the time complexity of the \textit{TD Dijkstra} as $\mathcal{O}(n \log n)$. Thus if we look at \textit{TD Dijkstra} as an oracle-based method (with the oracle size being simply the size of the time-dependent graph representing the timetable), we can summarize its parameters as in the table~\ref{tab:tddijkstra}.
+	
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{l|c|c|c|c}
+		%legend
+			\cellcolor{oracle-clr} \textit{\textbf{TD Dijkstra}} & \cellcolor{oracle-clr} $\bm{prep}$ & \cellcolor{oracle-clr} $\bm{size}$ & \cellcolor{oracle-clr} $\bm{qtime}$ & \cellcolor{oracle-clr} $\bm{stretch}$ \\
+		%data
+			\hline
+			\cellcolor{oracle-clr} \textbf{guaranteed} & $\mathcal{O}(1)$ & $\mathcal{O}(m h)$ & $\mathcal{O}(n \log n)$ & $1$ \\
+		\end{tabular}
+		\caption{\label{tab:tddijkstra} The summary of the \textit{TD Dijkstra} algorithm parameters.}
+	\end{table}
 
 	\subsubsection{Performance of \textit{USP-OR}}
 		
-		Query time-wise, \textit{USP-OR} clearly outperforms time-dependent Dijkstra's algorithm, however at the cost of high space consumption. The best results were achieved for the timetable of domestic US flights (with both daily and weekly time range), with speed-up of more than 110 against TD Dijkstra (see table~\ref{tab:uspor-speedup}). Interestingly, the size-up for this timetable was also the best one - the size of preprocessed data was about 10 times the size of the timetable itself. The reasons for such good values is that the USP diameter $\omega$ is very low in \textit{air01} dataset (much lower than $\sqrt{n}$), while the USP coefficient $\tau$ is also a reasonable value (see table~\ref{tab:usp200}).
+		Query time-wise, \textit{USP-OR} clearly outperforms time-dependent Dijkstra's algorithm, however at the cost of high space consumption. The best results were achieved for the timetable of domestic US flights (with both daily and weekly time range), with speed-up of more than 110 against \textit{TD Dijkstra} (see table~\ref{tab:uspor-speedup}). Interestingly, the size-up for this timetable was also the best one - the size of preprocessed data was about 10 times the size of the timetable itself. The reasons for such good values is that the USP diameter $\omega$ is very low in \textit{air01} dataset (much lower than $\sqrt{n}$), while the USP coefficient $\tau$ is also a reasonable value (see table~\ref{tab:usp200}).
 		
 		For similar reasons, the \textit{gb-coach} dataset also achieved fairly good results. However, with this dataset (and few others marked with asterisk) we may notice the main disadvantage of \textit{USP-OR-A} - we only could carry out the preprocessing for sub-timetable of up to 700 stations due to high space requirements and our limitations.
 			
@@ -835,58 +858,62 @@ Thus the main idea common to the methods presented in this section: \textit{when
 	    \begin{minipage}{0.45\textwidth}  
 			\centering
 		    \inputTikZ{./tikzpics/plot_uspor_sncf_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{\textbf{sncf}} dataset. \textbf{Changing $\bm{n}$}.}
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to \textit{TD Dijkstra} on the \textit{\textbf{sncf}} dataset. \textbf{Changing $\bm{n}$}.}
 		    \label{plot:uspor-sncf-size}	    
 	    \end{minipage}
 		\hspace{1cm}
 	    \begin{minipage}{0.45\textwidth} 
 	    	\centering
 		    \inputTikZ{./tikzpics/plot_uspor_gbcoach_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to TD Dijkstra on the \mbox{\textit{\textbf{gb-coach}}} dataset. \textbf{Changing $\bm{n}$}.}
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to \textit{TD Dijkstra} on the \mbox{\textit{\textbf{gb-coach}}} dataset. \textbf{Changing $\bm{n}$}.}
 		    \label{plot:uspor-gbcoach-size}  
 	    \end{minipage}
 	    }
 		\end{figure}
 		
+		\vspace{-0.3cm}
 		\begin{figure}[H]
 		\centering
 		\makebox[0pt][c]{
 	    \begin{minipage}{0.45\textwidth}  
 	    	\centering
 		    \inputTikZ{./tikzpics/plot_uspor_cpsk-d_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to TD Dijkstra on the \mbox{\textit{\textbf{cpsk-d}}} dataset. \textbf{Changing $\bm{n}$}.}
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to \textit{TD Dijkstra} on the \mbox{\textit{\textbf{cpsk-d}}} dataset. \textbf{Changing $\bm{n}$}.}
 		    \label{plot:uspor-cpsk-d-size}
 	    \end{minipage}
 		\hspace{1cm}
 	    \begin{minipage}{0.45\textwidth} 
 		    \centering
 		    \inputTikZ{./tikzpics/plot_uspor_gbtr-d_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to TD Dijkstra on the \mbox{\textit{\textbf{gb-train-d}}} dataset. \textbf{Changing $\bm{n}$}.}
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to \textit{TD Dijkstra} on the \mbox{\textit{\textbf{gb-train-d}}} dataset. \textbf{Changing $\bm{n}$}.}
 		    \label{plot:uspor-gbtr-d-size}  
 	    \end{minipage}
 	    }
 		\end{figure}
 		
-		\noindent From plots~\ref{plot:uspors-gbcoach-200-trange} and~\ref{plot:uspors-air01-200-trange} we see that the time range does not play a role in the query time of neither TD Dijkstra, nor \textit{USP-OR-A}.
+		\noindent From plots~\ref{plot:uspor-gbcoach-200-trange} and~\ref{plot:uspor-air01-200-trange} we see that the time range does not play a role in the query time of neither \textit{TD Dijkstra}, nor \textit{USP-OR-A}.
+		\vspace{-0.1cm}
 		
 		\begin{figure}[H]
 		\centering
 		\makebox[0pt][c]{
-	    \begin{minipage}{0.45\textwidth} 
+	    \begin{minipage}{0.47\textwidth} 
 	    	\centering
 		    \inputTikZ{./tikzpics/plot_uspor_gbcoach-200_trange}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to TD Dijkstra on the \mbox{\textit{\textbf{gb-coach-200}}} dataset. \textbf{Changing $\bm{tr}$} (days).}
-		    \label{plot:uspors-gbcoach-200-trange}   
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to \textit{TD Dijkstra} on the \mbox{\textit{\textbf{gb-coach-200}}} dataset. \textbf{Changing $\bm{tr}$} (days).}
+		    \label{plot:uspor-gbcoach-200-trange}   
 	    \end{minipage}
 		\hspace{1cm}
 	    \begin{minipage}{0.45\textwidth} 
 	    	\centering
 		    \inputTikZ{./tikzpics/plot_uspor_air01-200_trange}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to TD Dijkstra on the \textit{\textbf{air01-200}} dataset. \textbf{Changing $\bm{tr}$} (days).}
-		    \label{plot:uspors-air01-200-trange}   
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR} algorithm compared to \textit{TD Dijkstra} on the \textit{\textbf{air01-200}} dataset. \textbf{Changing $\bm{tr}$} (days).}
+		    \label{plot:uspor-air01-200-trange}   
 	    \end{minipage}
 	    }
 		\end{figure}
+		
+		\noindent The size of \textit{USP-OR} oracle increases as $\mathcal{O}(\tau n^{2.5})$ in our datasets. This kind of (super-quadratic) increase can be observed from plots~\ref{plot:uspors-gbcoach-size} and~\ref{plot:uspors-sncf-size}.
 		
 		\begin{figure}[H]
 		\centering
@@ -909,7 +936,9 @@ Thus the main idea common to the methods presented in this section: \textit{when
 
 	\subsubsection{\textit{USP-OR-A}}
 	
-		\noindent We tested \textit{USP-OR-A} exclusively paired with \textit{locsep}. The speed-ups were no longer so high as in case of \textit{USP-OR}, but neither were the size-ups, so we could fully try out all of our datasets. The maximum speed-up was achieved in \textit{gb-coach}, where the \textit{USP-OR-A} outperformed \textit{TD Dijkstra} about 8.5 times. In our datasets, the preprocessed oracle of \textit{USP-OR-A} did not need more than 3 times the size of the TD graph. Table~\ref{tab:uspora-speedup} provides an overview of achieved speed-ups and size-ups.
+		\noindent In these tests, we coupled \textit{USP-OR-A} exclusively with \textit{locsep}. The speed-ups were no longer so high as in case of \textit{USP-OR}, but neither were the size-ups, so this time we were able to try out our datasets in their full size. The maximum speed-up was achieved in weekly \textit{gb-coach} timetable, where \textit{USP-OR-A} outperformed \textit{TD Dijkstra} more than 8 times, requiring memory 4 times the size of the timetable itself.
+		
+		The \textit{air01} timetable was not so successful this time for the reasons stated in~\ref{tab:locsep} - it is difficult to find an access node set with desired properties. However, fairly good speed-ups were achieved also for \textit{sncf} datasets. Again, the main factors for the query time were $\tau_{\mathcal{A}}$, $\omega_{\mathcal{A}}$ (table~\ref{tab:anusp-d}) but also $r_{3}$ (table~\ref{tab:locsep}).
 	
 		\begin{figure}[H]
 		\centering
@@ -946,9 +975,9 @@ Thus the main idea common to the methods presented in this section: \textit{when
 				\textit{gb-coach-w} & 2448 & \textbf{8.5} & 3.8 \\
 				\textit{gb-train-w} & 2555 & 2.9 & 2.3 \\
 				\textit{sncf-w} & 2646 & \textbf{6.3} & 4.2 \\
-				\textit{sncf-inter-w} & 366 & \textbf{4.9} & 0.8 \\
+				\textit{sncf-inter-w} & 366 & \textbf{4.9} & 1 \\
 				\textit{sncf-ter-w} & 2637 & \textbf{5.6} & 3.0 \\
-				\textit{zsr-d} & 233 & 2.6 & 0.7 \\
+				\textit{zsr-d} & 233 & 2.6 & 1 \\
 			\end{tabular}
 	    \end{minipage}
 	    }
@@ -956,24 +985,28 @@ Thus the main idea common to the methods presented in this section: \textit{when
 		\label{tab:uspora-speedup}
 		\end{figure}	
 	
+		\noindent Comparisons of query times with increasing $n$ are on plots~\ref{plot:uspora-sncf-size} to~\ref{plot:uspora-gbtr-d-size}. We have also observed (sometimes quite irregular) increase of speed-ups with increasing $n$.~\footnote{Basically, we would expect the speed-up to increase as $\mathcal{O}(\frac{\sqrt{n}}{\tau_{\mathcal{A}}})$.}
+	
 		\begin{figure}[H]
 		\centering
 		\makebox[0pt][c]{
 	    \begin{minipage}{0.45\textwidth}  
 			\centering
 		    \inputTikZ{./tikzpics/plot_uspora_sncf_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} algorithm compared to TD Dijkstra on the \textit{\textbf{sncf}} dataset. \textbf{Changing $\bm{n}$}.}
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} algorithm compared to \textit{TD Dijkstra} on the \textit{\textbf{sncf}} dataset. \textbf{Changing $\bm{n}$}.}
 		    \label{plot:uspora-sncf-size}	    
 	    \end{minipage}
 		\hspace{1cm}
 	    \begin{minipage}{0.45\textwidth} 
 	    	\centering
 		    \inputTikZ{./tikzpics/plot_uspora_gbcoach_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} algorithm compared to TD Dijkstra on the \mbox{\textit{\textbf{gb-coach}}} dataset. \textbf{Changing $\bm{n}$}.}
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} algorithm compared to \textit{TD Dijkstra} on the \mbox{\textit{\textbf{gb-coach}}} dataset. \textbf{Changing $\bm{n}$}.}
 		    \label{plot:uspora-gbcoach-size}  
 	    \end{minipage}
 	    }
 		\end{figure}
+		
+		\vspace{-0.3cm}
 		
 		\begin{figure}[H]
 		\centering
@@ -981,18 +1014,21 @@ Thus the main idea common to the methods presented in this section: \textit{when
 	    \begin{minipage}{0.45\textwidth}  
 	    	\centering
 		    \inputTikZ{./tikzpics/plot_uspora_cpsk-d_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} algorithm compared to TD Dijkstra on the \textit{\textbf{cpsk-d}} dataset. \textbf{Changing $\bm{n}$}.}
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} algorithm compared to \textit{TD Dijkstra} on the \textit{\textbf{cpsk-d}} dataset. \textbf{Changing $\bm{n}$}.}
 		    \label{plot:uspora-cpsk-d-size}
 	    \end{minipage}
 		\hspace{1cm}
 	    \begin{minipage}{0.45\textwidth} 
 		    \centering
 		    \inputTikZ{./tikzpics/plot_uspora_gbtr-d_size}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} algorithm compared to TD Dijkstra on the \mbox{\textit{\textbf{gb-train-d}}} dataset. \textbf{Changing $\bm{n}$}.}
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} algorithm compared to \textit{TD Dijkstra} on the \mbox{\textit{\textbf{gb-train-d}}} dataset. \textbf{Changing $\bm{n}$}.}
 		    \label{plot:uspora-gbtr-d-size}  
 	    \end{minipage}
 	    }
 		\end{figure}
+		
+		\noindent Again it seems that increased time range has no effect on the query time of neither method.
+		\vspace{-0.1cm}
 		
 		\begin{figure}[H]
 		\centering
@@ -1000,18 +1036,20 @@ Thus the main idea common to the methods presented in this section: \textit{when
 	    \begin{minipage}{0.45\textwidth} 
 	    	\centering
 		    \inputTikZ{./tikzpics/plot_uspora_gbcoach_trange}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} algorithm compared to TD Dijkstra on the \mbox{\textit{\textbf{gb-coach}}} dataset. \textbf{Changing $\bm{tr}$} (days).}
-		    \label{plot:usporas-gbcoach-trange}   
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} algorithm compared to \textit{TD Dijkstra} on the \mbox{\textit{\textbf{gb-coach}}} dataset. \textbf{Changing $\bm{tr}$} (days).}
+		    \label{plot:uspora-gbcoach-trange}   
 	    \end{minipage}
 		\hspace{1cm}
 	    \begin{minipage}{0.45\textwidth} 
 	    	\centering
 		    \inputTikZ{./tikzpics/plot_uspora_zsr_trange}
-		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} algorithm compared to TD Dijkstra on the \textit{\textbf{zsr}} dataset. \textbf{Changing $\bm{tr}$} (days).}
-		    \label{plot:usporas-zsr-trange}   
+		    \captionof{figure}{\textbf{Query time} of \textit{USP-OR-A} algorithm compared to \textit{TD Dijkstra} on the \textit{\textbf{zsr}} dataset. \textbf{Changing $\bm{tr}$} (days).}
+		    \label{plot:uspora-zsr-trange}   
 	    \end{minipage}
 	    }
 		\end{figure}
+		
+		\noindent Finally, the size of the preprocessed oracle in \textit{USP-OR-A} increases less steeply than with \textit{USP-OR}. Plot~\ref{plot:usporas-gbcoach-size} is a good example of this and suggests that the theoretical space complexity $\mathcal{O}(\tau n^{1.5})$ is plausible. In plot~\ref{plot:usporas-sncf-size} the sudden increase of the size at the end is caused by our optimisation in \textit{locsep} which may add up to $\sqrt{n}$ more cities to the AN set at the end of the algorithm as described in the previous subsections.
 		
 		\begin{figure}[H]
 		\centering
